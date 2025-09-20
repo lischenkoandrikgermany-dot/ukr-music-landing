@@ -1,4 +1,15 @@
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-<link rel="apple-touch-icon" href="/favicon.svg?v=2">
-<meta name="theme-color" content="#0f1115">
+<!-- favicon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <!-- Блоб: яркий неон-лайм -->
+  <path fill="#D9FF2E" d="M201.6 183.7c-11.3 18.8-29.3 31.3-49.7 37.7-21.2 6.7-45.2 7.1-67.3-0.4-22.2-7.6-42.5-23.4-53.5-44.8-11.3-21.9-13-49-1.7-70.8C40.6 83.7 62 70.1 84.9 64.1c22.3-5.8 46.5-6 67.9 2.6 21.1 8.4 38.9 25.5 48.3 46.3 9.8 21.4 11 46.3 0.5 70.7z" filter="url(#s)"/>
+  <!-- Значок "Play" (белый), слегка смещён вниз/вправо -->
+  <g transform="translate(146 150) scale(1)">
+    <circle r="18" fill="#E21E2D" />
+    <path d="M-4 -8 L10 0 L-4 8 Z" fill="#fff"/>
+  </g>
+</svg>
