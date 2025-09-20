@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="ukr-hits.online" />
   <meta property="og:title" content="Слухати українську музику онлайн — добірки українських пісень та хітів" />
-  <meta property="og:description" content="Слухайте сучасні українські хіти та найкращі добірки. Нові відео з наших каналів з’являються автоматично." />
+  <meta property="og:description" content="Сучасні українські хіти, плейлисти для танців і відпочинку. Нові відео з наших каналів підтягуються автоматично." />
   <meta property="og:url" content="https://ukr-hits.online/" />
   <meta property="og:image" content="https://i.ytimg.com/vi/iuMZRJMOvRw/hqdefault.jpg" />
 
@@ -42,14 +42,14 @@
   <style>
     :root{
       --bg:#0c0f14;--panel:#141a22;--muted:#9fb0c0;--txt:#eaf2ff;
-      --brand:#4ea8ff;--chip:#1b2430;--chip2:#212c39;--accent:#ffd166
+      --chip:#1b2430;--chip2:#212c39
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1180px;margin:40px auto;padding:0 16px}
     header{background:linear-gradient(145deg,#111722 0%,#0f1620 100%);border:1px solid #1e2a37;border-radius:16px;padding:18px 20px;margin-bottom:24px;box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03)}
-    h1{margin:0 0 10px;font-size:22px;letter-spacing:.2px}
+    h1{margin:0 0 10px;font-size:22px}
     .actions{display:flex;gap:10px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:var(--chip);border:1px solid #273547;font-weight:600;transition:.2s transform,.2s background,.2s border}
     .btn:hover{transform:translateY(-1px);border-color:#35506d;background:var(--chip2)}
@@ -107,8 +107,8 @@
     <section class="section" id="seo">
       <h2>Українські пісні онлайн — що послухати зараз</h2>
       <p>На <strong>ukr-hits.online</strong> ми зібрали сучасні українські хіти, добірки для танців і відпочинку,
-        а також нові релізи популярних артистів. Сайт автоматично підтягує останні відео з наших YouTube-каналів,
-        щоб ви першими чули прем’єри. Додавайте сторінку в закладки — слухайте де завгодно.</p>
+        а також нові релізи популярних артистів. Сайт автоматично підтягує останні відео з наших YouTube-каналів —
+        і <em>кожного разу міксує порядок</em>, щоб стрічка виглядала живо. Додавайте сторінку в закладки — слухайте де завгодно.</p>
       <p>Популярні запити: <em>українські пісні 2025</em>, <em>нові українські пісні</em>, <em>сучасні хіти</em>,
         <em>українська музика для танців</em>, <em>плейлист для настрою</em>.</p>
       <div class="chipbar">
@@ -151,6 +151,16 @@
     };
     const fmtDate = iso => { try{ return new Date(iso).toLocaleDateString('uk-UA',{day:'2-digit',month:'2-digit',year:'numeric'});}catch(_){return '';} };
 
+    /* Fisher–Yates */
+    function shuffle(arr){
+      const a = arr.slice();
+      for (let i=a.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i],a[j]] = [a[j],a[i]];
+      }
+      return a;
+    }
+
     function makeCard({id,title,publishedAt}){
       const href = `https://www.youtube.com/watch?v=${id}`;
       const img = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -165,7 +175,7 @@
 
     async function renderCurated(){
       const grid = qs('#curatedGrid'); grid.innerHTML = '';
-      const ids = CURATED_VIDEO_URLS.map(getVideoId).filter(Boolean).slice(0,36);
+      const ids = shuffle(CURATED_VIDEO_URLS.map(getVideoId).filter(Boolean)).slice(0,36);
       for (const id of ids){
         let title = '';
         try{
@@ -176,10 +186,7 @@
       }
     }
 
-    /* ===== Загрузка RSS с CORS-обходом (только чтение) =====
-       Основной путь: r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=ID
-       Резерв: r.jina.ai/https://www.youtube.com/feeds/videos.xml?channel_id=ID
-    */
+    /* ===== RSS через read-only прокси (обход CORS) ===== */
     async function fetchChannelFeed(channelId){
       const urls = [
         `https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`,
@@ -216,14 +223,16 @@
       }
       const dedup = new Map();
       for (const v of all) if (!dedup.has(v.id)) dedup.set(v.id, v);
-      const sorted = [...dedup.values()].sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt)).slice(0,24);
 
-      if (!sorted.length){
+      /* ВАЖНО: перемешиваем контент, а не сортируем по даті */
+      const mixed = shuffle([...dedup.values()]).slice(0,24);
+
+      if (!mixed.length){
         msg.textContent = 'Поки що порожньо. Спробуйте перезавантажити сторінку за 10–20 секунд.';
         return;
       }
       msg.style.display = 'none';
-      for (const v of sorted) grid.appendChild(makeCard(v));
+      for (const v of mixed) grid.appendChild(makeCard(v));
     }
 
     renderLatest();
