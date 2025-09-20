@@ -3,240 +3,251 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Слухати українську музику онлайн — добірки українських пісень та хітів</title>
 
-  <link rel="canonical" href="https://ukr-hits.online/" />
+  <title>Слухати українську музику онлайн — українські пісні та хіти</title>
+  <meta name="description" content="Українські пісні онлайн: сучасні хіти, добірки для настрою, танців і відпочинку. Останні відео з каналів GoldenWaveUA, Українська музика онлайн, Українські пісні 2025. Переходьте та підтримайте українську музику!">
+  <meta name="keywords" content="українські пісні, українська музика, сучасні хіти, нові пісні 2025, добірка українських пісень, танцювальна музика, українські хіти 2025">
 
-  <meta name="description" content="Українські пісні онлайн: сучасні хіти, добірки для настрою, танцю й відпочинку. Останні відео з каналів GoldenWaveUA, Українська музика онлайн та Українські пісні 2025. Підписуйтеся — це підтримка української музики!" />
-  <meta name="keywords" content="українські пісні, сучасні хіти, українська музика, добірки, плейлисти, нові пісні 2025, українські пісні 2025, танцювальна музика, музика для відпочинку" />
-  <meta name="robots" content="index,follow" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ukr-hits.online/">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="ukr-hits.online" />
-  <meta property="og:title" content="Слухати українську музику онлайн — добірки українських пісень та хітів" />
-  <meta property="og:description" content="Сучасні українські хіти, плейлисти для танців і відпочинку. Нові відео з наших каналів підтягуються автоматично." />
-  <meta property="og:url" content="https://ukr-hits.online/" />
-  <meta property="og:image" content="https://i.ytimg.com/vi/iuMZRJMOvRw/hqdefault.jpg" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+  <link rel="alternate icon" href="favicon.svg?v=3">
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Слухати українську музику онлайн — добірки українських пісень та хітів" />
-  <meta name="twitter:description" content="Сучасні українські хіти, плейлисти для танців і відпочинку. Підписуйтеся на наші канали!" />
-  <meta name="twitter:image" content="https://i.ytimg.com/vi/iuMZRJMOvRw/hqdefault.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Слухати українську музику онлайн — українські пісні та хіти">
+  <meta property="og:description" content="Сучасні українські хіти та добірки для настрою, танців і відпочинку.">
+  <meta property="og:url" content="https://ukr-hits.online/">
+  <meta property="og:image" content="https://i.ytimg.com/vi/m27g1w60Hak/maxresdefault.jpg">
 
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Слухати українську музику онлайн — українські пісні та хіти">
+  <meta name="twitter:description" content="Сучасні українські хіти та добірки для настрою.">
+
+  <!-- JSON-LD (Video / Playlist hub) -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"ukr-hits.online",
-    "url":"https://ukr-hits.online/",
-    "inLanguage":"uk",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://www.google.com/search?q=site:ukr-hits.online+{search_term_string}",
-      "query-input":"required name=search_term_string"
-    },
-    "publisher":{"@type":"Organization","name":"GoldenWaveUA","url":"https://ukr-hits.online/"}
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ukr-hits.online",
+    "url": "https://ukr-hits.online/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.youtube.com/results?search_query={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 
   <style>
     :root{
-      --bg:#0c0f14;--panel:#141a22;--muted:#9fb0c0;--txt:#eaf2ff;
-      --chip:#1b2430;--chip2:#212c39
+      --bg:#0e1116;--panel:#151a22;--muted:#a9b1c3;--text:#e8ecf7;--brand:#2eaadc;
+      --chip:#1e2530;--chipText:#cfe7ff;--accent:#f2ff4a;--accent-2:#ff3b30;
+      --card:#131923;--cardBorder:#263246;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1180px;margin:40px auto;padding:0 16px}
-    header{background:linear-gradient(145deg,#111722 0%,#0f1620 100%);border:1px solid #1e2a37;border-radius:16px;padding:18px 20px;margin-bottom:24px;box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03)}
-    h1{margin:0 0 10px;font-size:22px}
-    .actions{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:var(--chip);border:1px solid #273547;font-weight:600;transition:.2s transform,.2s background,.2s border}
-    .btn:hover{transform:translateY(-1px);border-color:#35506d;background:var(--chip2)}
-    .btn.primary{background:#2563eb;border-color:#2c60bf}
-    .btn.primary:hover{background:#1f51c6}
-    .note{margin-top:8px;color:var(--muted);font-size:13px}
-    .channels{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--chip);border:1px solid #2a3a4e;color:#d7e6fb;font-weight:600}
-    .pill:hover{background:var(--chip2);border-color:#3a5676}
+    .wrap{max-width:1160px;margin:28px auto;padding:0 16px}
+    .hero{background:linear-gradient(180deg,#121826 0%,#0f1520 100%);border:1px solid #263246;border-radius:16px;padding:20px 20px 16px;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+    .hero h1{margin:0 0 12px;font-weight:750;letter-spacing:.2px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:#0f1722;border:1px solid #2b3a52;color:#dff1ff;padding:10px 14px;border-radius:999px;font-weight:600;transition:.18s transform, .18s background}
+    .btn:hover{transform:translateY(-1px);background:#122032}
+    .btn .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(242,255,74,.15)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+    .chip{background:var(--chip);color:var(--chipText);border:1px solid #2b394d;padding:6px 10px;border-radius:999px;font-size:13px}
+    .muted{color:var(--muted);font-size:14px;margin-top:6px}
 
-    .section{margin:28px 0}
-    .section h2{font-size:18px;margin:0 0 14px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-    .card{background:var(--panel);border:1px solid #1a2432;border-radius:14px;overflow:hidden;transition:.2s transform,.2s box-shadow,.2s border-color;position:relative}
-    .card:hover{transform:translateY(-3px);border-color:#2c3c52;box-shadow:0 10px 24px rgba(0,0,0,.35)}
-    .thumb{aspect-ratio:16/9;width:100%;object-fit:cover;background:#0b0f14}
-    .meta{padding:10px 12px}
-    .title{font-size:15px;line-height:1.28;min-height:38px;margin:0 0 6px}
-    .row{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}
-    .badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:11px;padding:3px 6px;border-radius:6px}
-    .msg{color:var(--muted);font-size:14px;padding:10px 12px;border:1px dashed #2a3d53;border-radius:10px;background:#0f1520}
-    .chipbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-    .chip{background:var(--chip);border:1px solid #263446;color:#d5e7ff;border-radius:999px;padding:6px 10px;font-size:13px}
-    .chip:hover{background:var(--chip2);border-color:#35506d}
-    footer{margin:30px 0 20px;color:var(--muted);font-size:13px;text-align:center}
+    h2{margin:26px 0 14px;font-size:20px;letter-spacing:.2px}
+
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    @media (max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+    .card{
+      background:var(--card);border:1px solid var(--cardBorder);border-radius:14px;overflow:hidden;
+      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .thumb{aspect-ratio:16/9;background:#0b0f16;position:relative;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(108%) contrast(105%)}
+    .card:hover{transform:translateY(-2px);border-color:#385072;box-shadow:0 12px 28px rgba(7,16,30,.35)}
+    .meta{display:flex;align-items:center;gap:8px;padding:10px 11px 12px}
+    .badge{font-size:12px;padding:3px 6px;border:1px solid #2e3b51;border-radius:999px;background:#141b26;color:#cbd8ee}
+    .title{font-weight:650;font-size:14px;line-height:1.35;margin:0;color:#eaf2ff}
+    .small{font-size:12px;color:#9fb0c9}
+
+    .footer{margin:34px 0 24px;color:#c8d4ea}
+    .footer p{margin:0 0 10px}
+    .kw{display:flex;flex-wrap:wrap;gap:6px}
+    .kw a{font-size:12px;color:#b3c7e6;border:1px dashed #304664;border-radius:999px;padding:4px 8px;background:#0e1521}
+
+    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(242,255,74,.12);color:#f7ff9a;border:1px solid rgba(242,255,74,.35);padding:8px 12px;border-radius:999px;font-weight:600}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
+  <main class="wrap">
+    <section class="hero">
       <h1>Слухати українську музику онлайн — українські пісні та хіти</h1>
-      <div class="actions">
-        <a class="btn primary" href="https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw?sub_confirmation=1" target="_blank" rel="noopener">🔔 Підписатися на YouTube</a>
-        <a class="btn" href="https://www.youtube.com/@GoldenWaveUA" target="_blank" rel="noopener">▶️ Відкрити канал</a>
+      <div class="btns">
+        <!-- «Підписатися» з миттєвим діалогом підтвердження -->
+        <a class="btn" href="https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw?sub_confirmation=1" target="_blank" rel="noopener">
+          <span class="dot"></span> Підписатися на YouTube
+        </a>
+        <a class="btn" href="https://www.youtube.com/@GoldenWaveUA" target="_blank" rel="noopener">Відкрити канал</a>
       </div>
-      <div class="channels">
-        <a class="pill" href="https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw" target="_blank" rel="noopener">Канал: GoldenWaveUA</a>
-        <a class="pill" href="https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w" target="_blank" rel="noopener">Канал: Українська музика онлайн</a>
-        <a class="pill" href="https://www.youtube.com/channel/UCA_3UxgDSooR8btEvbtFe1w" target="_blank" rel="noopener">Канал: Українські пісні 2025</a>
-      </div>
-      <p class="note">Підписуйтесь, коментуйте, ставте ❤️ — це підтримує українську музику. Дякуємо!</p>
-    </header>
 
-    <section class="section" id="latest">
-      <h2>Останні відео з каналів</h2>
-      <div id="latestMsg" class="msg" role="status">Завантажуємо останні відео…</div>
-      <div class="grid" id="latestGrid" aria-live="polite"></div>
+      <div class="chips">
+        <span class="chip">Канал: GoldenWaveUA</span>
+        <span class="chip">Канал: Українська музика онлайн</span>
+        <span class="chip">Канал: Українські пісні 2025</span>
+      </div>
+      <div class="muted">Підписуйтесь, коментуйте, ставте ❤️ — це підтримує українську музику. Дякуємо!</div>
     </section>
 
-    <section class="section" id="curated">
+    <section>
+      <div style="display:flex;align-items:center;gap:10px;margin:18px 0 10px">
+        <h2 style="margin:0">Останні відео з каналів</h2>
+        <span id="liveBadge" class="pill" style="display:none">оновлюємо…</span>
+      </div>
+      <div id="latest" class="grid" aria-live="polite"></div>
+      <div id="latestEmpty" class="muted" style="margin:12px 4px 0;display:none;">Поки що порожньо. Спробуйте перезавантажити сторінку за 10–20 секунд.</div>
+    </section>
+
+    <section>
       <h2>Добірки — перевірені хіти</h2>
-      <div class="grid" id="curatedGrid"></div>
+      <div id="curated" class="grid"></div>
     </section>
 
-    <section class="section" id="seo">
-      <h2>Українські пісні онлайн — що послухати зараз</h2>
-      <p>На <strong>ukr-hits.online</strong> ми зібрали сучасні українські хіти, добірки для танців і відпочинку,
-        а також нові релізи популярних артистів. Сайт автоматично підтягує останні відео з наших YouTube-каналів —
-        і <em>кожного разу міксує порядок</em>, щоб стрічка виглядала живо. Додавайте сторінку в закладки — слухайте де завгодно.</p>
-      <p>Популярні запити: <em>українські пісні 2025</em>, <em>нові українські пісні</em>, <em>сучасні хіти</em>,
-        <em>українська музика для танців</em>, <em>плейлист для настрою</em>.</p>
-      <div class="chipbar">
-        <a class="chip" href="#latest">нові пісні</a>
-        <a class="chip" href="#curated">кращі хіти</a>
-        <a class="chip" href="https://www.youtube.com/@GoldenWaveUA" target="_blank" rel="noopener">GoldenWaveUA</a>
-        <a class="chip" href="https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w" target="_blank" rel="noopener">Українська музика онлайн</a>
-        <a class="chip" href="https://www.youtube.com/channel/UCA_3UxgDSooR8btEvbtFe1w" target="_blank" rel="noopener">Українські пісні 2025</a>
+    <section class="footer">
+      <h2 style="font-size:18px;margin-top:24px">Про сайт та пошук</h2>
+      <p>ukr-hits.online — це добірка української музики: сучасні пісні, танцювальні хіти та ліричні композиції. Сторінка автоматично підтягує нові відео з наших YouTube-каналів і показує їх у довільному порядку, щоб ви щоразу відкривали для себе щось свіже.</p>
+      <p>Найпопулярніші запити: українські пісні, сучасні хіти, музика для відпочинку, плейлісти, кращі українські пісні.</p>
+      <div class="kw" style="margin-top:8px">
+        <a href="https://www.youtube.com/results?search_query=українські+пісні" target="_blank" rel="noopener">українські пісні</a>
+        <a href="https://www.youtube.com/results?search_query=сучасні+хіти" target="_blank" rel="noopener">сучасні хіти</a>
+        <a href="https://www.youtube.com/results?search_query=українська+музика+2025" target="_blank" rel="noopener">українська музика 2025</a>
+        <a href="https://www.youtube.com/results?search_query=танцювальна+музика" target="_blank" rel="noopener">танцювальна музика</a>
       </div>
     </section>
-
-    <footer>© ukr-hits.online — українська музика онлайн. З любов’ю до українських пісень.</footer>
-  </div>
+  </main>
 
   <script>
-    /* ===== Каналы ===== */
+    // ====== Налаштування каналів (RSS) ======
     const CHANNELS = [
       { id: 'UCXN8Ibh2QGNwZSwFJH423aw', name: 'GoldenWaveUA' },
       { id: 'UCXRzPkWX59hYAWgwgmpzc7w', name: 'Українська музика онлайн' },
-      { id: 'UCA_3UxgDSooR8btEvbtFe1w', name: 'Українські пісні 2025' }
+      { id: 'UCA_3UxgDSooR8btEvbtFe1w', name: 'Українські пісні 2025' },
     ];
 
-    /* ===== Добірки (ручной список) ===== */
-    const CURATED_VIDEO_URLS = [
-      "https://www.youtube.com/watch?v=m27g1w60Hak","https://www.youtube.com/watch?v=eUrTzCTbqRo","https://www.youtube.com/watch?v=-2lPBoh3Hbk","https://www.youtube.com/watch?v=9xhB6RUcQv4","https://www.youtube.com/watch?v=V_7EhliRapU","https://www.youtube.com/watch?v=v5ZFj7fXSjk","https://www.youtube.com/watch?v=4vYgNVkFApg","https://www.youtube.com/watch?v=-BD-q4uj4A8","https://www.youtube.com/watch?v=H-Hx-e0EpTQ","https://www.youtube.com/watch?v=iu7l0CmFjHk","https://www.youtube.com/watch?v=1DvyyG11HZw","https://www.youtube.com/watch?v=h8rr3QvUwJM","https://www.youtube.com/watch?v=Hc9GSnnl9s4","https://www.youtube.com/watch?v=gt7WnwSce1Y",
-      "https://www.youtube.com/watch?v=t2KumAVfaXI","https://www.youtube.com/watch?v=o377aoMBGnY","https://www.youtube.com/watch?v=Kp8Xjoj2yts","https://www.youtube.com/watch?v=VufBPLckZi8","https://www.youtube.com/watch?v=L8xtCLF_RGw","https://www.youtube.com/watch?v=d7D5IvF5rqg","https://www.youtube.com/watch?v=x2XuttUjVRE","https://www.youtube.com/watch?v=xcqsS73I_U4","https://www.youtube.com/watch?v=dvqiGW2tk2M","https://www.youtube.com/watch?v=FA438YuebB8","https://www.youtube.com/watch?v=KSyh6YbFk9k","https://www.youtube.com/watch?v=6LLHpfYsroo","https://www.youtube.com/watch?v=dj5f7HWp3e8","https://www.youtube.com/watch?v=2MK2yN5Ri3E","https://www.youtube.com/watch?v=VW8mofFsEVA",
-      "https://www.youtube.com/watch?v=iuMZRJMOvRw","https://www.youtube.com/watch?v=LqKNrpxp0bI","https://www.youtube.com/watch?v=M9Nv8BRMjNM","https://www.youtube.com/watch?v=RTIFFvPRR6s","https://www.youtube.com/watch?v=SKvfqHj3gXk","https://www.youtube.com/watch?v=22rx7g-mQmY","https://www.youtube.com/watch?v=VMvpFNtLBQA","https://www.youtube.com/watch?v=-gARpYK2DY4","https://www.youtube.com/watch?v=BR9DO4HQkXM","https://www.youtube.com/watch?v=hysuiarW09c","https://www.youtube.com/watch?v=O2J_c13_CQY","https://www.youtube.com/watch?v=06qgtig_XWk","https://www.youtube.com/watch?v=941lH_Kh-a8","https://www.youtube.com/watch?v=tCEe5i9fuk4","https://www.youtube.com/watch?v=T5pBELEktAA"
+    // ====== СТАТИЧНІ добірки (усі надані посилання перетворено у ID) ======
+    const CURATED_IDS = [
+      'm27g1w60Hak','eUrTzCTbqRo','-2lPBoh3Hbk','9xhB6RUcQv4','V_7EhliRapU','v5ZFj7fXSjk','4vYgNVkFApg','-BD-q4uj4A8','H-Hx-e0EpTQ','iu7l0CmFjHk','1DvyyG11HZw','h8rr3QvUwJM','Hc9GSnnl9s4','gt7WnwSce1Y',
+      't2KumAVfaXI','o377aoMBGnY','Kp8Xjoj2yts','VufBPLckZi8','L8xtCLF_RGw','d7D5IvF5rqg','x2XuttUjVRE','xcqsS73I_U4','dvqiGW2tk2M','FA438YuebB8','KSyh6YbFk9k','6LLHpfYsroo','dj5f7HWp3e8','2MK2yN5Ri3E','VW8mofFsEVA',
+      'iuMZRJMOvRw','LqKNrpxp0bI','M9Nv8BRMjNM','RTIFFvPRR6s','SKvfqHj3gXk','22rx7g-mQmY','VMvpFNtLBQA','-gARpYK2DY4','BR9DO4HQkXM','hysuiarW09c','O2J_c13_CQY','06qgtig_XWk','941lH_Kh-a8','tCEe5i9fuk4','T5pBELEktAA'
     ];
 
-    /* ===== Утилиты ===== */
-    const qs = (s,root=document)=>root.querySelector(s);
-    const getVideoId = url => {
-      try{
-        const u = new URL(url);
-        if (u.hostname === 'youtu.be') return u.pathname.slice(1);
-        if (u.searchParams.get('v')) return u.searchParams.get('v');
-        const m = u.pathname.match(/\/embed\/([^/?#]+)/);
-        return m ? m[1] : null;
-      }catch(e){ return null; }
-    };
-    const fmtDate = iso => { try{ return new Date(iso).toLocaleDateString('uk-UA',{day:'2-digit',month:'2-digit',year:'numeric'});}catch(_){return '';} };
+    const latestRoot   = document.getElementById('latest');
+    const latestEmpty  = document.getElementById('latestEmpty');
+    const curatedRoot  = document.getElementById('curated');
+    const liveBadge    = document.getElementById('liveBadge');
 
-    /* Fisher–Yates */
-    function shuffle(arr){
-      const a = arr.slice();
-      for (let i=a.length-1;i>0;i--){
+    // Ютуб мініатюри
+    const thumb = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+    const watch = (id) => `https://www.youtube.com/watch?v=${id}`;
+
+    // Перемішування масиву (Фішер-Йєйтс)
+    function shuffle(a){
+      for(let i=a.length-1;i>0;i--){
         const j = Math.floor(Math.random()*(i+1));
-        [a[i],a[j]] = [a[j],a[i]];
+        [a[i],a[j]]=[a[j],a[i]];
       }
       return a;
     }
 
-    function makeCard({id,title,publishedAt}){
-      const href = `https://www.youtube.com/watch?v=${id}`;
-      const img = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-      const el = document.createElement('a');
-      el.className = 'card'; el.href = href; el.target = '_blank'; el.rel = 'noopener';
-      el.innerHTML = `
-        <span class="badge">${publishedAt ? fmtDate(publishedAt) : 'YouTube'}</span>
-        <img class="thumb" loading="lazy" src="${img}" alt="${title ? title.replace(/"/g,'&quot;') : 'Відео з YouTube'}">
-        <div class="meta"><div class="title">${title || 'Відкрити на YouTube'}</div><div class="row"><span>Відкрити на YouTube</span><span>▶</span></div></div>`;
-      return el;
+    // Побудова картки
+    function cardHTML({id,title,channel}){
+      return `
+      <a class="card" href="${watch(id)}" target="_blank" rel="noopener">
+        <div class="thumb">
+          <img loading="lazy" src="${thumb(id)}" alt="${title?.replace(/"/g,'&quot;')||'Українська пісня'}">
+        </div>
+        <div class="meta">
+          <span class="badge">${channel}</span>
+          <div class="title">${title || 'Український хіт — слухати онлайн'}</div>
+        </div>
+      </a>`;
     }
 
-    async function renderCurated(){
-      const grid = qs('#curatedGrid'); grid.innerHTML = '';
-      const ids = shuffle(CURATED_VIDEO_URLS.map(getVideoId).filter(Boolean)).slice(0,36);
-      for (const id of ids){
-        let title = '';
-        try{
-          const o = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`);
-          if (o.ok){ const j = await o.json(); title = j.title || ''; }
-        }catch(_){}
-        grid.appendChild(makeCard({id,title}));
+    // Розбір однієї RSS-«entry», дістаємо id, title, published
+    function parseEntry(block, channelName){
+      const id = (block.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1] || '').trim();
+      if(!id) return null;
+      const title = (block.match(/<title>([^<]+)<\/title>/)?.[1] || '').trim();
+      const published = new Date(block.match(/<published>([^<]+)<\/published>/)?.[1] || Date.now());
+      return { id, title, published, channel: channelName };
+    }
+
+    // Отримуємо RSS через «r.jina.ai» (CORS-safe проксі), парсимо
+    async function fetchChannel(channelId, channelName){
+      const url = `https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+      const txt = await fetch(url, {cache:'no-store'}).then(r=>r.text());
+      // Ріжемо на <entry> .. </entry>
+      const blocks = txt.split('<entry>').slice(1).map(x=>'<'+'entry>'+x);
+      const videos = [];
+      for(const b of blocks){
+        const v = parseEntry(b, channelName);
+        if(v) videos.push(v);
       }
+      return videos;
     }
 
-    /* ===== RSS через read-only прокси (обход CORS) ===== */
-    async function fetchChannelFeed(channelId){
-      const urls = [
-        `https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`,
-        `https://r.jina.ai/https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
-      ];
-      let txt = '';
-      for (const u of urls){
-        try{
-          const r = await fetch(u,{cache:'no-store'});
-          if (r.ok){ txt = await r.text(); if (txt) break; }
-        }catch(_){}
-      }
-      if (!txt) return [];
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(txt,'text/xml');
-      const entries = [...xml.querySelectorAll('entry')];
-      return entries.map(e=>{
-        const id = e.querySelector('yt\\:videoId, videoId')?.textContent?.trim();
-        const title = e.querySelector('title')?.textContent?.trim();
-        const published = e.querySelector('published')?.textContent?.trim();
-        return id ? {id, title, publishedAt: published} : null;
-      }).filter(Boolean);
-    }
-
+    // Малюємо «Останні відео» (перемішані)
     async function renderLatest(){
-      const grid = qs('#latestGrid'); const msg = qs('#latestMsg');
-      grid.innerHTML = ''; msg.style.display = '';
-      const all = [];
-      for (const ch of CHANNELS){
-        try{
-          const items = await fetchChannelFeed(ch.id);
-          all.push(...items);
-        }catch(_){}
-      }
-      const dedup = new Map();
-      for (const v of all) if (!dedup.has(v.id)) dedup.set(v.id, v);
+      try{
+        liveBadge.style.display='inline-flex';
+        latestEmpty.style.display='none';
+        latestRoot.innerHTML='';
+        const all = [];
+        for(const c of CHANNELS){
+          const vs = await fetchChannel(c.id, c.name);
+          all.push(...vs);
+        }
+        if(!all.length){
+          latestEmpty.style.display='block';
+          return;
+        }
+        // Сортуємо за датою (свіжіші вище), потім трохи перемішуємо верхівку — щоб щоразу була «жива» сітка
+        all.sort((a,b)=>b.published - a.published);
+        const top = all.slice(0, 24);
+        shuffle(top);
 
-      /* ВАЖНО: перемешиваем контент, а не сортируем по даті */
-      const mixed = shuffle([...dedup.values()]).slice(0,24);
-
-      if (!mixed.length){
-        msg.textContent = 'Поки що порожньо. Спробуйте перезавантажити сторінку за 10–20 секунд.';
-        return;
+        latestRoot.innerHTML = top.map(v => cardHTML(v)).join('');
+      }catch(e){
+        latestEmpty.style.display='block';
+        console.error(e);
+      }finally{
+        liveBadge.style.display='none';
       }
-      msg.style.display = 'none';
-      for (const v of mixed) grid.appendChild(makeCard(v));
     }
 
-    renderLatest();
+    // Малюємо «Добірки — перевірені хіти» зі статичного списку
+    function renderCurated(){
+      const items = CURATED_IDS.map(id => ({
+        id,
+        title: '',
+        channel: 'Добірка'
+      }));
+      curatedRoot.innerHTML = items.map(cardHTML).join('');
+    }
+
     renderCurated();
+    renderLatest();
+
+    // Підстраховка: оновити «Останні» ще раз через 40 сек., аби гарантувати появу
+    setTimeout(renderLatest, 40000);
   </script>
 </body>
 </html>
