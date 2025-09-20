@@ -1,231 +1,291 @@
 <!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Слухати українську музику онлайн — українські пісні та хіти</title>
-  <meta name="description" content="Слухати українську музику онлайн безкоштовно: сучасні хіти для настрою, танців і відпочинку. Натисніть на обкладинку — відео відкриється у додатку YouTube.">
-  <meta name="keywords" content="слухати українську музику онлайн, українські пісні онлайн, українські хіти онлайн, добірка українських пісень, сучасні українські хіти">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Слухати українську музику онлайн — українські пісні та хіти | ukr-hits.online</title>
+  <meta name="description" content="Слухати українську музику онлайн: сучасні хіти, добірки для настрою, танців і відпочинку. Нові українські пісні щодня, плейлисти, кліпи та підбірки з YouTube. Підписуйтесь і коментуйте!">
   <link rel="canonical" href="https://ukr-hits.online/">
 
-  <!-- Google Search Console -->
-  <meta name="google-site-verification" content="-zuh8RfQkIVkrOwf5ImImpFymd-18LM6NnNktT0UZfE" />
+  <!-- robots -->
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 
-  <meta name="theme-color" content="#0b0d12">
+  <!-- hreflang (украинский как основной) -->
+  <link rel="alternate" hreflang="uk" href="https://ukr-hits.online/">
+  <link rel="alternate" hreflang="x-default" href="https://ukr-hits.online/">
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ukr-hits.online/">
+  <meta property="og:title" content="Слухати українську музику онлайн — українські пісні та хіти">
+  <meta property="og:description" content="Нові українські пісні, плейлисти та кліпи з YouTube. Слухайте онлайн безкоштовно.">
+  <meta property="og:image" content="https://ukr-hits.online/favicon.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Слухати українську музику онлайн — українські пісні та хіти">
+  <meta name="twitter:description" content="Нові хіти України, добірки за настроєм і плейлисти з YouTube.">
+  <meta name="twitter:image" content="https://ukr-hits.online/favicon.svg">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Preconnect (ускоряем YouTube/картинки) -->
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
+  <link rel="preconnect" href="https://img.youtube.com" crossorigin>
+
+  <!-- Типографика/минимальный стиль -->
   <style>
-    :root{
-      --bg:#0b0d12;--panel:#121622;--muted:#7d86a2;--text:#e6ebff;--brand:#2aa7ff;--brand-2:#ffc24b;
-      --card:#161a28;--card-hover:#1b2133;--radius:16px
+    :root {
+      --bg: #0b0f16;
+      --card: #101624;
+      --muted: #96a0b3;
+      --text: #e8eefb;
+      --accent: #4cc2ff;
+      --accent-2: #ffde66;
+      --ring: rgba(76,194,255,.25);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1200px;margin:0 auto;padding:24px}
-    .hero{background:linear-gradient(180deg,#151a28 0%,#111523 100%);border:1px solid #22283b;border-radius:var(--radius);padding:22px 20px;margin:8px 0 22px}
-    .hero h1{margin:0 0 8px;font-size:22px}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid #26304a;background:#161c2b;color:#e8efff}
-    .btn:hover{background:#1b2234}
-    .btn.primary{background:linear-gradient(90deg,#2aa7ff,#7cc7ff);color:#031627}
-    .btn.primary:hover{filter:brightness(1.05)}
-    .pill{display:inline-flex;gap:8px;align-items:center;background:#101522;border:1px solid #212740;border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px;margin-top:6px}
-    section{margin:26px 0}
-    section h2{margin:0 0 14px;font-size:18px;color:#cfe3ff}
-    .grid{display:grid;grid-template-columns:repeat( auto-fill, minmax(220px,1fr) );gap:12px}
-    .card{background:var(--card);border:1px solid #22283b;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease, background .15s ease}
-    .card:hover{background:var(--card-hover);transform:translateY(-2px)}
-    .thumb{position:relative;aspect-ratio:16/9;background:#0a0d14;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .badge{position:absolute;left:8px;top:8px;background:#000a;color:#fff;padding:3px 6px;border-radius:6px;font-size:12px}
-    .body{padding:10px}
-    .title{font-size:14px;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-    .meta{margin-top:6px;color:var(--muted);font-size:12px}
-    .foot{margin-top:auto;padding:10px;border-top:1px solid #22283b;color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px}
-    .chip{display:inline-flex;align-items:center;gap:6px;border:1px dashed #2b3350;border-radius:999px;padding:6px 10px;font-size:12px;color:#b9c9ff}
-    .center{display:flex;align-items:center;justify-content:center}
-    .empty{border:1px dashed #2b3350;border-radius:12px;padding:16px;color:var(--muted)}
-    .note{color:#94a3c7;font-size:13px;margin-top:8px}
-    @media (max-width:560px){
-      .hero{padding:18px}
-      .row{gap:8px}
-      .btn{padding:9px 12px}
-    }
+    .wrap{max-width:1180px;margin:40px auto;padding:0 16px}
+    .hero{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:22px 20px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    h1{margin:0 0 8px;font-size:28px;line-height:1.25}
+    .muted{color:var(--muted);font-size:14px}
+    .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;gap:10px;align-items:center;background:#176BFF;color:#fff;border:none;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(23,107,255,.35)}
+    .btn--ghost{background:rgba(255,255,255,.08)}
+    .btn--yellow{background:#ffb703;color:#0b0f16}
+    .chip{display:inline-block;background:rgba(255,255,255,.06);padding:4px 10px;border-radius:999px;font-size:12px;margin-right:6px}
+
+    .section{margin-top:28px}
+    .h2{font-size:20px;margin:0 0 14px}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:680px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;position:relative}
+    .thumb{aspect-ratio:16/9;display:block;width:100%;background:#0c1320;object-fit:cover;transition:transform .25s ease}
+    .card:hover .thumb{transform:scale(1.02)}
+    .cap{padding:10px 12px}
+    .title{font-size:14px;line-height:1.35;font-weight:600;min-height:2.6em}
+    .meta{margin-top:6px;font-size:12px;color:var(--muted)}
+    .badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:4px 7px;border-radius:8px;border:1px solid rgba(255,255,255,.2)}
+    .fade{opacity:0;transform:translateY(6px);animation:fadein .45s ease forwards}
+    @keyframes fadein{to{opacity:1;transform:none}}
+
+    footer{margin:36px 0 22px;color:var(--muted);font-size:13px}
+    .tags a{display:inline-block;margin:4px 6px 0 0;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
+
+  <!-- JSON-LD: WebSite + Organization + SearchAction + MusicGroup -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "name":"ukr-hits.online",
+        "url":"https://ukr-hits.online/",
+        "inLanguage":"uk",
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://www.google.com/search?q=site%3Aukr-hits.online+{search_term_string}",
+          "query-input":"required name=search_term_string"
+        }
+      },
+      {
+        "@type":"Organization",
+        "name":"ukr-hits.online",
+        "url":"https://ukr-hits.online/",
+        "logo":"https://ukr-hits.online/favicon.svg",
+        "sameAs":[
+          "https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw",
+          "https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w",
+          "https://www.youtube.com/channel/UCA_3UxgDSooR8btEvbtFe1w"
+        ]
+      },
+      {
+        "@type":"MusicGroup",
+        "name":"Ukrainian Hits",
+        "genre":["Ukrainian pop","Ukrainian dance","Ukrainian electronic"],
+        "url":"https://ukr-hits.online/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
-    <div class="hero">
-      <div class="pill">💿 Добірки української музики • сучасні хіти для настрою, танців і відпочинку</div>
+    <header class="hero fade" style="animation-delay:.05s">
       <h1>Слухати українську музику онлайн — українські пісні та хіти</h1>
-      <div class="row" id="cta-row">
-        <a class="btn primary" id="btn-sub" href="#" target="_blank" rel="noopener nofollow">▶️ Підписатися на YouTube</a>
-        <a class="btn" id="btn-open" href="#" target="_blank" rel="noopener">🔗 Відкрити канал</a>
+      <p class="muted">Добірки для настрою, танців і відпочинку. Натисніть на обкладинку — відео відкриється у YouTube.</p>
+
+      <div class="row">
+        <!-- Главная кнопка подписки (канал №1) -->
+        <a class="btn" href="https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw?sub_confirmation=1" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5.19-3L10 9v6zm12-3c0-1.74-.02-3.48-.1-5.22-.07-1.5-1.26-2.7-2.76-2.77C16.4 3 12 3 12 3s-4.4 0-7.14.01c-1.5.07-2.69 1.27-2.76 2.77C2.02 8.52 2 10.26 2 12s.02 3.48.1 5.22c.07 1.5 1.26 2.7 2.76 2.77C7.6 21 12 21 12 21s4.4 0 7.14-.01c1.5-.07 2.69-1.27 2.76-2.77.08-1.74.1-3.48.1-5.22z"/></svg>
+          Підписатися на YouTube
+        </a>
+
+        <!-- Кнопка открыть канал -->
+        <a class="btn btn--ghost" href="https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw" target="_blank" rel="noopener">Відкрити канал</a>
+
+        <!-- Ссылки на остальные каналы -->
+        <span class="chip">Також: 
+          <a href="https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w?sub_confirmation=1" target="_blank" rel="noopener">канал 2</a> •
+          <a href="https://www.youtube.com/channel/UCA_3UxgDSooR8btEvbtFe1w?sub_confirmation=1" target="_blank" rel="noopener">канал 3</a>
+        </span>
       </div>
-      <div class="note">Підписуйтесь, коментуйте, ставте ❤️ — це підтримує українську музику. Дякуємо!</div>
-    </div>
+    </header>
 
-    <!-- ОСТАННІ ВІДЕО (АВТО) -->
-    <section>
-      <h2>Останні відео з каналів (оновлюється автоматично)</h2>
-      <div id="auto-grid" class="grid"></div>
-      <div id="auto-empty" class="empty" style="display:none">Поки що порожньо. Якщо ви щойно додали канал — зачекайте 10–20 секунд і оновіть сторінку.</div>
+    <!-- СЕТКА ПОСЛЕДНИХ РОЛИКОВ (только с твоих каналов) -->
+    <section class="section fade" style="animation-delay:.1s">
+      <h2 class="h2">Останні відео</h2>
+      <div id="latest" class="grid" aria-live="polite"></div>
     </section>
 
-    <!-- СТАТИЧНІ ДОБІРКИ (можеш додати свої посилання коли захочеш) -->
-    <section>
-      <h2>Добірки — перевірені хіти</h2>
-      <div class="grid" id="curated-grid"></div>
-      <div class="note">Цей розділ пустий за замовчуванням. Додайте свої посилання у масив <code>CURATED</code> в коді.</div>
+    <!-- КУРАТОРСЬКІ ДОБІРКИ (фиксированные ссылки) -->
+    <section class="section fade" style="animation-delay:.15s">
+      <h2 class="h2">Добірки — перевірені хіти</h2>
+      <div id="curated" class="grid"></div>
     </section>
 
-    <div class="center" style="margin:26px 0">
-      <span class="chip">Українські пісні • Сучасні хіти • Українська музика</span>
-    </div>
+    <footer class="fade" style="animation-delay:.2s">
+      <div class="tags">
+        <span>Популярні запити:</span>
+        <a href="/#ukr-pop">українські пісні</a>
+        <a href="/#dance">сучасні хіти</a>
+        <a href="/#relax">музика для відпочинку</a>
+        <a href="/#playlist">плейлисти</a>
+        <a href="/#best">кращі українські пісні</a>
+      </div>
+      <p style="margin-top:10px">© ukr-hits.online — українська музика онлайн.</p>
+    </footer>
   </div>
 
   <script>
-    /**
-     * 1) ВАШІ КАНАЛИ (тільки ваші)
-     * Перший у списку — «головний» для кнопок.
-     */
+    /* ============ ПАРАМЕТРЫ ============ */
+    // ТВОИ каналы (IDs — именно те, что ты прислал):
     const CHANNELS = [
-      'https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw',
-      'https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w',
-      'https://www.youtube.com/channel/UCA_3UxgDSooR8btEvbtFe1w'
+      "UCXN8Ibh2QGNwZSwFJH423aw",
+      "UCXRzPkWX59hYAWgwgmpzc7w",
+      "UCA_3UxgDSooR8btEvbtFe1w"
     ];
 
-    /**
-     * Скільки останніх відео показувати загалом (з усіх каналів).
-     */
-    const AUTO_LIMIT = 24;
+    // Сколько свежих видео показывать суммарно (разных каналов):
+    const TOTAL_VIDEOS = 18;
 
-    /**
-     * 2) (НЕОБОВʼЯЗКОВО) Статичні добірки як колись.
-     * Залишаю порожнім — додаси, якщо потрібно.
-     */
+    // Фиксированные (кураторские) ссылки — ВСТАВЬ сюди свої старі URL
+    // Формат: { title, url, image(optional) }
     const CURATED = [
-      // { title: 'Назва добірки', url: 'https://www.youtube.com/watch?v=VIDEOID' },
-      // { title: 'Плейлист', url: 'https://www.youtube.com/playlist?list=PL......' }
+      // ПРИКЛАДИ (заміни своїми лінками з твоїх попередніх добірок)
+      { title: "Українські хіти — добірка №1", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+      { title: "Пісні для танців і настрою", url: "https://www.youtube.com/watch?v=k85mRPqvMbE" },
+      { title: "Найкращі українські пісні (плейлист)", url: "https://www.youtube.com/playlist?list=PLxxxxxxxxxxxxxxxx" }
     ];
 
-    // ========= ДОПОМОЖНІ ФУНКЦІЇ =========
+    /* ============ ВСПОМОГАТЕЛЬНЫЕ ============ */
+    const thumb = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
-    // Отримати елементи RSS певного channelId (лише ваш канал)
-    async function fetchFeed(channelId) {
-      const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-      const txt = await fetch(feedUrl).then(r => r.text());
-      const doc = new DOMParser().parseFromString(txt, 'application/xml');
-      const entries = [...doc.querySelectorAll('entry')].map(e => ({
-        id: e.querySelector('yt\\:videoId, videoId')?.textContent ?? '',
-        title: e.querySelector('title')?.textContent ?? '',
-        link: e.querySelector('link')?.getAttribute('href') ?? '',
-        published: new Date(e.querySelector('published')?.textContent ?? Date.now()).getTime(),
-        author: e.querySelector('author > name')?.textContent ?? ''
-      }));
-      return entries;
+    // Парсим видео ID из ссылок YouTube (watch?v=..., youtu.be/..., embed/...).
+    function extractVideoId(url) {
+      try {
+        const u = new URL(url);
+        if (u.hostname.includes("youtu.be")) return u.pathname.replace("/", "");
+        if (u.searchParams.get("v")) return u.searchParams.get("v");
+        const m = u.pathname.match(/\/embed\/([^/]+)/);
+        return m ? m[1] : null;
+      } catch { return null; }
     }
 
-    function videoThumbById(id){
-      return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-    }
-
-    function renderCard({title, url, img, author, published}) {
-      const prettyDate = published ? new Date(published).toLocaleDateString('uk-UA', {year:'numeric', month:'short', day:'numeric'}) : '';
+    // Рендер плитки видео
+    function cardVideo({id, title, channel, pub}) {
       return `
-        <a class="card" href="${url}" target="_blank" rel="noopener">
-          <div class="thumb">
-            <img loading="lazy" src="${img}" alt="">
-            ${published ? `<div class="badge">🗓 ${prettyDate}</div>` : ''}
-          </div>
-          <div class="body">
+        <a class="card" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">
+          <img class="thumb" loading="lazy" src="${thumb(id)}" alt="${title}">
+          <span class="badge">${new Date(pub).toLocaleDateString('uk-UA')}</span>
+          <div class="cap">
             <div class="title">${title}</div>
-            <div class="meta">${author ? author + ' • ' : ''}YouTube</div>
+            <div class="meta">${channel}</div>
           </div>
-          <div class="foot">Відкрити на YouTube ⟶</div>
         </a>
       `;
     }
 
-    // Для кнопок «Підписатися» і «Відкрити канал» використовуємо перший канал
-    function setupChannelButtons(mainChannelId) {
-      const openUrl = `https://www.youtube.com/channel/${mainChannelId}`;
-      const subUrl  = `https://www.youtube.com/channel/${mainChannelId}?sub_confirmation=1`;
-      document.getElementById('btn-open').href = openUrl;
-      document.getElementById('btn-sub').href  = subUrl;
+    // Рендер карточки для фиксированной ссылки (если это видео — подтянем превью)
+    function cardCurated(item) {
+      const vid = extractVideoId(item.url);
+      const image = item.image || (vid ? thumb(vid) : "https://i.ytimg.com/img/no_thumbnail.jpg");
+      return `
+        <a class="card" href="${item.url}" target="_blank" rel="noopener">
+          <img class="thumb" loading="lazy" src="${image}" alt="${item.title}">
+          <div class="cap">
+            <div class="title">${item.title}</div>
+            <div class="meta">Відкрити на YouTube</div>
+          </div>
+        </a>
+      `;
     }
 
-    // Статичні добірки
-    function pickVideoId(url){
-      try{
-        const u = new URL(url);
-        if (u.hostname.includes('youtu.be')) return u.pathname.replace('/','');
-        if (u.searchParams.get('v')) return u.searchParams.get('v');
-      }catch{}
-      return null;
-    }
-    function buildCurated(){
-      const box = document.getElementById('curated-grid');
-      if (!CURATED.length){
-        box.innerHTML = `<div class="empty">Додайте ваші посилання у масив <code>CURATED</code> в коді — і добірки зʼявляться тут.</div>`;
-        return;
-      }
-      box.innerHTML = CURATED.map(item => {
-        const id = pickVideoId(item.url);
-        const img = item.img || (id ? videoThumbById(id) : 'https://i.ytimg.com/img/no_thumbnail.jpg');
-        return renderCard({
-          title: item.title || 'YouTube',
-          url: item.url,
-          img,
-          author: '',
-          published: null
+    // Получаем последние видео по каналу через rss2json
+    async function fetchChannel(channelId) {
+      const rss = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+      const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rss)}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("RSS fetch failed");
+      const data = await res.json();
+      if (!data || !data.items) return [];
+      return data.items
+        .filter(it => it.link && it.link.includes("watch"))
+        .map(it => {
+          const id = new URL(it.link).searchParams.get("v");
+          return {
+            id,
+            title: it.title,
+            channel: data.feed ? data.feed.author : "",
+            pub: it.pubDate
+          };
         });
-      }).join('');
     }
 
-    // Побудувати авто-стрічку тільки з ваших каналів
-    async function buildAutoSection() {
-      const grid = document.getElementById('auto-grid');
-      const empty = document.getElementById('auto-empty');
+    // Собираем все каналы, сортируем по дате, убираем дубли
+    async function buildLatest() {
+      const target = document.getElementById("latest");
       try {
-        // Извлекаем чистые channelId из ваших URL (они уже в виде /channel/UC...)
-        const ids = CHANNELS.map(u => {
-          const m = String(u).match(/\/channel\/(UC[0-9A-Za-z_-]{22})/);
-          if (!m) throw new Error('Невірний формат посилання на канал: ' + u);
-          return m[1];
-        });
+        const results = await Promise.allSettled(CHANNELS.map(fetchChannel));
+        const flat = results
+          .filter(r => r.status === "fulfilled")
+          .flatMap(r => r.value);
 
-        // Кнопки — по першому каналу
-        setupChannelButtons(ids[0]);
+        // уникальные по videoId
+        const seen = new Set();
+        const unique = flat.filter(v => (v.id && !seen.has(v.id)) ? (seen.add(v.id), true) : false);
 
-        // Тянем RSS только для этих ID
-        const packs = await Promise.all(ids.map(fetchFeed));
-        const all = packs.flat().filter(v => v.id && v.link);
-        // убрать дубликаты, отсортировать по дате, ограничить
-        const uniq = Array.from(new Map(all.map(v => [v.id, v])).values())
-          .sort((a,b) => b.published - a.published)
-          .slice(0, AUTO_LIMIT);
+        // по дате убыв.
+        unique.sort((a,b) => new Date(b.pub) - new Date(a.pub));
 
-        if (!uniq.length){ empty.style.display='block'; return; }
-
-        grid.innerHTML = uniq.map(v => renderCard({
-          title: v.title,
-          url: v.link,
-          img: videoThumbById(v.id),
-          author: v.author,
-          published: v.published
-        })).join('');
-      } catch(e){
-        console.warn(e);
-        empty.style.display='block';
+        const take = unique.slice(0, TOTAL_VIDEOS);
+        target.innerHTML = take.map(cardVideo).join("") || `
+          <div class="muted" style="grid-column:1/-1">Поки що порожньо. Спробуйте оновити сторінку за кілька секунд.</div>
+        `;
+      } catch (e) {
+        target.innerHTML = `<div class="muted" style="grid-column:1/-1">Не вдалося завантажити останні відео.</div>`;
       }
     }
 
-    // Старт
-    (async function init(){
-      buildCurated();        // поки порожній — але місце є
-      await buildAutoSection();
-    })();
+    function buildCurated() {
+      const target = document.getElementById("curated");
+      target.innerHTML = CURATED.map(cardCurated).join("") || `
+        <div class="muted" style="grid-column:1/-1">Додайте ваші посилання у масив CURATED у коді — і добірки з’являться тут.</div>
+      `;
+    }
+
+    buildLatest();
+    buildCurated();
   </script>
 </body>
 </html>
