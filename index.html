@@ -51,7 +51,11 @@
     .yt{position:absolute;top:6px;right:6px;background:var(--glass);backdrop-filter:blur(6px);border-radius:999px;padding:4px 8px;font-size:10px;display:flex;align-items:center;gap:6px;border:1px solid var(--ring)}
     .dot{width:6px;height:6px;border-radius:50%;background:#ff3b30}
     footer{margin:18px 0 4px;color:var(--muted);font-size:12px;text-align:center}
-  </style>
+  </style>.more-wrap{text-align:center;margin:12px 0 8px}
+.more-btn{background:var(--glass);color:var(--fg);border:1px solid var(--ring);
+  padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer}
+.more-btn:active{transform:scale(.98)}
+
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"Українські пісні — слухати онлайн","url":"/","inLanguage":"uk"}
   </script>
@@ -76,6 +80,48 @@
         <p class="h-sub">Добірки української музики та сучасних хітів для настрою, танців і відпочинку.</p>
       </div>
     </section>
+<div class="more-wrap">
+  <button id="moreBtn" class="more-btn">Показати ще</button>
+</div>
+
+<section id="moreGrid" class="grid" hidden>
+  <!-- Приклади: заміниш ID на свої відео -->
+  <a class="card" href="https://www.youtube.com/watch?v=hQhFdKcIrdo" target="_blank" rel="noopener">
+    <img class="thumb" alt="Збірка українських пісень та хітів"
+         src="https://i.ytimg.com/vi/hQhFdKcIrdo/hqdefault.jpg"
+         srcset="https://i.ytimg.com/vi/hQhFdKcIrdo/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/hQhFdKcIrdo/hqdefault.jpg 480w"
+         sizes="(min-width:1024px) 18vw, (min-width:720px) 22vw, 32vw" loading="lazy" decoding="async" />
+    <div class="yt"><span class="dot"></span> YouTube</div>
+    <div class="overlay"><div class="title">Збірка українських пісень та хітів</div></div>
+  </a>
+
+  <a class="card" href="https://www.youtube.com/watch?v=U9RDViTrYAE" target="_blank" rel="noopener">
+    <img class="thumb" alt="Пісні для танцю і настрою"
+         src="https://i.ytimg.com/vi/U9RDViTrYAE/hqdefault.jpg"
+         srcset="https://i.ytimg.com/vi/U9RDViTrYAE/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/U9RDViTrYAE/hqdefault.jpg 480w"
+         sizes="(min-width:1024px) 18vw, (min-width:720px) 22vw, 32vw" loading="lazy" decoding="async" />
+    <div class="yt"><span class="dot"></span> YouTube</div>
+    <div class="overlay"><div class="title">Пісні для танцю і настрою</div></div>
+  </a>
+
+  <a class="card" href="https://www.youtube.com/watch?v=0bK_06QoLk8" target="_blank" rel="noopener">
+    <img class="thumb" alt="Пісні для душі"
+         src="https://i.ytimg.com/vi/0bK_06QoLk8/hqdefault.jpg"
+         srcset="https://i.ytimg.com/vi/0bK_06QoLk8/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/0bK_06QoLk8/hqdefault.jpg 480w"
+         sizes="(min-width:1024px) 18vw, (min-width:720px) 22vw, 32vw" loading="lazy" decoding="async" />
+    <div class="yt"><span class="dot"></span> YouTube</div>
+    <div class="overlay"><div class="title">Пісні для душі</div></div>
+  </a>
+
+  <a class="card" href="https://www.youtube.com/watch?v=DzXFMOIMJHo" target="_blank" rel="noopener">
+    <img class="thumb" alt="Золоті хіти"
+         src="https://i.ytimg.com/vi/DzXFMOIMJHo/hqdefault.jpg"
+         srcset="https://i.ytimg.com/vi/DzXFMOIMJHo/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/DzXFMOIMJHo/hqdefault.jpg 480w"
+         sizes="(min-width:1024px) 18vw, (min-width:720px) 22vw, 32vw" loading="lazy" decoding="async" />
+    <div class="yt"><span class="dot"></span> YouTube</div>
+    <div class="overlay"><div class="title">Золоті хіти</div></div>
+  </a>
+</section>
 
     <section class="grid">
       <a class="card" href="https://www.youtube.com/watch?v=hQhFdKcIrdo" target="_blank" rel="noopener">
@@ -162,7 +208,13 @@
     <footer>Українські пісні · Сучасні хіти · Українська музика</footer>
   </div>
 
-  <script>
+  const moreBtn = document.getElementById('moreBtn');
+const moreGrid = document.getElementById('moreGrid');
+moreBtn?.addEventListener('click', () => {
+  moreGrid.hidden = !moreGrid.hidden;
+  moreBtn.textContent = moreGrid.hidden ? 'Показати ще' : 'Приховати';
+});
+<script>
     const addPrefetch=(url)=>{if(!url)return;const id='pf-'+url;if(document.getElementById(id))return;const l=document.createElement('link');l.id=id;l.rel='prefetch';l.href=url;document.head.appendChild(l);};
     document.addEventListener('mouseover',e=>{const a=e.target.closest('a.card'); if(a) addPrefetch(a.href)});
     document.addEventListener('touchstart',e=>{const a=e.target.closest('a.card'); if(a) addPrefetch(a?.href)},{passive:true});
