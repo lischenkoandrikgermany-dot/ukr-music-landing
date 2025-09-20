@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/sitemap.xml
