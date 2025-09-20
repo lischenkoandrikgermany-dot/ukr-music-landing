@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Слухати українську музику онлайн — добірки й нові хіти</title>
-  <meta name="description" content="Сучасні українські хіти, новинки та плейлісти. Вмикайте добірки для настрою, танців і відпочинку. Оновлюється автоматично з YouTube." />
+  <meta name="description" content="Сучасні українські пісні, новинки та добірки. Натискайте на обкладинку — відео відкриється на YouTube. Оновлюється автоматично." />
   <link rel="canonical" href="https://www.ukr-hits.online/" />
   <meta name="robots" content="index,follow" />
 
@@ -15,7 +15,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Слухати українську музику онлайн — добірки й нові хіти" />
-  <meta property="og:description" content="Українські пісні: добірки, плейлісти й найсвіжіші хіти. Оновлюється автоматично з YouTube." />
+  <meta property="og:description" content="Українські хіти та плейлісти. Оновлюється автоматично з YouTube." />
   <meta property="og:url" content="https://www.ukr-hits.online/" />
   <meta property="og:image" content="https://www.ukr-hits.online/social-share.jpg" />
 
@@ -31,12 +31,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Ukr Hits Online",
-    "url": "https://www.ukr-hits.online/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.youtube.com/results?search_query={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://www.ukr-hits.online/"
   }
   </script>
 
@@ -47,48 +42,47 @@
       --card:#151b2b;
       --muted:#99a3b3;
       --text:#e8eefc;
-      --accent:#4ea8ff;
-      --chip:#19223a;
       --radius-lg:18px;
-      --radius-md:14px;
-      --radius-sm:10px;
       --shadow:0 8px 28px rgba(0,0,0,.35);
       --shadow-soft:0 6px 18px rgba(0,0,0,.22);
+      --lime:#c6ff1a; /* салатова крапка */
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
 
     .wrap{max-width:1224px;margin:32px auto;padding:0 16px}
+
     .hero{
+      position:relative;
       background: radial-gradient(1200px 400px at 10% -50%, rgba(78,168,255,.12), transparent 50%),
                   radial-gradient(1200px 400px at 90% -50%, rgba(255,206,84,.10), transparent 50%),
                   var(--panel);
-      border:1px solid #1e2742;border-radius:24px;padding:20px 20px 16px;box-shadow:var(--shadow-soft)
+      border:1px solid #1e2742;border-radius:24px;padding:22px 20px 18px;box-shadow:var(--shadow-soft)
     }
-    .hero h1{margin:0 0 12px;font-size:24px;font-weight:750;letter-spacing:.2px}
-    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      background:#18243b;border:1px solid #283558;color:#e8f2ff;
-      padding:10px 14px;border-radius:999px;font-weight:600;transition:.18s transform ease,.18s background ease
+    .hero h1{margin:0 0 8px;font-size:24px;font-weight:750;letter-spacing:.2px}
+    .hint{color:var(--muted);font-size:13px;margin:6px 0 0}
+
+    /* Анімована салатова крапка */
+    .pulse-dot{
+      position:absolute;top:16px;right:16px;width:14px;height:14px;border-radius:50%;
+      background:var(--lime);box-shadow:0 0 0 0 rgba(198,255,26,.75);animation:pulse 2.2s ease-out infinite
     }
-    .btn:hover{background:#213154;transform:translateY(-1px)}
-    .btn.primary{background:#2563eb;border-color:#2563eb}
-    .btn.primary:hover{background:#1d4ed8}
-    .chips{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-    .chip{padding:8px 12px;background:var(--chip);border:1px solid #223053;color:#cfe0ff;border-radius:999px;font-size:13px}
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(198,255,26,.65)}
+      70%{box-shadow:0 0 0 18px rgba(198,255,26,0)}
+      100%{box-shadow:0 0 0 0 rgba(198,255,26,0)}
+    }
 
     .section{margin-top:28px}
     .section h2{margin:0 0 12px;font-size:18px;color:#cfe0ff;font-weight:700}
-    .hint{color:var(--muted);font-size:13px;margin:0 0 12px}
 
-    /* GRID: 4 колонки десктоп, затем 3/2/1 */
+    /* GRID: 4/3/2/2 — на мобилках 2 слота, як просили */
     .grid{display:grid;gap:14px}
     @media (min-width:1280px){ .grid{grid-template-columns: repeat(4, minmax(0,1fr));} }
     @media (min-width:992px) and (max-width:1279.98px){ .grid{grid-template-columns: repeat(3, minmax(0,1fr));} }
     @media (min-width:640px) and (max-width:991.98px){ .grid{grid-template-columns: repeat(2, minmax(0,1fr));} }
-    @media (max-width:639.98px){ .grid{grid-template-columns: 1fr;} }
+    @media (max-width:639.98px){ .grid{grid-template-columns: repeat(2, minmax(0,1fr));} }
 
     .card{
       background:linear-gradient(180deg,#171f31,#121726);
@@ -96,77 +90,56 @@
       overflow:hidden;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease
     }
     .card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.45)}
-    .thumb{
-      position:relative;aspect-ratio:16/9;background:#0b0f18;overflow:hidden
-    }
-    .thumb img{
-      width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.1) contrast(1.05)
-    }
-    /* деликатный ховер, без красных кружков */
+
+    .thumb{position:relative;aspect-ratio:16/9;background:#0b0f18;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.05)}
     .thumb::after{
-      content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent,rgba(0,0,0,.18));
+      content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent,rgba(0,0,0,.16));
       opacity:.0;transition:opacity .2s ease
     }
     .card:hover .thumb::after{opacity:.9}
 
-    .title{
-      padding:10px 12px 12px;
-      font-size:15px;font-weight:700;letter-spacing:.2px;color:#eef4ff;min-height:56px
-    }
+    .title{padding:10px 12px 12px;font-size:15px;font-weight:700;letter-spacing:.2px;color:#eef4ff;min-height:56px}
     .title a{display:block}
     .title a:hover{color:#fff}
 
-    .loader{display:inline-block;border:3px solid #2a375d;border-top-color:#69a2ff;border-radius:50%;width:22px;height:22px;animation:spin 1s linear infinite}
+    .status{color:#99a3b3;font-size:13px;margin:0 0 12px}
+    .loader{display:inline-block;border:3px solid #2a375d;border-top-color:#69a2ff;border-radius:50%;width:22px;height:22px;vertical-align:-6px;animation:spin 1s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
 
-    .seo{
-      margin:26px 0 8px;color:#a8b6d6;font-size:14px;max-width:85ch
-    }
+    .seo{margin:26px 0 8px;color:#a8b6d6;font-size:14px;max-width:85ch}
     .footer{margin:36px 0 8px;color:#8090a9;font-size:12px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
+      <span class="pulse-dot" aria-hidden="true"></span>
       <h1>Слухати українську музику онлайн — українські пісні та хіти</h1>
-      <div class="row">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw?sub_confirmation=1">🔔 Підписатися на YouTube</a>
-        <a class="btn" target="_blank" rel="noopener"
-           href="https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw">Відкрити канал</a>
-      </div>
-      <div class="chips">
-        <span class="chip">Канал: GoldenWaveUA</span>
-        <span class="chip">Канал: Українська музика онлайн</span>
-        <span class="chip">Канал: Українські пісні 2025</span>
-      </div>
       <p class="hint">Підписуйтесь, коментуйте, ставте ❤️ — це підтримує українську музику. Дякуємо!</p>
     </section>
 
     <section class="section">
       <h2>Останні відео з каналів</h2>
-      <p id="status" class="hint"><span class="loader"></span> Завантаження добірок…</p>
+      <p id="status" class="status"><span class="loader"></span> Завантаження добірок…</p>
       <div id="grid" class="grid" aria-live="polite"></div>
     </section>
 
     <p class="seo">
-      На цій сторінці зібрано сучасні українські пісні: <strong>новинки 2025</strong>, добірки для настрою, танців і
-      відпочинку, а також топ-хіти останніх років. Натискайте на обкладинку — відео відкриється на YouTube.
-      Розділ оновлюється автоматично з офіційних каналів, тож ви завжди бачите свіже.
+      Тут зібрано сучасні українські пісні: <strong>новинки 2025</strong>, добірки для настрою, танців і відпочинку, а також топ-хіти. Натисніть на обкладинку — відео відкриється на YouTube. Розділ оновлюється автоматично з офіційних каналів.
     </p>
     <div class="footer">© ukr-hits.online — українська музика онлайн.</div>
   </div>
 
   <script>
-    // === 1) Налаштування каналів (ваші три канали) ============================
+    // === Канали (Ваші 3) ======================================================
     const CHANNELS = [
-      'UCXN8Ibh2QGNwZSwFJH423aw', // GoldenWaveUA (канал 1)
-      'UCXRzPkWX59hYAWgwgmpzc7w', // Українська музика онлайн (канал 2)
-      'UCA_3UxgDSooR8btEvbtFe1w'  // Українські пісні 2025 (канал 3)
+      'UCXN8Ibh2QGNwZSwFJH423aw', // GoldenWaveUA
+      'UCXRzPkWX59hYAWgwgmpzc7w', // Українська музика онлайн
+      'UCA_3UxgDSooR8btEvbtFe1w'  // Українські пісні 2025
     ];
 
-    // === 2) Ваші "ручні" добірки (щоб завжди були на сайті) ===================
-    // Зібрав ID з надісланих посилань.
+    // === Фіксовані добірки з ваших посилань (на випадок, якщо RSS затримується)
     const CURATED_IDS = [
       // канал 1
       'm27g1w60Hak','eUrTzCTbqRo','-2lPBoh3Hbk','9xhB6RUcQv4','V_7EhliRapU','v5ZFj7fXSjk','4vYgNVkFApg',
@@ -179,110 +152,77 @@
       '-gARpYK2DY4','BR9DO4HQkXM','hysuiarW09c','O2J_c13_CQY','06qgtig_XWk','941lH_Kh-a8','tCEe5i9fuk4','T5pBELEktAA'
     ];
 
-    // Перетворення ID у об'єкти (для відмалювання), коли RSS ще не прийшов
     const curatedSeed = CURATED_IDS.map(id => ({
       id,
       title: 'Українські хіти — слухати онлайн',
       link: 'https://www.youtube.com/watch?v='+id,
-      published: '2000-01-01T00:00:00Z', // старіша дата, щоб RSS міг перекривати новим
+      published: '2000-01-01T00:00:00Z',
       thumb: 'https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'
     }));
 
-    // === 3) Допоміжні функції =================================================
-    const byId = sel => document.getElementById(sel);
+    const byId = s => document.getElementById(s);
 
     function shuffleInPlace(arr){
-      // Дюрстенфельд — щоб щоразу перемішувало по-справжньому
-      for(let i = arr.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+      for(let i=arr.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]]=[arr[j],arr[i]];
       }
       return arr;
     }
-
     function uniqueById(items){
-      const seen = new Set();
-      return items.filter(v => !seen.has(v.id) && seen.add(v.id));
+      const seen=new Set();
+      return items.filter(v=>!seen.has(v.id)&&seen.add(v.id));
     }
+    function escapeHtml(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 
-    // Парсинг RSS YouTube без API keys
     async function fetchChannelRSS(channelId){
       const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-      const res = await fetch(url, {mode:'cors'});
+      const res = await fetch(url,{mode:'cors'});
       const text = await res.text();
-      const xml = new DOMParser().parseFromString(text, 'application/xml');
+      const xml = new DOMParser().parseFromString(text,'application/xml');
       const entries = [...xml.getElementsByTagName('entry')];
-      return entries.map(e => {
+      return entries.map(e=>{
         const id = e.getElementsByTagName('yt:videoId')[0]?.textContent?.trim();
         const title = e.getElementsByTagName('title')[0]?.textContent?.trim();
-        const published = e.getElementsByTagName('published')[0]?.textContent?.trim() || '';
+        const published = e.getElementsByTagName('published')[0]?.textContent?.trim()||'';
         const link = [...e.getElementsByTagName('link')].find(a=>a.getAttribute('rel')==='alternate')?.getAttribute('href')
                   || `https://www.youtube.com/watch?v=${id}`;
         const thumb = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-        return { id, title, link, published, thumb };
-      }).filter(v => !!v.id);
+        return {id,title,link,published,thumb};
+      }).filter(v=>!!v.id);
     }
 
     function render(items){
-      const grid = byId('grid');
-      grid.innerHTML = '';
-      const frag = document.createDocumentFragment();
-
-      items.forEach(v => {
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.innerHTML = `
+      const grid = byId('grid'); grid.innerHTML='';
+      const frag=document.createDocumentFragment();
+      items.forEach(v=>{
+        const card=document.createElement('article');
+        card.className='card';
+        card.innerHTML=`
           <div class="thumb">
             <a href="${v.link}" target="_blank" rel="noopener">
               <img loading="lazy" src="${v.thumb}" alt="${escapeHtml(v.title)}" />
             </a>
           </div>
-          <div class="title">
-            <a href="${v.link}" target="_blank" rel="noopener">${escapeHtml(v.title)}</a>
-          </div>
+          <div class="title"><a href="${v.link}" target="_blank" rel="noopener">${escapeHtml(v.title)}</a></div>
         `;
         frag.appendChild(card);
       });
-
       grid.appendChild(frag);
     }
 
-    function escapeHtml(s){
-      return (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-    }
-
-    // === 4) Завантаження: RSS + ручні посилання, далі перемішування ==========
     (async function init(){
-      const status = byId('status');
-
-      // Починаємо з ручних (щоб одразу щось показати)
-      let pool = [...curatedSeed];
-
+      const status=byId('status');
+      let pool=[...curatedSeed];
       try{
-        const results = await Promise.allSettled(CHANNELS.map(fetchChannelRSS));
-        const rssVideos = results
-          .filter(r=>r.status==='fulfilled')
-          .flatMap(r=>r.value);
-
-        // Змішуємо RSS + CURATED, видаляємо дублікати за id
-        pool = uniqueById([...rssVideos, ...pool]);
-
-        // Сортуємо за датою (спочатку новіші), потім ще перемішуємо блоками — і буде жваво
-        pool.sort((a,b)=> (new Date(b.published)) - (new Date(a.published)));
-
-      }catch(err){
-        console.warn('RSS error:', err);
-        // залишимо тільки CURATED (резерв)
-      }
-
-      // Перемішати остаточно для «живої» вітрини (вимога користувача)
+        const results=await Promise.allSettled(CHANNELS.map(fetchChannelRSS));
+        const rss=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value);
+        pool=uniqueById([...rss,...pool]);
+        pool.sort((a,b)=>new Date(b.published)-new Date(a.published));
+      }catch(err){ console.warn('RSS error',err); }
       shuffleInPlace(pool);
-
-      // Смарт-обмеження (щоб не перевантажувати сторінку)
-      const LIMIT = 48;
-      render(pool.slice(0, LIMIT));
-
-      status.textContent = 'Оновлено автоматично. Натискайте на обкладинку — відео відкриється на YouTube.';
+      render(pool.slice(0,48));
+      status.textContent='Оновлено. Натискайте на обкладинку — відео відкриється на YouTube.';
     })();
   </script>
 </body>
