@@ -59,14 +59,8 @@
       <div class="pill">💿 Добірки української музики • сучасні хіти для настрою, танців і відпочинку</div>
       <h1>Слухати українську музику онлайн — українські пісні та хіти</h1>
       <div class="row" id="cta-row">
-        <!-- Кнопка автопідписки — заповню через JS після визначення каналу -->
-        <a class="btn primary" id="btn-sub" href="#" target="_blank" rel="noopener nofollow">
-          ▶️ Підписатися на YouTube
-        </a>
-        <!-- Звичайне відкриття каналу -->
-        <a class="btn" id="btn-open" href="#" target="_blank" rel="noopener">
-          🔗 Відкрити канал
-        </a>
+        <a class="btn primary" id="btn-sub" href="#" target="_blank" rel="noopener nofollow">▶️ Підписатися на YouTube</a>
+        <a class="btn" id="btn-open" href="#" target="_blank" rel="noopener">🔗 Відкрити канал</a>
       </div>
       <div class="note">Підписуйтесь, коментуйте, ставте ❤️ — це підтримує українську музику. Дякуємо!</div>
     </div>
@@ -78,43 +72,27 @@
       <div id="auto-empty" class="empty" style="display:none">Поки що порожньо. Якщо ви щойно додали канал — зачекайте 10–20 секунд і оновіть сторінку.</div>
     </section>
 
-    <!-- СТАРІ ДОБІРКИ (СТАТИЧНИЙ СПИСОК, щоб «повернути все як було») -->
+    <!-- СТАТИЧНІ ДОБІРКИ (можеш додати свої посилання коли захочеш) -->
     <section>
       <h2>Добірки — перевірені хіти</h2>
       <div class="grid" id="curated-grid"></div>
-      <div class="note">Це розділ із фіксованими посиланнями (як на старому сайті). Його можна редагувати в масиві <code>CURATED</code> у коді.</div>
+      <div class="note">Цей розділ пустий за замовчуванням. Додайте свої посилання у масив <code>CURATED</code> в коді.</div>
     </section>
 
     <div class="center" style="margin:26px 0">
-      <span class="chip">Українські пісні • Сучасні хіти • Українська музика • Підписатися на канал GoldenWaveUA</span>
+      <span class="chip">Українські пісні • Сучасні хіти • Українська музика</span>
     </div>
   </div>
 
   <script>
     /**
-     * ==============================
-     * 1) НАЛАШТУВАННЯ
-     * ==============================
-     * Дай тут посилання на свої канали YouTube (handle @..., або повний URL каналу /channel/UC...).
-     * Перший у списку — «головний» (для кнопок).
+     * 1) ВАШІ КАНАЛИ (тільки ваші)
+     * Перший у списку — «головний» для кнопок.
      */
     const CHANNELS = [
-      // приклади — ЗАМІНИ на свої реальні (можна 1–3 шт):
-      'https://www.youtube.com/@GoldenWaveUA',
-      // 'https://www.youtube.com/channel/UCxxxxxxxxxxxxxxxxxxxxxx',
-      // 'https://www.youtube.com/@ДругийКанал'
-    ];
-
-    /**
-     * Статичні добірки (щоб повернути «як було»).
-     * Сюди додай свої «старі» посилання на відео/плейлисти (які були на головній).
-     * Формат: { title, url, img }  — якщо img не вкажеш, картинка підтягнеться автоматично для відео.
-     */
-    const CURATED = [
-      // ПРИКЛАДИ — заміни своїми (можна хоч 30 шт).
-      { title: 'Українські хіти 2025 — добірка №1', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-      { title: 'Пісні для танців і настрою', url: 'https://www.youtube.com/watch?v=Zi_XLOBDo_Y' },
-      { title: 'Найкращі українські пісні (плейлист)', url: 'https://www.youtube.com/playlist?list=PLxxxxxxxxxxxxxxxx' }
+      'https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw',
+      'https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w',
+      'https://www.youtube.com/channel/UCA_3UxgDSooR8btEvbtFe1w'
     ];
 
     /**
@@ -123,40 +101,17 @@
     const AUTO_LIMIT = 24;
 
     /**
-     * ==============================
-     * 2) ДОПОМІЖНІ ФУНКЦІЇ
-     * ==============================
+     * 2) (НЕОБОВʼЯЗКОВО) Статичні добірки як колись.
+     * Залишаю порожнім — додаси, якщо потрібно.
      */
+    const CURATED = [
+      // { title: 'Назва добірки', url: 'https://www.youtube.com/watch?v=VIDEOID' },
+      // { title: 'Плейлист', url: 'https://www.youtube.com/playlist?list=PL......' }
+    ];
 
-    // Дістаємо channelId із будь-якого виду посилання (handle або channel URL).
-    async function resolveChannelId(inputUrl) {
-      try {
-        // Якщо вже переданий чистий channelId:
-        const mId = String(inputUrl).match(/(?:\/channel\/|^UC)([A-Za-z0-9_-]{21,})/);
-        if (mId) return mId[1].startsWith('UC') ? mId[1] : 'UC' + mId[1];
+    // ========= ДОПОМОЖНІ ФУНКЦІЇ =========
 
-        // Якщо handle /@Name — заберемо HTML через безпечний проксі без CORS:
-        // (r.jina.ai просто повертає HTML як текст)
-        const url = String(inputUrl).trim();
-        if (url.includes('youtube.com/@')) {
-          const proxied = 'https://r.jina.ai/http://www.youtube.com/' + url.split('youtube.com/')[1];
-          const html = await fetch(proxied).then(r => r.text());
-          const m = html.match(/"channelId":"(UC[0-9A-Za-z_-]{22})"/);
-          if (m) return m[1];
-        }
-
-        // Якщо посилання на головну або кастомний /c/, спробуємо переадресацію:
-        if (url.includes('youtube.com')) {
-          const proxied = 'https://r.jina.ai/http://' + url.replace(/^https?:\/\//,'').replace(/\/+$/,'');
-          const html = await fetch(proxied).then(r => r.text());
-          const m = html.match(/"channelId":"(UC[0-9A-Za-z_-]{22})"/);
-          if (m) return m[1];
-        }
-      } catch(e){}
-      throw new Error('Не вдалося визначити channelId для: ' + inputUrl);
-    }
-
-    // Отримати елементи стрічки RSS каналу
+    // Отримати елементи RSS певного channelId (лише ваш канал)
     async function fetchFeed(channelId) {
       const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
       const txt = await fetch(feedUrl).then(r => r.text());
@@ -172,7 +127,6 @@
     }
 
     function videoThumbById(id){
-      // hqdefault — якісна превʼюшка; при потребі можна sddefault/mqdefault
       return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
     }
 
@@ -193,70 +147,16 @@
       `;
     }
 
-    /**
-     * ==============================
-     * 3) РОБОТА КНОПОК КАНАЛУ
-     * ==============================
-     * Кнопка «Підписатися» відкриває канал з ?sub_confirmation=1 (автопопап).
-     */
-    async function setupChannelButtons() {
-      if (!CHANNELS.length) return;
-      const main = CHANNELS[0];
-      let channelUrl = main;
-      // Нормалізуємо URL головного каналу (відкриття)
-      if (!/^https?:\/\//.test(channelUrl)) channelUrl = 'https://www.youtube.com/' + channelUrl.replace(/^\/+/,'');
-      document.getElementById('btn-open').href = channelUrl;
-
-      try {
-        const id = await resolveChannelId(main);
-        // Працює і з /channel/ID, і з /@handle — але найнадійніше саме /channel/ID
-        const subUrl = `https://www.youtube.com/channel/${id}?sub_confirmation=1`;
-        document.getElementById('btn-sub').href = subUrl;
-      } catch {
-        // Фолбек: навіть якщо не змогли витягнути ID — усе одно спробуємо з handle
-        document.getElementById('btn-sub').href = channelUrl + (channelUrl.includes('?') ? '&' : '?') + 'sub_confirmation=1';
-      }
+    // Для кнопок «Підписатися» і «Відкрити канал» використовуємо перший канал
+    function setupChannelButtons(mainChannelId) {
+      const openUrl = `https://www.youtube.com/channel/${mainChannelId}`;
+      const subUrl  = `https://www.youtube.com/channel/${mainChannelId}?sub_confirmation=1`;
+      document.getElementById('btn-open').href = openUrl;
+      document.getElementById('btn-sub').href  = subUrl;
     }
 
-    /**
-     * ==============================
-     * 4) АВТОВІДДІЛ «Останні відео»
-     * ==============================
-     */
-    async function buildAutoSection() {
-      const grid = document.getElementById('auto-grid');
-      const empty = document.getElementById('auto-empty');
-      try {
-        const ids = await Promise.all(CHANNELS.map(resolveChannelId));
-        const packs = await Promise.all(ids.map(fetchFeed));
-        // Обʼєднаємо, відсортуємо, приберемо дублікати за videoId
-        const all = packs.flat().filter(v => v.id && v.link);
-        const uniq = Array.from(new Map(all.map(v => [v.id, v])).values())
-          .sort((a,b) => b.published - a.published)
-          .slice(0, AUTO_LIMIT);
-
-        if (!uniq.length){ empty.style.display='block'; return; }
-
-        grid.innerHTML = uniq.map(v => renderCard({
-          title: v.title,
-          url: v.link,
-          img: videoThumbById(v.id),
-          author: v.author,
-          published: v.published
-        })).join('');
-      } catch(e){
-        console.warn(e);
-        empty.style.display='block';
-      }
-    }
-
-    /**
-     * ==============================
-     * 5) СТАТИЧНІ ДОБІРКИ (повернули «як було»)
-     * ==============================
-     */
+    // Статичні добірки
     function pickVideoId(url){
-      // Витягнемо id з watch?v=... або youtu.be/...
       try{
         const u = new URL(url);
         if (u.hostname.includes('youtu.be')) return u.pathname.replace('/','');
@@ -283,10 +183,47 @@
       }).join('');
     }
 
+    // Побудувати авто-стрічку тільки з ваших каналів
+    async function buildAutoSection() {
+      const grid = document.getElementById('auto-grid');
+      const empty = document.getElementById('auto-empty');
+      try {
+        // Извлекаем чистые channelId из ваших URL (они уже в виде /channel/UC...)
+        const ids = CHANNELS.map(u => {
+          const m = String(u).match(/\/channel\/(UC[0-9A-Za-z_-]{22})/);
+          if (!m) throw new Error('Невірний формат посилання на канал: ' + u);
+          return m[1];
+        });
+
+        // Кнопки — по першому каналу
+        setupChannelButtons(ids[0]);
+
+        // Тянем RSS только для этих ID
+        const packs = await Promise.all(ids.map(fetchFeed));
+        const all = packs.flat().filter(v => v.id && v.link);
+        // убрать дубликаты, отсортировать по дате, ограничить
+        const uniq = Array.from(new Map(all.map(v => [v.id, v])).values())
+          .sort((a,b) => b.published - a.published)
+          .slice(0, AUTO_LIMIT);
+
+        if (!uniq.length){ empty.style.display='block'; return; }
+
+        grid.innerHTML = uniq.map(v => renderCard({
+          title: v.title,
+          url: v.link,
+          img: videoThumbById(v.id),
+          author: v.author,
+          published: v.published
+        })).join('');
+      } catch(e){
+        console.warn(e);
+        empty.style.display='block';
+      }
+    }
+
     // Старт
     (async function init(){
-      await setupChannelButtons();
-      buildCurated();
+      buildCurated();        // поки порожній — але місце є
       await buildAutoSection();
     })();
   </script>
