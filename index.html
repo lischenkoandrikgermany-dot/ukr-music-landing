@@ -38,9 +38,7 @@
   <!-- Icons -->
   <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
   <link rel="alternate icon" href="/favicon.svg?v=2">
-  <!-- ярлык на телефонах -->
   <link rel="apple-touch-icon" href="/icon-512.png">
-  <!-- PWA-манифест -->
   <link rel="manifest" href="/manifest.webmanifest">
 
   <!-- Preconnects -->
@@ -65,7 +63,7 @@
   }
   </script>
 
-  <!-- FAQ JSON-LD для расширенного сниппета -->
+  <!-- FAQ JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -77,14 +75,62 @@
   }
   </script>
 
-  <!-- === Static JSON-LD (VideoObject) — перша вибірка для ботів === -->
+  <!-- === Static JSON-LD (VideoObject) — для бота без JS === -->
   <script type="application/ld+json">
-  [/* (оставляю как в предыдущем моём сообщении — весь массив VideoObject) */]
+  [
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/Yn8kByhUiFo/maxresdefault.jpg","https://i.ytimg.com/vi/Yn8kByhUiFo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/Yn8kByhUiFo","url":"https://www.youtube.com/watch?v=Yn8kByhUiFo"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/-2lPBoh3Hbk/maxresdefault.jpg","https://i.ytimg.com/vi/-2lPBoh3Hbk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/-2lPBoh3Hbk","url":"https://www.youtube.com/watch?v=-2lPBoh3Hbk"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/v5ZFj7fXSjk/maxresdefault.jpg","https://i.ytimg.com/vi/v5ZFj7fXSjk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/v5ZFj7fXSjk","url":"https://www.youtube.com/watch?v=v5ZFj7fXSjk"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/Ynh2P0-LVpQ/maxresdefault.jpg","https://i.ytimg.com/vi/Ynh2P0-LVpQ/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/Ynh2P0-LVpQ","url":"https://www.youtube.com/watch?v=Ynh2P0-LVpQ"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/JLp8oiQG4aw/maxresdefault.jpg","https://i.ytimg.com/vi/JLp8oiQG4aw/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/JLp8oiQG4aw","url":"https://www.youtube.com/watch?v=JLp8oiQG4aw"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/HfVH2JIPPac/maxresdefault.jpg","https://i.ytimg.com/vi/HfVH2JIPPac/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/HfVH2JIPPac","url":"https://www.youtube.com/watch?v=HfVH2JIPPac"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/HZlnYwCD8sk/maxresdefault.jpg","https://i.ytimg.com/vi/HZlnYwCD8sk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/HZlnYwCD8sk","url":"https://www.youtube.com/watch?v=HZlnYwCD8sk"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/uLbTYlmX1Gc/maxresdefault.jpg","https://i.ytimg.com/vi/uLbTYlmX1Gc/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/uLbTYlmX1Gc","url":"https://www.youtube.com/watch?v=uLbTYlmX1Gc"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/CsafP-HROzc/maxresdefault.jpg","https://i.ytimg.com/vi/CsafP-HROzc/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/CsafP-HROzc","url":"https://www.youtube.com/watch?v=CsafP-HROzc"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/U9RDViTrYAE/maxresdefault.jpg","https://i.ytimg.com/vi/U9RDViTrYAE/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/U9RDViTrYAE","url":"https://www.youtube.com/watch?v=U9RDViTrYAE"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/Lbr1vn7d38g/maxresdefault.jpg","https://i.ytimg.com/vi/Lbr1vn7d38g/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/Lbr1vn7d38g","url":"https://www.youtube.com/watch?v=Lbr1vn7d38g"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/8b1X8Jel-ec/maxresdefault.jpg","https://i.ytimg.com/vi/8b1X8Jel-ec/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/8b1X8Jel-ec","url":"https://www.youtube.com/watch?v=8b1X8Jel-ec"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/DzXFMOIMJHo/maxresdefault.jpg","https://i.ytimg.com/vi/DzXFMOIMJHo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/DzXFMOIMJHo","url":"https://www.youtube.com/watch?v=DzXFMOIMJHo"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/t2KumAVfaXI/maxresdefault.jpg","https://i.ytimg.com/vi/t2KumAVfaXI/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/t2KumAVfaXI","url":"https://www.youtube.com/watch?v=t2KumAVfaXI"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/o377aoMBGnY/maxresdefault.jpg","https://i.ytimg.com/vi/o377aoMBGnY/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/o377aoMBGnY","url":"https://www.youtube.com/watch?v=o377aoMBGnY"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/VufBPLckZi8/maxresdefault.jpg","https://i.ytimg.com/vi/VufBPLckZi8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/VufBPLckZi8","url":"https://www.youtube.com/watch?v=VufBPLckZi8"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/L8xtCLF_RGw/maxresdefault.jpg","https://i.ytimg.com/vi/L8xtCLF_RGw/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/L8xtCLF_RGw","url":"https://www.youtube.com/watch?v=L8xtCLF_RGw"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/d7D5IvF5rqg/maxresdefault.jpg","https://i.ytimg.com/vi/d7D5IvF5rqg/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/d7D5IvF5rqg","url":"https://www.youtube.com/watch?v=d7D5IvF5rqg"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/x2XuttUjVRE/maxresdefault.jpg","https://i.ytimg.com/vi/x2XuttUjVRE/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/x2XuttUjVRE","url":"https://www.youtube.com/watch?v=x2XuttUjVRE"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/xcqsS73I_U4/maxresdefault.jpg","https://i.ytimg.com/vi/xcqsS73I_U4/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/xcqsS73I_U4","url":"https://www.youtube.com/watch?v=xcqsS73I_U4"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/dvqiGW2tk2M/maxresdefault.jpg","https://i.ytimg.com/vi/dvqiGW2tk2M/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/dvqiGW2tk2M","url":"https://www.youtube.com/watch?v=dvqiGW2tk2M"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/FA438YuebB8/maxresdefault.jpg","https://i.ytimg.com/vi/FA438YuebB8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/FA438YuebB8","url":"https://www.youtube.com/watch?v=FA438YuebB8"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/KSyh6YbFk9k/maxresdefault.jpg","https://i.ytimg.com/vi/KSyh6YbFk9k/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/KSyh6YbFk9k","url":"https://www.youtube.com/watch?v=KSyh6YbFk9k"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/6LLHpfYsroo/maxresdefault.jpg","https://i.ytimg.com/vi/6LLHpfYsroo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/6LLHpfYsroo","url":"https://www.youtube.com/watch?v=6LLHpfYsroo"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/dj5f7HWp3e8/maxresdefault.jpg","https://i.ytimg.com/vi/dj5f7HWp3e8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/dj5f7HWp3e8","url":"https://www.youtube.com/watch?v=dj5f7HWp3e8"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/2MK2yN5Ri3E/maxresdefault.jpg","https://i.ytimg.com/vi/2MK2yN5Ri3E/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/2MK2yN5Ri3E","url":"https://www.youtube.com/watch?v=2MK2yN5Ri3E"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/VW8mofFsEVA/maxresdefault.jpg","https://i.ytimg.com/vi/VW8mofFsEVA/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/VW8mofFsEVA","url":"https://www.youtube.com/watch?v=VW8mofFsEVA"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/xoNx1APLGnk/maxresdefault.jpg","https://i.ytimg.com/vi/xoNx1APLGnk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/xoNx1APLGnk","url":"https://www.youtube.com/watch?v=xoNx1APLGnk"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/DUWx6WYkgAo/maxresdefault.jpg","https://i.ytimg.com/vi/DUWx6WYkgAo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/DUWx6WYkgAo","url":"https://www.youtube.com/watch?v=DUWx6WYkgAo"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/2phj7o_FGUI/maxresdefault.jpg","https://i.ytimg.com/vi/2phj7o_FGUI/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/2phj7o_FGUI","url":"https://www.youtube.com/watch?v=2phj7o_FGUI"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/iuMZRJMOvRw/maxresdefault.jpg","https://i.ytimg.com/vi/iuMZRJMOvRw/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/iuMZRJMOvRw","url":"https://www.youtube.com/watch?v=iuMZRJMOvRw"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/LqKNrpxp0bI/maxresdefault.jpg","https://i.ytimg.com/vi/LqKNrpxp0bI/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/LqKNrpxp0bI","url":"https://www.youtube.com/watch?v=LqKNrpxp0bI"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/M9Nv8BRMjNM/maxresdefault.jpg","https://i.ytimg.com/vi/M9Nv8BRMjNM/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/M9Nv8BRMjNM","url":"https://www.youtube.com/watch?v=M9Nv8BRMjNM"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/RTIFFvPRR6s/maxresdefault.jpg","https://i.ytimg.com/vi/RTIFFvPRR6s/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/RTIFFvPRR6s","url":"https://www.youtube.com/watch?v=RTIFFvPRR6s"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/SKvfqHj3gXk/maxresdefault.jpg","https://i.ytimg.com/vi/SKvfqHj3gXk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/SKvfqHj3gXk","url":"https://www.youtube.com/watch?v=SKvfqHj3gXk"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/22rx7g-mQmY/maxresdefault.jpg","https://i.ytimg.com/vi/22rx7g-mQmY/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/22rx7g-mQmY","url":"https://www.youtube.com/watch?v=22rx7g-mQmY"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/VMvpFNtLBQA/maxresdefault.jpg","https://i.ytimg.com/vi/VMvpFNtLBQA/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/VMvpFNtLBQA","url":"https://www.youtube.com/watch?v=VMvpFNtLBQA"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/-gARpYK2DY4/maxresdefault.jpg","https://i.ytimg.com/vi/-gARpYK2DY4/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/-gARpYK2DY4","url":"https://www.youtube.com/watch?v=-gARpYK2DY4"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/BR9DO4HQkXM/maxresdefault.jpg","https://i.ytimg.com/vi/BR9DO4HQkXM/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/BR9DO4HQkXM","url":"https://www.youtube.com/watch?v=BR9DO4HQkXM"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/hysuiarW09c/maxresdefault.jpg","https://i.ytimg.com/vi/hysuiarW09c/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/hysuiarW09c","url":"https://www.youtube.com/watch?v=hysuiarW09c"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/O2J_c13_CQY/maxresdefault.jpg","https://i.ytimg.com/vi/O2J_c13_CQY/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/O2J_c13_CQY","url":"https://www.youtube.com/watch?v=O2J_c13_CQY"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/06qgtig_XWk/maxresdefault.jpg","https://i.ytimg.com/vi/06qgtig_XWk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/06qgtig_XWk","url":"https://www.youtube.com/watch?v=06qgtig_XWk"},
+    {"@context":"https://schema.org","@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/941lH_Kh-a8/maxresdefault.jpg","https://i.ytimg.com/vi/941lH_Kh-a8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/941lH_Kh-a8","url":"https://www.youtube.com/watch?v=941lH_Kh-a8"}
+  ]
   </script>
   <!-- === /Static JSON-LD === -->
 
   <style>
-    :root{--bg:#0d1117;--panel:#0f1521;--card:#151b28;--card-hover:#1b2233;--text:#e6edf3;--muted:#9fb0c5;--accent:#7dfc5b;--chip:#1f2636;--chip-text:#cfe3ff;--shadow:0 6px 24px rgba(0,0,0,.4)}
+    :root{
+      --bg:#0d1117;--panel:#0f1521;--card:#151b28;--card-hover:#1b2233;
+      --text:#e6edf3;--muted:#9fb0c5;--accent:#7dfc5b;--chip:#1f2636;--chip-text:#cfe3ff;
+      --shadow:0 6px 24px rgba(0,0,0,.4)
+    }
     *{box-sizing:border-box}
     html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif}
     a{color:inherit;text-decoration:none}
@@ -126,18 +172,21 @@
       <p id="h-sub" class="sub">Сучасні хіти 2025, популярні треки та найкращі добірки — для настрою, танців і відпочинку. Відкривайте нові пісні, дивіться кліпи та підтримуйте українських артистів!</p>
     </header>
 
+    <!-- Latest from channels -->
     <section class="section">
       <h2 id="sec-latest">Останні відео з каналів</h2>
       <div id="latestNote" class="panel">Завантажуємо свіжі релізи…</div>
       <div id="latest" class="grid" style="margin-top:14px;"></div>
     </section>
 
+    <!-- Curated / verified -->
     <section class="section">
       <h2 id="sec-curated">Добірки — перевірені хіти</h2>
       <div id="curatedNote" class="panel">Готуємо добірки…</div>
       <div id="curated" class="grid" style="margin-top:14px;"></div>
     </section>
 
+    <!-- SEO текст + теги -->
     <section class="section">
       <p id="seo-text" class="sub">
         На <strong>ukr-hits.online</strong> зібрана найкраща українська музика: новинки 2025, топ-хіти, плейлісти для авто, вечірок і тренувань. 
@@ -165,6 +214,7 @@
     { id: 'UCA_3UxgDSooR8btEvbtFe1w', name: 'Українські пісні 2025' },
   ];
 
+  // Добірки (оновлюй за потреби)
   const CURATED_IDS = [
     'Yn8kByhUiFo','-2lPBoh3Hbk','v5ZFj7fXSjk','Ynh2P0-LVpQ','JLp8oiQG4aw','HfVH2JIPPac','HZlnYwCD8sk',
     'uLbTYlmX1Gc','CsafP-HROzc','U9RDViTrYAE','Lbr1vn7d38g','8b1X8Jel-ec','DzXFMOIMJHo','t2KumAVfaXI',
@@ -189,26 +239,144 @@
         seo:'At <strong>ukr-hits.online</strong> you’ll find the best Ukrainian music: 2025 new releases, top hits and playlists for driving, parties and workouts. Click any card to open the YouTube video.'}
   };
 
+  /** ========= Helpers ========= **/
   const $ = s=>document.querySelector(s);
-  function setLang(lang){const d=i18n[lang]||i18n.uk;$('#h-title').innerText=d.title;$('#h-sub').innerText=d.sub;$('#sec-latest').innerText=d.latest;$('#sec-curated').innerText=d.curated;$('#seo-text').innerHTML=d.seo;document.documentElement.lang=lang;[...document.querySelectorAll('.lang .chip')].forEach(c=>c.setAttribute('aria-current',c.dataset.lang===lang))}
+  function setLang(lang){
+    const d=i18n[lang]||i18n.uk;
+    $('#h-title').innerText=d.title;$('#h-sub').innerText=d.sub;
+    $('#sec-latest').innerText=d.latest;$('#sec-curated').innerText=d.curated;
+    $('#seo-text').innerHTML=d.seo;
+    document.documentElement.lang=lang;
+    [...document.querySelectorAll('.lang .chip')].forEach(c=>c.setAttribute('aria-current', c.dataset.lang===lang));
+  }
   function getParamLang(){const url=new URL(location.href);return url.searchParams.get('lang')||localStorage.getItem('lang')||'uk'}
   function saveLang(lang){localStorage.setItem('lang',lang);const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState({},'',url.toString())}
   function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
-  function makeCard({id,title,thumb}){const max=`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;const hq=`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;const pic=thumb||max;const a=document.createElement('a');a.className='card';a.href=`https://www.youtube.com/watch?v=${id}`;a.target='_blank';a.rel='noopener nofollow';a.innerHTML=`<div class="thumb"><img loading="lazy" src="${pic}" onerror="this.src='${hq}'" alt="Переглянути відео на YouTube"><span class="yt-badge">YouTube</span></div><div class="title"></div>`;a.querySelector('.title').textContent=title||'';return a}
+  function makeCard({id,title,thumb}){
+    const max=`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+    const hq =`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+    const pic=thumb||max;
+    const a=document.createElement('a');
+    a.className='card';
+    a.href=`https://www.youtube.com/watch?v=${id}`;
+    a.target='_blank'; a.rel='noopener nofollow';
+    a.innerHTML=`
+      <div class="thumb">
+        <img loading="lazy" src="${pic}" onerror="this.src='${hq}'" alt="Переглянути відео на YouTube">
+        <span class="yt-badge">YouTube</span>
+      </div>
+      <div class="title"></div>`;
+    a.querySelector('.title').textContent=title||'';
+    return a;
+  }
 
-  async function fetchOEmbed(id){const url=`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`;const r=await fetch(url);if(!r.ok)throw new Error('oEmbed');const j=await r.json();return{title:j.title,thumb:j.thumbnail_url}}
-  async function fetchRSS(channelId){const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;const r=await fetch(prox);if(!r.ok)throw new Error('rss');const text=await r.text();const xml=new DOMParser().parseFromString(text,'application/xml');const entries=[...xml.querySelectorAll('entry')].map(e=>{const id=(e.querySelector('yt\\:videoId, videoId')||{}).textContent;const title=(e.querySelector('title')||{}).textContent;const published=(e.querySelector('published')||{}).textContent||'';let thumb=null;const m=e.querySelector('media\\:thumbnail, thumbnail');if(m){thumb=m.getAttribute('url')}return{id,title,thumb,published}}).filter(v=>v.id);return entries}
-  async function fetchVideoDate(id){const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?video_id=${id}`;const r=await fetch(prox);if(!r.ok)throw new Error('rss');const text=await r.text();const xml=new DOMParser().parseFromString(text,'application/xml');return (xml.querySelector('published')||{}).textContent||''}
+  // oEmbed title/thumbnail
+  async function fetchOEmbed(id){
+    const url=`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`;
+    const r=await fetch(url); if(!r.ok) throw new Error('oEmbed');
+    const j=await r.json();
+    return { title:j.title, thumb:j.thumbnail_url };
+  }
 
-  async function buildLatest(){const wrap=$('#latest'),note=$('#latestNote');try{const all=(await Promise.all(CHANNELS.map(c=>fetchRSS(c.id)))).flat();const dedup=Array.from(new Map(all.map(v=>[v.id,v])).values());const N=Math.min(18,dedup.length);const first=dedup.slice(0,N),rest=dedup.slice(N);const fixed=await Promise.all(first.map(async v=>{if(v.title&&v.thumb)return v;try{const emb=await fetchOEmbed(v.id);return {...v,title:emb.title||v.title,thumb:emb.thumb||v.thumb}}catch{return v}}));const merged=shuffle([...fixed,...rest]).slice(0,24);wrap.innerHTML='';merged.forEach(v=>wrap.appendChild(makeCard(v)));note.remove();const ld=await Promise.all(merged.map(async v=>{let upload=v.published||'';if(!upload){try{upload=await fetchVideoDate(v.id)}catch{}}const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;return{"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":upload||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`}}));injectLD(ld)}catch(e){note.textContent='Не вдалося завантажити список. Спробуйте оновити сторінку пізніше.'}}
-  async function buildCurated(){const wrap=$('#curated'),note=$('#curatedNote');try{const arr=await Promise.all(CURATED_IDS.map(async id=>{let title='',thumb=null,published='';try{const emb=await fetchOEmbed(id);title=emb.title;thumb=emb.thumbnail_url}catch{}try{published=await fetchVideoDate(id)}catch{}return{id,title,thumb,published}}));wrap.innerHTML='';shuffle(arr).forEach(v=>wrap.appendChild(makeCard(v)));note.remove();const ld=arr.map(v=>{const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;return{"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":v.published||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`}});injectLD(ld)}catch(e){note.textContent='Тимчасово недоступно. Спробуйте пізніше.'}}
-  function injectLD(items){if(!items||!items.length)return;const tag=document.createElement('script');tag.type='application/ld+json';tag.textContent=JSON.stringify(items);document.head.appendChild(tag)}
-  document.getElementById('langSwitch').addEventListener('click',e=>{const btn=e.target.closest('.chip');if(!btn)return;const lang=btn.dataset.lang;saveLang(lang);setLang(lang)});
-  (function init(){const lang=getParamLang();setLang(lang);buildLatest();buildCurated();})();
+  // RSS by channel id (через легкий проксі, який віддає raw)
+  async function fetchRSS(channelId){
+    const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+    const r=await fetch(prox); if(!r.ok) throw new Error('rss');
+    const text=await r.text();
+    const xml=new DOMParser().parseFromString(text,'application/xml');
+    const entries=[...xml.querySelectorAll('entry')].map(e=>{
+      const id=(e.querySelector('yt\\:videoId, videoId')||{}).textContent;
+      const title=(e.querySelector('title')||{}).textContent;
+      const published=(e.querySelector('published')||{}).textContent||'';
+      let thumb=null; const m=e.querySelector('media\\:thumbnail, thumbnail'); if(m){ thumb=m.getAttribute('url') }
+      return { id, title, thumb, published };
+    }).filter(v=>v.id);
+    return entries;
+  }
+
+  async function fetchVideoDate(id){
+    const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?video_id=${id}`;
+    const r=await fetch(prox); if(!r.ok) throw new Error('rss');
+    const text=await r.text();
+    const xml=new DOMParser().parseFromString(text,'application/xml');
+    return (xml.querySelector('published')||{}).textContent||'';
+  }
+
+  async function buildLatest(){
+    const wrap=$('#latest'), note=$('#latestNote');
+    try{
+      const all=(await Promise.all(CHANNELS.map(c=>fetchRSS(c.id)))).flat();
+      const dedup=Array.from(new Map(all.map(v=>[v.id,v])).values());
+      const N=Math.min(18,dedup.length);
+      const first=dedup.slice(0,N), rest=dedup.slice(N);
+      const fixed=await Promise.all(first.map(async v=>{
+        if(v.title&&v.thumb) return v;
+        try{ const emb=await fetchOEmbed(v.id); return {...v, title:emb.title||v.title, thumb:emb.thumb||v.thumb} }
+        catch{ return v }
+      }));
+      const merged=shuffle([...fixed,...rest]).slice(0,24);
+      wrap.innerHTML=''; merged.forEach(v=>wrap.appendChild(makeCard(v)));
+      note.remove();
+
+      // JSON-LD (динамічний) — підсилює статичний
+      const ld=await Promise.all(merged.map(async v=>{
+        let upload=v.published||''; if(!upload){ try{upload=await fetchVideoDate(v.id)}catch{} }
+        const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+        return {"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":upload||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`};
+      }));
+      injectLD(ld);
+    }catch(e){
+      note.textContent='Не вдалося завантажити список. Спробуйте оновити сторінку пізніше.';
+    }
+  }
+
+  async function buildCurated(){
+    const wrap=$('#curated'), note=$('#curatedNote');
+    try{
+      const arr=await Promise.all(CURATED_IDS.map(async id=>{
+        let title='',thumb=null,published='';
+        try{ const emb=await fetchOEmbed(id); title=emb.title; thumb=emb.thumbnail_url }catch{}
+        try{ published=await fetchVideoDate(id) }catch{}
+        return { id, title, thumb, published };
+      }));
+      wrap.innerHTML=''; shuffle(arr).forEach(v=>wrap.appendChild(makeCard(v)));
+      note.remove();
+
+      const ld=arr.map(v=>{
+        const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+        return {"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":v.published||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`};
+      });
+      injectLD(ld);
+    }catch(e){
+      note.textContent='Тимчасово недоступно. Спробуйте пізніше.';
+    }
+  }
+
+  function injectLD(items){
+    if(!items||!items.length) return;
+    const tag=document.createElement('script');
+    tag.type='application/ld+json';
+    tag.textContent=JSON.stringify(items);
+    document.head.appendChild(tag);
+  }
+
+  // Lang UI
+  document.getElementById('langSwitch').addEventListener('click',e=>{
+    const btn=e.target.closest('.chip'); if(!btn) return;
+    const lang=btn.dataset.lang; saveLang(lang); setLang(lang);
+  });
+
+  // Init
+  (function init(){
+    const lang=getParamLang();
+    setLang(lang);
+    buildLatest();
+    buildCurated();
+  })();
   </script>
 
-  <!-- Лёгкая аналитика без кук -->
+  <!-- Лёгкая аналітика без кук -->
   <script defer data-domain="ukr-hits.online" src="https://plausible.io/js/script.js"></script>
 </body>
 </html>
