@@ -20,13 +20,24 @@
   <!-- Robots -->
   <meta name="robots" content="index,follow"/>
 
-  <!-- Open Graph -->
+  <!-- Social preview (OG/Twitter) -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Слухати українську музику онлайн — українські пісні та хіти"/>
   <meta property="og:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
   <meta property="og:url" content="https://ukr-hits.online/"/>
-  <meta property="og:image" content="https://i.ytimg.com/vi_webp/m27g1w60Hak/maxresdefault.webp"/>
+  <meta property="og:image" content="https://ukr-hits.online/social-share.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Слухати українську музику онлайн — українські пісні та хіти"/>
+  <meta name="twitter:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
+  <meta name="twitter:image" content="https://ukr-hits.online/social-share.jpg"/>
+
   <meta name="theme-color" content="#0d1117">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg">
 
   <!-- Preconnects -->
   <link rel="preconnect" href="https://www.youtube.com">
@@ -50,7 +61,7 @@
   }
   </script>
 
-  <!-- === Static JSON-LD for Google (VideoObject) — твои новые видео === -->
+  <!-- === Static JSON-LD for Google (VideoObject) — вибірка відео === -->
   <script type="application/ld+json">
   [
     {"@context":"https://schema.org","@type":"VideoObject","name":"Музичне відео","description":"Українська музика — підбірка.","thumbnailUrl":["https://i.ytimg.com/vi/Yn8kByhUiFo/hqdefault.jpg"],"uploadDate":"2025-09-01T00:00:00Z","embedUrl":"https://www.youtube.com/embed/Yn8kByhUiFo","url":"https://www.youtube.com/watch?v=Yn8kByhUiFo"},
@@ -136,6 +147,7 @@
     .tags{display:flex; gap:10px; flex-wrap:wrap; margin-top:26px}
     .tag{background:var(--chip); color:var(--chip-text); border:1px solid rgba(255,255,255,.08); padding:6px 10px; border-radius:999px}
     .footer{margin:28px 0 50px; color:var(--muted); font-size:12px; text-align:center}
+    .footer a{color:#cfe3ff; text-decoration:underline}
   </style>
 </head>
 <body>
@@ -183,7 +195,10 @@
       </div>
     </section>
 
-    <div class="footer">© ukr-hits.online — українська музика онлайн.</div>
+    <div class="footer">
+      © ukr-hits.online — українська музика онлайн ·
+      <a href="/about.html">Про проєкт / Контакти</a>
+    </div>
   </main>
 
   <script>
@@ -264,7 +279,7 @@
     return { title:j.title, thumb:j.thumbnail_url };
   }
 
-  // ===== CORS-friendly RSS через прокси (обход CORS) =====
+  // ===== CORS-friendly RSS через проксі (обхід CORS) =====
   async function fetchRSS(channelId){
     const proxied = `https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
     const r = await fetch(proxied); if(!r.ok) throw new Error('rss');
@@ -303,7 +318,7 @@
       wrap.innerHTML=''; merged.forEach(v=> wrap.appendChild(makeCard(v)));
       note.remove();
 
-      // JSON-LD динамически (на будущее, но Google уже видит статический блок)
+      // JSON-LD динамічно (для майбутніх сканувань)
       const ldItems = await Promise.all(merged.map(async v=>{
         let uploadDate = v.published || ''; if(!uploadDate){ try{ uploadDate = await fetchVideoDate(v.id) }catch(e){} }
         const thumb = v.thumb || `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
