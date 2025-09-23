@@ -26,8 +26,7 @@
   <meta property="og:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
   <meta property="og:url" content="https://ukr-hits.online/"/>
   <meta property="og:image" content="https://ukr-hits.online/social-share.jpg"/>
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Слухати українську музику онлайн — українські пісні та хіти"/>
   <meta name="twitter:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
@@ -69,7 +68,7 @@
   }
   </script>
 
-  <!-- STATIC VideoObject JSON-LD (все твої відео) -->
+  <!-- STATIC VideoObject JSON-LD (усі твої відео) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -168,8 +167,8 @@
     .footer{margin:32px 0 60px;color:var(--muted);font-size:12px;text-align:center}
     .footer a{color:#cfe3ff;text-decoration:underline}
 
-    /* Lang button + dropdown */
-    .lang-launcher{position:fixed;top:14px;right:14px;z-index:50}
+    /* Языковая кнопка + меню */
+    .lang-launcher{position:fixed;top:14px;right:14px;z-index:70}
     .lang-btn{background:var(--chip);color:var(--chip-text);border:1px solid rgba(255,255,255,.1);padding:8px 12px;border-radius:999px;display:flex;align-items:center;gap:8px;cursor:pointer}
     .lang-menu{position:absolute;right:0;margin-top:8px;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:var(--shadow);display:none;flex-direction:column;min-width:120px;overflow:hidden}
     .lang-menu[aria-expanded="true"]{display:flex}
@@ -177,16 +176,65 @@
     .lang-item:last-child{border-bottom:none}
     .lang-item[aria-current="true"]{background:rgba(125,252,91,.12);outline:2px solid rgba(125,252,91,.35)}
 
-    /* Social row */
+    /* Малые иконки соцсетей вверху */
+    .topbar{position:fixed;left:14px;top:14px;z-index:70;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .top-ico{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+    .top-ico svg{width:16px;height:16px}
+    .twinkle{animation:twinkle 2.6s ease-in-out infinite}
+    @keyframes twinkle{0%{filter:drop-shadow(0 0 0 rgba(125,252,91,0))}50%{filter:drop-shadow(0 0 6px rgba(125,252,91,.45))}100%{filter:drop-shadow(0 0 0 rgba(125,252,91,0))}}
+
+    /* Соцсети внизу */
     .socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
     .social{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
     .social svg{width:16px;height:16px}
     .breath{animation:breath 3s ease-in-out infinite}
     @keyframes breath{0%{box-shadow:0 0 0 0 rgba(125,252,91,.0)}50%{box-shadow:0 0 14px 0 rgba(125,252,91,.25)}100%{box-shadow:0 0 0 0 rgba(125,252,91,.0)}}
+
+    /* Кнопка «Встановити застосунок» */
+    .install-btn{position:fixed;right:14px;bottom:14px;z-index:60;display:flex;align-items:center;gap:10px;background:rgba(125,252,91,.12);border:1px solid rgba(125,252,91,.35);color:#dfffe3;padding:10px 14px;border-radius:999px;cursor:pointer;backdrop-filter:blur(6px)}
+    .install-btn .dot{width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 0 rgba(125,252,91,.8);animation:blink 2s infinite}
+    @keyframes blink{0%{box-shadow:0 0 0 0 rgba(125,252,91,.8)}70%{box-shadow:0 0 0 10px rgba(125,252,91,0)}100%{box-shadow:0 0 0 0 rgba(125,252,91,0)}}
+
+    /* Модал с инструкциями */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:90}
+    .modal[open]{display:flex}
+    .modal-card{max-width:820px;width:92%;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:var(--shadow);padding:18px}
+    .modal-card h3{margin:0 0 10px}
+    .tabs{display:flex;gap:8px;margin-bottom:12px}
+    .tab{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);cursor:pointer}
+    .tab[aria-selected="true"]{background:rgba(125,252,91,.12);outline:2px solid rgba(125,252,91,.35)}
+
+    .steps{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:720px){.steps{grid-template-columns:1fr 1fr}}
+    .step{display:flex;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
+    .step svg{flex:0 0 80px;width:80px;height:80px}
+
+    /* Еквалайзер (easter egg) */
+    .viz{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.0;transition:opacity .3s}
+    .viz.on{opacity:.9}
   </style>
 </head>
 <body>
-  <!-- Языки (кнопка + выпадающий список) -->
+  <!-- Верх: маленькие соц-иконки слева -->
+  <div class="topbar" aria-label="Соціальні мережі (швидкий доступ)">
+    <a class="top-ico twinkle" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener nofollow" title="Telegram">
+      <svg viewBox="0 0 24 24" fill="#27a7e7"><path d="M9.999 15.2l-.4 5.6c.57 0 .82-.24 1.12-.54l2.7-2.59 5.6 4.1c1.03.57 1.76.27 2.03-.95l3.68-17.25.01-.01c.33-1.53-.55-2.13-1.55-1.76L1.48 9.23C-.02 9.82-.01 10.7 1.21 11.08l5.63 1.76L19.3 5.58c.65-.43 1.24-.19.76.24"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank" rel="noopener nofollow" title="Spotify">
+      <svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.37 0 0 5.37 0 12c0 6.62 5.37 12 12 12s12-5.38 12-12c0-6.63-5.38-12-12-12Zm5.5 17.35a.83.83 0 0 1-1.14.28c-3.13-1.91-7.07-2.34-11.7-1.29a.83.83 0 1 1-.36-1.62c5.02-1.13 9.36-.64 12.82 1.44.39.24.52.76.28 1.19Zm1.56-3.13a1.04 1.04 0 0 1-1.43.35c-3.58-2.2-9.05-2.84-13.29-1.56a1.04 1.04 0 0 1-.6-2c4.79-1.43 10.85-.72 14.92 1.76.49.3.64.94.4 1.45Zm.14-3.29c-4.02-2.39-10.63-2.61-14.47-1.44a1.25 1.25 0 1 1-.72-2.39c4.43-1.33 11.79-1.07 16.36 1.64a1.25 1.25 0 0 1-1.17 2.19Z"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA?si=0nG6pDSrG5RbEwLX" target="_blank" rel="noopener nofollow" title="YouTube Music">
+      <svg viewBox="0 0 24 24" fill="#ff0033"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm-3 14V8l8 4-8 4Z"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://www.tiktok.com/@goldenwaveua?_t=ZN-8zAX5aHDz0w&_r=1" target="_blank" rel="noopener nofollow" title="TikTok">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M21 8.1a6.7 6.7 0 0 1-4.2-1.45v7.01a5.56 5.56 0 1 1-5.56-5.56 5.5 5.5 0 0 1 1.6.24v2.64a2.9 2.9 0 1 0 2.03 2.77V2h2.4a4.3 4.3 0 0 0 3.73 3.7v2.4Z"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://www.facebook.com/GoldenWaveUA/" target="_blank" rel="noopener nofollow" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M22 12a10 10 0 1 0-11.56 9.9v-7h-2.4V12h2.4V9.8c0-2.38 1.42-3.7 3.6-3.7 1.04 0 2.13.18 2.13.18v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48V12h2.64l-.42 2.9h-2.22v7A10 10 0 0 0 22 12Z"/></svg>
+    </a>
+  </div>
+
+  <!-- Языки -->
   <div class="lang-launcher" id="langLauncher">
     <button class="lang-btn" id="langBtn" aria-expanded="false" aria-controls="langMenu" title="Мова">
       <span>UA · RU · EN</span>
@@ -198,6 +246,12 @@
       <div class="lang-item" data-lang="en">EN</div>
     </div>
   </div>
+
+  <!-- Кнопка «Встановити застосунок» -->
+  <button class="install-btn" id="installBtn" type="button">
+    <span class="dot" aria-hidden="true"></span>
+    <strong>Встановити застосунок</strong>
+  </button>
 
   <main class="wrap">
     <header class="top">
@@ -233,6 +287,58 @@
       <div id="curated" class="grid" style="margin-top:14px;"></div>
     </section>
 
+    <!-- Інструкція з установлення (модал) -->
+    <dialog class="modal" id="installModal" aria-label="Як встановити застосунок">
+      <div class="modal-card">
+        <h3 id="instTitle">Встановити на головний екран</h3>
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" id="tab-ios" aria-selected="true">iPhone / iPad</button>
+          <button class="tab" role="tab" id="tab-android" aria-selected="false">Android</button>
+        </div>
+        <div class="steps" id="steps">
+          <!-- iOS steps by default -->
+          <div class="step">
+            <!-- tiny "screenshot"-style SVG -->
+            <svg viewBox="0 0 120 120">
+              <rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/>
+              <circle cx="30" cy="80" r="20" fill="#2b8cff"/>
+              <rect x="58" y="70" width="50" height="20" rx="6" fill="#1e2434"/>
+              <rect x="58" y="96" width="40" height="8" rx="4" fill="#26304a"/>
+            </svg>
+            <div>
+              <strong>Крок 1.</strong> Відкрий сайт у Safari.<br>
+              Натисни кнопку <em>Поділитися</em> (квадрат зі стрілкою вгору).
+            </div>
+          </div>
+          <div class="step">
+            <svg viewBox="0 0 120 120">
+              <rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/>
+              <rect x="16" y="20" width="88" height="12" rx="6" fill="#26304a"/>
+              <rect x="16" y="38" width="88" height="12" rx="6" fill="#26304a"/>
+              <rect x="16" y="56" width="88" height="12" rx="6" fill="#2b8cff"/>
+            </svg>
+            <div>
+              <strong>Крок 2.</strong> Обери <em>Додати на початковий екран</em>.
+            </div>
+          </div>
+          <div class="step">
+            <svg viewBox="0 0 120 120">
+              <rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/>
+              <rect x="22" y="24" width="76" height="16" rx="6" fill="#26304a"/>
+              <rect x="22" y="46" width="76" height="16" rx="6" fill="#26304a"/>
+              <rect x="22" y="80" width="76" height="16" rx="8" fill="#7dfc5b"/>
+            </svg>
+            <div>
+              <strong>Крок 3.</strong> Натисни <em>Додати</em>. Іконка зʼявиться на робочому столі.
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;justify-content:flex-end">
+          <button class="tab" id="closeModal">Закрити</button>
+        </div>
+      </div>
+    </dialog>
+
     <!-- SEO текст + теги -->
     <section class="section">
       <p id="seo-text" class="sub">
@@ -247,7 +353,7 @@
       </div>
     </section>
 
-    <!-- Соцсети -->
+    <!-- Соцсети (внизу полноразмерные) -->
     <section class="section">
       <div class="socials">
         <a class="social breath" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener nofollow" title="Telegram">
@@ -279,8 +385,11 @@
     </div>
   </main>
 
+  <!-- Визуализатор (easter egg) -->
+  <canvas class="viz" id="viz" aria-hidden="true"></canvas>
+
   <script>
-  /** ========= КОНСТАНТЫ ========= **/
+  /** ========= КОНСТАНТИ ========= **/
   const CHANNELS = [
     { id: 'UCXN8Ibh2QGNwZSwFJH423aw', name: 'GoldenWaveUA' },
     { id: 'UCXRzPkWX59hYAWgwgmpzc7w', name: 'Українська музика онлайн' },
@@ -309,8 +418,8 @@
         seo:'At <strong>ukr-hits.online</strong> you’ll find the best Ukrainian music: 2025 new releases, top hits and playlists for driving, parties and workouts. Click any card to open the YouTube video.'}
   };
 
-  /** ========= УСКОРЕНИЕ: КЭШ + МЕНЬШЕ ЗАПРОСОВ ========= **/
-  const CACHE_TTL = 6*60*60*1000; // 6 часов
+  /** ========= УСКОРЕННЯ: кэш + менше запитів ========= **/
+  const CACHE_TTL = 6*60*60*1000; // 6 годин
   function setCache(key, data){ try{ localStorage.setItem(key, JSON.stringify({t:Date.now(), d:data})) }catch{} }
   function getCache(key){ try{ const x=JSON.parse(localStorage.getItem(key)||''); if(x && Date.now()-x.t < CACHE_TTL) return x.d }catch{} return null }
   function pLimit(limit){
@@ -337,7 +446,7 @@
   function saveLang(lang){localStorage.setItem('lang',lang);const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState({},'',url.toString())}
   function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
-  /** ========= РЕНДЕР КАРТОЧКИ ========= **/
+  /** ========= КАРТКА ========= **/
   function makeCard({id,title,thumb}, priority='low'){
     const max=`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
     const hq =`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -357,7 +466,7 @@
     return a;
   }
 
-  /** ========= ЗАПРОСЫ ДАННЫХ ========= **/
+  /** ========= ДЖЕРЕЛА ДАНИХ ========= **/
   async function fetchOEmbed(id){
     const url=`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`;
     const r=await fetch(url); if(!r.ok) throw new Error('oEmbed'); const j=await r.json();
@@ -385,21 +494,16 @@
     return (xml.querySelector('published')||{}).textContent||'';
   }
 
-  /** ========= LAYOUT: ЛЕНТА ========= **/
+  /** ========= ЛЕНТА ========= **/
   async function buildLatest(){
     const wrap=$('#latest'), note=$('#latestNote');
     try{
-      // пробуем из кэша
       const cacheKey='latest_v1';
       const cached=getCache(cacheKey);
       if(cached && cached.length){
         wrap.innerHTML=''; cached.forEach(v=>wrap.appendChild(makeCard(v,'high')));
-        note.remove();
-        // фоновое обновление
-        refreshLatest(cacheKey, wrap);
-        return;
+        note.remove(); refreshLatest(cacheKey, wrap); return;
       }
-      // нет кэша — грузим
       const all=(await Promise.all(CHANNELS.map(c=>fetchRSS(c.id)))).flat();
       const dedup=Array.from(new Map(all.map(v=>[v.id,v])).values());
       const N=Math.min(18,dedup.length);
@@ -407,9 +511,8 @@
       const fixed=await Promise.all(first.map(v=>limit4(()=>fetchOEmbed(v.id).then(emb=>({...v,title:emb.title,thumb:emb.thumbnail_url})).catch(()=>v))));
       const merged=shuffle([...fixed,...rest]).slice(0,24);
       wrap.innerHTML=''; merged.forEach(v=>wrap.appendChild(makeCard(v,'high')));
-      note.remove();
-      setCache(cacheKey, merged);
-      // динамический JSON-LD (усиление)
+      note.remove(); setCache(cacheKey, merged);
+
       const ld=await Promise.all(merged.map(async v=>{
         let upload=v.published||''; if(!upload){ try{upload=await fetchVideoDate(v.id)}catch{} }
         const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
@@ -429,11 +532,9 @@
       const fixed=await Promise.all(first.map(v=>limit4(()=>fetchOEmbed(v.id).then(emb=>({...v,title:emb.title,thumb:emb.thumbnail_url})).catch(()=>v))));
       const merged=shuffle([...fixed,...rest]).slice(0,24);
       setCache(cacheKey, merged);
-      // мягкое обновление DOM (без скачков)
       const frag=document.createDocumentFragment();
       merged.forEach(v=>frag.appendChild(makeCard(v)));
-      wrap.innerHTML='';
-      wrap.appendChild(frag);
+      wrap.innerHTML=''; wrap.appendChild(frag);
     }catch{}
   }
 
@@ -444,9 +545,7 @@
       const cached=getCache(cacheKey);
       if(cached && cached.length){
         wrap.innerHTML=''; cached.forEach(v=>wrap.appendChild(makeCard(v)));
-        note.remove();
-        refreshCurated(cacheKey, wrap);
-        return;
+        note.remove(); refreshCurated(cacheKey, wrap); return;
       }
       const arr=await Promise.all(CURATED_IDS.map(id=>limit4(async()=> {
         let title='',thumb=null,published='';
@@ -455,8 +554,7 @@
         return { id, title, thumb, published };
       })));
       wrap.innerHTML=''; shuffle(arr).forEach(v=>wrap.appendChild(makeCard(v)));
-      note.remove();
-      setCache(cacheKey, arr);
+      note.remove(); setCache(cacheKey, arr);
       const ld=arr.map(v=>{
         const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
         return {"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":v.published||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`};
@@ -477,8 +575,7 @@
       setCache(cacheKey, arr);
       const frag=document.createDocumentFragment();
       shuffle(arr).forEach(v=>frag.appendChild(makeCard(v)));
-      wrap.innerHTML='';
-      wrap.appendChild(frag);
+      wrap.innerHTML=''; wrap.appendChild(frag);
     }catch{}
   }
 
@@ -490,7 +587,62 @@
     document.head.appendChild(tag);
   }
 
-  // Lang UI
+  /** ========= Модал інструкцій (iOS/Android) ========= **/
+  const installBtn = document.getElementById('installBtn');
+  const modal = document.getElementById('installModal');
+  const closeModal = document.getElementById('closeModal');
+  const tabIOS = document.getElementById('tab-ios');
+  const tabAndroid = document.getElementById('tab-android');
+  const steps = document.getElementById('steps');
+  const instTitle = document.getElementById('instTitle');
+
+  function renderIOS(){
+    steps.innerHTML = `
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><circle cx="30" cy="80" r="20" fill="#2b8cff"/><rect x="58" y="70" width="50" height="20" rx="6" fill="#1e2434"/><rect x="58" y="96" width="40" height="8" rx="4" fill="#26304a"/></svg>
+        <div><strong>Крок 1.</strong> Відкрий сайт у Safari.<br>Натисни <em>Поділитися</em> (квадрат зі стрілкою).</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="16" y="20" width="88" height="12" rx="6" fill="#26304a"/><rect x="16" y="38" width="88" height="12" rx="6" fill="#26304a"/><rect x="16" y="56" width="88" height="12" rx="6" fill="#2b8cff"/></svg>
+        <div><strong>Крок 2.</strong> Обери <em>Додати на початковий екран</em>.</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="22" y="24" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="46" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="80" width="76" height="16" rx="8" fill="#7dfc5b"/></svg>
+        <div><strong>Крок 3.</strong> Натисни <em>Додати</em>. Іконка зʼявиться на робочому столі.</div>
+      </div>`;
+    tabIOS.setAttribute('aria-selected','true'); tabAndroid.setAttribute('aria-selected','false');
+    instTitle.textContent='Встановити на головний екран (iOS)';
+  }
+  function renderAndroid(){
+    steps.innerHTML = `
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="20" y="20" width="80" height="10" rx="5" fill="#2b8cff"/><rect x="20" y="36" width="80" height="10" rx="5" fill="#26304a"/></svg>
+        <div><strong>Крок 1.</strong> Відкрий сайт у Chrome (Android). Натисни ⋮ (три крапки).</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="16" y="24" width="88" height="12" rx="6" fill="#2b8cff"/><rect x="16" y="42" width="88" height="12" rx="6" fill="#26304a"/></svg>
+        <div><strong>Крок 2.</strong> Обери <em>Додати на головний екран</em> або <em>Встановити застосунок</em>.</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="22" y="24" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="46" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="80" width="76" height="16" rx="8" fill="#7dfc5b"/></svg>
+        <div><strong>Крок 3.</strong> Підтвердь додавання. Іконка зʼявиться на робочому столі.</div>
+      </div>`;
+    tabIOS.setAttribute('aria-selected','false'); tabAndroid.setAttribute('aria-selected','true');
+    instTitle.textContent='Встановити на головний екран (Android)';
+  }
+
+  // Автовибір вкладки по платформі
+  const ua = navigator.userAgent || '';
+  if (/Android/i.test(ua)) { renderAndroid(); } else { renderIOS(); }
+
+  tabIOS.addEventListener('click', renderIOS);
+  tabAndroid.addEventListener('click', renderAndroid);
+
+  installBtn.addEventListener('click', ()=> modal.showModal());
+  closeModal.addEventListener('click', ()=> modal.close());
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.close(); });
+
+  /** ========= ЯЗЫКОВОЕ МЕНЮ ========= **/
   const langBtn = document.getElementById('langBtn');
   const langMenu = document.getElementById('langMenu');
   langBtn.addEventListener('click', ()=>{
@@ -507,12 +659,41 @@
     if(!e.target.closest('#langLauncher')){ langMenu.setAttribute('aria-expanded','false'); langBtn.setAttribute('aria-expanded','false');}
   });
 
-  // Init
+  /** ========= ІНІЦІАЛІЗАЦІЯ ========= **/
   (function init(){
     const lang=getParamLang();
     setLang(lang);
     buildLatest();
     buildCurated();
+  })();
+
+  /** ========= Еквалайзер (easter egg) ========= **/
+  (function viz(){
+    const c = document.getElementById('viz');
+    const ctx = c.getContext('2d');
+    function resize(){ c.width = innerWidth; c.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+    let on = false, t = 0;
+    function draw(){
+      if(!on) return;
+      t += 0.02;
+      ctx.clearRect(0,0,c.width,c.height);
+      const bars = Math.min(80, Math.floor(c.width/20));
+      for(let i=0;i<bars;i++){
+        const x = (i+1)*(c.width/(bars+1));
+        const h = (Math.sin(t+i*.3)+1)/2 * c.height*.5 + 40;
+        ctx.fillStyle = `hsl(${(i*8+t*60)%360} 90% 60%)`;
+        ctx.fillRect(x-6, c.height-h, 12, h);
+        ctx.shadowBlur=20; ctx.shadowColor='rgba(125,252,91,.35)';
+      }
+      requestAnimationFrame(draw);
+    }
+    // Konami
+    const seq = [38,38,40,40,37,39,37,39,66,65]; let buf=[];
+    addEventListener('keydown', e=>{
+      buf.push(e.keyCode); if(buf.length>seq.length) buf.shift();
+      if(seq.every((v,i)=>v===buf[i])){ on=!on; c.classList.toggle('on', on); if(on){ draw(); } }
+    });
   })();
   </script>
 
