@@ -702,5 +702,102 @@
 
   <!-- аналітика без кук -->
   <script defer data-domain="ukr-hits.online" src="https://plausible.io/js/script.js"></script>
+<!-- === RADIO WIDGET (YouTube playlist) === -->
+<style>
+  .radio-btn{
+    position:fixed; left:14px; bottom:74px; z-index:65;
+    display:flex; align-items:center; gap:10px;
+    background:rgba(39,167,231,.12); border:1px solid rgba(39,167,231,.35);
+    color:#dff4ff; padding:10px 14px; border-radius:999px; cursor:pointer; backdrop-filter:blur(6px);
+  }
+  .radio-btn .dot{width:8px;height:8px;border-radius:99px;background:#27a7e7;box-shadow:0 0 0 0 rgba(39,167,231,.8);animation:rb 2s infinite}
+  @keyframes rb{0%{box-shadow:0 0 0 0 rgba(39,167,231,.8)}70%{box-shadow:0 0 0 10px rgba(39,167,231,0)}100%{box-shadow:0 0 0 0 rgba(39,167,231,0)}}
+
+  .radio-dock{
+    position:fixed; left:14px; right:14px; bottom:14px; z-index:66;
+    display:none; align-items:center; gap:10px; padding:10px 12px;
+    background:rgba(15,21,33,.95); border:1px solid rgba(255,255,255,.1); border-radius:14px; box-shadow:0 6px 24px rgba(0,0,0,.4);
+  }
+  .radio-dock.on{display:flex}
+  .radio-title{color:#cfe3ff; font-size:14px; flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+  .radio-ctl{display:flex; gap:8px}
+  .radio-ctl button{
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#e6edf3;
+    border-radius:10px; padding:6px 10px; cursor:pointer;
+  }
+  .radio-frame{width:320px; max-width:48vw; height:64px; border:0; border-radius:10px; background:#000}
+  @media (max-width:600px){ .radio-frame{width:220px} }
+</style>
+
+<button class="radio-btn" id="radioBtn" type="button" title="Слухати радіо">
+  <span class="dot" aria-hidden="true"></span><strong>Слухати радіо</strong>
+</button>
+
+<div class="radio-dock" id="radioDock" role="region" aria-label="Онлайн-радіо">
+  <iframe class="radio-frame" id="radioFrame" allow="autoplay; encrypted-media" loading="lazy"></iframe>
+  <div class="radio-title" id="radioTitle">Українські хіти — онлайн</div>
+  <div class="radio-ctl">
+    <button id="radioShuffle">Shuffle</button>
+    <button id="radioClose">Згорнути</button>
+  </div>
+</div>
+
+<script>
+  (function(){
+    // Берём IDs из вашего уже существующего массива CURATED_IDS
+    const ids = (typeof CURATED_IDS!=='undefined' && CURATED_IDS.length) ? CURATED_IDS.slice() : [];
+    if(!ids.length) return;
+
+    // Перемешать для старта
+    for(let i=ids.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [ids[i],ids[j]]=[ids[j],ids[i]]; }
+
+    // Собираем YouTube embed со списком
+    function buildSrc(list){
+      const first = list[0];
+      const playlist = list.slice(1).join(',');
+      // loop=1 работает с playlist; modestbranding + controls=0 для компактности
+      return `https://www.youtube.com/embed/${first}?playlist=${playlist}&autoplay=1&loop=1&shuffle=1&rel=0&playsinline=1&modestbranding=1&controls=0`;
+    }
+
+    const btn = document.getElementById('radioBtn');
+    const dock = document.getElementById('radioDock');
+    const frame = document.getElementById('radioFrame');
+    const titleEl = document.getElementById('radioTitle');
+    const btnClose = document.getElementById('radioClose');
+    const btnShuffle = document.getElementById('radioShuffle');
+
+    // Название для «радио»
+    titleEl.textContent = 'Українські хіти — онлайн';
+
+    function openRadio(){
+      frame.src = buildSrc(ids);
+      dock.classList.add('on');
+    }
+    function closeRadio(){
+      dock.classList.remove('on');
+      // останавливаем звук
+      frame.src = 'about:blank';
+    }
+    function reshuffle(){
+      for(let i=ids.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [ids[i],ids[j]]=[ids[j],ids[i]]; }
+      frame.src = buildSrc(ids);
+    }
+
+    btn.addEventListener('click', openRadio);
+    btnClose.addEventListener('click', closeRadio);
+    btnShuffle.addEventListener('click', reshuffle);
+
+    // если пользователь прокрутил до низа и не включал — предложим
+    let prompted = false;
+    window.addEventListener('scroll', ()=>{
+      if(prompted) return;
+      if(window.scrollY > (document.body.scrollHeight - innerHeight*1.5)){
+        prompted = true;
+        btn.classList.add('ping');
+      }
+    }, {passive:true});
+  })();
+</script>
+<!-- === /RADIO WIDGET === -->
 </body>
 </html>
