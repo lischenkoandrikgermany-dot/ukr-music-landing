@@ -1,109 +1,706 @@
-<script>
-/* ===== UKR-Hits: Radio logic (использует CURATED_IDS) ===== */
-(() => {
-  // элементы
-  const $ = s => document.querySelector(s);
-  const panel = $('#gwPanel');
-  const nowEl = $('#gwNow');
-  const collapsedEl = $('#gwCollapsed');
-  const playBtn = $('#gwPlay');
-  const playLabel = $('#gwPlayLabel');
-  const prevBtn = $('#gwPrev');
-  const nextBtn = $('#gwNext');
-  const shufBtn = $('#gwShuf');
-  const openBtn = $('#gwOpen');
-  const miniBtn = $('#gwMiniOpen');
-  const closeBtn = $('#gwClose');
-  const minBtn = $('#gwMin');
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  // очередь — берем твой список
-  let queue = Array.isArray(window.CURATED_IDS) ? window.CURATED_IDS.slice() : [];
-  let shuffled = false;
+  <title>Слухати українську музику онлайн — українські пісні та хіти</title>
+  <meta name="description" content="Найкращі сучасні пісні 2025, популярні треки та добірки для настрою, танців і відпочинку. Сайт щодня підтягує нові відео з наших каналів на YouTube. Дякуємо, що слухаєте українське!">
+  <link rel="canonical" href="https://ukr-hits.online/"/>
 
-  function shuffleInPlace(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="uk" href="https://ukr-hits.online/"/>
+  <link rel="alternate" hreflang="ru" href="https://ukr-hits.online/?lang=ru"/>
+  <link rel="alternate" hreflang="en" href="https://ukr-hits.online/?lang=en"/>
+  <link rel="alternate" hreflang="x-default" href="https://ukr-hits.online/"/>
 
-  // Состояние
-  let player = null;
-  let currentIndex = 0;
-  let ready = false;
+  <!-- GSC -->
+  <meta name="google-site-verification" content="-zuh8RfQkIVkrOwf5ImImpFymd-18LM6NnNktT0UZfE" />
 
-  // API callback
-  window.onYouTubeIframeAPIReady = window.onYouTubeIframeAPIReady || function(){
-    if(!queue.length) return;
-    player = new YT.Player('gwPlayer', {
-      width: '100%',
-      height:'100%',
-      videoId: queue[currentIndex],
-      playerVars: {autoplay: 0, controls: 0, rel: 0, modestbranding: 1},
-      events:{
-        'onReady': (e)=>{ ready = true; updateTitle(); },
-        'onStateChange': (e)=>{
-          if(e.data === YT.PlayerState.ENDED){ next(); }
-          if(e.data === YT.PlayerState.PLAYING){ playLabel.textContent='Pause'; }
-          if(e.data === YT.PlayerState.PAUSED){ playLabel.textContent='Play'; }
-        }
-      }
-    });
+  <!-- Robots -->
+  <meta name="robots" content="index,follow"/>
+
+  <!-- Social preview -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Слухати українську музику онлайн — українські пісні та хіти"/>
+  <meta property="og:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
+  <meta property="og:url" content="https://ukr-hits.online/"/>
+  <meta property="og:image" content="https://ukr-hits.online/social-share.jpg"/>
+  <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Слухати українську музику онлайн — українські пісні та хіти"/>
+  <meta name="twitter:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
+  <meta name="twitter:image" content="https://ukr-hits.online/social-share.jpg"/>
+
+  <meta name="theme-color" content="#0d1117">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg?v=2">
+  <link rel="apple-touch-icon" href="/icon-512.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- WebSite JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"UKR Hits",
+    "url":"https://ukr-hits.online/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://ukr-hits.online/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    },
+    "publisher":{"@type":"Organization","name":"UKR Hits"}
+  }
+  </script>
+
+  <!-- FAQ JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Звідки беруться пісні?","acceptedAnswer":{"@type":"Answer","text":"Ми підтягуємо офіційні відео з наших YouTube-каналів і формуємо добірки."}},
+      {"@type":"Question","name":"Як часто оновлюється сайт?","acceptedAnswer":{"@type":"Answer","text":"Список оновлюється щодня автоматично, а добірки ми час від часу оновлюємо вручну."}}
+    ]
+  }
+  </script>
+
+  <!-- STATIC VideoObject JSON-LD (усі твої відео) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/Yn8kByhUiFo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/Yn8kByhUiFo","url":"https://www.youtube.com/watch?v=Yn8kByhUiFo"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/-2lPBoh3Hbk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/-2lPBoh3Hbk","url":"https://www.youtube.com/watch?v=-2lPBoh3Hbk"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/v5ZFj7fXSjk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/v5ZFj7fXSjk","url":"https://www.youtube.com/watch?v=v5ZFj7fXSjk"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/Ynh2P0-LVpQ/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/Ynh2P0-LVpQ","url":"https://www.youtube.com/watch?v=Ynh2P0-LVpQ"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/JLp8oiQG4aw/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/JLp8oiQG4aw","url":"https://www.youtube.com/watch?v=JLp8oiQG4aw"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/HfVH2JIPPac/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/HfVH2JIPPac","url":"https://www.youtube.com/watch?v=HfVH2JIPPac"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/HZlnYwCD8sk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/HZlnYwCD8sk","url":"https://www.youtube.com/watch?v=HZlnYwCD8sk"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/uLbTYlmX1Gc/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/uLbTYlmX1Gc","url":"https://www.youtube.com/watch?v=uLbTYlmX1Gc"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/CsafP-HROzc/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/CsafP-HROzc","url":"https://www.youtube.com/watch?v=CsafP-HROzc"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/U9RDViTrYAE/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/U9RDViTrYAE","url":"https://www.youtube.com/watch?v=U9RDViTrYAE"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/Lbr1vn7d38g/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/Lbr1vn7d38g","url":"https://www.youtube.com/watch?v=Lbr1vn7d38g"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/8b1X8Jel-ec/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/8b1X8Jel-ec","url":"https://www.youtube.com/watch?v=8b1X8Jel-ec"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/DzXFMOIMJHo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/DzXFMOIMJHo","url":"https://www.youtube.com/watch?v=DzXFMOIMJHo"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/t2KumAVfaXI/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/t2KumAVfaXI","url":"https://www.youtube.com/watch?v=t2KumAVfaXI"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/o377aoMBGnY/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/o377aoMBGnY","url":"https://www.youtube.com/watch?v=o377aoMBGnY"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/VufBPLckZi8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/VufBPLckZi8","url":"https://www.youtube.com/watch?v=VufBPLckZi8"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/L8xtCLF_RGw/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/L8xtCLF_RGw","url":"https://www.youtube.com/watch?v=L8xtCLF_RGw"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/d7D5IvF5rqg/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/d7D5IvF5rqg","url":"https://www.youtube.com/watch?v=d7D5IvF5rqg"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/x2XuttUjVRE/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/x2XuttUjVRE","url":"https://www.youtube.com/watch?v=x2XuttUjVRE"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/xcqsS73I_U4/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/xcqsS73I_U4","url":"https://www.youtube.com/watch?v=xcqsS73I_U4"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/dvqiGW2tk2M/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/dvqiGW2tk2M","url":"https://www.youtube.com/watch?v=dvqiGW2tk2M"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/FA438YuebB8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/FA438YuebB8","url":"https://www.youtube.com/watch?v=FA438YuebB8"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/KSyh6YbFk9k/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/KSyh6YbFk9k","url":"https://www.youtube.com/watch?v=KSyh6YbFk9k"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/6LLHpfYsroo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/6LLHpfYsroo","url":"https://www.youtube.com/watch?v=6LLHpfYsroo"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/dj5f7HWp3e8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/dj5f7HWp3e8","url":"https://www.youtube.com/watch?v=dj5f7HWp3e8"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/2MK2yN5Ri3E/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/2MK2yN5Ri3E","url":"https://www.youtube.com/watch?v=2MK2yN5Ri3E"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/VW8mofFsEVA/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/VW8mofFsEVA","url":"https://www.youtube.com/watch?v=VW8mofFsEVA"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/xoNx1APLGnk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/xoNx1APLGnk","url":"https://www.youtube.com/watch?v=xoNx1APLGnk"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/DUWx6WYkgAo/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/DUWx6WYkgAo","url":"https://www.youtube.com/watch?v=DUWx6WYkgAo"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/2phj7o_FGUI/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/2phj7o_FGUI","url":"https://www.youtube.com/watch?v=2phj7o_FGUI"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/iuMZRJMOvRw/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/iuMZRJMOvRw","url":"https://www.youtube.com/watch?v=iuMZRJMOvRw"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/LqKNrpxp0bI/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/LqKNrpxp0bI","url":"https://www.youtube.com/watch?v=LqKNrpxp0bI"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/M9Nv8BRMjNM/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/M9Nv8BRMjNM","url":"https://www.youtube.com/watch?v=M9Nv8BRMjNM"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/RTIFFvPRR6s/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/RTIFFvPRR6s","url":"https://www.youtube.com/watch?v=RTIFFvPRR6s"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/SKvfqHj3gXk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/SKvfqHj3gXk","url":"https://www.youtube.com/watch?v=SKvfqHj3gXk"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/22rx7g-mQmY/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/22rx7g-mQmY","url":"https://www.youtube.com/watch?v=22rx7g-mQmY"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/VMvpFNtLBQA/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/VMvpFNtLBQA","url":"https://www.youtube.com/watch?v=VMvpFNtLBQA"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/-gARpYK2DY4/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/-gARpYK2DY4","url":"https://www.youtube.com/watch?v=-gARpYK2DY4"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/BR9DO4HQkXM/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/BR9DO4HQkXM","url":"https://www.youtube.com/watch?v=BR9DO4HQkXM"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/hysuiarW09c/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/hysuiarW09c","url":"https://www.youtube.com/watch?v=hysuiarW09c"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/O2J_c13_CQY/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/O2J_c13_CQY","url":"https://www.youtube.com/watch?v=O2J_c13_CQY"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/06qgtig_XWk/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/06qgtig_XWk","url":"https://www.youtube.com/watch?v=06qgtig_XWk"},
+      {"@type":"VideoObject","name":"Music Video","description":"Music video","thumbnailUrl":["https://i.ytimg.com/vi/941lH_Kh-a8/hqdefault.jpg"],"uploadDate":"2025-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/941lH_Kh-a8","url":"https://www.youtube.com/watch?v=941lH_Kh-a8"}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0d1117; --panel:#0f1521; --card:#151b28; --card-hover:#1b2233;
+      --text:#e6edf3; --muted:#9fb0c5; --accent:#7dfc5b;
+      --chip:#1f2636; --chip-text:#cfe3ff; --shadow:0 6px 24px rgba(0,0,0,.4);
+      --tg:#27a7e7;
+    }
+    *{box-sizing:border-box}
+    html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:40px auto;padding:0 18px}
+
+    .top{background:linear-gradient(180deg,rgba(23,31,48,.7),rgba(23,31,48,.35));border-radius:22px;padding:20px 22px;box-shadow:var(--shadow);position:relative}
+    h1{margin:0 0 10px;font-size:28px;line-height:1.2}
+    @media (max-width:420px){h1{font-size:24px}}
+    .sub{color:var(--muted);font-size:15px;line-height:1.5}
+
+    .pulse{position:absolute;top:18px;right:18px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(125,252,91,.9);animation:pulse 1.8s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(125,252,91,.9)}70%{box-shadow:0 0 0 14px rgba(125,252,91,0)}100%{box-shadow:0 0 0 0 rgba(125,252,91,0)}}
+
+    .tg-cta{display:inline-flex;align-items:center;gap:10px;background:rgba(39,167,231,.12);border:1px solid rgba(39,167,231,.35);color:#dff4ff;padding:8px 12px;border-radius:999px;margin-top:12px}
+    .tg-cta .tg-ico{width:16px;height:16px;display:inline-block}
+    .tg-cta .blink{width:8px;height:8px;border-radius:99px;background:var(--tg);box-shadow:0 0 0 0 rgba(39,167,231,.8);animation:blink 2s infinite}
+    @keyframes blink{0%{box-shadow:0 0 0 0 rgba(39,167,231,.8)}70%{box-shadow:0 0 0 10px rgba(39,167,231,0)}100%{box-shadow:0 0 0 0 rgba(39,167,231,0)}}
+
+    .section{margin-top:28px}
+    .section h2{margin:0 0 12px;font-size:20px}
+    .panel{background:var(--panel);border-radius:18px;padding:12px 14px;display:inline-block;color:var(--muted)}
+
+    /* GRID: 2 на моб, 3 на планшет, 4 на десктоп + ускорение отрисовки */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr);content-visibility:auto;contain-intrinsic-size:180px 320px}
+    @media (min-width:680px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
+
+    .card{display:block;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .18s ease,background .18s ease}
+    .card:hover{transform:translateY(-2px);background:var(--card-hover)}
+    .thumb{position:relative;aspect-ratio:16/9;background:#0b0f18;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.02)}
+    .yt-badge{position:absolute;top:8px;left:8px;font-size:12px;background:rgba(12,16,28,.8);border:1px solid rgba(255,255,255,.12);color:#fff;padding:4px 8px;border-radius:999px;backdrop-filter:blur(6px)}
+    .title{padding:10px 12px 12px;font-size:14px;line-height:1.35;color:#e8eef7}
+
+    .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+    .tag{background:var(--chip);color:var(--chip-text);border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:999px}
+
+    .footer{margin:32px 0 60px;color:var(--muted);font-size:12px;text-align:center}
+    .footer a{color:#cfe3ff;text-decoration:underline}
+
+    /* Языковая кнопка + меню */
+    .lang-launcher{position:fixed;top:14px;right:14px;z-index:70}
+    .lang-btn{background:var(--chip);color:var(--chip-text);border:1px solid rgba(255,255,255,.1);padding:8px 12px;border-radius:999px;display:flex;align-items:center;gap:8px;cursor:pointer}
+    .lang-menu{position:absolute;right:0;margin-top:8px;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:var(--shadow);display:none;flex-direction:column;min-width:120px;overflow:hidden}
+    .lang-menu[aria-expanded="true"]{display:flex}
+    .lang-item{padding:10px 12px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.06)}
+    .lang-item:last-child{border-bottom:none}
+    .lang-item[aria-current="true"]{background:rgba(125,252,91,.12);outline:2px solid rgba(125,252,91,.35)}
+
+    /* Малые иконки соцсетей вверху */
+    .topbar{position:fixed;left:14px;top:14px;z-index:70;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .top-ico{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+    .top-ico svg{width:16px;height:16px}
+    .twinkle{animation:twinkle 2.6s ease-in-out infinite}
+    @keyframes twinkle{0%{filter:drop-shadow(0 0 0 rgba(125,252,91,0))}50%{filter:drop-shadow(0 0 6px rgba(125,252,91,.45))}100%{filter:drop-shadow(0 0 0 rgba(125,252,91,0))}}
+
+    /* Соцсети внизу */
+    .socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+    .social{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+    .social svg{width:16px;height:16px}
+    .breath{animation:breath 3s ease-in-out infinite}
+    @keyframes breath{0%{box-shadow:0 0 0 0 rgba(125,252,91,.0)}50%{box-shadow:0 0 14px 0 rgba(125,252,91,.25)}100%{box-shadow:0 0 0 0 rgba(125,252,91,.0)}}
+
+    /* Кнопка «Встановити застосунок» */
+    .install-btn{position:fixed;right:14px;bottom:14px;z-index:60;display:flex;align-items:center;gap:10px;background:rgba(125,252,91,.12);border:1px solid rgba(125,252,91,.35);color:#dfffe3;padding:10px 14px;border-radius:999px;cursor:pointer;backdrop-filter:blur(6px)}
+    .install-btn .dot{width:8px;height:8px;border-radius:99px;background:var(--accent);box-shadow:0 0 0 0 rgba(125,252,91,.8);animation:blink 2s infinite}
+    @keyframes blink{0%{box-shadow:0 0 0 0 rgba(125,252,91,.8)}70%{box-shadow:0 0 0 10px rgba(125,252,91,0)}100%{box-shadow:0 0 0 0 rgba(125,252,91,0)}}
+
+    /* Модал с инструкциями */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:90}
+    .modal[open]{display:flex}
+    .modal-card{max-width:820px;width:92%;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:var(--shadow);padding:18px}
+    .modal-card h3{margin:0 0 10px}
+    .tabs{display:flex;gap:8px;margin-bottom:12px}
+    .tab{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);cursor:pointer}
+    .tab[aria-selected="true"]{background:rgba(125,252,91,.12);outline:2px solid rgba(125,252,91,.35)}
+
+    .steps{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:720px){.steps{grid-template-columns:1fr 1fr}}
+    .step{display:flex;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
+    .step svg{flex:0 0 80px;width:80px;height:80px}
+
+    /* Еквалайзер (easter egg) */
+    .viz{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.0;transition:opacity .3s}
+    .viz.on{opacity:.9}
+
+    /* <<< ДОБАВЛЕНО: чтобы текст инструкции был белым >>> */
+    .modal-card, .modal-card * { color:#fff !important; }
+  </style>
+</head>
+<body>
+  <!-- Верх: маленькие соц-иконки слева -->
+  <div class="topbar" aria-label="Соціальні мережі (швидкий доступ)">
+    <a class="top-ico twinkle" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener nofollow" title="Telegram">
+      <svg viewBox="0 0 24 24" fill="#27a7e7"><path d="M9.999 15.2l-.4 5.6c.57 0 .82-.24 1.12-.54l2.7-2.59 5.6 4.1c1.03.57 1.76.27 2.03-.95l3.68-17.25.01-.01c.33-1.53-.55-2.13-1.55-1.76L1.48 9.23C-.02 9.82-.01 10.7 1.21 11.08l5.63 1.76L19.3 5.58c.65-.43 1.24-.19.76.24"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank" rel="noopener nofollow" title="Spotify">
+      <svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.37 0 0 5.37 0 12c0 6.62 5.37 12 12 12s12-5.38 12-12c0-6.63-5.38-12-12-12Zm5.5 17.35a.83.83 0 0 1-1.14.28c-3.13-1.91-7.07-2.34-11.7-1.29a.83.83 0 1 1-.36-1.62c5.02-1.13 9.36-.64 12.82 1.44.39.24.52.76.28 1.19Zm1.56-3.13a1.04 1.04 0 0 1-1.43.35c-3.58-2.2-9.05-2.84-13.29-1.56a1.04 1.04 0 0 1-.6-2c4.79-1.43 10.85-.72 14.92 1.76.49.3.64.94.4 1.45Zm.14-3.29c-4.02-2.39-10.63-2.61-14.47-1.44a1.25 1.25 0 1 1-.72-2.39c4.43-1.33 11.79-1.07 16.36 1.64a1.25 1.25 0 0 1-1.17 2.19Z"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA?si=0nG6pDSrG5RbEwLX" target="_blank" rel="noopener nofollow" title="YouTube Music">
+      <svg viewBox="0 0 24 24" fill="#ff0033"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm-3 14V8l8 4-8 4Z"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://www.tiktok.com/@goldenwaveua?_t=ZN-8zAX5aHDz0w&_r=1" target="_blank" rel="noopener nofollow" title="TikTok">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M21 8.1a6.7 6.7 0 0 1-4.2-1.45v7.01a5.56 5.56 0 1 1-5.56-5.56 5.5 5.5 0 0 1 1.6.24v2.64a2.9 2.9 0 1 0 2.03 2.77V2h2.4a4.3 4.3 0 0 0 3.73 3.7v2.4Z"/></svg>
+    </a>
+    <a class="top-ico twinkle" href="https://www.facebook.com/GoldenWaveUA/" target="_blank" rel="noopener nofollow" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M22 12a10 10 0 1 0-11.56 9.9v-7h-2.4V12h2.4V9.8c0-2.38 1.42-3.7 3.6-3.7 1.04 0 2.13.18 2.13.18v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48V12h2.64l-.42 2.9h-2.22v7A10 10 0 0 0 22 12Z"/></svg>
+    </a>
+  </div>
+
+  <!-- Языки -->
+  <div class="lang-launcher" id="langLauncher">
+    <button class="lang-btn" id="langBtn" aria-expanded="false" aria-controls="langMenu" title="Мова">
+      <span>UA · RU · EN</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#cfe3ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lang-menu" id="langMenu" aria-expanded="false">
+      <div class="lang-item" data-lang="uk" aria-current="true">UA</div>
+      <div class="lang-item" data-lang="ru">RU</div>
+      <div class="lang-item" data-lang="en">EN</div>
+    </div>
+  </div>
+
+  <!-- Кнопка «Встановити застосунок» -->
+  <button class="install-btn" id="installBtn" type="button">
+    <span class="dot" aria-hidden="true"></span>
+    <strong>Встановити застосунок</strong>
+  </button>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="pulse" aria-hidden="true" title="Online"></div>
+
+      <h1 id="h-title">Слухати українську музику онлайн — українські пісні та хіти</h1>
+      <p id="h-sub" class="sub">
+        Сучасні хіти 2025, популярні треки та найкращі добірки — для настрою, танців і відпочинку.
+        Відкривайте нові пісні, дивіться кліпи та підтримуйте українських артистів!
+      </p>
+
+      <!-- Telegram CTA -->
+      <a class="tg-cta breath" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener nofollow" title="Завантажити пісні в Telegram">
+        <span class="tg-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.999 15.2l-.4 5.6c.57 0 .82-.24 1.12-.54l2.7-2.59 5.6 4.1c1.03.57 1.76.27 2.03-.95l3.68-17.25.01-.01c.33-1.53-.55-2.13-1.55-1.76L1.48 9.23C-.02 9.82-.01 10.7 1.21 11.08l5.63 1.76L19.3 5.58c.65-.43 1.24-.19.76.24"/></svg>
+        </span>
+        <strong>Завантажити пісні в Telegram</strong>
+        <span class="blink" aria-hidden="true"></span>
+      </a>
+    </header>
+
+    <!-- Latest -->
+    <section class="section">
+      <h2 id="sec-latest">Останні відео з каналів</h2>
+      <div id="latestNote" class="panel">Завантажуємо свіжі релізи…</div>
+      <div id="latest" class="grid" style="margin-top:14px;"></div>
+    </section>
+
+    <!-- Curated -->
+    <section class="section">
+      <h2 id="sec-curated">Добірки — перевірені хіти</h2>
+      <div id="curatedNote" class="panel">Готуємо добірки…</div>
+      <div id="curated" class="grid" style="margin-top:14px;"></div>
+    </section>
+
+    <!-- Інструкція з установлення (модал) -->
+    <dialog class="modal" id="installModal" aria-label="Як встановити застосунок">
+      <div class="modal-card">
+        <h3 id="instTitle">Встановити на головний екран</h3>
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" id="tab-ios" aria-selected="true">iPhone / iPad</button>
+          <button class="tab" role="tab" id="tab-android" aria-selected="false">Android</button>
+        </div>
+        <div class="steps" id="steps">
+          <!-- iOS steps by default -->
+          <div class="step">
+            <!-- tiny "screenshot"-style SVG -->
+            <svg viewBox="0 0 120 120">
+              <rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/>
+              <circle cx="30" cy="80" r="20" fill="#2b8cff"/>
+              <rect x="58" y="70" width="50" height="20" rx="6" fill="#1e2434"/>
+              <rect x="58" y="96" width="40" height="8" rx="4" fill="#26304a"/>
+            </svg>
+            <div>
+              <strong>Крок 1.</strong> Відкрий сайт у Safari.<br>
+              Натисни кнопку <em>Поділитися</em> (квадрат зі стрілкою вгору).
+            </div>
+          </div>
+          <div class="step">
+            <svg viewBox="0 0 120 120">
+              <rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/>
+              <rect x="16" y="20" width="88" height="12" rx="6" fill="#26304a"/>
+              <rect x="16" y="38" width="88" height="12" rx="6" fill="#26304a"/>
+              <rect x="16" y="56" width="88" height="12" rx="6" fill="#2b8cff"/>
+            </svg>
+            <div>
+              <strong>Крок 2.</strong> Обери <em>Додати на початковий екран</em>.
+            </div>
+          </div>
+          <div class="step">
+            <svg viewBox="0 0 120 120">
+              <rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/>
+              <rect x="22" y="24" width="76" height="16" rx="6" fill="#26304a"/>
+              <rect x="22" y="46" width="76" height="16" rx="6" fill="#26304a"/>
+              <rect x="22" y="80" width="76" height="16" rx="8" fill="#7dfc5b"/>
+            </svg>
+            <div>
+              <strong>Крок 3.</strong> Натисни <em>Додати</em>. Іконка зʼявиться на робочому столі.
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;justify-content:flex-end">
+          <button class="tab" id="closeModal">Закрити</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- SEO текст + теги -->
+    <section class="section">
+      <p id="seo-text" class="sub">
+        На <strong>ukr-hits.online</strong> зібрана найкраща українська музика: новинки 2025, топ-хіти, плейлісти для авто, вечірок і тренувань.
+        Натискайте на будь-яку картку — відкриється ролик на YouTube. Дякуємо, що слухаєте українське!
+      </p>
+      <div class="tags" id="tagCloud" aria-label="Популярні теми">
+        <span class="tag">українські пісні</span><span class="tag">сучасні хіти</span><span class="tag">українська поп-музика</span>
+        <span class="tag">плейліст</span><span class="tag">музика для танців</span><span class="tag">музика для відпочинку</span>
+        <span class="tag">тренди YouTube</span><span class="tag">новинки 2025</span><span class="tag">популярні треки</span>
+        <span class="tag">для вечірок</span><span class="tag">плейлист в дорогу</span>
+      </div>
+    </section>
+
+    <!-- Соцсети (внизу полноразмерные) -->
+    <section class="section">
+      <div class="socials">
+        <a class="social breath" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener nofollow" title="Telegram">
+          <svg viewBox="0 0 24 24" fill="#27a7e7"><path d="M9.999 15.2l-.4 5.6c.57 0 .82-.24 1.12-.54l2.7-2.59 5.6 4.1c1.03.57 1.76.27 2.03-.95l3.68-17.25.01-.01c.33-1.53-.55-2.13-1.55-1.76L1.48 9.23C-.02 9.82-.01 10.7 1.21 11.08l5.63 1.76L19.3 5.58c.65-.43 1.24-.19.76.24"/></svg>
+          <span>Telegram</span>
+        </a>
+        <a class="social breath" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank" rel="noopener nofollow" title="Spotify">
+          <svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.37 0 0 5.37 0 12c0 6.62 5.37 12 12 12s12-5.38 12-12c0-6.63-5.38-12-12-12Zm5.5 17.35a.83.83 0 0 1-1.14.28c-3.13-1.91-7.07-2.34-11.7-1.29a.83.83 0 1 1-.36-1.62c5.02-1.13 9.36-.64 12.82 1.44.39.24.52.76.28 1.19Zm1.56-3.13a1.04 1.04 0 0 1-1.43.35c-3.58-2.2-9.05-2.84-13.29-1.56a1.04 1.04 0 0 1-.6-2c4.79-1.43 10.85-.72 14.92 1.76.49.3.64.94.4 1.45Zm.14-3.29c-4.02-2.39-10.63-2.61-14.47-1.44a1.25 1.25 0 1 1-.72-2.39c4.43-1.33 11.79-1.07 16.36 1.64a1.25 1.25 0 0 1-1.17 2.19Z"/></svg>
+          <span>Spotify</span>
+        </a>
+        <a class="social breath" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA?si=0nG6pDSrG5RbEwLX" target="_blank" rel="noopener nofollow" title="YouTube Music">
+          <svg viewBox="0 0 24 24" fill="#ff0033"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm-3 14V8l8 4-8 4Z"/></svg>
+          <span>YouTube Music</span>
+        </a>
+        <a class="social breath" href="https://www.tiktok.com/@goldenwaveua?_t=ZN-8zAX5aHDz0w&_r=1" target="_blank" rel="noopener nofollow" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M21 8.1a6.7 6.7 0 0 1-4.2-1.45v7.01a5.56 5.56 0 1 1-5.56-5.56 5.5 5.5 0 0 1 1.6.24v2.64a2.9 2.9 0 1 0 2.03 2.77V2h2.4a4.3 4.3 0 0 0 3.73 3.7v2.4Z"/></svg>
+          <span>TikTok</span>
+        </a>
+        <a class="social breath" href="https://www.facebook.com/GoldenWaveUA/" target="_blank" rel="noopener nofollow" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M22 12a10 10 0 1 0-11.56 9.9v-7h-2.4V12h2.4V9.8c0-2.38 1.42-3.7 3.6-3.7 1.04 0 2.13.18 2.13.18v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48V12h2.64л-.42 2.9h-2.22v7A10 10 0 0 0 22 12Z"/></svg>
+          <span>Facebook</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">
+      © ukr-hits.online — українська музика онлайн ·
+      <a href="/about.html">Про проєкт / Контакти (Telegram)</a>
+    </div>
+  </main>
+
+  <!-- Визуализатор (easter egg) -->
+  <canvas class="viz" id="viz" aria-hidden="true"></canvas>
+
+  <script>
+  /** ========= КОНСТАНТИ ========= **/
+  const CHANNELS = [
+    { id: 'UCXN8Ibh2QGNwZSwFJH423aw', name: 'GoldenWaveUA' },
+    { id: 'UCXRzPkWX59hYAWgwgmpzc7w', name: 'Українська музика онлайн' },
+    { id: 'UCA_3UxgDSooR8btEvbtFe1w', name: 'Українські пісні 2025' },
+  ];
+  const CURATED_IDS = [
+    'Yn8kByhUiFo','-2lPBoh3Hbk','v5ZFj7fXSjk','Ynh2P0-LVpQ','JLp8oiQG4aw','HfVH2JIPPac','HZlnYwCD8sk',
+    'uLbTYlmX1Gc','CsafP-HROzc','U9RDViTrYAE','Lbr1vn7d38g','8b1X8Jel-ec','DzXFMOIMJHo','t2KumAVfaXI',
+    'o377aoMBGnY','VufBPLckZi8','L8xtCLF_RGw','d7D5IvF5rqg','x2XuttUjVRE','xcqsS73I_U4','dvqiGW2tk2M',
+    'FA438YuebB8','KSyh6YbFk9k','6LLHpfYsroo','dj5f7HWp3e8','2MK2yN5Ri3E','VW8mofFsEVA','xoNx1APLGnk',
+    'DUWx6WYkgAo','2phj7o_FGUI','iuMZRJMOvRw','LqKNrpxp0bI','M9Nv8BRMjNM','RTIFFvPRR6s','SKvfqHj3gXk',
+    '22rx7g-mQmY','VMvpFNtLBQA','-gARpYK2DY4','BR9DO4HQkXM','hysuiarW09c','O2J_c13_CQY','06qgtig_XWk','941lH_Kh-a8'
+  ];
+  const i18n = {
+    uk:{title:'Слухати українську музику онлайн — українські пісні та хіти',
+        sub:'Сучасні хіти 2025, популярні треки та найкращі добірки — для настрою, танців і відпочинку. Відкривайте нові пісні, дивіться кліпи та підтримуйте українських артистів!',
+        latest:'Останні відео з каналів', curated:'Добірки — перевірені хіти',
+        seo:'На <strong>ukr-hits.online</strong> зібрана найкраща українська музика: новинки 2025, топ-хіти, плейлісти для авто, вечірок і тренувань. Натискайте на будь-яку картку — відкриється ролик на YouTube. Дякуємо, що слухаєте українське!'},
+    ru:{title:'Слушать украинскую музыку онлайн — украинские песни и хиты',
+        sub:'Современные хиты 2025, популярные треки и лучшие подборки — для настроения, танцев и отдыха. Открывайте новые песни, клипы и поддерживайте украинских артистов!',
+        latest:'Последние видео с каналов', curated:'Подборки — проверенные хиты',
+        seo:'На <strong>ukr-hits.online</strong> собрана лучшая украинская музыка: новинки 2025, топ-хиты, плейлисты для авто, вечеринок и тренировок. Нажимайте на любую карточку — откроется ролик на YouTube.'},
+    en:{title:'Listen to Ukrainian music online — songs & hits',
+        sub:'Top Ukrainian hits 2025, popular tracks and curated playlists for mood, dance and relax. Discover new songs, watch music videos and support Ukrainian artists!',
+        latest:'Latest videos', curated:'Curated — verified hits',
+        seo:'At <strong>ukr-hits.online</strong> you’ll find the best Ukrainian music: 2025 new releases, top hits and playlists for driving, parties and workouts. Click any card to open the YouTube video.'}
   };
 
-  function updateTitle(){
-    // минимально: показываем ID как fallback
-    nowEl.textContent = 'Відтворення…';
-    collapsedEl.textContent = 'Відтворення…';
+  /** ========= УСКОРЕННЯ: кэш + менше запитів ========= **/
+  const CACHE_TTL = 6*60*60*1000; // 6 годин
+  function setCache(key, data){ try{ localStorage.setItem(key, JSON.stringify({t:Date.now(), d:data})) }catch{} }
+  function getCache(key){ try{ const x=JSON.parse(localStorage.getItem(key)||''); if(x && Date.now()-x.t < CACHE_TTL) return x.d }catch{} return null }
+  function pLimit(limit){
+    let active=0, queue=[];
+    const next=()=>{ if(active>=limit || !queue.length) return;
+      active++; const {fn,resolve,reject}=queue.shift();
+      Promise.resolve().then(fn).then(v=>{active--; resolve(v); next()}).catch(e=>{active--; reject(e); next()});
+    };
+    return (fn)=>new Promise((res,rej)=>{ queue.push({fn,resolve:res,reject:rej}); next() });
+  }
+  const limit4 = pLimit(4);
+
+  /** ========= HELPERS ========= **/
+  const $ = s=>document.querySelector(s);
+  function setLang(lang){
+    const d=i18n[lang]||i18n.uk;
+    $('#h-title').innerText=d.title; $('#h-sub').innerText=d.sub;
+    $('#sec-latest').innerText=d.latest; $('#sec-curated').innerText=d.curated;
+    $('#seo-text').innerHTML=d.seo;
+    document.documentElement.lang=lang;
+    [...document.querySelectorAll('.lang-item')].forEach(c=>c.setAttribute('aria-current', c.dataset.lang===lang));
+  }
+  function getParamLang(){const url=new URL(location.href);return url.searchParams.get('lang')||localStorage.getItem('lang')||'uk'}
+  function saveLang(lang){localStorage.setItem('lang',lang);const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState({},'',url.toString())}
+  function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+  /** ========= КАРТКА ========= **/
+  function makeCard({id,title,thumb}, priority='low'){
+    const max=`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+    const hq =`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+    const pic=thumb||max;
+    const a=document.createElement('a');
+    a.className='card';
+    a.href=`https://www.youtube.com/watch?v=${id}`;
+    a.target='_blank'; a.rel='noopener nofollow';
+    a.innerHTML=`
+      <div class="thumb">
+        <img loading="lazy" decoding="async" fetchpriority="${priority}"
+             src="${pic}" onerror="this.src='${hq}'" alt="Переглянути відео на YouTube">
+        <span class="yt-badge">YouTube</span>
+      </div>
+      <div class="title"></div>`;
+    a.querySelector('.title').textContent=title||'';
+    return a;
+  }
+
+  /** ========= ДЖЕРЕЛА ДАНИХ ========= **/
+  async function fetchOEmbed(id){
+    const url=`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`;
+    const r=await fetch(url); if(!r.ok) throw new Error('oEmbed'); const j=await r.json();
+    return { title:j.title, thumb:j.thumbnail_url };
+  }
+  async function fetchRSS(channelId){
+    const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+    const r=await fetch(prox); if(!r.ok) throw new Error('rss');
+    const text=await r.text();
+    const xml=new DOMParser().parseFromString(text,'application/xml');
+    const entries=[...xml.querySelectorAll('entry')].map(e=>{
+      const id=(e.querySelector('yt\\:videoId, videoId')||{}).textContent;
+      const title=(e.querySelector('title')||{}).textContent;
+      const published=(e.querySelector('published')||{}).textContent||'';
+      let thumb=null; const m=e.querySelector('media\\:thumbnail, thumbnail'); if(m){ thumb=m.getAttribute('url') }
+      return { id, title, thumb, published };
+    }).filter(v=>v.id);
+    return entries;
+  }
+  async function fetchVideoDate(id){
+    const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?video_id=${id}`;
+    const r=await fetch(prox); if(!r.ok) throw new Error('rss');
+    const text=await r.text();
+    const xml=new DOMParser().parseFromString(text,'application/xml');
+    return (xml.querySelector('published')||{}).textContent||'';
+  }
+
+  /** ========= ЛЕНТА ========= **/
+  async function buildLatest(){
+    const wrap=$('#latest'), note=$('#latestNote');
     try{
-      // пробуем получить название через getVideoData()
-      const vd = player && player.getVideoData ? player.getVideoData() : null;
-      const t = vd && vd.title ? vd.title : `https://youtu.be/${queue[currentIndex]}`;
-      nowEl.textContent = t;
-      collapsedEl.textContent = t;
+      const cacheKey='latest_v1';
+      const cached=getCache(cacheKey);
+      if(cached && cached.length){
+        wrap.innerHTML=''; cached.forEach(v=>wrap.appendChild(makeCard(v,'high')));
+        note.remove(); refreshLatest(cacheKey, wrap); return;
+      }
+      const all=(await Promise.all(CHANNELS.map(c=>fetchRSS(c.id)))).flat();
+      const dedup=Array.from(new Map(all.map(v=>[v.id,v])).values());
+      const N=Math.min(18,dedup.length);
+      const first=dedup.slice(0,N), rest=dedup.slice(N);
+      const fixed=await Promise.all(first.map(v=>limit4(()=>fetchOEmbed(v.id).then(emb=>({...v,title:emb.title,thumb:emb.thumbnail_url})).catch(()=>v))));
+      const merged=shuffle([...fixed,...rest]).slice(0,24);
+      wrap.innerHTML=''; merged.forEach(v=>wrap.appendChild(makeCard(v,'high')));
+      note.remove(); setCache(cacheKey, merged);
+
+      const ld=await Promise.all(merged.map(async v=>{
+        let upload=v.published||''; if(!upload){ try{upload=await fetchVideoDate(v.id)}catch{} }
+        const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+        return {"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":upload||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`};
+      }));
+      injectLD(ld);
+    }catch(e){
+      note.textContent='Не вдалося завантажити список. Спробуйте оновити сторінку пізніше.';
+    }
+  }
+  async function refreshLatest(cacheKey, wrap){
+    try{
+      const all=(await Promise.all(CHANNELS.map(c=>fetchRSS(c.id)))).flat();
+      const dedup=Array.from(new Map(all.map(v=>[v.id,v])).values());
+      const N=Math.min(18,dedup.length);
+      const first=dedup.slice(0,N), rest=dedup.slice(N);
+      const fixed=await Promise.all(first.map(v=>limit4(()=>fetchOEmbed(v.id).then(emb=>({...v,title:emb.title,thumb:emb.thumbnail_url})).catch(()=>v))));
+      const merged=shuffle([...fixed,...rest]).slice(0,24);
+      setCache(cacheKey, merged);
+      const frag=document.createDocumentFragment();
+      merged.forEach(v=>frag.appendChild(makeCard(v)));
+      wrap.innerHTML=''; wrap.appendChild(frag);
     }catch{}
   }
 
-  function openPanel(){ panel.classList.add('open'); panel.classList.remove('minimized'); }
-  function closePanel(){ panel.classList.remove('open'); panel.classList.remove('minimized'); }
-  function minimize(){ panel.classList.add('minimized'); panel.classList.add('open'); }
-
-  function playPause(){
-    if(!ready || !player) return;
-    const st = player.getPlayerState();
-    if(st === YT.PlayerState.PLAYING){ player.pauseVideo(); playLabel.textContent='Play'; }
-    else { player.playVideo(); playLabel.textContent='Pause'; }
-  }
-
-  function load(i){
-    if(!player || !ready) return;
-    currentIndex = (i+queue.length)%queue.length;
-    player.loadVideoById(queue[currentIndex]);
-    updateTitle();
-  }
-
-  function prev(){ load(currentIndex-1); }
-  function next(){ load(currentIndex+1); }
-
-  // events
-  openBtn.addEventListener('click', openPanel);
-  if(miniBtn) miniBtn.addEventListener('click', openPanel);
-  closeBtn.addEventListener('click', closePanel);
-  minBtn.addEventListener('click', minimize);
-  playBtn.addEventListener('click', playPause);
-  prevBtn.addEventListener('click', prev);
-  nextBtn.addEventListener('click', next);
-  shufBtn.addEventListener('click', ()=>{
-    shuffled = !shuffled;
-    shufBtn.classList.toggle('active', shuffled);
-    if(shuffled){
-      const currentId = queue[currentIndex];
-      shuffleInPlace(queue);
-      // держим текущий трек на месте
-      currentIndex = queue.indexOf(currentId);
-    }else{
-      // возвращаем исходный порядок
-      queue = Array.isArray(window.CURATED_IDS) ? window.CURATED_IDS.slice() : queue;
-      currentIndex = Math.max(0, queue.indexOf(player.getVideoData().video_id || queue[currentIndex]));
+  async function buildCurated(){
+    const wrap=$('#curated'), note=$('#curatedNote');
+    try{
+      const cacheKey='curated_v1';
+      const cached=getCache(cacheKey);
+      if(cached && cached.length){
+        wrap.innerHTML=''; cached.forEach(v=>wrap.appendChild(makeCard(v)));
+        note.remove(); refreshCurated(cacheKey, wrap); return;
+      }
+      const arr=await Promise.all(CURATED_IDS.map(id=>limit4(async()=> {
+        let title='',thumb=null,published='';
+        try{ const emb=await fetchOEmbed(id); title=emb.title; thumb=emb.thumbnail_url }catch{}
+        try{ published=await fetchVideoDate(id) }catch{}
+        return { id, title, thumb, published };
+      })));
+      wrap.innerHTML=''; shuffle(arr).forEach(v=>wrap.appendChild(makeCard(v)));
+      note.remove(); setCache(cacheKey, arr);
+      const ld=arr.map(v=>{
+        const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+        return {"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":v.published||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`};
+      });
+      injectLD(ld);
+    }catch(e){
+      note.textContent='Тимчасово недоступно. Спробуйте пізніше.';
     }
+  }
+  async function refreshCurated(cacheKey, wrap){
+    try{
+      const arr=await Promise.all(CURATED_IDS.map(id=>limit4(async()=> {
+        let title='',thumb=null,published='';
+        try{ const emb=await fetchOEmbed(id); title=emb.title; thumb=emb.thumbnail_url }catch{}
+        try{ published=await fetchVideoDate(id) }catch{}
+        return { id, title, thumb, published };
+      })));
+      setCache(cacheKey, arr);
+      const frag=document.createDocumentFragment();
+      shuffle(arr).forEach(v=>frag.appendChild(makeCard(v)));
+      wrap.innerHTML=''; wrap.appendChild(frag);
+    }catch{}
+  }
+
+  function injectLD(items){
+    if(!items||!items.length) return;
+    const tag=document.createElement('script');
+    tag.type='application/ld+json';
+    tag.textContent=JSON.stringify(items);
+    document.head.appendChild(tag);
+  }
+
+  /** ========= Модал інструкцій (iOS/Android) ========= **/
+  const installBtn = document.getElementById('installBtn');
+  const modal = document.getElementById('installModal');
+  const closeModal = document.getElementById('closeModal');
+  const tabIOS = document.getElementById('tab-ios');
+  const tabAndroid = document.getElementById('tab-android');
+  const steps = document.getElementById('steps');
+  const instTitle = document.getElementById('instTitle');
+
+  function renderIOS(){
+    steps.innerHTML = `
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><circle cx="30" cy="80" r="20" fill="#2b8cff"/><rect x="58" y="70" width="50" height="20" rx="6" fill="#1e2434"/><rect x="58" y="96" width="40" height="8" rx="4" fill="#26304a"/></svg>
+        <div><strong>Крок 1.</strong> Відкрий сайт у Safari.<br>Натисни <em>Поділитися</em> (квадрат зі стрілкою).</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="16" y="20" width="88" height="12" rx="6" fill="#26304a"/><rect x="16" y="38" width="88" height="12" rx="6" fill="#26304a"/><rect x="16" y="56" width="88" height="12" rx="6" fill="#2b8cff"/></svg>
+        <div><strong>Крок 2.</strong> Обери <em>Додати на початковий екран</em>.</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="22" y="24" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="46" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="80" width="76" height="16" rx="8" fill="#7dfc5b"/></svg>
+        <div><strong>Крок 3.</strong> Натисни <em>Додати</em>. Іконка зʼявиться на робочому столі.</div>
+      </div>`;
+    tabIOS.setAttribute('aria-selected','true'); tabAndroid.setAttribute('aria-selected','false');
+    instTitle.textContent='Встановити на головний екран (iOS)';
+  }
+  function renderAndroid(){
+    steps.innerHTML = `
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="20" y="20" width="80" height="10" rx="5" fill="#2b8cff"/><rect x="20" y="36" width="80" height="10" rx="5" fill="#26304a"/></svg>
+        <div><strong>Крок 1.</strong> Відкрий сайт у Chrome (Android). Натисни ⋮ (три крапки).</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="16" y="24" width="88" height="12" rx="6" fill="#2b8cff"/><rect x="16" y="42" width="88" height="12" rx="6" fill="#26304a"/></svg>
+        <div><strong>Крок 2.</strong> Обери <em>Додати на головний екран</em> або <em>Встановити застосунок</em>.</div>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 120 120"><rect x="8" y="8" width="104" height="104" rx="12" fill="#121826"/><rect x="22" y="24" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="46" width="76" height="16" rx="6" fill="#26304a"/><rect x="22" y="80" width="76" height="16" rx="8" fill="#7dfc5b"/></svg>
+        <div><strong>Крок 3.</strong> Підтвердь додавання. Іконка зʼявиться на робочому столі.</div>
+      </div>`;
+    tabIOS.setAttribute('aria-selected','false'); tabAndroid.setAttribute('aria-selected','true');
+    instTitle.textContent='Встановити на головний екран (Android)';
+  }
+
+  // Автовибір вкладки по платформі
+  const ua = navigator.userAgent || '';
+  if (/Android/i.test(ua)) { renderAndroid(); } else { renderIOS(); }
+
+  tabIOS.addEventListener('click', renderIOS);
+  tabAndroid.addEventListener('click', renderAndroid);
+
+  installBtn.addEventListener('click', ()=> modal.showModal());
+  closeModal.addEventListener('click', ()=> modal.close());
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.close(); });
+
+  /** ========= ЯЗЫКОВОЕ МЕНЮ ========= **/
+  const langBtn = document.getElementById('langBtn');
+  const langMenu = document.getElementById('langMenu');
+  langBtn.addEventListener('click', ()=>{
+    const ex = langMenu.getAttribute('aria-expanded')==='true';
+    langMenu.setAttribute('aria-expanded', String(!ex));
+    langBtn.setAttribute('aria-expanded', String(!ex));
+  });
+  langMenu.addEventListener('click', e=>{
+    const it = e.target.closest('.lang-item'); if(!it) return;
+    const lang = it.dataset.lang; saveLang(lang); setLang(lang);
+    langMenu.setAttribute('aria-expanded','false'); langBtn.setAttribute('aria-expanded','false');
+  });
+  document.addEventListener('click', (e)=>{
+    if(!e.target.closest('#langLauncher')){ langMenu.setAttribute('aria-expanded','false'); langBtn.setAttribute('aria-expanded','false');}
   });
 
-  // Если API уже загрузился раньше
-  if(window.YT && window.YT.Player && !player){ window.onYouTubeIframeAPIReady(); }
-})();
-</script>
+  /** ========= ІНІЦІАЛІЗАЦІЯ ========= **/
+  (function init(){
+    const lang=getParamLang();
+    setLang(lang);
+    buildLatest();
+    buildCurated();
+  })();
+
+  /** ========= Еквалайзер (easter egg) ========= **/
+  (function viz(){
+    const c = document.getElementById('viz');
+    const ctx = c.getContext('2d');
+    function resize(){ c.width = innerWidth; c.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+    let on = false, t = 0;
+    function draw(){
+      if(!on) return;
+      t += 0.02;
+      ctx.clearRect(0,0,c.width,c.height);
+      const bars = Math.min(80, Math.floor(c.width/20));
+      for(let i=0;i<bars;i++){
+        const x = (i+1)*(c.width/(bars+1));
+        const h = (Math.sin(t+i*.3)+1)/2 * c.height*.5 + 40;
+        ctx.fillStyle = `hsl(${(i*8+t*60)%360} 90% 60%)`;
+        ctx.fillRect(x-6, c.height-h, 12, h);
+        ctx.shadowBlur=20; ctx.shadowColor='rgba(125,252,91,.35)';
+      }
+      requestAnimationFrame(draw);
+    }
+    // Konami
+    const seq = [38,38,40,40,37,39,37,39,66,65]; let buf=[];
+    addEventListener('keydown', e=>{
+      buf.push(e.keyCode); if(buf.length>seq.length) buf.shift();
+      if(seq.every((v,i)=>v===buf[i])){ on=!on; c.classList.toggle('on', on); if(on){ draw(); } }
+    });
+  })();
+  </script>
+
+  <!-- аналітика без кук -->
+  <script defer data-domain="ukr-hits.online" src="https://plausible.io/js/script.js"></script>
+</body>
+</html>
