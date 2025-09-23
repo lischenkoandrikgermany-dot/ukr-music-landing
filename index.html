@@ -8,7 +8,7 @@
   <meta name="description" content="Найкращі сучасні пісні 2025, популярні треки та добірки для настрою, танців і відпочинку. Сайт щодня підтягує нові відео з наших каналів на YouTube. Дякуємо, що слухаєте українське!">
   <link rel="canonical" href="https://ukr-hits.online/"/>
 
-  <!-- hreflang (варианты по параметру lang) -->
+  <!-- hreflang -->
   <link rel="alternate" hreflang="uk" href="https://ukr-hits.online/"/>
   <link rel="alternate" hreflang="ru" href="https://ukr-hits.online/?lang=ru"/>
   <link rel="alternate" hreflang="en" href="https://ukr-hits.online/?lang=en"/>
@@ -28,13 +28,13 @@
   <meta property="og:image" content="https://i.ytimg.com/vi_webp/m27g1w60Hak/maxresdefault.webp"/>
   <meta name="theme-color" content="#0d1117">
 
-  <!-- Preconnects for speed -->
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://www.youtube.com">
   <link rel="preconnect" href="https://i.ytimg.com">
   <link rel="dns-prefetch" href="//www.youtube.com">
   <link rel="dns-prefetch" href="//i.ytimg.com">
 
-  <!-- WebSite + Organization (статический JSON-LD) -->
+  <!-- WebSite JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -46,10 +46,7 @@
       "target":"https://ukr-hits.online/?q={search_term_string}",
       "query-input":"required name=search_term_string"
     },
-    "publisher": {
-      "@type":"Organization",
-      "name":"UKR Hits"
-    }
+    "publisher":{"@type":"Organization","name":"UKR Hits"}
   }
   </script>
 
@@ -57,7 +54,7 @@
     :root{
       --bg:#0d1117; --panel:#0f1521; --card:#151b28; --card-hover:#1b2233;
       --text:#e6edf3; --muted:#9fb0c5; --accent:#7dfc5b; --chip:#1f2636;
-      --chip-text:#cfe3ff; --shadow:0 6px 24px rgba(0,0,0,.4); --radius:18px;
+      --chip-text:#cfe3ff; --shadow:0 6px 24px rgba(0,0,0,.4);
     }
     *{box-sizing:border-box}
     html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif}
@@ -93,270 +90,4 @@
     .chip[aria-current="true"]{outline:2px solid rgba(125,252,91,.35)}
 
     .tags{display:flex; gap:10px; flex-wrap:wrap; margin-top:26px}
-    .tag{background:var(--chip); color:var(--chip-text); border:1px solid rgba(255,255,255,.08); padding:6px 10px; border-radius:999px; font-size:12px}
-
-    .footer{margin:28px 0 50px; color:var(--muted); font-size:12px; text-align:center}
-  </style>
-</head>
-<body>
-  <main class="wrap">
-
-    <header class="top">
-      <div class="pulse" aria-hidden="true" title="Online"></div>
-      <div class="lang" id="langSwitch">
-        <span class="chip" data-lang="uk" aria-current="true">UA</span>
-        <span class="chip" data-lang="ru">RU</span>
-        <span class="chip" data-lang="en">EN</span>
-      </div>
-      <h1 id="h-title">Слухати українську музику онлайн — українські пісні та хіти</h1>
-      <p id="h-sub" class="sub">
-        Сучасні хіти 2025, популярні треки та найкращі добірки — для настрою, танців і відпочинку. 
-        Відкривайте нові пісні, дивіться кліпи та підтримуйте українських артистів!
-      </p>
-    </header>
-
-    <!-- Latest from channels -->
-    <section class="section">
-      <h2 id="sec-latest">Останні відео з каналів</h2>
-      <div id="latestNote" class="panel">Завантажуємо свіжі релізи…</div>
-      <div id="latest" class="grid" style="margin-top:14px;"></div>
-    </section>
-
-    <!-- Curated / verified -->
-    <section class="section">
-      <h2 id="sec-curated">Добірки — перевірені хіти</h2>
-      <div id="curatedNote" class="panel">Готуємо добірки…</div>
-      <div id="curated" class="grid" style="margin-top:14px;"></div>
-    </section>
-
-    <!-- SEO текст + теги -->
-    <section class="section">
-      <p id="seo-text" class="sub">
-        На <strong>ukr-hits.online</strong> зібрана найкраща українська музика: новинки 2025, топ-хіти, плейлісти для авто, вечірок і тренувань. 
-        Натискайте на будь-яку картку — відкриється ролик на YouTube. Дякуємо, що слухаєте українське!
-      </p>
-      <div class="tags" id="tagCloud" aria-label="Популярні теми">
-        <span class="tag">українські пісні</span>
-        <span class="tag">сучасні хіти</span>
-        <span class="tag">українська поп-музика</span>
-        <span class="tag">плейліст</span>
-        <span class="tag">музика для танців</span>
-        <span class="tag">музика для відпочинку</span>
-        <span class="tag">тренди YouTube</span>
-        <span class="tag">новинки 2025</span>
-        <span class="tag">популярні треки</span>
-        <span class="tag">для вечірок</span>
-        <span class="tag">плейлист в дорогу</span>
-      </div>
-    </section>
-
-    <div class="footer">© ukr-hits.online — українська музика онлайн.</div>
-  </main>
-
-  <script>
-  /** ========= CONFIG ========= **/
-  const CHANNELS = [
-    { id: 'UCXN8Ibh2QGNwZSwFJH423aw', name: 'GoldenWaveUA' },
-    { id: 'UCXRzPkWX59hYAWgwgmpzc7w', name: 'Українська музика онлайн' },
-    { id: 'UCA_3UxgDSooR8btEvbtFe1w', name: 'Українські пісні 2025' },
-  ];
-
-  // Список роликов для «перевірені хіти»
-  const CURATED_IDS = [
-    'm27g1w60Hak','eUrTzCTbqRo','-2lPBoh3Hbk','9xhB6RUcQv4','V_7EhliRapU','v5ZFj7fXSjk','4vYgNVkFApg','-BD-q4uj4A8',
-    'H-Hx-e0EpTQ','iu7l0CmFjHk','1DvyyG11HZw','h8rr3QvUwJM','Hc9GSnnl9s4','gt7WnwSce1Y',
-    't2KumAVfaXI','o377aoMBGnY','Kp8Xjoj2yts','VufBPLckZi8','L8xtCLF_RGw','d7D5IvF5rqg','x2XuttUjVRE','xcqsS73I_U4',
-    'dvqiGW2tk2M','FA438YuebB8','KSyh6YbFk9k','6LLHpfYsroo','dj5f7HWp3e8','2MK2yN5Ri3E','VW8mofFsEVA',
-    'iuMZRJMOvRw','LqKNrpxp0bI','M9Nv8BRMjNM','RTIFFvPRR6s','SKvfqHj3gXk','22rx7g-mQmY','VMvpFNtLBQA',
-    '-gARpYK2DY4','BR9DO4HQkXM','hysuiarW09c','O2J_c13_CQY','06qgtig_XWk','941lH_Kh-a8','tCEe5i9fuk4','T5pBELEktAA'
-  ];
-
-  // Локализация
-  const i18n = {
-    uk:{title:'Слухати українську музику онлайн — українські пісні та хіти',
-        sub:'Сучасні хіти 2025, популярні треки та найкращі добірки — для настрою, танців і відпочинку. Відкривайте нові пісні, дивіться кліпи та підтримуйте українських артистів!',
-        latest:'Останні відео з каналів', curated:'Добірки — перевірені хіти',
-        seo:'На <strong>ukr-hits.online</strong> зібрана найкраща українська музика: новинки 2025, топ-хіти, плейлісти для авто, вечірок і тренувань. Натискайте на будь-яку картку — відкриється ролик на YouTube. Дякуємо, що слухаєте українське!'},
-    ru:{title:'Слушать украинскую музыку онлайн — украинские песни и хиты',
-        sub:'Современные хиты 2025, популярные треки и лучшие подборки — для настроения, танцев и отдыха. Открывайте новые песни, клипы и поддерживайте украинских артистов!',
-        latest:'Последние видео с каналов', curated:'Подборки — проверенные хиты',
-        seo:'На <strong>ukr-hits.online</strong> собрана лучшая украинская музыка: новинки 2025, топ-хиты, плейлисты для авто, вечеринок и тренировок. Нажимайте на любую карточку — откроется ролик на YouTube.'},
-    en:{title:'Listen to Ukrainian music online — songs & hits',
-        sub:'Top Ukrainian hits 2025, popular tracks and curated playlists for mood, dance and relax. Discover new songs, watch music videos and support Ukrainian artists!',
-        latest:'Latest videos', curated:'Curated — verified hits',
-        seo:'At <strong>ukr-hits.online</strong> you’ll find the best Ukrainian music: 2025 new releases, top hits and playlists for driving, parties and workouts. Click any card to open the YouTube video.'}
-  };
-
-  /** ========= Helpers ========= **/
-  const $ = s=>document.querySelector(s);
-  function setLang(lang){
-    const dict = i18n[lang]||i18n.uk;
-    $('#h-title').innerText = dict.title;
-    $('#h-sub').innerText   = dict.sub;
-    $('#sec-latest').innerText = dict.latest;
-    $('#sec-curated').innerText = dict.curated;
-    $('#seo-text').innerHTML = dict.seo;
-    document.documentElement.lang = lang;
-    [...document.querySelectorAll('.lang .chip')].forEach(c=>c.setAttribute('aria-current', c.dataset.lang===lang));
-  }
-  function getParamLang(){
-    const url = new URL(location.href);
-    return url.searchParams.get('lang') || localStorage.getItem('lang') || 'uk';
-  }
-  function saveLang(lang){
-    localStorage.setItem('lang', lang);
-    const url = new URL(location.href);
-    url.searchParams.set('lang', lang);
-    history.replaceState({}, '', url.toString());
-  }
-
-  // Fisher–Yates shuffle
-  function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]] } return a }
-
-  // Карточка
-  function makeCard({id,title,thumb}){
-    const max = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
-    const hq  = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-    const pic = thumb || max;
-    const a = document.createElement('a');
-    a.className='card';
-    a.href = `https://www.youtube.com/watch?v=${id}`;
-    a.target='_blank'; a.rel='noopener nofollow';
-    a.innerHTML = `
-      <div class="thumb">
-        <img loading="lazy" src="${pic}" onerror="this.src='${hq}'" alt="Переглянути відео на YouTube">
-        <span class="yt-badge">YouTube</span>
-      </div>
-      <div class="title"></div>
-    `;
-    a.querySelector('.title').textContent = title||'';
-    return a;
-  }
-
-  // oEmbed title/thumbnail
-  async function fetchOEmbed(id){
-    const url = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`;
-    const r = await fetch(url); if(!r.ok) throw new Error('oEmbed');
-    const j = await r.json();
-    return { title:j.title, thumb:j.thumbnail_url };
-  }
-
-  // Дата публикации через RSS по video_id (YouTube поддерживает такой фид)
-  async function fetchVideoDate(id){
-    const url = `https://www.youtube.com/feeds/videos.xml?video_id=${id}`;
-    const r = await fetch(url); if(!r.ok) throw new Error('rss');
-    const text = await r.text();
-    const xml = new DOMParser().parseFromString(text,'application/xml');
-    const published = (xml.querySelector('published')||{}).textContent || '';
-    // Возвращаем ISO (уже ISO8601 от YouTube, пригоден для uploadDate)
-    return published;
-  }
-
-  async function buildLatest(){
-    const wrap = $('#latest'), note=$('#latestNote');
-    try{
-      const all = (await Promise.all(CHANNELS.map(c=>fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${c.id}`).then(r=>r.text()))))
-        .map(t=>new DOMParser().parseFromString(t,'application/xml'))
-        .flatMap(xml=>[...xml.querySelectorAll('entry')].map(e=>{
-          const id = (e.querySelector('yt\\:videoId, videoId')||{}).textContent;
-          const title = (e.querySelector('title')||{}).textContent;
-          let thumb = null; const m = e.querySelector('media\\:thumbnail, thumbnail'); if(m){ thumb = m.getAttribute('url') }
-          const published = (e.querySelector('published')||{}).textContent || '';
-          return { id, title, thumb, published };
-        })).filter(v=>v.id);
-      const dedup = Array.from(new Map(all.map(v=>[v.id,v])).values());
-      const N = Math.min(18, dedup.length);
-      const first = dedup.slice(0,N);
-      const rest  = dedup.slice(N);
-      // добиваем превью по oEmbed (если нужно)
-      const fixed = await Promise.all(first.map(async v=>{
-        if(v.title && v.thumb) return v;
-        try{ const emb = await fetchOEmbed(v.id); return {...v, title:emb.title||v.title, thumb:emb.thumb||v.thumb} }
-        catch{ return v }
-      }));
-      const merged = shuffle([...fixed, ...rest]).slice(0,24);
-      wrap.innerHTML='';
-      merged.forEach(v=> wrap.appendChild(makeCard(v)));
-      note.remove();
-
-      // ==== JSON-LD для последних: собираем VideoObject c uploadDate ====
-      const ldItems = await Promise.all(merged.map(async v=>{
-        let uploadDate = v.published;
-        if(!uploadDate){ try{ uploadDate = await fetchVideoDate(v.id) }catch(e){} }
-        const thumb = v.thumb || `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
-        return {
-          "@context":"https://schema.org",
-          "@type":"VideoObject",
-          "name": v.title || "Music Video",
-          "description": v.title || "Music video",
-          "thumbnailUrl": [thumb],
-          "uploadDate": uploadDate || new Date().toISOString(),
-          "embedUrl": `https://www.youtube.com/embed/${v.id}`,
-          "url": `https://www.youtube.com/watch?v=${v.id}`
-        };
-      }));
-      injectLD(ldItems);
-
-    }catch(e){
-      note.textContent = 'Не вдалося завантажити список. Спробуйте оновити сторінку пізніше.';
-    }
-  }
-
-  async function buildCurated(){
-    const wrap = $('#curated'), note=$('#curatedNote');
-    try{
-      const arr = await Promise.all(CURATED_IDS.map(async id=>{
-        let title='', thumb=null, published='';
-        try{ const emb = await fetchOEmbed(id); title = emb.title; thumb = emb.thumbnail_url }catch(e){}
-        try{ published = await fetchVideoDate(id) }catch(e){}
-        return {id, title, thumb, published};
-      }));
-      wrap.innerHTML='';
-      shuffle(arr).forEach(v=> wrap.appendChild(makeCard(v)));
-      note.remove();
-
-      // ==== JSON-LD для curated ====
-      const ldItems = arr.map(v=>{
-        const thumb = v.thumb || `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
-        return {
-          "@context":"https://schema.org",
-          "@type":"VideoObject",
-          "name": v.title || "Music Video",
-          "description": v.title || "Music video",
-          "thumbnailUrl": [thumb],
-          "uploadDate": v.published || new Date().toISOString(),
-          "embedUrl": `https://www.youtube.com/embed/${v.id}`,
-          "url": `https://www.youtube.com/watch?v=${v.id}`
-        };
-      });
-      injectLD(ldItems);
-
-    }catch(e){
-      note.textContent='Тимчасово недоступно. Спробуйте пізніше.';
-    }
-  }
-
-  function injectLD(items){
-    if(!items || !items.length) return;
-    const tag = document.createElement('script');
-    tag.type = 'application/ld+json';
-    tag.textContent = JSON.stringify(items);
-    document.head.appendChild(tag);
-  }
-
-  // Переключение языка
-  document.getElementById('langSwitch').addEventListener('click',e=>{
-    const btn = e.target.closest('.chip'); if(!btn) return;
-    const lang = btn.dataset.lang; saveLang(lang); setLang(lang);
-  });
-
-  // Init
-  (function init(){
-    const lang = getParamLang();
-    setLang(lang);
-    buildLatest();
-    buildCurated();
-  })();
-  </script>
-</body>
-</html>
+    .tag{background:var(--chip); color:var(--
