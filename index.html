@@ -26,7 +26,8 @@
   <meta property="og:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
   <meta property="og:url" content="https://ukr-hits.online/"/>
   <meta property="og:image" content="https://ukr-hits.online/social-share.jpg"/>
-  <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Слухати українську музику онлайн — українські пісні та хіти"/>
   <meta name="twitter:description" content="Добірки для настрою, танців і відпочинку. Нові пісні, хіти та кліпи — з наших YouTube-каналів."/>
@@ -149,8 +150,8 @@
     .section h2{margin:0 0 12px;font-size:20px}
     .panel{background:var(--panel);border-radius:18px;padding:12px 14px;display:inline-block;color:var(--muted)}
 
-    /* GRID: 2 на моб, 3 на планшет, 4 на десктоп */
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+    /* GRID: 2 на моб, 3 на планшет, 4 на десктоп + ускорение отрисовки */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr);content-visibility:auto;contain-intrinsic-size:180px 320px}
     @media (min-width:680px){.grid{grid-template-columns:repeat(3,1fr)}}
     @media (min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
 
@@ -279,14 +280,12 @@
   </main>
 
   <script>
-  /** ========= CONFIG ========= **/
+  /** ========= КОНСТАНТЫ ========= **/
   const CHANNELS = [
     { id: 'UCXN8Ibh2QGNwZSwFJH423aw', name: 'GoldenWaveUA' },
     { id: 'UCXRzPkWX59hYAWgwgmpzc7w', name: 'Українська музика онлайн' },
     { id: 'UCA_3UxgDSooR8btEvbtFe1w', name: 'Українські пісні 2025' },
   ];
-
-  // Добірки (оновлюй за потреби)
   const CURATED_IDS = [
     'Yn8kByhUiFo','-2lPBoh3Hbk','v5ZFj7fXSjk','Ynh2P0-LVpQ','JLp8oiQG4aw','HfVH2JIPPac','HZlnYwCD8sk',
     'uLbTYlmX1Gc','CsafP-HROzc','U9RDViTrYAE','Lbr1vn7d38g','8b1X8Jel-ec','DzXFMOIMJHo','t2KumAVfaXI',
@@ -295,7 +294,6 @@
     'DUWx6WYkgAo','2phj7o_FGUI','iuMZRJMOvRw','LqKNrpxp0bI','M9Nv8BRMjNM','RTIFFvPRR6s','SKvfqHj3gXk',
     '22rx7g-mQmY','VMvpFNtLBQA','-gARpYK2DY4','BR9DO4HQkXM','hysuiarW09c','O2J_c13_CQY','06qgtig_XWk','941lH_Kh-a8'
   ];
-
   const i18n = {
     uk:{title:'Слухати українську музику онлайн — українські пісні та хіти',
         sub:'Сучасні хіти 2025, популярні треки та найкращі добірки — для настрою, танців і відпочинку. Відкривайте нові пісні, дивіться кліпи та підтримуйте українських артистів!',
@@ -311,12 +309,26 @@
         seo:'At <strong>ukr-hits.online</strong> you’ll find the best Ukrainian music: 2025 new releases, top hits and playlists for driving, parties and workouts. Click any card to open the YouTube video.'}
   };
 
-  /** ========= Helpers ========= **/
+  /** ========= УСКОРЕНИЕ: КЭШ + МЕНЬШЕ ЗАПРОСОВ ========= **/
+  const CACHE_TTL = 6*60*60*1000; // 6 часов
+  function setCache(key, data){ try{ localStorage.setItem(key, JSON.stringify({t:Date.now(), d:data})) }catch{} }
+  function getCache(key){ try{ const x=JSON.parse(localStorage.getItem(key)||''); if(x && Date.now()-x.t < CACHE_TTL) return x.d }catch{} return null }
+  function pLimit(limit){
+    let active=0, queue=[];
+    const next=()=>{ if(active>=limit || !queue.length) return;
+      active++; const {fn,resolve,reject}=queue.shift();
+      Promise.resolve().then(fn).then(v=>{active--; resolve(v); next()}).catch(e=>{active--; reject(e); next()});
+    };
+    return (fn)=>new Promise((res,rej)=>{ queue.push({fn,resolve:res,reject:rej}); next() });
+  }
+  const limit4 = pLimit(4);
+
+  /** ========= HELPERS ========= **/
   const $ = s=>document.querySelector(s);
   function setLang(lang){
     const d=i18n[lang]||i18n.uk;
-    $('#h-title').innerText=d.title;$('#h-sub').innerText=d.sub;
-    $('#sec-latest').innerText=d.latest;$('#sec-curated').innerText=d.curated;
+    $('#h-title').innerText=d.title; $('#h-sub').innerText=d.sub;
+    $('#sec-latest').innerText=d.latest; $('#sec-curated').innerText=d.curated;
     $('#seo-text').innerHTML=d.seo;
     document.documentElement.lang=lang;
     [...document.querySelectorAll('.lang-item')].forEach(c=>c.setAttribute('aria-current', c.dataset.lang===lang));
@@ -325,7 +337,8 @@
   function saveLang(lang){localStorage.setItem('lang',lang);const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState({},'',url.toString())}
   function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
-  function makeCard({id,title,thumb}){
+  /** ========= РЕНДЕР КАРТОЧКИ ========= **/
+  function makeCard({id,title,thumb}, priority='low'){
     const max=`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
     const hq =`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
     const pic=thumb||max;
@@ -335,7 +348,8 @@
     a.target='_blank'; a.rel='noopener nofollow';
     a.innerHTML=`
       <div class="thumb">
-        <img loading="lazy" src="${pic}" onerror="this.src='${hq}'" alt="Переглянути відео на YouTube">
+        <img loading="lazy" decoding="async" fetchpriority="${priority}"
+             src="${pic}" onerror="this.src='${hq}'" alt="Переглянути відео на YouTube">
         <span class="yt-badge">YouTube</span>
       </div>
       <div class="title"></div>`;
@@ -343,13 +357,12 @@
     return a;
   }
 
+  /** ========= ЗАПРОСЫ ДАННЫХ ========= **/
   async function fetchOEmbed(id){
     const url=`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`;
-    const r=await fetch(url); if(!r.ok) throw new Error('oEmbed');
-    const j=await r.json();
+    const r=await fetch(url); if(!r.ok) throw new Error('oEmbed'); const j=await r.json();
     return { title:j.title, thumb:j.thumbnail_url };
   }
-
   async function fetchRSS(channelId){
     const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
     const r=await fetch(prox); if(!r.ok) throw new Error('rss');
@@ -364,7 +377,6 @@
     }).filter(v=>v.id);
     return entries;
   }
-
   async function fetchVideoDate(id){
     const prox=`https://r.jina.ai/http://www.youtube.com/feeds/videos.xml?video_id=${id}`;
     const r=await fetch(prox); if(!r.ok) throw new Error('rss');
@@ -373,22 +385,31 @@
     return (xml.querySelector('published')||{}).textContent||'';
   }
 
+  /** ========= LAYOUT: ЛЕНТА ========= **/
   async function buildLatest(){
     const wrap=$('#latest'), note=$('#latestNote');
     try{
+      // пробуем из кэша
+      const cacheKey='latest_v1';
+      const cached=getCache(cacheKey);
+      if(cached && cached.length){
+        wrap.innerHTML=''; cached.forEach(v=>wrap.appendChild(makeCard(v,'high')));
+        note.remove();
+        // фоновое обновление
+        refreshLatest(cacheKey, wrap);
+        return;
+      }
+      // нет кэша — грузим
       const all=(await Promise.all(CHANNELS.map(c=>fetchRSS(c.id)))).flat();
       const dedup=Array.from(new Map(all.map(v=>[v.id,v])).values());
       const N=Math.min(18,dedup.length);
       const first=dedup.slice(0,N), rest=dedup.slice(N);
-      const fixed=await Promise.all(first.map(async v=>{
-        if(v.title&&v.thumb) return v;
-        try{ const emb=await fetchOEmbed(v.id); return {...v, title:emb.title||v.title, thumb:emb.thumb||v.thumb} }
-        catch{ return v }
-      }));
+      const fixed=await Promise.all(first.map(v=>limit4(()=>fetchOEmbed(v.id).then(emb=>({...v,title:emb.title,thumb:emb.thumbnail_url})).catch(()=>v))));
       const merged=shuffle([...fixed,...rest]).slice(0,24);
-      wrap.innerHTML=''; merged.forEach(v=>wrap.appendChild(makeCard(v)));
+      wrap.innerHTML=''; merged.forEach(v=>wrap.appendChild(makeCard(v,'high')));
       note.remove();
-
+      setCache(cacheKey, merged);
+      // динамический JSON-LD (усиление)
       const ld=await Promise.all(merged.map(async v=>{
         let upload=v.published||''; if(!upload){ try{upload=await fetchVideoDate(v.id)}catch{} }
         const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
@@ -399,19 +420,43 @@
       note.textContent='Не вдалося завантажити список. Спробуйте оновити сторінку пізніше.';
     }
   }
+  async function refreshLatest(cacheKey, wrap){
+    try{
+      const all=(await Promise.all(CHANNELS.map(c=>fetchRSS(c.id)))).flat();
+      const dedup=Array.from(new Map(all.map(v=>[v.id,v])).values());
+      const N=Math.min(18,dedup.length);
+      const first=dedup.slice(0,N), rest=dedup.slice(N);
+      const fixed=await Promise.all(first.map(v=>limit4(()=>fetchOEmbed(v.id).then(emb=>({...v,title:emb.title,thumb:emb.thumbnail_url})).catch(()=>v))));
+      const merged=shuffle([...fixed,...rest]).slice(0,24);
+      setCache(cacheKey, merged);
+      // мягкое обновление DOM (без скачков)
+      const frag=document.createDocumentFragment();
+      merged.forEach(v=>frag.appendChild(makeCard(v)));
+      wrap.innerHTML='';
+      wrap.appendChild(frag);
+    }catch{}
+  }
 
   async function buildCurated(){
     const wrap=$('#curated'), note=$('#curatedNote');
     try{
-      const arr=await Promise.all(CURATED_IDS.map(async id=>{
+      const cacheKey='curated_v1';
+      const cached=getCache(cacheKey);
+      if(cached && cached.length){
+        wrap.innerHTML=''; cached.forEach(v=>wrap.appendChild(makeCard(v)));
+        note.remove();
+        refreshCurated(cacheKey, wrap);
+        return;
+      }
+      const arr=await Promise.all(CURATED_IDS.map(id=>limit4(async()=> {
         let title='',thumb=null,published='';
         try{ const emb=await fetchOEmbed(id); title=emb.title; thumb=emb.thumbnail_url }catch{}
         try{ published=await fetchVideoDate(id) }catch{}
         return { id, title, thumb, published };
-      }));
-      wrap.innerHTML=''; shuffle(arr).forEach(v=> wrap.appendChild(makeCard(v)));
+      })));
+      wrap.innerHTML=''; shuffle(arr).forEach(v=>wrap.appendChild(makeCard(v)));
       note.remove();
-
+      setCache(cacheKey, arr);
       const ld=arr.map(v=>{
         const t=v.thumb||`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
         return {"@context":"https://schema.org","@type":"VideoObject","name":v.title||"Music Video","description":v.title||"Music video","thumbnailUrl":[t],"uploadDate":v.published||new Date().toISOString(),"embedUrl":`https://www.youtube.com/embed/${v.id}`,"url":`https://www.youtube.com/watch?v=${v.id}`};
@@ -420,6 +465,21 @@
     }catch(e){
       note.textContent='Тимчасово недоступно. Спробуйте пізніше.';
     }
+  }
+  async function refreshCurated(cacheKey, wrap){
+    try{
+      const arr=await Promise.all(CURATED_IDS.map(id=>limit4(async()=> {
+        let title='',thumb=null,published='';
+        try{ const emb=await fetchOEmbed(id); title=emb.title; thumb=emb.thumbnail_url }catch{}
+        try{ published=await fetchVideoDate(id) }catch{}
+        return { id, title, thumb, published };
+      })));
+      setCache(cacheKey, arr);
+      const frag=document.createDocumentFragment();
+      shuffle(arr).forEach(v=>frag.appendChild(makeCard(v)));
+      wrap.innerHTML='';
+      wrap.appendChild(frag);
+    }catch{}
   }
 
   function injectLD(items){
