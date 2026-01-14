@@ -1,197 +1,170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <title>Українські пісні 2025-2026: Слухати сучасні хіти онлайн</title>
-  <meta name="description" content="Сучасна українська музика 2025-2026. Найкращі хіти в машину та нові пісні онлайн. Зручний каталог та добірки для вашого настрою!">
-  <link rel="canonical" href="https://ukr-hits.online/"/>
-  
-  <link rel="preconnect" href="https://i.ytimg.com">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/icon-512.png">
-  <link rel="manifest" href="/manifest.webmanifest">
-
-  <style>
-    :root{
-      --bg:#0b0e14; --panel:#0f1521; --card:#161c27; --card-hover:#1e2533;
-      --text:#e6edf3; --muted:#9fb0c5; --accent:#7dfc5b;
-      --tg:#27a7e7; --shadow:0 10px 40px rgba(0,0,0,0.5);
-    }
-    *{box-sizing:border-box}
-    html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,sans-serif;overflow-x:hidden;scroll-behavior:smooth}
-    a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukrainian Music Project 2026</title>
     
-    /* Декоративне сяйво по боках (заповнює пустку) */
-    body::before, body::after {
-      content: ""; position: fixed; width: 50vw; height: 50vw; border-radius: 50%;
-      filter: blur(150px); z-index: -1; opacity: 0.08; pointer-events: none;
-    }
-    body::before { background: var(--tg); top: -10%; left: -20%; }
-    body::after { background: var(--accent); bottom: -10%; right: -20%; }
+    <style>
+        :root {
+            --ua-blue: #0058b5;
+            --ua-yellow: #ffdb00;
+        }
 
-    .wrap{max-width:1200px;margin:40px auto;padding:0 20px;position:relative}
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #050505;
+            font-family: 'Inter', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
 
-    /* Вертикальний текст для великих екранів */
-    @media (min-width: 1450px) {
-      body::before { content: "MODERN HITS 2025"; position: fixed; left: 40px; top: 50%; transform: rotate(-90deg) translateY(-50%); font-size: 70px; font-weight: 900; color: rgba(255,255,255,0.02); filter: none; width: auto; height: auto; opacity: 1; }
-      body::after { content: "UKR MUSIC ONLINE"; position: fixed; right: 40px; top: 50%; transform: rotate(90deg) translateY(-50%); font-size: 70px; font-weight: 900; color: rgba(255,255,255,0.02); filter: none; width: auto; height: auto; opacity: 1; }
-    }
+        /* Абстрактные подсолнухи для заполнения пустот по бокам */
+        .art-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: radial-gradient(circle at 15% 25%, rgba(255, 219, 0, 0.1) 0%, transparent 35%),
+                        radial-gradient(circle at 85% 75%, rgba(0, 88, 181, 0.08) 0%, transparent 40%);
+        }
 
-    /* Шапка */
-    .topbar{position:fixed;left:20px;top:20px;z-index:100;display:flex;gap:10px}
-    .top-ico{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px);transition:0.3s}
-    .top-ico:hover{background:rgba(255,255,255,0.1);transform:scale(1.1)}
-    .top-ico svg{width:20px;height:20px}
+        .sunflower-decor {
+            position: absolute;
+            font-size: 180px;
+            filter: blur(50px);
+            opacity: 0.12;
+            user-select: none;
+            pointer-events: none;
+        }
+        .sf-1 { top: -30px; left: -30px; color: var(--ua-yellow); }
+        .sf-2 { bottom: -30px; right: -30px; color: var(--ua-yellow); }
 
-    .header-box{background:linear-gradient(135deg, rgba(23,31,48,0.8), rgba(15,21,33,0.6));border:1px solid rgba(255,255,255,0.05);border-radius:28px;padding:40px 20px;box-shadow:var(--shadow);text-align:center;margin-bottom:40px;backdrop-filter:blur(5px)}
-    h1{font-size:clamp(24px, 5vw, 36px);margin:0 0 15px;background:linear-gradient(to right, #fff, var(--muted));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .sub{color:var(--muted);font-size:17px;max-width:800px;margin:0 auto 25px;line-height:1.6}
-    .tg-cta{display:inline-flex;align-items:center;gap:12px;background:var(--tg);color:#fff;padding:14px 28px;border-radius:16px;font-weight:bold;transition:0.3s;box-shadow:0 10px 20px rgba(39,167,231,0.3)}
-    .tg-cta:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(39,167,231,0.4)}
+        .main-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    /* Сітка */
-    .grid{display:grid;gap:20px;grid-template-columns:repeat(2,1fr)}
-    @media (min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
-    @media (min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
+        .video-wrapper {
+            width: 100%;
+            max-width: 1150px;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 0 100px rgba(0,0,0,1);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+        }
 
-    .card{display:block;background:var(--card);border-radius:20px;overflow:hidden;transition:0.3s;border:1px solid rgba(255,255,255,0.03)}
-    .card:hover{transform:translateY(-6px);background:var(--card-hover);border-color:rgba(125,252,91,0.2);box-shadow:0 15px 35px rgba(0,0,0,0.4)}
-    .thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover;transition:0.5s}
-    .card:hover img{transform:scale(1.05)}
-    .card-title{padding:15px;font-size:15px;font-weight:500;height:65px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
-    /* SEO та Футер */
-    .seo-block{margin-top:60px;padding:30px;background:rgba(255,255,255,0.02);border-radius:24px;font-size:15px;color:var(--muted);line-height:1.7}
-    .socials{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin:40px 0}
-    .social-btn{background:rgba(255,255,255,0.05);padding:12px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.1);font-weight:500;transition:0.3s}
-    .social-btn:hover{background:rgba(255,255,255,0.1);border-color:var(--accent)}
-    .footer{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,0.05);color:var(--muted);font-size:14px}
+        .header-area {
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-    /* Модальне вікно інструкції */
-    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:200;align-items:center;justify-content:center;padding:20px}
-    .modal.active{display:flex}
-    .modal-content{background:var(--panel);max-width:500px;width:100%;border-radius:32px;padding:30px;position:relative;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--shadow)}
-    .modal-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer;color:var(--muted)}
-    .step{display:flex;gap:15px;margin-bottom:20px;align-items:flex-start}
-    .step-num{background:var(--accent);color:#000;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:bold;font-size:14px}
-    .step-text b{color:#fff;display:block;margin-bottom:4px}
-    .install-trigger{position:fixed;right:20px;bottom:20px;background:var(--accent);color:#000;padding:14px 24px;border-radius:18px;font-weight:bold;cursor:pointer;z-index:90;box-shadow:0 10px 25px rgba(125,252,91,0.3);transition:0.3s}
-    .install-trigger:hover{transform:scale(1.05)}
-  </style>
+        #video-title {
+            font-size: clamp(22px, 4vw, 34px);
+            margin: 0 0 15px 0;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .lang-bar {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-lang {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .btn-lang:hover {
+            background: var(--ua-yellow);
+            color: #000;
+            border-color: var(--ua-yellow);
+        }
+    </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <a class="top-ico" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener" title="Telegram">
-      <svg viewBox="0 0 24 24" fill="#27a7e7"><path d="M9.999 15.2l-.4 5.6c.57 0 .82-.24 1.12-.54l2.7-2.59 5.6 4.1c1.03.57 1.76.27 2.03-.95l3.68-17.25.01-.01c.33-1.53-.55-2.13-1.55-1.76L1.48 9.23C-.02 9.82-.01 10.7 1.21 11.08l5.63 1.76L19.3 5.58c.65-.43 1.24-.19.76.24"/></svg>
-    </a>
-    <a class="top-ico" href="https://www.tiktok.com/@goldenwaveua" target="_blank" rel="noopener" title="TikTok">
-      <svg viewBox="0 0 24 24" fill="#fff"><path d="M21 8.1a6.7 6.7 0 0 1-4.2-1.45v7.01a5.56 5.56 0 1 1-5.56-5.56 5.5 5.5 0 0 1 1.6.24v2.64a2.9 2.9 0 1 0 2.03 2.77V2h2.4a4.3 4.3 0 0 0 3.73 3.7v2.4Z"/></svg>
-    </a>
-    <a class="top-ico" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA" target="_blank" rel="noopener" title="YouTube Music">
-      <svg viewBox="0 0 24 24" fill="#ff0033"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm-3 14V8l8 4-8 4Z"/></svg>
-    </a>
-  </div>
+<div class="art-background">
+    <div class="sunflower-decor sf-1">🌻</div>
+    <div class="sunflower-decor sf-2">🌻</div>
+</div>
 
-  <main class="wrap">
-    <header class="header-box">
-      <h1>Українські пісні: Сучасні хіти 2025-2026</h1>
-      <p class="sub">Слухайте найкращі сучасні українські пісні в машину та для гарного настрою. Тільки топові новинки та перевірені часом хіти в одному місці!</p>
-      <a class="tg-cta" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener">Музика в Telegram</a>
-    </header>
-
-    <div id="videoGrid" class="grid"></div>
-
-    <section class="seo-block">
-      <h3>Про проект ukr-hits.online</h3>
-      <p>Ми створили цей портал для тих, хто шукає якісні <strong>українські пісні 2025</strong> року. У нашій добірці ви знайдете веселі українські пісні в машину, романтичні треки та патріотичні хіти. Весь контент підтягується безпосередньо з наших YouTube каналів, що гарантує найкращу якість звуку та відео. Підтримуйте своє, слухайте українське!</p>
-    </section>
-
-    <div class="socials">
-      <a class="social-btn" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank">Spotify</a>
-      <a class="social-btn" href="https://www.facebook.com/GoldenWaveUA/" target="_blank">Facebook</a>
-      <a class="social-btn" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank">Telegram Канал</a>
+<div class="main-content">
+    <div class="header-area">
+        <h1 id="video-title">Завантаження...</h1>
+        <div class="lang-bar">
+            <button class="btn-lang" onclick="updateLang('uk')">UA</button>
+            <button class="btn-lang" onclick="updateLang('en')">EN</button>
+            <button class="btn-lang" onclick="updateLang('ru')">RU</button>
+        </div>
     </div>
 
-    <footer class="footer">
-      © 2026 ukr-hits.online — Твій простір сучасної української музики
-    </footer>
-  </main>
-
-  <div class="install-trigger" id="openModal">📲 Встановити</div>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <div class="modal-close" id="closeModal">✕</div>
-      <h2 style="margin-top:0">Як встановити на телефон?</h2>
-      <p style="color:var(--muted); margin-bottom:25px">Додайте сайт на робочий стіл, щоб слухати музику як у застосунку:</p>
-      
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text"><b>Для iPhone (Safari):</b> Натисніть кнопку «Поділитися» (квадрат зі стрілкою вгору).</div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text"><b>Для Android (Chrome):</b> Натисніть на три крапки (меню) у верхньому правому куті.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text"><b>Завершення:</b> Оберіть пункт «Додати на головний екран» та підтвердіть додавання.</div>
-      </div>
-      
-      <button style="width:100%; padding:15px; border-radius:14px; border:none; background:rgba(255,255,255,0.05); color:#fff; font-weight:bold; cursor:pointer" id="closeModalBtn">Зрозуміло!</button>
+    <div class="video-wrapper">
+        <iframe id="player" src="https://www.youtube.com/embed/yb_ijfri37c?enablejsapi=1" allowfullscreen></iframe>
     </div>
-  </div>
+</div>
 
-  <script>
-    const VIDEO_IDS = [
-      '6eZAg8vJXE8', 'suDB4Os9Ks4', 'iSVT-pq7DHM', 'MyUSxRtoIuk', 't2KumAVfaXI', 
-      'o377aoMBGnY', 'L8xtCLF_RGw', 'd7D5IvF5rqg', 'x2XuttUjVRE', 'xcqsS73I_U4', 
-      'dvqiGW2tk2M', 'FA438YuebB8', 'KSyh6YbFk9k', '6LLHpfYsroo', 'dj5f7HWp3e8', 
-      '2MK2yY5Ri3E', '0KtaP0zvxJ8', 'Kz83-GSWNio', 'cWTYzbU7pSs', 'pM9EWAHDSgM', 
-      'xeCwYxPURXM', 'FWMo0Ariwe8', 'Crog6gnA7qs', '_Ew5_vUS8kI', '-iMkJ6WfPh0', 
-      'rXjLKoCGfms', '8r1WAkknS10', 'DuwdiTASRf0', 'bnuyv_rOA6A', '-ejV7pWVhGM', 
-      '9z6TIEh79vg', 'Yn8kByhUiFo', '-2lPBoh3Hbk', 'v5ZFj7fXSjk', 'H-Hx-e0EpTQ', 
-      'iu7l0CmFjHk', '1DvyyG11HZw', 'h8rr3QvUwJM', 'Hc9GSnnl9s4', 'omoT0omX0Ts', 
-      'gt7WnwSce1Y', 'Ynh2P0-LVpQ', 'JLp8oiQG4aw', 'HpT658eOOPM'
-    ];
+<script>
+    const API_KEY = 'AIzaSyDYm5szF6lfniKncRLMywIT7kvffC4BY64'; 
+    const VIDEO_ID = 'yb_ijfri37c'; // ID видео "Golden Wedding"
 
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
+    let youtubeTitle = "";
+
+    const seoData = {
+        uk: " | Сучасна українська музика",
+        en: " | Modern Ukrainian Folk Music",
+        ru: " | Украинские хиты (UA)"
+    };
+
+    async function getYTInfo() {
+        try {
+            const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${VIDEO_ID}&key=${API_KEY}`);
+            const data = await res.json();
+            if(data.items && data.items.length > 0) {
+                youtubeTitle = data.items[0].snippet.title;
+                updateLang('uk');
+            }
+        } catch(e) {
+            document.getElementById('video-title').innerText = "Музичне Відео";
+        }
     }
 
-    function render() {
-      const grid = document.getElementById('videoGrid');
-      const items = shuffle([...VIDEO_IDS]);
-      items.forEach(id => {
-        const a = document.createElement('a');
-        a.className = 'card';
-        a.href = `https://www.youtube.com/watch?v=${id}`;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.innerHTML = `
-          <div class="thumb"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" loading="lazy" alt="Українська музика"></div>
-          <div class="card-title">Українські пісні 2025 — Слухати онлайн</div>
-        `;
-        grid.appendChild(a);
-      });
+    function updateLang(lang) {
+        if (!youtubeTitle) return;
+        document.getElementById('video-title').innerText = youtubeTitle;
+        document.title = youtubeTitle + seoData[lang];
     }
 
-    // Модалка
-    const modal = document.getElementById('modal');
-    document.getElementById('openModal').onclick = () => modal.classList.add('active');
-    document.getElementById('closeModal').onclick = () => modal.classList.remove('active');
-    document.getElementById('closeModalBtn').onclick = () => modal.classList.remove('active');
-    window.onclick = (e) => { if(e.target == modal) modal.classList.remove('active'); }
+    getYTInfo();
+</script>
 
-    window.onload = render;
-  </script>
 </body>
 </html>
