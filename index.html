@@ -3,168 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ukrainian Music Project 2026</title>
-    
+    <title>UA Music Hub | Офіційний сайт</title>
     <style>
-        :root {
-            --ua-blue: #0058b5;
-            --ua-yellow: #ffdb00;
+        :root { --ua-blue: #0057b7; --ua-yellow: #ffd700; }
+        body, html { margin: 0; padding: 0; background: #050505; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* Абстрактный фон с подсолнухами */
+        .sunflower-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 10% 10%, rgba(255,215,0,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 90%, rgba(0,87,183,0.1) 0%, transparent 40%);
+        }
+        .sunflower-shape {
+            position: absolute; width: 300px; height: 300px; border-radius: 50%;
+            background: radial-gradient(circle, var(--ua-yellow) 0%, transparent 70%);
+            filter: blur(80px); opacity: 0.15; pointer-events: none; animation: float 10s infinite alternate;
         }
 
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #050505;
-            font-family: 'Inter', sans-serif;
-            color: white;
-            overflow-x: hidden;
-        }
+        @keyframes float { from { transform: translate(0,0); } to { transform: translate(50px, 50px); } }
 
-        /* Абстрактные подсолнухи для заполнения пустот по бокам */
-        .art-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background: radial-gradient(circle at 15% 25%, rgba(255, 219, 0, 0.1) 0%, transparent 35%),
-                        radial-gradient(circle at 85% 75%, rgba(0, 88, 181, 0.08) 0%, transparent 40%);
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; z-index: 10; position: relative; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        
+        .video-card { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .video-card:hover { transform: translateY(-10px); border-color: var(--ua-yellow); }
+        
+        .video-frame { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
+        iframe { width: 100%; height: 100%; border: 0; }
+        
+        .title { font-size: 18px; font-weight: 700; margin-bottom: 10px; min-height: 44px; }
+        .channel-label { font-size: 12px; color: var(--ua-yellow); text-transform: uppercase; letter-spacing: 1px; }
 
-        .sunflower-decor {
-            position: absolute;
-            font-size: 180px;
-            filter: blur(50px);
-            opacity: 0.12;
-            user-select: none;
-            pointer-events: none;
-        }
-        .sf-1 { top: -30px; left: -30px; color: var(--ua-yellow); }
-        .sf-2 { bottom: -30px; right: -30px; color: var(--ua-yellow); }
-
-        .main-content {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .video-wrapper {
-            width: 100%;
-            max-width: 1150px;
-            aspect-ratio: 16 / 9;
-            box-shadow: 0 0 100px rgba(0,0,0,1);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #000;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .header-area {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        #video-title {
-            font-size: clamp(22px, 4vw, 34px);
-            margin: 0 0 15px 0;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .lang-bar {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .btn-lang {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .btn-lang:hover {
-            background: var(--ua-yellow);
-            color: #000;
-            border-color: var(--ua-yellow);
-        }
+        .lang-switcher { margin-top: 20px; display: flex; justify-content: center; gap: 10px; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: var(--ua-yellow); color: black; border-color: var(--ua-yellow); }
     </style>
 </head>
 <body>
 
-<div class="art-background">
-    <div class="sunflower-decor sf-1">🌻</div>
-    <div class="sunflower-decor sf-2">🌻</div>
+<div class="sunflower-bg">
+    <div class="sunflower-shape" style="top: 10%; left: 5%;"></div>
+    <div class="sunflower-shape" style="bottom: 10%; right: 5%; animation-delay: -5s;"></div>
 </div>
 
-<div class="main-content">
-    <div class="header-area">
-        <h1 id="video-title">Завантаження...</h1>
-        <div class="lang-bar">
-            <button class="btn-lang" onclick="updateLang('uk')">UA</button>
-            <button class="btn-lang" onclick="updateLang('en')">EN</button>
-            <button class="btn-lang" onclick="updateLang('ru')">RU</button>
+<div class="container">
+    <div class="header">
+        <h1 id="main-header">Сучасна Українська Музика</h1>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLang('uk')">UA</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('ru')">RU</button>
         </div>
     </div>
 
-    <div class="video-wrapper">
-        <iframe id="player" src="https://www.youtube.com/embed/yb_ijfri37c?enablejsapi=1" allowfullscreen></iframe>
-    </div>
+    <div class="video-grid" id="video-grid">
+        </div>
 </div>
 
 <script>
-    const API_KEY = 'AIzaSyDYm5szF6lfniKncRLMywIT7kvffC4BY64'; 
-    const VIDEO_ID = 'yb_ijfri37c'; // ID видео "Golden Wedding"
+    const API_KEY = 'AIzaSyDYm5szF6lfniKncRLMywIT7kvffC4BY64';
+    const CHANNELS = [
+        { id: 'UCV71wq5ul4hP4bfxytEZzJA', name: 'GoldenWaveUA' },
+        { id: 'UCXRzPkWX59hYAWgwgmpzc7w', name: 'Скажена Гуляночка' },
+        { id: 'UCa5hOXiya2BY2HGoIDQ94Jg', name: 'Музика 2025' }
+    ];
 
-    let youtubeTitle = "";
-
-    const seoData = {
-        uk: " | Сучасна українська музика",
-        en: " | Modern Ukrainian Folk Music",
-        ru: " | Украинские хиты (UA)"
+    let currentLang = 'uk';
+    const seoSuffix = {
+        uk: " | Українська музика",
+        en: " | Modern UA Music",
+        ru: " | Украинские песни (UA)"
     };
 
-    async function getYTInfo() {
-        try {
-            const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${VIDEO_ID}&key=${API_KEY}`);
-            const data = await res.json();
-            if(data.items && data.items.length > 0) {
-                youtubeTitle = data.items[0].snippet.title;
-                updateLang('uk');
-            }
-        } catch(e) {
-            document.getElementById('video-title').innerText = "Музичне Відео";
+    async function loadVideos() {
+        const grid = document.getElementById('video-grid');
+        grid.innerHTML = '';
+
+        for (const channel of CHANNELS) {
+            try {
+                // 1. Получаем ID плейлиста загрузок канала
+                const chRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channel.id}&key=${API_KEY}`);
+                const chData = await chRes.json();
+                const uploadsId = chData.items[0].contentDetails.relatedPlaylists.uploads;
+
+                // 2. Получаем последнее видео из этого плейлиста
+                const vRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsId}&maxResults=1&key=${API_KEY}`);
+                const vData = await vRes.json();
+                const video = vData.items[0].snippet;
+
+                // Создаем карточку
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.innerHTML = `
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube.com/embed/${video.resourceId.videoId}" allowfullscreen></iframe>
+                    </div>
+                    <div class="channel-label">${channel.name}</div>
+                    <div class="title" data-original="${video.title}">${video.title}</div>
+                `;
+                grid.appendChild(card);
+            } catch (e) { console.error("Error loading channel:", channel.id); }
         }
+        updateSEO();
     }
 
-    function updateLang(lang) {
-        if (!youtubeTitle) return;
-        document.getElementById('video-title').innerText = youtubeTitle;
-        document.title = youtubeTitle + seoData[lang];
+    function setLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        updateSEO();
     }
 
-    getYTInfo();
+    function updateSEO() {
+        document.querySelectorAll('.title').forEach(t => {
+            const original = t.getAttribute('data-original');
+            t.innerText = original;
+            // Обновляем title страницы для поисковиков
+            document.title = original + seoSuffix[currentLang];
+        });
+    }
+
+    loadVideos();
 </script>
-
 </body>
 </html>
