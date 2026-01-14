@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <title>Українські пісні 2025-2026: Слухати сучасні хіти онлайн</title>
-  <meta name="description" content="Найкраща сучасна українська музика 2025-2026. Слухайте популярні хіти в машину та нові пісні онлайн безкоштовно. Тільки перевірені треки та добірки!">
+  <meta name="description" content="Сучасна українська музика 2025-2026. Найкращі хіти в машину та нові пісні онлайн. Зручний каталог та добірки для вашого настрою!">
   <link rel="canonical" href="https://ukr-hits.online/"/>
   
   <link rel="preconnect" href="https://i.ytimg.com">
@@ -15,45 +15,71 @@
 
   <style>
     :root{
-      --bg:#0d1117; --panel:#0f1521; --card:#151b28; --card-hover:#1b2233;
+      --bg:#0b0e14; --panel:#0f1521; --card:#161c27; --card-hover:#1e2533;
       --text:#e6edf3; --muted:#9fb0c5; --accent:#7dfc5b;
-      --chip:#1f2636; --shadow:0 6px 24px rgba(0,0,0,.4);
-      --tg:#27a7e7;
+      --tg:#27a7e7; --shadow:0 10px 40px rgba(0,0,0,0.5);
     }
     *{box-sizing:border-box}
-    html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,sans-serif;scroll-behavior:smooth}
+    html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,sans-serif;overflow-x:hidden;scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1200px;margin:40px auto;padding:0 18px}
-
-    .top{background:linear-gradient(180deg,rgba(23,31,48,.7),rgba(23,31,48,.35));border-radius:22px;padding:30px 20px;box-shadow:var(--shadow);position:relative;text-align:center;margin-bottom:30px}
-    h1{margin:0 0 10px;font-size:28px;line-height:1.2}
-    .sub{color:var(--muted);font-size:16px;line-height:1.5;max-width:850px;margin:0 auto}
-
-    .topbar{position:fixed;left:14px;top:14px;z-index:70;display:flex;gap:8px;align-items:center}
-    .top-ico{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);backdrop-filter:blur(5px)}
-    .top-ico svg{width:18px;height:18px}
-
-    .tg-cta{display:inline-flex;align-items:center;gap:10px;background:rgba(39,167,231,.15);border:1px solid var(--tg);color:#dff4ff;padding:12px 20px;border-radius:999px;margin-top:20px;font-weight:bold}
     
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}
-    @media (min-width:680px){.grid{grid-template-columns:repeat(3,1fr)}}
+    /* Декоративне сяйво по боках (заповнює пустку) */
+    body::before, body::after {
+      content: ""; position: fixed; width: 50vw; height: 50vw; border-radius: 50%;
+      filter: blur(150px); z-index: -1; opacity: 0.08; pointer-events: none;
+    }
+    body::before { background: var(--tg); top: -10%; left: -20%; }
+    body::after { background: var(--accent); bottom: -10%; right: -20%; }
+
+    .wrap{max-width:1200px;margin:40px auto;padding:0 20px;position:relative}
+
+    /* Вертикальний текст для великих екранів */
+    @media (min-width: 1450px) {
+      body::before { content: "MODERN HITS 2025"; position: fixed; left: 40px; top: 50%; transform: rotate(-90deg) translateY(-50%); font-size: 70px; font-weight: 900; color: rgba(255,255,255,0.02); filter: none; width: auto; height: auto; opacity: 1; }
+      body::after { content: "UKR MUSIC ONLINE"; position: fixed; right: 40px; top: 50%; transform: rotate(90deg) translateY(-50%); font-size: 70px; font-weight: 900; color: rgba(255,255,255,0.02); filter: none; width: auto; height: auto; opacity: 1; }
+    }
+
+    /* Шапка */
+    .topbar{position:fixed;left:20px;top:20px;z-index:100;display:flex;gap:10px}
+    .top-ico{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px);transition:0.3s}
+    .top-ico:hover{background:rgba(255,255,255,0.1);transform:scale(1.1)}
+    .top-ico svg{width:20px;height:20px}
+
+    .header-box{background:linear-gradient(135deg, rgba(23,31,48,0.8), rgba(15,21,33,0.6));border:1px solid rgba(255,255,255,0.05);border-radius:28px;padding:40px 20px;box-shadow:var(--shadow);text-align:center;margin-bottom:40px;backdrop-filter:blur(5px)}
+    h1{font-size:clamp(24px, 5vw, 36px);margin:0 0 15px;background:linear-gradient(to right, #fff, var(--muted));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .sub{color:var(--muted);font-size:17px;max-width:800px;margin:0 auto 25px;line-height:1.6}
+    .tg-cta{display:inline-flex;align-items:center;gap:12px;background:var(--tg);color:#fff;padding:14px 28px;border-radius:16px;font-weight:bold;transition:0.3s;box-shadow:0 10px 20px rgba(39,167,231,0.3)}
+    .tg-cta:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(39,167,231,0.4)}
+
+    /* Сітка */
+    .grid{display:grid;gap:20px;grid-template-columns:repeat(2,1fr)}
+    @media (min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
     @media (min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
 
-    .card{display:block;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s}
-    .card:hover{transform:translateY(-4px);background:var(--card-hover)}
-    .thumb{position:relative;aspect-ratio:16/9;background:#000}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .title{padding:12px;font-size:14px;line-height:1.4;height:54px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    .card{display:block;background:var(--card);border-radius:20px;overflow:hidden;transition:0.3s;border:1px solid rgba(255,255,255,0.03)}
+    .card:hover{transform:translateY(-6px);background:var(--card-hover);border-color:rgba(125,252,91,0.2);box-shadow:0 15px 35px rgba(0,0,0,0.4)}
+    .thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;transition:0.5s}
+    .card:hover img{transform:scale(1.05)}
+    .card-title{padding:15px;font-size:15px;font-weight:500;height:65px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
-    .socials{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:40px;padding-bottom:40px}
-    .social{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
-    .social svg{width:18px;height:18px}
+    /* SEO та Футер */
+    .seo-block{margin-top:60px;padding:30px;background:rgba(255,255,255,0.02);border-radius:24px;font-size:15px;color:var(--muted);line-height:1.7}
+    .socials{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin:40px 0}
+    .social-btn{background:rgba(255,255,255,0.05);padding:12px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.1);font-weight:500;transition:0.3s}
+    .social-btn:hover{background:rgba(255,255,255,0.1);border-color:var(--accent)}
+    .footer{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,0.05);color:var(--muted);font-size:14px}
 
-    .install-btn{position:fixed;right:14px;bottom:14px;z-index:60;background:rgba(125,252,91,.1);border:1px solid var(--accent);color:#fff;padding:12px 18px;border-radius:20px;cursor:pointer;backdrop-filter:blur(5px);font-weight:bold}
-    .footer{margin:30px 0;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);padding-top:20px}
-    
-    /* Текст для SEO внизу */
-    .seo-text{margin-top:40px;color:var(--muted);font-size:14px;line-height:1.6;text-align:justify;max-width:900px;margin-left:auto;margin-right:auto}
+    /* Модальне вікно інструкції */
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:200;align-items:center;justify-content:center;padding:20px}
+    .modal.active{display:flex}
+    .modal-content{background:var(--panel);max-width:500px;width:100%;border-radius:32px;padding:30px;position:relative;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--shadow)}
+    .modal-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer;color:var(--muted)}
+    .step{display:flex;gap:15px;margin-bottom:20px;align-items:flex-start}
+    .step-num{background:var(--accent);color:#000;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:bold;font-size:14px}
+    .step-text b{color:#fff;display:block;margin-bottom:4px}
+    .install-trigger{position:fixed;right:20px;bottom:20px;background:var(--accent);color:#000;padding:14px 24px;border-radius:18px;font-weight:bold;cursor:pointer;z-index:90;box-shadow:0 10px 25px rgba(125,252,91,0.3);transition:0.3s}
+    .install-trigger:hover{transform:scale(1.05)}
   </style>
 </head>
 <body>
@@ -62,47 +88,65 @@
     <a class="top-ico" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener" title="Telegram">
       <svg viewBox="0 0 24 24" fill="#27a7e7"><path d="M9.999 15.2l-.4 5.6c.57 0 .82-.24 1.12-.54l2.7-2.59 5.6 4.1c1.03.57 1.76.27 2.03-.95l3.68-17.25.01-.01c.33-1.53-.55-2.13-1.55-1.76L1.48 9.23C-.02 9.82-.01 10.7 1.21 11.08l5.63 1.76L19.3 5.58c.65-.43 1.24-.19.76.24"/></svg>
     </a>
-    <a class="top-ico" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank" rel="noopener" title="Spotify">
-      <svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.37 0 0 5.37 0 12c0 6.62 5.37 12 12 12s12-5.38 12-12c0-6.63-5.38-12-12-12Zm5.5 17.35a.83.83 0 0 1-1.14.28c-3.13-1.91-7.07-2.34-11.7-1.29a.83.83 0 1 1-.36-1.62c5.02-1.13 9.36-.64 12.82 1.44.39.24.52.76.28 1.19Zm1.56-3.13a1.04 1.04 0 0 1-1.43.35c-3.58-2.2-9.05-2.84-13.29-1.56a1.04 1.04 0 0 1-.6-2c4.79-1.43 10.85-.72 14.92 1.76.49.3.64.94.4 1.45Zm.14-3.29c-4.02-2.39-10.63-2.61-14.47-1.44a1.25 1.25 0 1 1-.72-2.39c4.43-1.33 11.79-1.07 16.36 1.64a1.25 1.25 0 0 1-1.17 2.19Z"/></svg>
+    <a class="top-ico" href="https://www.tiktok.com/@goldenwaveua" target="_blank" rel="noopener" title="TikTok">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M21 8.1a6.7 6.7 0 0 1-4.2-1.45v7.01a5.56 5.56 0 1 1-5.56-5.56 5.5 5.5 0 0 1 1.6.24v2.64a2.9 2.9 0 1 0 2.03 2.77V2h2.4a4.3 4.3 0 0 0 3.73 3.7v2.4Z"/></svg>
     </a>
     <a class="top-ico" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA" target="_blank" rel="noopener" title="YouTube Music">
       <svg viewBox="0 0 24 24" fill="#ff0033"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm-3 14V8l8 4-8 4Z"/></svg>
     </a>
-    <a class="top-ico" href="https://www.tiktok.com/@goldenwaveua" target="_blank" rel="noopener" title="TikTok">
-      <svg viewBox="0 0 24 24" fill="#fff"><path d="M21 8.1a6.7 6.7 0 0 1-4.2-1.45v7.01a5.56 5.56 0 1 1-5.56-5.56 5.5 5.5 0 0 1 1.6.24v2.64a2.9 2.9 0 1 0 2.03 2.77V2h2.4a4.3 4.3 0 0 0 3.73 3.7v2.4Z"/></svg>
-    </a>
   </div>
 
   <main class="wrap">
-    <header class="top">
-      <h1>Українські пісні: Сучасні хіти 2025-2026 та добірки в машину</h1>
-      <p class="sub">Ми зібрали кращі веселі українські пісні 2025 для вашого авто та гарного настрою. Слухайте новинки та підтримуйте українське!</p>
-      <a class="tg-cta" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener">Завантажити в Telegram</a>
+    <header class="header-box">
+      <h1>Українські пісні: Сучасні хіти 2025-2026</h1>
+      <p class="sub">Слухайте найкращі сучасні українські пісні в машину та для гарного настрою. Тільки топові новинки та перевірені часом хіти в одному місці!</p>
+      <a class="tg-cta" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener">Музика в Telegram</a>
     </header>
 
     <div id="videoGrid" class="grid"></div>
 
-    <div class="seo-text">
-      На нашому порталі <strong>ukr-hits.online</strong> ви знайдете актуальні українські пісні 2025 року. Ми фокусуємося на сучасній музиці, яка ідеально підходить для прослуховування в машині або під час відпочинку. Натискайте на будь-який хіт, щоб відкрити офіційне відео на YouTube.
-    </div>
+    <section class="seo-block">
+      <h3>Про проект ukr-hits.online</h3>
+      <p>Ми створили цей портал для тих, хто шукає якісні <strong>українські пісні 2025</strong> року. У нашій добірці ви знайдете веселі українські пісні в машину, романтичні треки та патріотичні хіти. Весь контент підтягується безпосередньо з наших YouTube каналів, що гарантує найкращу якість звуку та відео. Підтримуйте своє, слухайте українське!</p>
+    </section>
 
     <div class="socials">
-      <a class="social" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener"><span>Telegram</span></a>
-      <a class="social" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank" rel="noopener"><span>Spotify</span></a>
-      <a class="social" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA" target="_blank" rel="noopener"><span>YouTube Music</span></a>
-      <a class="social" href="https://www.tiktok.com/@goldenwaveua" target="_blank" rel="noopener"><span>TikTok</span></a>
-      <a class="social" href="https://www.facebook.com/GoldenWaveUA/" target="_blank" rel="noopener"><span>Facebook</span></a>
+      <a class="social-btn" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank">Spotify</a>
+      <a class="social-btn" href="https://www.facebook.com/GoldenWaveUA/" target="_blank">Facebook</a>
+      <a class="social-btn" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank">Telegram Канал</a>
     </div>
 
-    <div class="footer">
-      © 2026 ukr-hits.online — Сучасна українська музика 
-    </div>
+    <footer class="footer">
+      © 2026 ukr-hits.online — Твій простір сучасної української музики
+    </footer>
   </main>
 
-  <button class="install-btn" onclick="alert('Додайте сайт на головний екран через меню браузера')">📲 Встановити</button>
+  <div class="install-trigger" id="openModal">📲 Встановити</div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-close" id="closeModal">✕</div>
+      <h2 style="margin-top:0">Як встановити на телефон?</h2>
+      <p style="color:var(--muted); margin-bottom:25px">Додайте сайт на робочий стіл, щоб слухати музику як у застосунку:</p>
+      
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><b>Для iPhone (Safari):</b> Натисніть кнопку «Поділитися» (квадрат зі стрілкою вгору).</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><b>Для Android (Chrome):</b> Натисніть на три крапки (меню) у верхньому правому куті.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><b>Завершення:</b> Оберіть пункт «Додати на головний екран» та підтвердіть додавання.</div>
+      </div>
+      
+      <button style="width:100%; padding:15px; border-radius:14px; border:none; background:rgba(255,255,255,0.05); color:#fff; font-weight:bold; cursor:pointer" id="closeModalBtn">Зрозуміло!</button>
+    </div>
+  </div>
 
   <script>
-    // Тільки ваші відео (ID з ваших посилань)
     const VIDEO_IDS = [
       '6eZAg8vJXE8', 'suDB4Os9Ks4', 'iSVT-pq7DHM', 'MyUSxRtoIuk', 't2KumAVfaXI', 
       'o377aoMBGnY', 'L8xtCLF_RGw', 'd7D5IvF5rqg', 'x2XuttUjVRE', 'xcqsS73I_U4', 
@@ -123,28 +167,31 @@
       return array;
     }
 
-    function init() {
+    function render() {
       const grid = document.getElementById('videoGrid');
-      const shuffled = shuffle([...VIDEO_IDS]);
-      
-      shuffled.forEach(id => {
-        const card = document.createElement('a');
-        card.className = 'card';
-        card.href = `https://www.youtube.com/watch?v=${id}`;
-        card.target = '_blank';
-        card.rel = 'noopener';
-        
-        card.innerHTML = `
-          <div class="thumb">
-            <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" loading="lazy" alt="Український хіт">
-          </div>
-          <div class="title">Слухати український хіт 2025 — Онлайн</div>
+      const items = shuffle([...VIDEO_IDS]);
+      items.forEach(id => {
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = `https://www.youtube.com/watch?v=${id}`;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.innerHTML = `
+          <div class="thumb"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" loading="lazy" alt="Українська музика"></div>
+          <div class="card-title">Українські пісні 2025 — Слухати онлайн</div>
         `;
-        grid.appendChild(card);
+        grid.appendChild(a);
       });
     }
 
-    window.addEventListener('DOMContentLoaded', init);
+    // Модалка
+    const modal = document.getElementById('modal');
+    document.getElementById('openModal').onclick = () => modal.classList.add('active');
+    document.getElementById('closeModal').onclick = () => modal.classList.remove('active');
+    document.getElementById('closeModalBtn').onclick = () => modal.classList.remove('active');
+    window.onclick = (e) => { if(e.target == modal) modal.classList.remove('active'); }
+
+    window.onload = render;
   </script>
 </body>
 </html>
