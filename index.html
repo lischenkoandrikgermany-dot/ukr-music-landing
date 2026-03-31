@@ -3,15 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <title>Українські пісні 2025-2026: Слухати сучасні хіти онлайн</title>
-  <meta name="description" content="Сучасна українська музика 2025-2026. Найкращі хіти в машину та нові пісні онлайн. Зручний каталог та добірки для вашого настрою!">
+
+  <title>Українські пісні слухати онлайн безкоштовно 2025-2026 | Сучасні хіти</title>
+  <meta name="description" content="Слухати українську музику онлайн безкоштовно. Найкращі українські пісні 2025-2026: сучасні хіти, нові пісні в машину, збірка українських пісень. Музика онлайн без реклами.">
+  <meta name="keywords" content="українські пісні, слухати музику онлайн, українська музика, сучасні українські хіти, слухати українську музику, музика слухати нові хіти, українські пісні слухати онлайн безкоштовно, збірка українських пісень слухати, музика в машину, пісні онлайн">
   <link rel="canonical" href="https://ukr-hits.online/"/>
-  
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Українські пісні — Слухати онлайн безкоштовно 2025-2026"/>
+  <meta property="og:description" content="Сучасна українська музика: найкращі хіти, нові пісні, збірки для настрою та в машину. Слухайте безкоштовно!"/>
+  <meta property="og:url" content="https://ukr-hits.online/"/>
+  <meta property="og:image" content="https://ukr-hits.online/social-share.jpg"/>
+  <meta property="og:locale" content="uk_UA"/>
+  <meta property="og:site_name" content="UKR Hits — Українська музика онлайн"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Українські пісні — Слухати онлайн безкоштовно"/>
+  <meta name="twitter:description" content="Сучасні українські хіти 2025-2026. Слухайте найкращу українську музику безкоштовно!"/>
+  <meta name="twitter:image" content="https://ukr-hits.online/social-share.jpg"/>
+
+  <meta name="robots" content="index, follow"/>
+  <meta name="googlebot" content="index, follow"/>
+
   <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="dns-prefetch" href="https://i.ytimg.com">
   <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/icon-512.png">
   <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="alternate" hreflang="uk" href="https://ukr-hits.online/"/>
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "UKR Hits — Українська музика онлайн",
+    "url": "https://ukr-hits.online/",
+    "description": "Слухати українську музику онлайн безкоштовно. Найкращі українські пісні, сучасні хіти 2025-2026.",
+    "inLanguage": "uk"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicPlaylist",
+    "name": "Українські пісні 2025-2026 — Сучасні хіти",
+    "description": "Збірка найкращих українських пісень: сучасні хіти, нові пісні онлайн безкоштовно",
+    "url": "https://ukr-hits.online/",
+    "numTracks": 43,
+    "inLanguage": "uk"
+  }
+  </script>
 
   <style>
     :root{
@@ -22,8 +66,7 @@
     *{box-sizing:border-box}
     html,body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,sans-serif;overflow-x:hidden;scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
-    
-    /* Декоративне сяйво по боках (заповнює пустку) */
+
     body::before, body::after {
       content: ""; position: fixed; width: 50vw; height: 50vw; border-radius: 50%;
       filter: blur(150px); z-index: -1; opacity: 0.08; pointer-events: none;
@@ -33,13 +76,11 @@
 
     .wrap{max-width:1200px;margin:40px auto;padding:0 20px;position:relative}
 
-    /* Вертикальний текст для великих екранів */
     @media (min-width: 1450px) {
       body::before { content: "MODERN HITS 2025"; position: fixed; left: 40px; top: 50%; transform: rotate(-90deg) translateY(-50%); font-size: 70px; font-weight: 900; color: rgba(255,255,255,0.02); filter: none; width: auto; height: auto; opacity: 1; }
       body::after { content: "UKR MUSIC ONLINE"; position: fixed; right: 40px; top: 50%; transform: rotate(90deg) translateY(-50%); font-size: 70px; font-weight: 900; color: rgba(255,255,255,0.02); filter: none; width: auto; height: auto; opacity: 1; }
     }
 
-    /* Шапка */
     .topbar{position:fixed;left:20px;top:20px;z-index:100;display:flex;gap:10px}
     .top-ico{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px);transition:0.3s}
     .top-ico:hover{background:rgba(255,255,255,0.1);transform:scale(1.1)}
@@ -51,26 +92,50 @@
     .tg-cta{display:inline-flex;align-items:center;gap:12px;background:var(--tg);color:#fff;padding:14px 28px;border-radius:16px;font-weight:bold;transition:0.3s;box-shadow:0 10px 20px rgba(39,167,231,0.3)}
     .tg-cta:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(39,167,231,0.4)}
 
-    /* Сітка */
+    nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px}
+    nav a{background:rgba(255,255,255,0.05);padding:10px 18px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);font-size:14px;font-weight:500;color:var(--muted);transition:0.3s}
+    nav a:hover,nav a.active{background:rgba(125,252,91,0.1);border-color:var(--accent);color:#fff}
+
+    .section-title{text-align:center;font-size:20px;margin:30px 0 20px;color:var(--muted)}
+
     .grid{display:grid;gap:20px;grid-template-columns:repeat(2,1fr)}
     @media (min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
     @media (min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
 
     .card{display:block;background:var(--card);border-radius:20px;overflow:hidden;transition:0.3s;border:1px solid rgba(255,255,255,0.03)}
     .card:hover{transform:translateY(-6px);background:var(--card-hover);border-color:rgba(125,252,91,0.2);box-shadow:0 15px 35px rgba(0,0,0,0.4)}
-    .thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover;transition:0.5s}
+    .thumb{position:relative;aspect-ratio:16/9;background:#111;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
     .card:hover img{transform:scale(1.05)}
+    .play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:0.3s}
+    .card:hover .play-icon{opacity:1}
+    .play-icon svg{width:50px;height:50px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5))}
     .card-title{padding:15px;font-size:15px;font-weight:500;height:65px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .badge{position:absolute;top:8px;left:8px;background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:3px 8px;border-radius:8px}
 
-    /* SEO та Футер */
-    .seo-block{margin-top:60px;padding:30px;background:rgba(255,255,255,0.02);border-radius:24px;font-size:15px;color:var(--muted);line-height:1.7}
+    .faq{margin-top:50px}
+    .faq h2{text-align:center;font-size:24px;margin-bottom:25px}
+    .faq-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;margin-bottom:12px;overflow:hidden}
+    .faq-q{padding:18px 20px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center;transition:0.3s}
+    .faq-q:hover{background:rgba(255,255,255,0.03)}
+    .faq-q::after{content:"+";font-size:20px;color:var(--accent);transition:0.3s}
+    .faq-item.open .faq-q::after{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 20px}
+    .faq-item.open .faq-a{max-height:300px;padding:0 20px 18px}
+    .faq-a p{color:var(--muted);line-height:1.7;margin:0}
+
+    .seo-block{margin-top:50px;padding:30px;background:rgba(255,255,255,0.02);border-radius:24px;font-size:15px;color:var(--muted);line-height:1.7}
+    .seo-block h2,.seo-block h3{color:var(--text);margin-top:25px}
+    .seo-block h2:first-child{margin-top:0}
+    .seo-block ul{padding-left:20px}
+    .seo-block li{margin-bottom:8px}
+
     .socials{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin:40px 0}
     .social-btn{background:rgba(255,255,255,0.05);padding:12px 20px;border-radius:14px;border:1px solid rgba(255,255,255,0.1);font-weight:500;transition:0.3s}
     .social-btn:hover{background:rgba(255,255,255,0.1);border-color:var(--accent)}
     .footer{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,0.05);color:var(--muted);font-size:14px}
+    .footer a{color:var(--accent)}
 
-    /* Модальне вікно інструкції */
     .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:200;align-items:center;justify-content:center;padding:20px}
     .modal.active{display:flex}
     .modal-content{background:var(--panel);max-width:500px;width:100%;border-radius:32px;padding:30px;position:relative;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--shadow)}
@@ -80,58 +145,110 @@
     .step-text b{color:#fff;display:block;margin-bottom:4px}
     .install-trigger{position:fixed;right:20px;bottom:20px;background:var(--accent);color:#000;padding:14px 24px;border-radius:18px;font-weight:bold;cursor:pointer;z-index:90;box-shadow:0 10px 25px rgba(125,252,91,0.3);transition:0.3s}
     .install-trigger:hover{transform:scale(1.05)}
+
+    .loading{text-align:center;padding:40px;color:var(--muted)}
+    .loading .spinner{width:40px;height:40px;border:3px solid rgba(255,255,255,0.1);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 15px}
+    @keyframes spin{to{transform:rotate(360deg)}}
   </style>
 </head>
 <body>
 
   <div class="topbar">
-    <a class="top-ico" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener" title="Telegram">
+    <a class="top-ico" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener" title="Telegram канал з українською музикою">
       <svg viewBox="0 0 24 24" fill="#27a7e7"><path d="M9.999 15.2l-.4 5.6c.57 0 .82-.24 1.12-.54l2.7-2.59 5.6 4.1c1.03.57 1.76.27 2.03-.95l3.68-17.25.01-.01c.33-1.53-.55-2.13-1.55-1.76L1.48 9.23C-.02 9.82-.01 10.7 1.21 11.08l5.63 1.76L19.3 5.58c.65-.43 1.24-.19.76.24"/></svg>
     </a>
-    <a class="top-ico" href="https://www.tiktok.com/@goldenwaveua" target="_blank" rel="noopener" title="TikTok">
+    <a class="top-ico" href="https://www.tiktok.com/@goldenwaveua" target="_blank" rel="noopener" title="TikTok з українськими хітами">
       <svg viewBox="0 0 24 24" fill="#fff"><path d="M21 8.1a6.7 6.7 0 0 1-4.2-1.45v7.01a5.56 5.56 0 1 1-5.56-5.56 5.5 5.5 0 0 1 1.6.24v2.64a2.9 2.9 0 1 0 2.03 2.77V2h2.4a4.3 4.3 0 0 0 3.73 3.7v2.4Z"/></svg>
     </a>
-    <a class="top-ico" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA" target="_blank" rel="noopener" title="YouTube Music">
+    <a class="top-ico" href="https://music.youtube.com/channel/UCV71wq5ul4hP4bfxytEZzJA" target="_blank" rel="noopener" title="YouTube Music — Українські пісні">
       <svg viewBox="0 0 24 24" fill="#ff0033"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm-3 14V8l8 4-8 4Z"/></svg>
     </a>
   </div>
 
   <main class="wrap">
     <header class="header-box">
-      <h1>Українські пісні: Сучасні хіти 2025-2026</h1>
-      <p class="sub">Слухайте найкращі сучасні українські пісні в машину та для гарного настрою. Тільки топові новинки та перевірені часом хіти в одному місці!</p>
+      <h1>Українські пісні: Слухати музику онлайн безкоштовно</h1>
+      <p class="sub">Найкращі <strong>сучасні українські хіти 2025-2026</strong> в одному місці. Слухайте <strong>українську музику онлайн</strong> безкоштовно: нові пісні в машину, збірки для настрою та популярні хіти без реклами!</p>
       <a class="tg-cta" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener">Музика в Telegram</a>
     </header>
 
+    <nav aria-label="Категорії музики">
+      <a href="/" class="active">Всі хіти</a>
+      <a href="/about.html">Про проєкт</a>
+    </nav>
+
+    <!-- New songs from channel -->
+    <h2 class="section-title">Нові пісні з каналу GoldenWaveUA</h2>
+    <div id="newGrid" class="grid"></div>
+
+    <!-- Collection / compilations -->
+    <h2 class="section-title">Збірки українських пісень — слухати онлайн</h2>
     <div id="videoGrid" class="grid"></div>
 
+    <!-- FAQ Section -->
+    <section class="faq">
+      <h2>Часті запитання про українську музику</h2>
+      <div class="faq-item">
+        <div class="faq-q">Де слухати українську музику онлайн безкоштовно?</div>
+        <div class="faq-a"><p>На сайті ukr-hits.online ви можете слухати українську музику онлайн безкоштовно без реєстрації. Ми зібрали найкращі українські пісні 2025-2026 року: сучасні хіти, нові пісні, музику в машину та збірки для гарного настрою. Весь контент доступний через офіційні YouTube-канали.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Які сучасні українські хіти зараз популярні?</div>
+        <div class="faq-a"><p>Серед популярних сучасних українських хітів 2025-2026 — нові пісні від українських артистів, які збирають мільйони переглядів. У нашій збірці українських пісень представлені найкращі треки різних жанрів: поп, рок, електронна музика та фолк.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Чи можна слухати музику онлайн без реклами?</div>
+        <div class="faq-a"><p>Так! На ukr-hits.online ви можете слухати музику онлайн без реклами та без підписки. Наш сайт пропонує зручний доступ до найкращих українських пісень прямо у вашому браузері. Також ви можете встановити наш сайт як додаток на телефон.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Як знайти українські пісні в машину?</div>
+        <div class="faq-a"><p>У нашій добірці зібрані найкращі українські пісні в машину — енергійні хіти для подорожей та драйвова музика для водіння. Підключіть телефон до автомагнітоли через Bluetooth або AUX та слухайте українську музику безкоштовно!</p></div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
     <section class="seo-block">
-      <h3>Про проект ukr-hits.online</h3>
-      <p>Ми створили цей портал для тих, хто шукає якісні <strong>українські пісні 2025</strong> року. У нашій добірці ви знайдете веселі українські пісні в машину, романтичні треки та патріотичні хіти. Весь контент підтягується безпосередньо з наших YouTube каналів, що гарантує найкращу якість звуку та відео. Підтримуйте своє, слухайте українське!</p>
+      <h2>Українська музика онлайн — Слухати безкоштовно</h2>
+      <p><strong>ukr-hits.online</strong> — це ваш портал для прослуховування <strong>українських пісень онлайн безкоштовно</strong>. Ми зібрали найкращу <strong>збірку українських пісень</strong> 2025-2026 року, щоб ви могли <strong>слухати сучасну українську музику</strong> в будь-який момент.</p>
+
+      <h3>Що ви знайдете на нашому сайті?</h3>
+      <ul>
+        <li><strong>Сучасні українські хіти</strong> — найпопулярніші пісні українських артистів</li>
+        <li><strong>Нові пісні 2025-2026</strong> — свіжі релізи та музичні новинки</li>
+        <li><strong>Українські пісні в машину</strong> — енергійні треки для подорожей</li>
+        <li><strong>Музика для настрою</strong> — романтичні, веселі та заспокійливі мелодії</li>
+        <li><strong>Збірки українських пісень</strong> — тематичні плейлісти на будь-який смак</li>
+      </ul>
+
+      <h3>Слухати українську музику онлайн</h3>
+      <p>Шукаєте де <strong>слухати музику онлайн безкоштовно</strong>? На ukr-hits.online весь контент підтягується безпосередньо з наших YouTube-каналів, що гарантує найкращу якість звуку та відео. <strong>Слухайте українські пісні</strong> без реєстрації, без реклами, без обмежень. Підтримуйте українських артистів — слухайте своє!</p>
+
+      <h3>Популярна українська музика</h3>
+      <p>Сучасна <strong>українська музика</strong> переживає справжній бум. Мільйони слухачів по всьому світу обирають <strong>українські пісні</strong> для повсякденного прослуховування. Від поп-хітів до фольклорних мотивів — <strong>українська музика онлайн</strong> дарує неймовірні емоції. <strong>Слухати українську музику</strong> тепер легко та зручно на нашому сайті!</p>
     </section>
 
     <div class="socials">
-      <a class="social-btn" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank">Spotify</a>
-      <a class="social-btn" href="https://www.facebook.com/GoldenWaveUA/" target="_blank">Facebook</a>
-      <a class="social-btn" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank">Telegram Канал</a>
+      <a class="social-btn" href="https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK?si=D-tAhMe6RS-YyLlR_yWN0A" target="_blank" rel="noopener">Spotify</a>
+      <a class="social-btn" href="https://www.facebook.com/GoldenWaveUA/" target="_blank" rel="noopener">Facebook</a>
+      <a class="social-btn" href="https://t.me/+5BR06jQ7h_k4YzBi" target="_blank" rel="noopener">Telegram Канал</a>
     </div>
 
     <footer class="footer">
-      © 2026 ukr-hits.online — Твій простір сучасної української музики
+      <p>&copy; 2026 <a href="/">ukr-hits.online</a> — Українська музика онлайн: слухати пісні безкоштовно</p>
+      <p><a href="/about.html">Про проєкт</a></p>
     </footer>
   </main>
 
-  <div class="install-trigger" id="openModal">📲 Встановити</div>
+  <div class="install-trigger" id="openModal">Встановити</div>
 
   <div class="modal" id="modal">
     <div class="modal-content">
-      <div class="modal-close" id="closeModal">✕</div>
+      <div class="modal-close" id="closeModal">&times;</div>
       <h2 style="margin-top:0">Як встановити на телефон?</h2>
       <p style="color:var(--muted); margin-bottom:25px">Додайте сайт на робочий стіл, щоб слухати музику як у застосунку:</p>
-      
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-text"><b>Для iPhone (Safari):</b> Натисніть кнопку «Поділитися» (квадрат зі стрілкою вгору).</div>
+        <div class="step-text"><b>Для iPhone (Safari):</b> Натисніть кнопку "Поділитися" (квадрат зі стрілкою вгору).</div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
@@ -139,59 +256,222 @@
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-text"><b>Завершення:</b> Оберіть пункт «Додати на головний екран» та підтвердіть додавання.</div>
+        <div class="step-text"><b>Завершення:</b> Оберіть пункт "Додати на головний екран" та підтвердіть додавання.</div>
       </div>
-      
       <button style="width:100%; padding:15px; border-radius:14px; border:none; background:rgba(255,255,255,0.05); color:#fff; font-weight:bold; cursor:pointer" id="closeModalBtn">Зрозуміло!</button>
     </div>
   </div>
 
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Де слухати українську музику онлайн безкоштовно?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "На сайті ukr-hits.online ви можете слухати українську музику онлайн безкоштовно без реєстрації. Ми зібрали найкращі українські пісні 2025-2026 року."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Які сучасні українські хіти зараз популярні?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Серед популярних сучасних українських хітів 2025-2026 — нові пісні від українських артистів різних жанрів: поп, рок, електронна музика та фолк."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Чи можна слухати музику онлайн без реклами?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Так! На ukr-hits.online ви можете слухати музику онлайн без реклами та без підписки, безкоштовно прямо у браузері."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Як знайти українські пісні в машину?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "У добірці ukr-hits.online зібрані найкращі українські пісні в машину — енергійні хіти для подорожей та драйвова музика."
+        }
+      }
+    ]
+  }
+  </script>
+
   <script>
-    const VIDEO_IDS = [
-      '6eZAg8vJXE8', 'suDB4Os9Ks4', 'iSVT-pq7DHM', 'MyUSxRtoIuk', 't2KumAVfaXI', 
-      'o377aoMBGnY', 'L8xtCLF_RGw', 'd7D5IvF5rqg', 'x2XuttUjVRE', 'xcqsS73I_U4', 
-      'dvqiGW2tk2M', 'FA438YuebB8', 'KSyh6YbFk9k', '6LLHpfYsroo', 'dj5f7HWp3e8', 
-      '2MK2yY5Ri3E', '0KtaP0zvxJ8', 'Kz83-GSWNio', 'cWTYzbU7pSs', 'pM9EWAHDSgM', 
-      'xeCwYxPURXM', 'FWMo0Ariwe8', 'Crog6gnA7qs', '_Ew5_vUS8kI', '-iMkJ6WfPh0', 
-      'rXjLKoCGfms', '8r1WAkknS10', 'DuwdiTASRf0', 'bnuyv_rOA6A', '-ejV7pWVhGM', 
-      '9z6TIEh79vg', 'Yn8kByhUiFo', '-2lPBoh3Hbk', 'v5ZFj7fXSjk', 'H-Hx-e0EpTQ', 
-      'iu7l0CmFjHk', '1DvyyG11HZw', 'h8rr3QvUwJM', 'Hc9GSnnl9s4', 'omoT0omX0Ts', 
-      'gt7WnwSce1Y', 'Ynh2P0-LVpQ', 'JLp8oiQG4aw', 'HpT658eOOPM'
+    // === CHANNEL ID for auto-fetch ===
+    var CHANNEL_ID = 'UCV71wq5ul4hP4bfxytEZzJA';
+
+    // === Fallback: New individual songs (real titles from channel) ===
+    var NEW_SONGS = [
+      {id:'SptESkS-G0g', title:'Вічна Таємниця'},
+      {id:'TnW4WzZH59g', title:'Буря В Моїй Душі'},
+      {id:'ppPMTBtZZvI', title:'Вогнище В Очах'},
+      {id:'cT7zzSpIlI0', title:'Ти моя доля'},
+      {id:'NfQxwTNRHDk', title:'Доля Моя Білий Птах'},
+      {id:'v-VuIsUCxXI', title:'Золото Твоїх Очей'},
+      {id:'L1qDVIjY-Pc', title:'Послухай Мене'},
+      {id:'0UmAaiB-uOs', title:'Фатальний ровер'},
+      {id:'OEkMNfG-5Ns', title:'Магія Ватри'},
+      {id:'Urnr8WRAa_c', title:'Голос Землі'},
+      {id:'WY3wEDbH-3o', title:'Крила Волі'},
+      {id:'Xxx6Y3mvq_w', title:'Ритм Предків'},
+      {id:'rYI0fHEVJpg', title:'Дика Кров'},
+      {id:'Y2xSEvRjHHM', title:'Мамині ікони'},
+      {id:'oYLknJDDwP0', title:'Танцюй зі мною'}
     ];
 
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
+    // === Compilations (all verified working) ===
+    var COMPILATIONS = [
+      {id:'HpT658eOOPM', title:'Топ-збірка 2025 | Українські пісні та новинки'},
+      {id:'0KtaP0zvxJ8', title:'Найпопулярніші українські пісні | Гарячі хіти'},
+      {id:'Kz83-GSWNio', title:'Українські хіти | Музичний альбом пісні'},
+      {id:'cWTYzbU7pSs', title:'Збірка українських хітів | Слухати онлайн'},
+      {id:'pM9EWAHDSgM', title:'Українська музика | Найкращі пісні збірка'},
+      {id:'xeCwYxPURXM', title:'Гарячі українські хіти | Альбом пісні'},
+      {id:'FWMo0Ariwe8', title:'Популярні українські пісні | Музичний збірник'},
+      {id:'Crog6gnA7qs', title:'Сучасні українські хіти | Слухати музику'},
+      {id:'_Ew5_vUS8kI', title:'Українські пісні 2025 | Хіти року'},
+      {id:'-iMkJ6WfPh0', title:'Найкращі українські пісні | Збірка хітів'},
+      {id:'rXjLKoCGfms', title:'Українська музика онлайн | Топ пісні'},
+      {id:'8r1WAkknS10', title:'Збірка пісень | Українські хіти слухати'},
+      {id:'DuwdiTASRf0', title:'Українські музичні хіти | Альбом 2025'},
+      {id:'bnuyv_rOA6A', title:'Гарячі хіти України | Слухати безкоштовно'},
+      {id:'-ejV7pWVhGM', title:'Українські пісні в машину | Музична збірка'},
+      {id:'9z6TIEh79vg', title:'Музика для настрою | Українські хіти'},
+      {id:'Yn8kByhUiFo', title:'Нові українські пісні | Слухати онлайн'},
+      {id:'-2lPBoh3Hbk', title:'Українська музика 2025 | Збірка хітів'},
+      {id:'v5ZFj7fXSjk', title:'Найкращі хіти | Українські пісні слухати'},
+      {id:'H-Hx-e0EpTQ', title:'Популярна українська музика | Збірник пісень'},
+      {id:'iu7l0CmFjHk', title:'Українські пісні слухати | Найкращі треки'},
+      {id:'1DvyyG11HZw', title:'Сучасна українська музика | Хіти 2025'},
+      {id:'h8rr3QvUwJM', title:'Збірка українських пісень | Музика онлайн'},
+      {id:'Hc9GSnnl9s4', title:'Українські хіти безкоштовно | Слухати'},
+      {id:'omoT0omX0Ts', title:'Музика українська | Альбом найкращих пісень'},
+      {id:'gt7WnwSce1Y', title:'Українські пісні для душі | Збірка'},
+      {id:'Ynh2P0-LVpQ', title:'Найпопулярніші пісні | Українська музика'},
+      {id:'JLp8oiQG4aw', title:'Українські хіти слухати онлайн безкоштовно'}
+    ];
+
+    var playSvg = '<svg viewBox="0 0 68 48"><path d="M66.5 7.7s-.7-4.7-2.8-6.8C60.7-2 57.2-2 55.6-2.2 46.4-3 34-3 34-3s-12.4 0-21.6.8C10.8-2 7.3-2 4.3.9 2.2 3 1.5 7.7 1.5 7.7S.8 13.2.8 18.7v5.1c0 5.5.7 11 .7 11s.7 4.7 2.8 6.8c3 2.9 6.9 2.8 8.6 3.1 6.3.6 26.1.8 26.1.8s12.4 0 21.6-.8c1.6-.2 5.1-.2 8.1-3.1 2.1-2.1 2.8-6.8 2.8-6.8s.7-5.5.7-11v-5.1c0-5.5-.7-11-.7-11z" fill="red"/><path d="M27 32l18-11-18-11z" fill="#fff"/></svg>';
+
+    function makeCard(s, badge) {
+      var a = document.createElement('a');
+      a.className = 'card';
+      a.href = 'https://www.youtube.com/watch?v=' + s.id;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.title = s.title + ' — слухати українську музику онлайн';
+      a.innerHTML =
+        '<div class="thumb">' +
+          (badge ? '<span class="badge">' + badge + '</span>' : '') +
+          '<img src="https://i.ytimg.com/vi/' + s.id + '/mqdefault.jpg" loading="lazy" decoding="async" alt="' + s.title + ' — українська пісня слухати онлайн" width="320" height="180">' +
+          '<div class="play-icon">' + playSvg + '</div>' +
+        '</div>' +
+        '<div class="card-title">' + s.title + '</div>';
+      return a;
     }
 
-    function render() {
-      const grid = document.getElementById('videoGrid');
-      const items = shuffle([...VIDEO_IDS]);
-      items.forEach(id => {
-        const a = document.createElement('a');
-        a.className = 'card';
-        a.href = `https://www.youtube.com/watch?v=${id}`;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.innerHTML = `
-          <div class="thumb"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" loading="lazy" alt="Українська музика"></div>
-          <div class="card-title">Українські пісні 2025 — Слухати онлайн</div>
-        `;
-        grid.appendChild(a);
+    function shuffle(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+      }
+      return arr;
+    }
+
+    // Try to auto-fetch latest videos from YouTube RSS via CORS proxy
+    function fetchLatestVideos() {
+      var rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+      var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(rssUrl);
+
+      return fetch(proxyUrl, {signal: AbortSignal.timeout(5000)})
+        .then(function(r) { return r.text(); })
+        .then(function(xml) {
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(xml, 'text/xml');
+          var entries = doc.querySelectorAll('entry');
+          var videos = [];
+          entries.forEach(function(entry) {
+            var videoId = entry.querySelector('yt\\:videoId, videoId');
+            var title = entry.querySelector('title');
+            if (videoId && title) {
+              videos.push({id: videoId.textContent, title: title.textContent});
+            }
+          });
+          return videos.length > 0 ? videos : null;
+        })
+        .catch(function() { return null; });
+    }
+
+    function renderGrid(gridId, songs, badge) {
+      var grid = document.getElementById(gridId);
+      grid.innerHTML = '';
+      songs.forEach(function(s) {
+        grid.appendChild(makeCard(s, badge));
       });
     }
 
-    // Модалка
-    const modal = document.getElementById('modal');
-    document.getElementById('openModal').onclick = () => modal.classList.add('active');
-    document.getElementById('closeModal').onclick = () => modal.classList.remove('active');
-    document.getElementById('closeModalBtn').onclick = () => modal.classList.remove('active');
-    window.onclick = (e) => { if(e.target == modal) modal.classList.remove('active'); }
+    async function init() {
+      // Try fetching fresh videos from the channel
+      var freshVideos = await fetchLatestVideos();
 
-    window.onload = render;
+      if (freshVideos && freshVideos.length > 0) {
+        // Use fresh data from RSS — always up to date!
+        renderGrid('newGrid', freshVideos, 'НОВЕ');
+      } else {
+        // Fallback to hardcoded list
+        renderGrid('newGrid', NEW_SONGS, 'НОВЕ');
+      }
+
+      // Compilations — shuffle for variety
+      renderGrid('videoGrid', shuffle([...COMPILATIONS]));
+    }
+
+    // FAQ accordion
+    document.addEventListener('click', function(e) {
+      var q = e.target.closest('.faq-q');
+      if (q) q.parentElement.classList.toggle('open');
+    });
+
+    // Modal
+    var modal = document.getElementById('modal');
+    document.getElementById('openModal').onclick = function() { modal.classList.add('active'); };
+    document.getElementById('closeModal').onclick = function() { modal.classList.remove('active'); };
+    document.getElementById('closeModalBtn').onclick = function() { modal.classList.remove('active'); };
+    window.onclick = function(e) { if(e.target === modal) modal.classList.remove('active'); };
+
+    // Upgrade thumbnails to HQ when they scroll into view
+    if ('IntersectionObserver' in window) {
+      var imgObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var img = entry.target;
+            var hqSrc = img.src.replace('mqdefault.jpg', 'hqdefault.jpg');
+            if (img.src !== hqSrc) {
+              img.src = hqSrc;
+            }
+            imgObserver.unobserve(img);
+          }
+        });
+      }, {rootMargin: '200px'});
+
+      var origRender = renderGrid;
+      renderGrid = function(gridId, songs, badge) {
+        origRender(gridId, songs, badge);
+        document.getElementById(gridId).querySelectorAll('img').forEach(function(img) {
+          imgObserver.observe(img);
+        });
+      };
+    }
+
+    init();
   </script>
 </body>
 </html>
