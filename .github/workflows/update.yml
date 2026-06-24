@@ -1,0 +1,46 @@
+name: Оновлення відео з YouTube
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'   # кожні 3 години
+  workflow_dispatch:          # кнопка ручного запуску
+  push:
+    branches: [ main ]
+    paths:
+      - 'build/**'
+      - '.github/workflows/update.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Згенерувати сайт зі свіжими відео
+        run: node build/build.mjs
+
+      - name: Закомітити зміни (якщо є)
+        run: |
+          git config user.name "ukrhits-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html videos.json sitemap.xml video-sitemap.xml
+          if git diff --staged --quiet; then
+            echo "Змін немає — нових відео не знайдено."
+          else
+            git commit -m "Авто-оновлення відео ($(date -u +%Y-%m-%d' '%H:%M' UTC'))"
+            git push
+            echo "Сайт оновлено."
+          fi
