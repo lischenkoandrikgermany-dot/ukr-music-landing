@@ -1,0 +1,36 @@
+{
+  "site": {
+    "url": "https://ukr-hits.online",
+    "name": "UKR Hits — Українська музика онлайн",
+    "telegram": "https://t.me/+5BR06jQ7h_k4YzBi",
+    "tiktok": "https://www.tiktok.com/@goldenwaveua",
+    "spotify": "https://open.spotify.com/artist/0P4fZZt14GnNUIkWlnvYPK",
+    "facebook": "https://www.facebook.com/GoldenWaveUA/"
+  },
+  "channels": [
+    {
+      "id": "UCXN8Ibh2QGNwZSwFJH423aw",
+      "name": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6",
+      "youtube": "https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw"
+    },
+    {
+      "id": "UCXRzPkWX59hYAWgwgmpzc7w",
+      "name": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399",
+      "youtube": "https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w"
+    },
+    {
+      "id": "UCA_3UxgDSooR8btEvbtFe1w",
+      "name": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470",
+      "youtube": "https://www.youtube.com/@rokukrainskoyu"
+    }
+  ]
+}
