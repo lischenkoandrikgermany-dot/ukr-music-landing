@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/W5TUT7m_vtY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ЦЕ ЛЕГЕНДАРНИЙ ПЛЕЙЛИСТ! українська музика в машину 2026 та шансон український</video:title>
+      <video:description>Українська пісня «ЦЕ ЛЕГЕНДАРНИЙ ПЛЕЙЛИСТ! українська музика в машину 2026 та шансон український» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/W5TUT7m_vtY</video:player_loc>
+      <video:publication_date>2026-06-25T05:00:03+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/CiefIR7bsoo/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ВОНА НЕ МОЖЕ ВТРИМАТИСЯ! — танцювальна українська музика в машину 2026 та хіти</video:title>
       <video:description>Українська пісня «ВОНА НЕ МОЖЕ ВТРИМАТИСЯ! — танцювальна українська музика в машину 2026 та хіти» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -197,15 +206,6 @@
       <video:description>Українська пісня «Музика українська яка підіймає настрій» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/lRWdLDIpEEE</video:player_loc>
       <video:publication_date>2026-06-01T04:00:31+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/zL7wE64yi5E/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>МЕГА ХІТИ · Українська Музика в Авто 2026 · Найкраща Збірка Номер 1</video:title>
-      <video:description>Українська пісня «МЕГА ХІТИ · Українська Музика в Авто 2026 · Найкраща Збірка Номер 1» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/zL7wE64yi5E</video:player_loc>
-      <video:publication_date>2026-05-27T04:00:14+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
