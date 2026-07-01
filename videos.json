@@ -1,7 +1,16 @@
 {
-  "updated": "2026-07-01T04:02:59.789Z",
-  "count": 14,
+  "updated": "2026-07-01T09:50:31.865Z",
+  "count": 42,
   "videos": [
+    {
+      "id": "sVvsfEBdSuk",
+      "title": "ДОРОГА ДОДОМУ СТАЛА РІДНОЮ — українська музика в машину 2026 та найкращі пісні",
+      "published": "2026-07-01T05:00:39+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "JQexUn2X59E",
       "title": "ПРОБИРАЄ ДО МУРАШОК · УКРАЇНСЬКИЙ РОК 2026 · НАЙКРАЩІ РОК ХІТИ УКРАЇНСЬКОЮ",
@@ -10,6 +19,42 @@
       "label": "Рок",
       "tag": "rok",
       "accent": "#ff5470"
+    },
+    {
+      "id": "wjgfNSYuC9o",
+      "title": "ВІД ЦИХ ХІТІВ МУРАШКИ ПО ШКІРІ! — МУЗИКА В МАШИНУ 2026 ТА УКРАЇНСЬКА МУЗИКА",
+      "published": "2026-06-30T05:00:22+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "E6467CC9RF8",
+      "title": "ДУША СПІВАЄ! найкращий український шансон 2026 та музика в машину для душі",
+      "published": "2026-06-29T05:00:20+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "W5TUT7m_vtY",
+      "title": "ЦЕ ЛЕГЕНДАРНИЙ ПЛЕЙЛИСТ! українська музика в машину 2026 та шансон український",
+      "published": "2026-06-25T05:00:03+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "CiefIR7bsoo",
+      "title": "ВОНА НЕ МОЖЕ ВТРИМАТИСЯ! — танцювальна українська музика в машину 2026 та хіти",
+      "published": "2026-06-23T05:00:01+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
     },
     {
       "id": "5g4wMIPkISA",
@@ -21,6 +66,195 @@
       "accent": "#ff5470"
     },
     {
+      "id": "nj1D3BId9vs",
+      "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ ВАШОГО СЕРЦЯ ВЕЧІРНЯ РОМАНТИКА 2026 — ПРО КОХАННЯ",
+      "published": "2026-06-22T03:00:19+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "fXaNPFZJb1M",
+      "title": "МУРАШКИ ПО ШКІРІ! — НАЙКРАЩА УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026 ТА НОВІ УКРАЇНСЬКІ ПІСНІ",
+      "published": "2026-06-21T05:00:25+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "BybRIV2GltY",
+      "title": "Український шансон — найкраща музика в дорогу та в машину",
+      "published": "2026-06-18T10:39:04+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "y5bcsq9cD-w",
+      "title": "УКРАЇНСЬКІ ХІТИ 2026 🌹 Музика Для Душі, Що Надихає",
+      "published": "2026-06-15T14:00:06+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "IEUiVAvRU4A",
+      "title": "ВІД ЦИХ ХІТІВ МУРАШКИ ПО ШКІРІ 🔥 Українська Музика в Машину 2026 · Нові Пісні",
+      "published": "2026-06-15T08:00:00+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "XbimivmgTEE",
+      "title": "УВІМКНИ В ДОРОЗІ ДОДОМУ 🚗 Український Шансон 2026 · Музика в Машину · Нові Пісні",
+      "published": "2026-06-14T05:00:38+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "1L-QBMHzGts",
+      "title": "💕 ВЕЧІРНЯ РОМАНТИКА 2025–2026 · Нові Пісні Про Любов · Найкраща Українська Музика Для Душі",
+      "published": "2026-06-14T03:00:10+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "ReCY6dMHDpg",
+      "title": "ЦІ ХІТИ СКОРОЧУЮТЬ ДАЛЕКУ ДОРОГУ 🚗 Український Шансон 2026 · Музика в Машину",
+      "published": "2026-06-13T04:00:09+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "IqbFd71HkfI",
+      "title": "Романтичні Українські Хіти 2026 Найкраща Музика про Любов",
+      "published": "2026-06-13T03:00:13+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "pmlAjLDb7Vs",
+      "title": "ЦІ ПІСНІ СЛУХАЄ ВСЯ УКРАЇНА 🔥 Український Шансон 2026 · Музика в Машину",
+      "published": "2026-06-12T04:00:18+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "On-sDcs6Xt0",
+      "title": "ВЕЧІРНЯ РОМАНТИКА 2026 — Найкраща Українська Музика про Любов",
+      "published": "2026-06-12T03:00:14+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "fvzhxHFXjCA",
+      "title": "Найкраща Українська Музика про Любов Романтичні Хіти 2025 2026",
+      "published": "2026-06-11T20:28:16+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "ucefcer_Hd8",
+      "title": "Музика в авто — найкращий український шансон для вашої поїздки",
+      "published": "2026-06-11T12:17:33+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "R_HY2DtfJHo",
+      "title": "ЦІ ХІТИ КАЧАЮТЬ ВЕСЬ ДЕНЬ! 🎶 Українська Музика в Машину 2026 · Нові Пісні",
+      "published": "2026-06-09T05:00:21+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "B8EVe8lGxFw",
+      "title": "ВЕЧІРНЯ РОМАНТИКА 2026 — Найкраща Українська Музика про Любов",
+      "published": "2026-06-06T03:00:04+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "Vb9OB11l2As",
+      "title": "ВЕЧІРНЯ РОМАНТИКА — Найкраща Українська Музика про Любов 2026",
+      "published": "2026-06-05T08:00:32+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "uNkwvS_SYx4",
+      "title": "Найкраща музика в авто — український шансон у дорогу",
+      "published": "2026-06-05T05:00:25+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "LSi-m8tXQns",
+      "title": "Найкращі Пісні Про Кохання 🌟 Український Шансон & Популярні Хіти 2025",
+      "published": "2026-05-21T03:00:23+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "gzN028G8n7Q",
+      "title": "Українська музика 2026 🇺🇦 Душевні та танцювальні хіти | Кращі пісні для настрою",
+      "published": "2026-05-20T03:00:35+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "mxG77m9l4yw",
+      "title": "🌹 НОВИНКИ · Українська Музика для Закоханих 2026 · Романтичні Хіти",
+      "published": "2026-05-19T03:00:39+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "yi_8ztU1yXk",
+      "title": "💕 Ці Пісні Торкнуться Серця · Українська Музика Для Душі 2026 · Романтичний Мікс",
+      "published": "2026-05-14T03:01:04+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "yqspeBGWKIw",
       "title": "🎧 Українські Пісні Що Чіпляють За Серце · Мікс 2026 | Для Душі",
       "published": "2026-05-14T03:00:55+00:00",
@@ -28,6 +262,24 @@
       "label": "Рок",
       "tag": "rok",
       "accent": "#ff5470"
+    },
+    {
+      "id": "KO-Ve44dVBM",
+      "title": "🌸 НОВІ ПІСНІ · Українські Пісні про Почуття 2026 · Найкраща Українська Музика",
+      "published": "2026-05-13T03:00:29+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "g5DwLidu5Hg",
+      "title": "🌙 ВЕЧІРНЯ РОМАНТИКА 2026 · Найкраща Українська Музика про Любов (1 Година)",
+      "published": "2026-05-12T03:00:40+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "rxb_ppvduSA",
