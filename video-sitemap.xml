@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/kMoh3eXHurw/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Мега хіти та українські пісні 2026, ідеальна музика в машину</video:title>
+      <video:description>Українська пісня «Мега хіти та українські пісні 2026, ідеальна музика в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/kMoh3eXHurw</video:player_loc>
+      <video:publication_date>2026-07-01T13:04:44+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/sVvsfEBdSuk/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ДОРОГА ДОДОМУ СТАЛА РІДНОЮ — українська музика в машину 2026 та найкращі пісні</video:title>
       <video:description>Українська пісня «ДОРОГА ДОДОМУ СТАЛА РІДНОЮ — українська музика в машину 2026 та найкращі пісні» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -206,15 +215,6 @@
       <video:description>Українська пісня «ВЕЧІРНЯ РОМАНТИКА — Найкраща Українська Музика про Любов 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/Vb9OB11l2As</video:player_loc>
       <video:publication_date>2026-06-05T08:00:32+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/uNkwvS_SYx4/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Найкраща музика в авто — український шансон у дорогу</video:title>
-      <video:description>Українська пісня «Найкраща музика в авто — український шансон у дорогу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/uNkwvS_SYx4</video:player_loc>
-      <video:publication_date>2026-06-05T05:00:25+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
