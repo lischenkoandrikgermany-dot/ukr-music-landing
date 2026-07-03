@@ -1,7 +1,16 @@
 {
-  "updated": "2026-07-03T03:24:12.671Z",
+  "updated": "2026-07-03T09:20:27.819Z",
   "count": 42,
   "videos": [
+    {
+      "id": "9nNdNH-ybT0",
+      "title": "ЦЮ МУЗИКУ СЛУХАЄ ВСЯ КРАЇНА — НОВІ УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН",
+      "published": "2026-07-03T05:00:16+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "iNI2H1oVIpE",
       "title": "МУРАШКИ ПО ШКІРІ! НАЙКРАЩА УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026 ТА ШАНСОН",
@@ -190,15 +199,6 @@
       "label": "GoldenWave",
       "tag": "golden",
       "accent": "#ff7eb6"
-    },
-    {
-      "id": "ucefcer_Hd8",
-      "title": "Музика в авто — найкращий український шансон для вашої поїздки",
-      "published": "2026-06-11T12:17:33+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
     },
     {
       "id": "B8EVe8lGxFw",
