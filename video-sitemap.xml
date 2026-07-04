@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/u0v0WhHAI-k/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ЦІ ХІТИ РОЗРИВАЮТЬ ДОРОГУ ДОДОМУ! УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026 ТА ШАНСОН</video:title>
+      <video:description>Українська пісня «ЦІ ХІТИ РОЗРИВАЮТЬ ДОРОГУ ДОДОМУ! УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026 ТА ШАНСОН» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/u0v0WhHAI-k</video:player_loc>
+      <video:publication_date>2026-07-04T05:00:02+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/9nNdNH-ybT0/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ЦЮ МУЗИКУ СЛУХАЄ ВСЯ КРАЇНА — НОВІ УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН</video:title>
       <video:description>Українська пісня «ЦЮ МУЗИКУ СЛУХАЄ ВСЯ КРАЇНА — НОВІ УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -170,15 +179,6 @@
       <video:description>Українська пісня «Романтичні Українські Хіти 2026 Найкраща Музика про Любов» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/IqbFd71HkfI</video:player_loc>
       <video:publication_date>2026-06-13T03:00:13+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/pmlAjLDb7Vs/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ЦІ ПІСНІ СЛУХАЄ ВСЯ УКРАЇНА 🔥 Український Шансон 2026 · Музика в Машину</video:title>
-      <video:description>Українська пісня «ЦІ ПІСНІ СЛУХАЄ ВСЯ УКРАЇНА 🔥 Український Шансон 2026 · Музика в Машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/pmlAjLDb7Vs</video:player_loc>
-      <video:publication_date>2026-06-12T04:00:18+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
