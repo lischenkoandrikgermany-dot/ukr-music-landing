@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/V3tQeWINbT4/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ВОНА ЗАПЛАКАЛА ВІД ЦІЄЇ ПІСНІ — УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН</video:title>
+      <video:description>Українська пісня «ВОНА ЗАПЛАКАЛА ВІД ЦІЄЇ ПІСНІ — УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/V3tQeWINbT4</video:player_loc>
+      <video:publication_date>2026-07-06T05:00:14+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/v2tNB1fjHbw/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ПИШАЮСЯ НАШОЮ МУЗИКОЮ — ТОП УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН</video:title>
       <video:description>Українська пісня «ПИШАЮСЯ НАШОЮ МУЗИКОЮ — ТОП УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -161,15 +170,6 @@
       <video:description>Українська пісня «ВІД ЦИХ ХІТІВ МУРАШКИ ПО ШКІРІ 🔥 Українська Музика в Машину 2026 · Нові Пісні» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/IEUiVAvRU4A</video:player_loc>
       <video:publication_date>2026-06-15T08:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/XbimivmgTEE/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>УВІМКНИ В ДОРОЗІ ДОДОМУ 🚗 Український Шансон 2026 · Музика в Машину · Нові Пісні</video:title>
-      <video:description>Українська пісня «УВІМКНИ В ДОРОЗІ ДОДОМУ 🚗 Український Шансон 2026 · Музика в Машину · Нові Пісні» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/XbimivmgTEE</video:player_loc>
-      <video:publication_date>2026-06-14T05:00:38+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
