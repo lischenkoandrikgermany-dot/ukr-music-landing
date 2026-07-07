@@ -1,7 +1,16 @@
 {
-  "updated": "2026-07-06T22:14:37.512Z",
+  "updated": "2026-07-07T09:43:49.343Z",
   "count": 42,
   "videos": [
+    {
+      "id": "U4Ev08bX0Dk",
+      "title": "ВІД ЦИХ РИТМІВ СЕРЦЕ ТАНЕ! УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026 ТА ШАНСОН",
+      "published": "2026-07-07T05:00:12+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "V3tQeWINbT4",
       "title": "ВОНА ЗАПЛАКАЛА ВІД ЦІЄЇ ПІСНІ — УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН",
@@ -163,15 +172,6 @@
       "label": "GoldenWave",
       "tag": "golden",
       "accent": "#ff7eb6"
-    },
-    {
-      "id": "IEUiVAvRU4A",
-      "title": "ВІД ЦИХ ХІТІВ МУРАШКИ ПО ШКІРІ 🔥 Українська Музика в Машину 2026 · Нові Пісні",
-      "published": "2026-06-15T08:00:00+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
     },
     {
       "id": "1L-QBMHzGts",
