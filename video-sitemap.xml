@@ -3,6 +3,24 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/FApQsuNMGXw/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>МУЗИКА НОН СТОП · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
+      <video:description>Українська пісня «МУЗИКА НОН СТОП · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/FApQsuNMGXw</video:player_loc>
+      <video:publication_date>2026-07-11T05:00:13+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/4hHIHIr9y6w/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
+      <video:description>Українська пісня «ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/4hHIHIr9y6w</video:player_loc>
+      <video:publication_date>2026-07-11T03:00:03+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/uKRAqS4T5RY/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ТРЕКИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
       <video:description>Українська пісня «ТРЕКИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -156,15 +174,6 @@
       <video:live>no</video:live>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/W5TUT7m_vtY/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ЦЕ ЛЕГЕНДАРНИЙ ПЛЕЙЛИСТ! українська музика в машину 2026 та шансон український</video:title>
-      <video:description>Українська пісня «ЦЕ ЛЕГЕНДАРНИЙ ПЛЕЙЛИСТ! українська музика в машину 2026 та шансон український» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/W5TUT7m_vtY</video:player_loc>
-      <video:publication_date>2026-06-25T05:00:03+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/5g4wMIPkISA/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ЛЕГЕНДАРНЕ ЗВУЧАННЯ СЬОГОДНІ · УКРАЇНСЬКИЙ РОК 2026 · НОВІ УКРАЇНСЬКІ ПІСНІ ЗІ ЗМІСТОМ</video:title>
       <video:description>Українська пісня «ЛЕГЕНДАРНЕ ЗВУЧАННЯ СЬОГОДНІ · УКРАЇНСЬКИЙ РОК 2026 · НОВІ УКРАЇНСЬКІ ПІСНІ ЗІ ЗМІСТОМ» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -260,15 +269,6 @@
       <video:description>Українська пісня «Українська музика 2026 🇺🇦 Душевні та танцювальні хіти | Кращі пісні для настрою» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/gzN028G8n7Q</video:player_loc>
       <video:publication_date>2026-05-20T03:00:35+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/mxG77m9l4yw/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>🌹 НОВИНКИ · Українська Музика для Закоханих 2026 · Романтичні Хіти</video:title>
-      <video:description>Українська пісня «🌹 НОВИНКИ · Українська Музика для Закоханих 2026 · Романтичні Хіти» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/mxG77m9l4yw</video:player_loc>
-      <video:publication_date>2026-05-19T03:00:39+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
