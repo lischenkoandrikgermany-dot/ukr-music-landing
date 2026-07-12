@@ -1,7 +1,25 @@
 {
-  "updated": "2026-07-12T02:53:03.459Z",
+  "updated": "2026-07-12T06:05:33.139Z",
   "count": 42,
   "videos": [
+    {
+      "id": "tjGUiJbXaIw",
+      "title": "МУЗИКА ДЛЯ ВОДІЇВ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
+      "published": "2026-07-12T05:00:01+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "vsUxDrZawFQ",
+      "title": "ЦІ ПІСНІ ПРО НАШЕ КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-12T03:00:04+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "FApQsuNMGXw",
       "title": "МУЗИКА НОН СТОП · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -165,15 +183,6 @@
       "accent": "#34d399"
     },
     {
-      "id": "E6467CC9RF8",
-      "title": "ДУША СПІВАЄ! найкращий український шансон 2026 та музика в машину для душі",
-      "published": "2026-06-29T05:00:20+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
       "id": "5g4wMIPkISA",
       "title": "ЛЕГЕНДАРНЕ ЗВУЧАННЯ СЬОГОДНІ · УКРАЇНСЬКИЙ РОК 2026 · НОВІ УКРАЇНСЬКІ ПІСНІ ЗІ ЗМІСТОМ",
       "published": "2026-06-22T05:00:18+00:00",
@@ -258,15 +267,6 @@
       "id": "LSi-m8tXQns",
       "title": "Найкращі Пісні Про Кохання 🌟 Український Шансон & Популярні Хіти 2025",
       "published": "2026-05-21T03:00:23+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "gzN028G8n7Q",
-      "title": "Українська музика 2026 🇺🇦 Душевні та танцювальні хіти | Кращі пісні для настрою",
-      "published": "2026-05-20T03:00:35+00:00",
       "channel": "GoldenWaveUA",
       "label": "GoldenWave",
       "tag": "golden",
