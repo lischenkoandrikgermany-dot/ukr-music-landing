@@ -1,7 +1,25 @@
 {
-  "updated": "2026-07-14T02:35:30.211Z",
+  "updated": "2026-07-14T08:07:34.906Z",
   "count": 42,
   "videos": [
+    {
+      "id": "8Zjmxufwj7Q",
+      "title": "НАЙНІЖНІШІ ПІСНІ ПРО КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-14T06:00:39+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "UV1j92P9-AE",
+      "title": "ГУЧНІШЕ В МАШИНІ! · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
+      "published": "2026-07-14T05:00:28+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "p_CZyduNecU",
       "title": "МУЗИКА В АВТО 2026 · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -174,15 +192,6 @@
       "accent": "#34d399"
     },
     {
-      "id": "sVvsfEBdSuk",
-      "title": "ДОРОГА ДОДОМУ СТАЛА РІДНОЮ — українська музика в машину 2026 та найкращі пісні",
-      "published": "2026-07-01T05:00:39+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
       "id": "JQexUn2X59E",
       "title": "ПРОБИРАЄ ДО МУРАШОК · УКРАЇНСЬКИЙ РОК 2026 · НАЙКРАЩІ РОК ХІТИ УКРАЇНСЬКОЮ",
       "published": "2026-06-30T06:00:33+00:00",
@@ -258,15 +267,6 @@
       "id": "B8EVe8lGxFw",
       "title": "ВЕЧІРНЯ РОМАНТИКА 2026 — Найкраща Українська Музика про Любов",
       "published": "2026-06-06T03:00:04+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "Vb9OB11l2As",
-      "title": "ВЕЧІРНЯ РОМАНТИКА — Найкраща Українська Музика про Любов 2026",
-      "published": "2026-06-05T08:00:32+00:00",
       "channel": "GoldenWaveUA",
       "label": "GoldenWave",
       "tag": "golden",
