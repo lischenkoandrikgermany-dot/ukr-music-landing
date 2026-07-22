@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/7N_rDF051G8/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>МУЗИКА В МАШИНУ ДЛЯ ДУШІ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
+      <video:description>Українська пісня «МУЗИКА В МАШИНУ ДЛЯ ДУШІ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/7N_rDF051G8</video:player_loc>
+      <video:publication_date>2026-07-22T05:00:13+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/Us_q2tVHCSo/hqdefault.jpg</video:thumbnail_loc>
       <video:title>УЛЮБЛЕНІ ХІТИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
       <video:description>Українська пісня «УЛЮБЛЕНІ ХІТИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -179,15 +188,6 @@
       <video:description>Українська пісня «ВОНА ЗАПЛАКАЛА ВІД ЦІЄЇ ПІСНІ — УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/V3tQeWINbT4</video:player_loc>
       <video:publication_date>2026-07-06T05:00:14+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/v2tNB1fjHbw/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ПИШАЮСЯ НАШОЮ МУЗИКОЮ — ТОП УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН</video:title>
-      <video:description>Українська пісня «ПИШАЮСЯ НАШОЮ МУЗИКОЮ — ТОП УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026 ТА ШАНСОН» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/v2tNB1fjHbw</video:player_loc>
-      <video:publication_date>2026-07-05T05:00:37+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
