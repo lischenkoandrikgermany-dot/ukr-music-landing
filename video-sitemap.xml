@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/lS_SQZ1KGIo/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>МУЗИКА В МАШИНУ ДЛЯ ДУШІ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
+      <video:description>Українська пісня «МУЗИКА В МАШИНУ ДЛЯ ДУШІ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/lS_SQZ1KGIo</video:player_loc>
+      <video:publication_date>2026-07-29T05:00:13+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/UT84udMSd5E/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
       <video:description>Українська пісня «ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -188,15 +197,6 @@
       <video:description>Українська пісня «ПЛЕЙЛИСТ У ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/1bqnvV592GU</video:player_loc>
       <video:publication_date>2026-07-08T05:00:00+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/U4Ev08bX0Dk/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ВІД ЦИХ РИТМІВ СЕРЦЕ ТАНЕ! УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026 ТА ШАНСОН</video:title>
-      <video:description>Українська пісня «ВІД ЦИХ РИТМІВ СЕРЦЕ ТАНЕ! УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026 ТА ШАНСОН» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/U4Ev08bX0Dk</video:player_loc>
-      <video:publication_date>2026-07-07T05:00:12+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
