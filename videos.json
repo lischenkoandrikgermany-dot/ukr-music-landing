@@ -1,7 +1,16 @@
 {
-  "updated": "2026-08-06T11:23:33.405Z",
+  "updated": "2026-08-06T14:11:50.769Z",
   "count": 42,
   "videos": [
+    {
+      "id": "u_mQnPxyBN4",
+      "title": "ГАРНА МУЗИКА В АВТО · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
+      "published": "2026-08-06T11:26:04+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "rFc3V5FdVxg",
       "title": "УЛЮБЛЕНІ ХІТИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -199,15 +208,6 @@
       "label": "GoldenWave",
       "tag": "golden",
       "accent": "#ff7eb6"
-    },
-    {
-      "id": "1bqnvV592GU",
-      "title": "ПЛЕЙЛИСТ У ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
-      "published": "2026-07-08T05:00:00+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
     },
     {
       "id": "I2Fv_-S4LLI",
