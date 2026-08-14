@@ -1,7 +1,16 @@
 {
-  "updated": "2026-08-14T07:25:18.727Z",
+  "updated": "2026-08-14T10:03:11.287Z",
   "count": 42,
   "videos": [
+    {
+      "id": "JhvoMTRN3jY",
+      "title": "УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
+      "published": "2026-08-14T09:30:00+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "aeS1Ojvs_YM",
       "title": "ВІД ЦИХ ПІСЕНЬ НА ДУШІ ТЕПЛО · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
@@ -181,15 +190,6 @@
       "label": "GoldenWave",
       "tag": "golden",
       "accent": "#ff7eb6"
-    },
-    {
-      "id": "FApQsuNMGXw",
-      "title": "МУЗИКА НОН СТОП · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
-      "published": "2026-07-11T05:00:13+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
     },
     {
       "id": "4hHIHIr9y6w",
