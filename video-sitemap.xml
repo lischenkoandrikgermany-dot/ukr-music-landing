@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/Shxj-E9k9eo/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
+      <video:description>Українська пісня «ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/Shxj-E9k9eo</video:player_loc>
+      <video:publication_date>2026-08-15T09:00:21+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/JhvoMTRN3jY/hqdefault.jpg</video:thumbnail_loc>
       <video:title>УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
       <video:description>Українська пісня «УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -260,15 +269,6 @@
       <video:description>Українська пісня «УКРАЇНСЬКІ ХІТИ 2026 🌹 Музика Для Душі, Що Надихає» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/y5bcsq9cD-w</video:player_loc>
       <video:publication_date>2026-06-15T14:00:06+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/1L-QBMHzGts/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>💕 ВЕЧІРНЯ РОМАНТИКА 2025–2026 · Нові Пісні Про Любов · Найкраща Українська Музика Для Душі</video:title>
-      <video:description>Українська пісня «💕 ВЕЧІРНЯ РОМАНТИКА 2025–2026 · Нові Пісні Про Любов · Найкраща Українська Музика Для Душі» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/1L-QBMHzGts</video:player_loc>
-      <video:publication_date>2026-06-14T03:00:10+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
