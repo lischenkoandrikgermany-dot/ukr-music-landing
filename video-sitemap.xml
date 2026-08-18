@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/6lc3kJpyT78/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
+      <video:description>Українська пісня «КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/6lc3kJpyT78</video:player_loc>
+      <video:publication_date>2026-08-18T09:15:18+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/d6W4rMvL7bM/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ЦЯ МУЗИКА ПРО СПРАВЖНЄ КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
       <video:description>Українська пісня «ЦЯ МУЗИКА ПРО СПРАВЖНЄ КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -179,15 +188,6 @@
       <video:description>Українська пісня «ГУЧНІШЕ В МАШИНІ! · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/UV1j92P9-AE</video:player_loc>
       <video:publication_date>2026-07-14T05:00:28+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/p_CZyduNecU/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>МУЗИКА В АВТО 2026 · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «МУЗИКА В АВТО 2026 · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/p_CZyduNecU</video:player_loc>
-      <video:publication_date>2026-07-13T05:00:10+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
