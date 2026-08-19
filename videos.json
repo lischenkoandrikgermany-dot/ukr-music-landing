@@ -1,7 +1,16 @@
 {
-  "updated": "2026-08-19T09:35:03.222Z",
+  "updated": "2026-08-19T12:48:48.167Z",
   "count": 42,
   "videos": [
+    {
+      "id": "rwTrlsEnII4",
+      "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-19T11:00:38+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "6lc3kJpyT78",
       "title": "КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -262,15 +271,6 @@
       "label": "Рок",
       "tag": "rok",
       "accent": "#ff5470"
-    },
-    {
-      "id": "nj1D3BId9vs",
-      "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ ВАШОГО СЕРЦЯ ВЕЧІРНЯ РОМАНТИКА 2026 — ПРО КОХАННЯ",
-      "published": "2026-06-22T03:00:19+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
     },
     {
       "id": "yqspeBGWKIw",
