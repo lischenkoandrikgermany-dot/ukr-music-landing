@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/qnic1xQ6x40/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Класна музика в дорогу | Мега хіти</video:title>
+      <video:description>Українська пісня «Класна музика в дорогу | Мега хіти» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/qnic1xQ6x40</video:player_loc>
+      <video:publication_date>2026-08-22T09:15:30+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/2RUlYcKKOIc/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ЦІ ПІСНІ ЗВОРУШУЮТЬ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
       <video:description>Українська пісня «ЦІ ПІСНІ ЗВОРУШУЮТЬ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -206,15 +215,6 @@
       <video:description>Українська пісня «НАЙНІЖНІШІ ПІСНІ ПРО КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/8Zjmxufwj7Q</video:player_loc>
       <video:publication_date>2026-07-14T06:00:39+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/UV1j92P9-AE/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ГУЧНІШЕ В МАШИНІ! · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «ГУЧНІШЕ В МАШИНІ! · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/UV1j92P9-AE</video:player_loc>
-      <video:publication_date>2026-07-14T05:00:28+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
