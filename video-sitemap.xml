@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/XGrRtJdUfDM/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ПОЧУЙ СЕРЦЕМ ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
+      <video:description>Українська пісня «ПОЧУЙ СЕРЦЕМ ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/XGrRtJdUfDM</video:player_loc>
+      <video:publication_date>2026-08-23T09:00:28+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/qnic1xQ6x40/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Класна музика в дорогу | Мега хіти</video:title>
       <video:description>Українська пісня «Класна музика в дорогу | Мега хіти» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -251,15 +260,6 @@
       <video:description>Українська пісня «ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/VoPTEdrqil0</video:player_loc>
       <video:publication_date>2026-07-10T03:00:11+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/CcOcTUGWkuc/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ВІД ЦИХ ПІСЕНЬ НА ДУШІ ТЕПЛО · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
-      <video:description>Українська пісня «ВІД ЦИХ ПІСЕНЬ НА ДУШІ ТЕПЛО · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/CcOcTUGWkuc</video:player_loc>
-      <video:publication_date>2026-07-09T03:00:35+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
