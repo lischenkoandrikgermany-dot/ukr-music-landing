@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/Oy00GZFuERg/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ПІСНІ, ЩО ЗІГРІВАЮТЬ ДУШУ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
+      <video:description>Українська пісня «ПІСНІ, ЩО ЗІГРІВАЮТЬ ДУШУ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/Oy00GZFuERg</video:player_loc>
+      <video:publication_date>2026-08-25T09:00:09+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/DwydmmUSKlA/hqdefault.jpg</video:thumbnail_loc>
       <video:title>МУЗИКА ДЛЯ НІЧНИХ ПОЇЗДОК · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
       <video:description>Українська пісня «МУЗИКА ДЛЯ НІЧНИХ ПОЇЗДОК · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -251,15 +260,6 @@
       <video:description>Українська пісня «ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/4hHIHIr9y6w</video:player_loc>
       <video:publication_date>2026-07-11T03:00:03+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/VoPTEdrqil0/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
-      <video:description>Українська пісня «ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/VoPTEdrqil0</video:player_loc>
-      <video:publication_date>2026-07-10T03:00:11+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>

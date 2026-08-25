@@ -1,7 +1,16 @@
 {
-  "updated": "2026-08-25T01:18:12.043Z",
+  "updated": "2026-08-25T09:35:45.571Z",
   "count": 42,
   "videos": [
+    {
+      "id": "Oy00GZFuERg",
+      "title": "ПІСНІ, ЩО ЗІГРІВАЮТЬ ДУШУ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-25T09:00:09+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "DwydmmUSKlA",
       "title": "МУЗИКА ДЛЯ НІЧНИХ ПОЇЗДОК · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -249,15 +258,6 @@
       "id": "4hHIHIr9y6w",
       "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
       "published": "2026-07-11T03:00:03+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "VoPTEdrqil0",
-      "title": "ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-07-10T03:00:11+00:00",
       "channel": "GoldenWaveUA",
       "label": "GoldenWave",
       "tag": "golden",
