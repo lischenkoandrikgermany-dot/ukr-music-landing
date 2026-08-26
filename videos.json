@@ -1,7 +1,25 @@
 {
-  "updated": "2026-08-26T06:50:59.030Z",
-  "count": 14,
+  "updated": "2026-08-26T09:42:03.581Z",
+  "count": 42,
   "videos": [
+    {
+      "id": "eybL1ageYdw",
+      "title": "МУЗИКА В МАШИНУ ДЛЯ НАСТРОЮ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
+      "published": "2026-08-26T09:15:17+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "Oy00GZFuERg",
+      "title": "ПІСНІ, ЩО ЗІГРІВАЮТЬ ДУШУ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-25T09:00:09+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "DwydmmUSKlA",
       "title": "МУЗИКА ДЛЯ НІЧНИХ ПОЇЗДОК · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -10,6 +28,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "XGrRtJdUfDM",
+      "title": "ПОЧУЙ СЕРЦЕМ ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-23T09:00:28+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "qnic1xQ6x40",
@@ -21,6 +48,33 @@
       "accent": "#34d399"
     },
     {
+      "id": "2RUlYcKKOIc",
+      "title": "ЦІ ПІСНІ ЗВОРУШУЮТЬ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-21T09:00:19+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "J3Pb2BkFkvc",
+      "title": "Музика для настрою , треки в машину",
+      "published": "2026-08-21T08:00:35+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "rwTrlsEnII4",
+      "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-19T11:00:38+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "6lc3kJpyT78",
       "title": "КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-08-18T09:15:18+00:00",
@@ -28,6 +82,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "d6W4rMvL7bM",
+      "title": "ЦЯ МУЗИКА ПРО СПРАВЖНЄ КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-17T09:00:23+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "0aI6WhzUhl8",
@@ -39,6 +102,15 @@
       "accent": "#34d399"
     },
     {
+      "id": "Shxj-E9k9eo",
+      "title": "ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-15T09:00:21+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "JhvoMTRN3jY",
       "title": "УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-08-14T09:30:00+00:00",
@@ -46,6 +118,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "aeS1Ojvs_YM",
+      "title": "ВІД ЦИХ ПІСЕНЬ НА ДУШІ ТЕПЛО · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-13T15:24:09+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "Xj-y5u97qN4",
@@ -75,6 +156,15 @@
       "accent": "#34d399"
     },
     {
+      "id": "rFc3V5FdVxg",
+      "title": "УЛЮБЛЕНІ ХІТИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
+      "published": "2026-08-04T10:14:36+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "lS_SQZ1KGIo",
       "title": "МУЗИКА В МАШИНУ ДЛЯ ДУШІ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-07-29T05:00:13+00:00",
@@ -82,6 +172,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "UT84udMSd5E",
+      "title": "ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-27T13:44:31+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "04h96ZbbNI8",
@@ -120,13 +219,166 @@
       "accent": "#34d399"
     },
     {
-      "id": "AaLpv2GRG_I",
-      "title": "НАЙКРАЩА МУЗИКА В МАШИНУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
-      "published": "2026-07-16T05:00:19+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
+      "id": "4d0Fwok94sE",
+      "title": "МУЗИКА ДЛЯ ДВОХ ЗАКОХАНИХ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-15T03:00:15+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "8Zjmxufwj7Q",
+      "title": "НАЙНІЖНІШІ ПІСНІ ПРО КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-14T06:00:39+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "h2bCZyYTNV8",
+      "title": "ПІСНІ, ЩО ЛІКУЮТЬ СЕРЦЕ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-13T03:00:27+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "vsUxDrZawFQ",
+      "title": "ЦІ ПІСНІ ПРО НАШЕ КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-12T03:00:04+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "4hHIHIr9y6w",
+      "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-07-11T03:00:03+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "JQexUn2X59E",
+      "title": "ПРОБИРАЄ ДО МУРАШОК · УКРАЇНСЬКИЙ РОК 2026 · НАЙКРАЩІ РОК ХІТИ УКРАЇНСЬКОЮ",
+      "published": "2026-06-30T06:00:33+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "5g4wMIPkISA",
+      "title": "ЛЕГЕНДАРНЕ ЗВУЧАННЯ СЬОГОДНІ · УКРАЇНСЬКИЙ РОК 2026 · НОВІ УКРАЇНСЬКІ ПІСНІ ЗІ ЗМІСТОМ",
+      "published": "2026-06-22T05:00:18+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "yqspeBGWKIw",
+      "title": "🎧 Українські Пісні Що Чіпляють За Серце · Мікс 2026 | Для Душі",
+      "published": "2026-05-14T03:00:55+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "rxb_ppvduSA",
+      "title": "🔥 Ці Українські Пісні Ніколи Не Забудеш! · Мікс 2026 | Музика Для Душі",
+      "published": "2026-05-08T05:00:48+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "vwVaL1HMz_Q",
+      "title": "🔥 МІКС Українських Пісень 2026 | Ніколи Не Забудеш · Для Душі",
+      "published": "2026-05-06T12:10:21+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "z2fEIfxUvvo",
+      "title": "Сучасна українська музика 2026 🔥 Найкращі українські хіти року, нові українські",
+      "published": "2026-05-04T05:00:56+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "3vOwIoVNuog",
+      "title": "⭐ Українські Пісні Що Чіпляють За Серце · Мікс 2026 | Для Душі",
+      "published": "2026-05-03T03:00:09+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "jyPQAbH7j6w",
+      "title": "💥 Найкращі Нові Пісні Квітня 2026 · Зворушать Серце",
+      "published": "2026-04-29T09:00:58+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "9pH2yVfsJzU",
+      "title": "⭐ Нові Українські Хіти 2026 · Мікс Що Надихає · Квітень",
+      "published": "2026-04-28T09:00:22+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "EUJfw7FwsU4",
+      "title": "🔥 Нові Пісні 2026 Що Неможливо Зупинити",
+      "published": "2026-04-27T09:00:18+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "-7O-DYTC9mQ",
+      "title": "🔥 Ці Нові Українські Пісні Квітня 2026 Ніколи Не Забудеш",
+      "published": "2026-04-26T09:00:01+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "B6Y-bMhJoWQ",
+      "title": "🎧 Топ Нових Українських Хітів Квітня 2026 | Надихає Душу",
+      "published": "2026-04-25T09:00:27+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
+    {
+      "id": "A7pJZ1LlY40",
+      "title": "⭐ Мікс Нових Українських Пісень Квітня 2026 · Для Душі",
+      "published": "2026-04-24T09:00:14+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
     }
   ]
 }
