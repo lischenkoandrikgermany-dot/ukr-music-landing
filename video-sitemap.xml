@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/k1RKKAND56c/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
+      <video:description>Українська пісня «КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/k1RKKAND56c</video:player_loc>
+      <video:publication_date>2026-08-28T09:15:03+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/YuDRtwcnkck/hqdefault.jpg</video:thumbnail_loc>
       <video:title>КОЛИ КОХАЄШ — ЦЕ ТВОЯ ПІСНЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
       <video:description>Українська пісня «КОЛИ КОХАЄШ — ЦЕ ТВОЯ ПІСНЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -215,15 +224,6 @@
       <video:description>Українська пісня «УЛЮБЛЕНІ ХІТИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/Us_q2tVHCSo</video:player_loc>
       <video:publication_date>2026-07-18T05:00:35+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/90ynGODmicA/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>МУЗИКА В МАШИНУ ДЛЯ ДУШІ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «МУЗИКА В МАШИНУ ДЛЯ ДУШІ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/90ynGODmicA</video:player_loc>
-      <video:publication_date>2026-07-17T05:00:04+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
