@@ -1,7 +1,16 @@
 {
-  "updated": "2026-08-28T23:59:25.740Z",
+  "updated": "2026-08-29T14:12:08.111Z",
   "count": 42,
   "videos": [
+    {
+      "id": "e4VF_xNIlz0",
+      "title": "ДЛЯ ТИХ, ХТО КОХАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-29T09:00:13+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "k1RKKAND56c",
       "title": "КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -249,15 +258,6 @@
       "id": "h2bCZyYTNV8",
       "title": "ПІСНІ, ЩО ЛІКУЮТЬ СЕРЦЕ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
       "published": "2026-07-13T03:00:27+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "vsUxDrZawFQ",
-      "title": "ЦІ ПІСНІ ПРО НАШЕ КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-07-12T03:00:04+00:00",
       "channel": "GoldenWaveUA",
       "label": "GoldenWave",
       "tag": "golden",
