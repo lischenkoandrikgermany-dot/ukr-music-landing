@@ -1,7 +1,16 @@
 {
-  "updated": "2026-09-07T03:23:20.817Z",
+  "updated": "2026-09-07T11:48:49.541Z",
   "count": 42,
   "videos": [
+    {
+      "id": "JHNdyb1Ho3g",
+      "title": "ВЕСЕЛІ УКРАЇНСЬКІ ПІСНІ 2026 🔥 Сучасні Хіти для Настрою | Збірка Українських Пісень",
+      "published": "2026-09-07T07:45:43+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "q-0E3k3WsKM",
       "title": "Веселі пісні для Вас та Вашого настрою!!! 2026",
@@ -244,15 +253,6 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
-    },
-    {
-      "id": "UT84udMSd5E",
-      "title": "ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-07-27T13:44:31+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
     },
     {
       "id": "04h96ZbbNI8",
