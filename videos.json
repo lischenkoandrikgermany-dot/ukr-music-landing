@@ -1,7 +1,16 @@
 {
-  "updated": "2026-09-08T23:13:39.390Z",
+  "updated": "2026-09-09T10:53:57.787Z",
   "count": 42,
   "videos": [
+    {
+      "id": "x5OYztbFHQY",
+      "title": "УКРАЇНСЬКІ НАРОДНІ ПІСНІ 💃 Веселі Застільні Хіти на Свято | Пісні, Які Знають Всі",
+      "published": "2026-09-09T09:00:35+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "JHNdyb1Ho3g",
       "title": "ВЕСЕЛІ УКРАЇНСЬКІ ПІСНІ 2026 🔥 Сучасні Хіти для Настрою | Збірка Українських Пісень",
@@ -235,15 +244,6 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
-    },
-    {
-      "id": "rFc3V5FdVxg",
-      "title": "УЛЮБЛЕНІ ХІТИ В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
-      "published": "2026-08-04T10:14:36+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
     },
     {
       "id": "lS_SQZ1KGIo",
