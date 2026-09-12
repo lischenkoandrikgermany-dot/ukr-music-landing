@@ -1,7 +1,43 @@
 {
-  "updated": "2026-09-12T03:34:44.195Z",
-  "count": 28,
+  "updated": "2026-09-12T10:15:05.235Z",
+  "count": 42,
   "videos": [
+    {
+      "id": "x5OYztbFHQY",
+      "title": "УКРАЇНСЬКІ НАРОДНІ ПІСНІ 💃 Веселі Застільні Хіти на Свято | Пісні, Які Знають Всі",
+      "published": "2026-09-09T09:00:35+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "JHNdyb1Ho3g",
+      "title": "ВЕСЕЛІ УКРАЇНСЬКІ ПІСНІ 2026 🔥 Сучасні Хіти для Настрою | Збірка Українських Пісень",
+      "published": "2026-09-07T07:45:43+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "q-0E3k3WsKM",
+      "title": "Веселі пісні для Вас та Вашого настрою!!! 2026",
+      "published": "2026-09-04T14:12:47+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "O0hpDlp0a1Y",
+      "title": "КОЛИ КОХАЄШ — ЦЕ ТВОЯ ПІСНЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-09-03T11:22:52+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "YmD0It6tXNI",
       "title": "Треки для далеких доріг | Українська музика в машину 2026",
@@ -10,6 +46,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "0RQuxKfnY3I",
+      "title": "ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-31T09:00:21+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "ugdOOVlKT8Q",
@@ -21,6 +66,15 @@
       "accent": "#34d399"
     },
     {
+      "id": "e4VF_xNIlz0",
+      "title": "ДЛЯ ТИХ, ХТО КОХАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-29T09:00:13+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "k1RKKAND56c",
       "title": "КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-08-28T09:15:03+00:00",
@@ -28,6 +82,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "YuDRtwcnkck",
+      "title": "КОЛИ КОХАЄШ — ЦЕ ТВОЯ ПІСНЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-27T09:00:13+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "eybL1ageYdw",
@@ -39,6 +102,15 @@
       "accent": "#34d399"
     },
     {
+      "id": "Oy00GZFuERg",
+      "title": "ПІСНІ, ЩО ЗІГРІВАЮТЬ ДУШУ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-25T09:00:09+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "DwydmmUSKlA",
       "title": "МУЗИКА ДЛЯ НІЧНИХ ПОЇЗДОК · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-08-24T09:15:31+00:00",
@@ -46,6 +118,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "XGrRtJdUfDM",
+      "title": "ПОЧУЙ СЕРЦЕМ ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-23T09:00:28+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "qnic1xQ6x40",
@@ -57,6 +138,15 @@
       "accent": "#34d399"
     },
     {
+      "id": "2RUlYcKKOIc",
+      "title": "ЦІ ПІСНІ ЗВОРУШУЮТЬ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-21T09:00:19+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "J3Pb2BkFkvc",
       "title": "Музика для настрою , треки в машину",
       "published": "2026-08-21T08:00:35+00:00",
@@ -64,6 +154,15 @@
       "label": "Рок",
       "tag": "rok",
       "accent": "#ff5470"
+    },
+    {
+      "id": "rwTrlsEnII4",
+      "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-19T11:00:38+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "6lc3kJpyT78",
@@ -75,6 +174,15 @@
       "accent": "#34d399"
     },
     {
+      "id": "d6W4rMvL7bM",
+      "title": "ЦЯ МУЗИКА ПРО СПРАВЖНЄ КОХАННЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-17T09:00:23+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "0aI6WhzUhl8",
       "title": "МУЗИКА В МАШИНУ НА ВЕЧІР · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-08-16T09:30:17+00:00",
@@ -84,6 +192,15 @@
       "accent": "#34d399"
     },
     {
+      "id": "Shxj-E9k9eo",
+      "title": "ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-15T09:00:21+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
       "id": "JhvoMTRN3jY",
       "title": "УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-08-14T09:30:00+00:00",
@@ -91,6 +208,15 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
+    },
+    {
+      "id": "aeS1Ojvs_YM",
+      "title": "ВІД ЦИХ ПІСЕНЬ НА ДУШІ ТЕПЛО · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-08-13T15:24:09+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
     },
     {
       "id": "Xj-y5u97qN4",
