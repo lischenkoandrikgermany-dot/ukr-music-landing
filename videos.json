@@ -1,7 +1,16 @@
 {
-  "updated": "2026-09-17T21:01:51.054Z",
+  "updated": "2026-09-18T10:43:33.831Z",
   "count": 42,
   "videos": [
+    {
+      "id": "KVmqScl0R_s",
+      "title": "ЖАРТІВЛИВІ УКРАЇНСЬКІ ПІСНІ 😄 Веселі Застільні Хіти | 1,5 Години Гарного Настрою",
+      "published": "2026-09-18T09:58:39+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "nZfpQdHZ4eU",
       "title": "ТВІЙ ШЛЯХ — МЕГАХІТ 2026 🔥 Нова українська пісня про кохання та розставання",
@@ -208,15 +217,6 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
-    },
-    {
-      "id": "Shxj-E9k9eo",
-      "title": "ЦЯ ПІСНЯ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-08-15T09:00:21+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
     },
     {
       "id": "JhvoMTRN3jY",
