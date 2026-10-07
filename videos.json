@@ -1,7 +1,16 @@
 {
-  "updated": "2026-10-07T00:24:16.839Z",
+  "updated": "2026-10-07T09:56:27.166Z",
   "count": 42,
   "videos": [
+    {
+      "id": "QwmTRX7Miuo",
+      "title": "Ти Моя Вишня (Хіт 2026)",
+      "published": "2026-10-07T07:00:18+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "ZQHE2Jod5ac",
       "title": "ВЕСІЛЬНІ УКРАЇНСЬКІ ПІСНІ 2026 🎉 Веселі Танцювальні Хіти на Весілля | 1,5 Години",
@@ -190,15 +199,6 @@
       "label": "Рок",
       "tag": "rok",
       "accent": "#ff5470"
-    },
-    {
-      "id": "rwTrlsEnII4",
-      "title": "ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-08-19T11:00:38+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
     },
     {
       "id": "6lc3kJpyT78",

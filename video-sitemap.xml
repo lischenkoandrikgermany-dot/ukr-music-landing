@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/QwmTRX7Miuo/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Ти Моя Вишня (Хіт 2026)</video:title>
+      <video:description>Українська пісня «Ти Моя Вишня (Хіт 2026)» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/QwmTRX7Miuo</video:player_loc>
+      <video:publication_date>2026-10-07T07:00:18+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/ZQHE2Jod5ac/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ВЕСІЛЬНІ УКРАЇНСЬКІ ПІСНІ 2026 🎉 Веселі Танцювальні Хіти на Весілля | 1,5 Години</video:title>
       <video:description>Українська пісня «ВЕСІЛЬНІ УКРАЇНСЬКІ ПІСНІ 2026 🎉 Веселі Танцювальні Хіти на Весілля | 1,5 Години» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -188,15 +197,6 @@
       <video:description>Українська пісня «Музика для настрою , треки в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/J3Pb2BkFkvc</video:player_loc>
       <video:publication_date>2026-08-21T08:00:35+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/rwTrlsEnII4/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
-      <video:description>Українська пісня «ЦІ ПІСНІ ТОРКНУТЬСЯ СЕРЦЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/rwTrlsEnII4</video:player_loc>
-      <video:publication_date>2026-08-19T11:00:38+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
