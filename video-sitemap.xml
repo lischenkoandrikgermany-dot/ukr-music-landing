@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/w5l23zKpffE/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українська музика 2026 — пісні, які хочеться на повтор 🖤</video:title>
+      <video:description>Українська пісня «Українська музика 2026 — пісні, які хочеться на повтор 🖤» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/w5l23zKpffE</video:player_loc>
+      <video:publication_date>2026-10-09T15:32:55+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/QwmTRX7Miuo/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Ти Моя Вишня (Хіт 2026)</video:title>
       <video:description>Українська пісня «Ти Моя Вишня (Хіт 2026)» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -368,15 +377,6 @@
       <video:description>Українська пісня «🎧 Топ Нових Українських Хітів Квітня 2026 | Надихає Душу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/B6Y-bMhJoWQ</video:player_loc>
       <video:publication_date>2026-04-25T09:00:27+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/A7pJZ1LlY40/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>⭐ Мікс Нових Українських Пісень Квітня 2026 · Для Душі</video:title>
-      <video:description>Українська пісня «⭐ Мікс Нових Українських Пісень Квітня 2026 · Для Душі» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/A7pJZ1LlY40</video:player_loc>
-      <video:publication_date>2026-04-24T09:00:14+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
