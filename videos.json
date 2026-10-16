@@ -1,7 +1,25 @@
 {
-  "updated": "2026-10-15T21:01:10.965Z",
+  "updated": "2026-10-16T10:53:50.853Z",
   "count": 42,
   "videos": [
+    {
+      "id": "vDUcTda6H7w",
+      "title": "Українська музика 2026 — збірка пісень про любов і розлуку",
+      "published": "2026-10-16T09:20:08+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "jK1iWy1sT3I",
+      "title": "УКРАЇНСЬКА МУЗИКА В МАШИНУ - ГАЗУЙ НА ПОВНУ",
+      "published": "2026-10-16T07:45:40+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "eX2cg88DZsQ",
       "title": "Осінні МЕГАХІТИ — українська музика в машину",
@@ -246,15 +264,6 @@
       "accent": "#34d399"
     },
     {
-      "id": "2RUlYcKKOIc",
-      "title": "ЦІ ПІСНІ ЗВОРУШУЮТЬ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-08-21T09:00:19+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
       "id": "J3Pb2BkFkvc",
       "title": "Музика для настрою , треки в машину",
       "published": "2026-08-21T08:00:35+00:00",
@@ -276,15 +285,6 @@
       "id": "0aI6WhzUhl8",
       "title": "МУЗИКА В МАШИНУ НА ВЕЧІР · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
       "published": "2026-08-16T09:30:17+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
-      "id": "JhvoMTRN3jY",
-      "title": "УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
-      "published": "2026-08-14T09:30:00+00:00",
       "channel": "VORON",
       "label": "VORON",
       "tag": "voron",

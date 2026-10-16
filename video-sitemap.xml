@@ -3,6 +3,24 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/vDUcTda6H7w/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українська музика 2026 — збірка пісень про любов і розлуку</video:title>
+      <video:description>Українська пісня «Українська музика 2026 — збірка пісень про любов і розлуку» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/vDUcTda6H7w</video:player_loc>
+      <video:publication_date>2026-10-16T09:20:08+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/jK1iWy1sT3I/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>УКРАЇНСЬКА МУЗИКА В МАШИНУ - ГАЗУЙ НА ПОВНУ</video:title>
+      <video:description>Українська пісня «УКРАЇНСЬКА МУЗИКА В МАШИНУ - ГАЗУЙ НА ПОВНУ» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/jK1iWy1sT3I</video:player_loc>
+      <video:publication_date>2026-10-16T07:45:40+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/eX2cg88DZsQ/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Осінні МЕГАХІТИ — українська музика в машину</video:title>
       <video:description>Українська пісня «Осінні МЕГАХІТИ — українська музика в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -246,15 +264,6 @@
       <video:live>no</video:live>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/2RUlYcKKOIc/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ЦІ ПІСНІ ЗВОРУШУЮТЬ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
-      <video:description>Українська пісня «ЦІ ПІСНІ ЗВОРУШУЮТЬ ДО СЛІЗ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/2RUlYcKKOIc</video:player_loc>
-      <video:publication_date>2026-08-21T09:00:19+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/J3Pb2BkFkvc/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Музика для настрою , треки в машину</video:title>
       <video:description>Українська пісня «Музика для настрою , треки в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -278,15 +287,6 @@
       <video:description>Українська пісня «МУЗИКА В МАШИНУ НА ВЕЧІР · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/0aI6WhzUhl8</video:player_loc>
       <video:publication_date>2026-08-16T09:30:17+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/JhvoMTRN3jY/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «УКРАЇНСЬКІ ХІТИ ЗА КЕРМОМ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/JhvoMTRN3jY</video:player_loc>
-      <video:publication_date>2026-08-14T09:30:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
