@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/uzG4YRqy8X8/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Мрієва - пісні для роздумів та релаксу</video:title>
+      <video:description>Українська пісня «Мрієва - пісні для роздумів та релаксу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/uzG4YRqy8X8</video:player_loc>
+      <video:publication_date>2026-10-16T11:33:23+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/vDUcTda6H7w/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Українська музика 2026 — збірка пісень про любов і розлуку</video:title>
       <video:description>Українська пісня «Українська музика 2026 — збірка пісень про любов і розлуку» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -368,15 +377,6 @@
       <video:description>Українська пісня «⭐ Нові Українські Хіти 2026 · Мікс Що Надихає · Квітень» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/9pH2yVfsJzU</video:player_loc>
       <video:publication_date>2026-04-28T09:00:22+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/EUJfw7FwsU4/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>🔥 Нові Пісні 2026 Що Неможливо Зупинити</video:title>
-      <video:description>Українська пісня «🔥 Нові Пісні 2026 Що Неможливо Зупинити» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/EUJfw7FwsU4</video:player_loc>
-      <video:publication_date>2026-04-27T09:00:18+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
