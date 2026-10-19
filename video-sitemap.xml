@@ -3,6 +3,33 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/zIK5X43X_dQ/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Пісні під гітару | Емоційне виконання пісень для тихого вечора!</video:title>
+      <video:description>Українська пісня «Пісні під гітару | Емоційне виконання пісень для тихого вечора!» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/zIK5X43X_dQ</video:player_loc>
+      <video:publication_date>2026-10-19T16:13:03+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/AprfgBZiySA/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Слухати українську музику 2026 - українські пісні для дороги, авто та душі!</video:title>
+      <video:description>Українська пісня «Слухати українську музику 2026 - українські пісні для дороги, авто та душі!» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/AprfgBZiySA</video:player_loc>
+      <video:publication_date>2026-10-19T15:01:30+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/RTf1taYR_9c/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Музика під колеса — Українські хіти 2026</video:title>
+      <video:description>Українська пісня «Музика під колеса — Українські хіти 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/RTf1taYR_9c</video:player_loc>
+      <video:publication_date>2026-10-19T12:39:47+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/uzG4YRqy8X8/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Мрієва - пісні для роздумів та релаксу</video:title>
       <video:description>Українська пісня «Мрієва - пісні для роздумів та релаксу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -255,15 +282,6 @@
       <video:live>no</video:live>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/XGrRtJdUfDM/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ПОЧУЙ СЕРЦЕМ ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
-      <video:description>Українська пісня «ПОЧУЙ СЕРЦЕМ ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/XGrRtJdUfDM</video:player_loc>
-      <video:publication_date>2026-08-23T09:00:28+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/qnic1xQ6x40/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Класна музика в дорогу | Мега хіти</video:title>
       <video:description>Українська пісня «Класна музика в дорогу | Мега хіти» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -278,24 +296,6 @@
       <video:description>Українська пісня «Музика для настрою , треки в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/J3Pb2BkFkvc</video:player_loc>
       <video:publication_date>2026-08-21T08:00:35+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/6lc3kJpyT78/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «КЛАСНА МУЗИКА В ДОРОГУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/6lc3kJpyT78</video:player_loc>
-      <video:publication_date>2026-08-18T09:15:18+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/0aI6WhzUhl8/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>МУЗИКА В МАШИНУ НА ВЕЧІР · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «МУЗИКА В МАШИНУ НА ВЕЧІР · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/0aI6WhzUhl8</video:player_loc>
-      <video:publication_date>2026-08-16T09:30:17+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
