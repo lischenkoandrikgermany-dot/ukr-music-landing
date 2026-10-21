@@ -1,7 +1,16 @@
 {
-  "updated": "2026-10-20T23:39:27.008Z",
+  "updated": "2026-10-21T11:19:44.159Z",
   "count": 42,
   "videos": [
+    {
+      "id": "NfTSqL1bxag",
+      "title": "Ці пісні торкнуться серця — Романтичні Українські Хіти",
+      "published": "2026-10-21T03:00:15+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "zIK5X43X_dQ",
       "title": "Пісні під гітару | Емоційне виконання пісень для тихого вечора!",
@@ -262,15 +271,6 @@
       "label": "VORON",
       "tag": "voron",
       "accent": "#34d399"
-    },
-    {
-      "id": "Oy00GZFuERg",
-      "title": "ПІСНІ, ЩО ЗІГРІВАЮТЬ ДУШУ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-08-25T09:00:09+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
     },
     {
       "id": "DwydmmUSKlA",
