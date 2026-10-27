@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/AfgiFNEWL90/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Музика в машину 2026｜ГАЗ ПОМАЛУ, ЗВУК НА ПОВНУ — Чоловіча збірка</video:title>
+      <video:description>Українська пісня «Музика в машину 2026｜ГАЗ ПОМАЛУ, ЗВУК НА ПОВНУ — Чоловіча збірка» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/AfgiFNEWL90</video:player_loc>
+      <video:publication_date>2026-10-27T14:12:07+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/yhVonv7elrs/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ТОП українських пісень 2026 🇺🇦 Нові хіти | 1 година української музики без зупинки</video:title>
       <video:description>Українська пісня «ТОП українських пісень 2026 🇺🇦 Нові хіти | 1 година української музики без зупинки» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -278,15 +287,6 @@
       <video:description>Українська пісня «МУЗИКА В МАШИНУ ДЛЯ НАСТРОЮ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/eybL1ageYdw</video:player_loc>
       <video:publication_date>2026-08-26T09:15:17+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/DwydmmUSKlA/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>МУЗИКА ДЛЯ НІЧНИХ ПОЇЗДОК · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «МУЗИКА ДЛЯ НІЧНИХ ПОЇЗДОК · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/DwydmmUSKlA</video:player_loc>
-      <video:publication_date>2026-08-24T09:15:31+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
