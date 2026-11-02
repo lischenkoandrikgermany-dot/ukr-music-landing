@@ -3,6 +3,24 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/qX35-ZwMQKE/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українська музика 2026 — пісні, що гріють душу</video:title>
+      <video:description>Українська пісня «Українська музика 2026 — пісні, що гріють душу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/qX35-ZwMQKE</video:player_loc>
+      <video:publication_date>2026-11-02T07:15:29+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/yqcmXT3hims/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українські пісні в машину 2026 | ВІД ЛЬВОВА ДО КИЄВА — Нон-стоп у дорогу</video:title>
+      <video:description>Українська пісня «Українські пісні в машину 2026 | ВІД ЛЬВОВА ДО КИЄВА — Нон-стоп у дорогу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/yqcmXT3hims</video:player_loc>
+      <video:publication_date>2026-11-02T04:00:33+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/g5tboSlF7dY/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Музика в машину 2026 | НІЧНА ТРАСА І ТИ — Збірка для нічної траси</video:title>
       <video:description>Українська пісня «Музика в машину 2026 | НІЧНА ТРАСА І ТИ — Збірка для нічної траси» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -282,15 +300,6 @@
       <video:live>no</video:live>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/ugdOOVlKT8Q/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ЗАРЯД МУЗИКИ В АВТО · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026</video:title>
-      <video:description>Українська пісня «ЗАРЯД МУЗИКИ В АВТО · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/ugdOOVlKT8Q</video:player_loc>
-      <video:publication_date>2026-08-30T09:15:31+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/e4VF_xNIlz0/hqdefault.jpg</video:thumbnail_loc>
       <video:title>ДЛЯ ТИХ, ХТО КОХАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
       <video:description>Українська пісня «ДЛЯ ТИХ, ХТО КОХАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -368,15 +377,6 @@
       <video:description>Українська пісня «⭐ Українські Пісні Що Чіпляють За Серце · Мікс 2026 | Для Душі» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/3vOwIoVNuog</video:player_loc>
       <video:publication_date>2026-05-03T03:00:09+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/jyPQAbH7j6w/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>💥 Найкращі Нові Пісні Квітня 2026 · Зворушать Серце</video:title>
-      <video:description>Українська пісня «💥 Найкращі Нові Пісні Квітня 2026 · Зворушать Серце» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/jyPQAbH7j6w</video:player_loc>
-      <video:publication_date>2026-04-29T09:00:58+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
