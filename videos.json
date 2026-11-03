@@ -1,7 +1,16 @@
 {
-  "updated": "2026-11-03T13:45:49.396Z",
+  "updated": "2026-11-03T20:48:02.530Z",
   "count": 42,
   "videos": [
+    {
+      "id": "ZDex6kqUY5E",
+      "title": "Українські пісні 2026 — найкращі хіти для настрою",
+      "published": "2026-11-03T16:00:29+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "IEBU46hqTRk",
       "title": "Українська музика 2026 — душевні хіти для гарного настрою",
@@ -303,15 +312,6 @@
       "id": "0RQuxKfnY3I",
       "title": "ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
       "published": "2026-08-31T09:00:21+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "e4VF_xNIlz0",
-      "title": "ДЛЯ ТИХ, ХТО КОХАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-08-29T09:00:13+00:00",
       "channel": "GoldenWaveUA",
       "label": "GoldenWave",
       "tag": "golden",

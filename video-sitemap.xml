@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/ZDex6kqUY5E/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українські пісні 2026 — найкращі хіти для настрою</video:title>
+      <video:description>Українська пісня «Українські пісні 2026 — найкращі хіти для настрою» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/ZDex6kqUY5E</video:player_loc>
+      <video:publication_date>2026-11-03T16:00:29+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/IEBU46hqTRk/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Українська музика 2026 — душевні хіти для гарного настрою</video:title>
       <video:description>Українська пісня «Українська музика 2026 — душевні хіти для гарного настрою» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -305,15 +314,6 @@
       <video:description>Українська пісня «ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/0RQuxKfnY3I</video:player_loc>
       <video:publication_date>2026-08-31T09:00:21+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/e4VF_xNIlz0/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ДЛЯ ТИХ, ХТО КОХАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
-      <video:description>Українська пісня «ДЛЯ ТИХ, ХТО КОХАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/e4VF_xNIlz0</video:player_loc>
-      <video:publication_date>2026-08-29T09:00:13+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
