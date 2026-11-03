@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/IEBU46hqTRk/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українська музика 2026 — душевні хіти для гарного настрою</video:title>
+      <video:description>Українська пісня «Українська музика 2026 — душевні хіти для гарного настрою» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/IEBU46hqTRk</video:player_loc>
+      <video:publication_date>2026-11-03T07:15:29+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/qX35-ZwMQKE/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Українська музика 2026 — пісні, що гріють душу</video:title>
       <video:description>Українська пісня «Українська музика 2026 — пісні, що гріють душу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -368,15 +377,6 @@
       <video:description>Українська пісня «Сучасна українська музика 2026 🔥 Найкращі українські хіти року, нові українські» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/z2fEIfxUvvo</video:player_loc>
       <video:publication_date>2026-05-04T05:00:56+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/3vOwIoVNuog/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>⭐ Українські Пісні Що Чіпляють За Серце · Мікс 2026 | Для Душі</video:title>
-      <video:description>Українська пісня «⭐ Українські Пісні Що Чіпляють За Серце · Мікс 2026 | Для Душі» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/3vOwIoVNuog</video:player_loc>
-      <video:publication_date>2026-05-03T03:00:09+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>
