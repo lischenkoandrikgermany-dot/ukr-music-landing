@@ -3,6 +3,15 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/kgj5MJwnUJA/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українські хіти 2026 — хіти, які слухають всі | Нові пісні</video:title>
+      <video:description>Українська пісня «Українські хіти 2026 — хіти, які слухають всі | Нові пісні» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/kgj5MJwnUJA</video:player_loc>
+      <video:publication_date>2026-11-05T16:00:04+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/pVDk6EgVeHE/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Хіти в машину 2026 | КІЛОМЕТРИ ПІД ДОЩЕМ — Хіти для далекої дороги</video:title>
       <video:description>Українська пісня «Хіти в машину 2026 | КІЛОМЕТРИ ПІД ДОЩЕМ — Хіти для далекої дороги» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -314,15 +323,6 @@
       <video:description>Українська пісня «КОЛИ КОХАЄШ — ЦЕ ТВОЯ ПІСНЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/O0hpDlp0a1Y</video:player_loc>
       <video:publication_date>2026-09-03T11:22:52+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/0RQuxKfnY3I/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026</video:title>
-      <video:description>Українська пісня «ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/0RQuxKfnY3I</video:player_loc>
-      <video:publication_date>2026-08-31T09:00:21+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>

@@ -1,7 +1,16 @@
 {
-  "updated": "2026-11-05T10:26:57.056Z",
+  "updated": "2026-11-05T19:37:36.053Z",
   "count": 42,
   "videos": [
+    {
+      "id": "kgj5MJwnUJA",
+      "title": "Українські хіти 2026 — хіти, які слухають всі | Нові пісні",
+      "published": "2026-11-05T16:00:04+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
     {
       "id": "pVDk6EgVeHE",
       "title": "Хіти в машину 2026 | КІЛОМЕТРИ ПІД ДОЩЕМ — Хіти для далекої дороги",
@@ -312,15 +321,6 @@
       "id": "O0hpDlp0a1Y",
       "title": "КОЛИ КОХАЄШ — ЦЕ ТВОЯ ПІСНЯ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
       "published": "2026-09-03T11:22:52+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "0RQuxKfnY3I",
-      "title": "ВЕЧІР, ДВОЄ І ЦІ ПІСНІ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
-      "published": "2026-08-31T09:00:21+00:00",
       "channel": "GoldenWaveUA",
       "label": "GoldenWave",
       "tag": "golden",
