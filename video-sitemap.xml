@@ -3,6 +3,24 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/eZ9_twTFDuY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>ВРУБАЙ НА ПОВНУ! Найкращі українські хіти 2026 в машину | Бас та драйв</video:title>
+      <video:description>Українська пісня «ВРУБАЙ НА ПОВНУ! Найкращі українські хіти 2026 в машину | Бас та драйв» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/eZ9_twTFDuY</video:player_loc>
+      <video:publication_date>2026-11-11T21:21:47+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/h7u3W-AAO8k/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Музика для далекої дороги | VORON 24/7 — Українські хіти в машину</video:title>
+      <video:description>Українська пісня «Музика для далекої дороги | VORON 24/7 — Українські хіти в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/h7u3W-AAO8k</video:player_loc>
+      <video:publication_date>2026-11-11T17:02:55+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/YftAKtAx_7g/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Популярні українські пісні 2026 — музика, яку слухають всі</video:title>
       <video:description>Українська пісня «Популярні українські пісні 2026 — музика, яку слухають всі» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -269,24 +287,6 @@
       <video:description>Українська пісня «Українська музика 2026 — збірка пісень про любов і розлуку» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/vDUcTda6H7w</video:player_loc>
       <video:publication_date>2026-10-16T09:20:08+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/jK1iWy1sT3I/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>УКРАЇНСЬКА МУЗИКА В МАШИНУ - ГАЗУЙ НА ПОВНУ</video:title>
-      <video:description>Українська пісня «УКРАЇНСЬКА МУЗИКА В МАШИНУ - ГАЗУЙ НА ПОВНУ» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/jK1iWy1sT3I</video:player_loc>
-      <video:publication_date>2026-10-16T07:45:40+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/eX2cg88DZsQ/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Осінні МЕГАХІТИ — українська музика в машину</video:title>
-      <video:description>Українська пісня «Осінні МЕГАХІТИ — українська музика в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/eX2cg88DZsQ</video:player_loc>
-      <video:publication_date>2026-10-15T08:00:37+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>

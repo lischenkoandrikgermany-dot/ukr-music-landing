@@ -1,7 +1,25 @@
 {
-  "updated": "2026-11-11T13:42:36.643Z",
+  "updated": "2026-11-11T21:45:53.042Z",
   "count": 42,
   "videos": [
+    {
+      "id": "eZ9_twTFDuY",
+      "title": "ВРУБАЙ НА ПОВНУ! Найкращі українські хіти 2026 в машину | Бас та драйв",
+      "published": "2026-11-11T21:21:47+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "h7u3W-AAO8k",
+      "title": "Музика для далекої дороги | VORON 24/7 — Українські хіти в машину",
+      "published": "2026-11-11T17:02:55+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "YftAKtAx_7g",
       "title": "Популярні українські пісні 2026 — музика, яку слухають всі",
@@ -271,24 +289,6 @@
       "label": "GoldenWave",
       "tag": "golden",
       "accent": "#ff7eb6"
-    },
-    {
-      "id": "jK1iWy1sT3I",
-      "title": "УКРАЇНСЬКА МУЗИКА В МАШИНУ - ГАЗУЙ НА ПОВНУ",
-      "published": "2026-10-16T07:45:40+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
-      "id": "eX2cg88DZsQ",
-      "title": "Осінні МЕГАХІТИ — українська музика в машину",
-      "published": "2026-10-15T08:00:37+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
     },
     {
       "id": "cf4u4NcxwdE",
