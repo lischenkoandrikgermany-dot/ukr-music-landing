@@ -3,6 +3,33 @@
   <url>
     <loc>https://ukr-hits.online/</loc>
     <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/FmnIyGHnMis/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Найкращі українські пісні 2026 — збірка нових хітів</video:title>
+      <video:description>Українська пісня «Найкращі українські пісні 2026 — збірка нових хітів» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/FmnIyGHnMis</video:player_loc>
+      <video:publication_date>2026-11-14T08:00:26+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/RvtBA-Io4-o/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українська музика в машину 2026 | ДОРОГА БЕЗ КІНЦЯ — Хіти для далекої траси</video:title>
+      <video:description>Українська пісня «Українська музика в машину 2026 | ДОРОГА БЕЗ КІНЦЯ — Хіти для далекої траси» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/RvtBA-Io4-o</video:player_loc>
+      <video:publication_date>2026-11-14T08:00:17+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/ZMvmxbDZnz0/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Українська музика 2026 — сумні пісні до сліз про кохання</video:title>
+      <video:description>Українська пісня «Українська музика 2026 — сумні пісні до сліз про кохання» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/ZMvmxbDZnz0</video:player_loc>
+      <video:publication_date>2026-11-14T07:15:13+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/6hc3iTevSZc/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Українська музика 2026 про жіноче кохання та спогади. Трансляція 24/7</video:title>
       <video:description>Українська пісня «Українська музика 2026 про жіноче кохання та спогади. Трансляція 24/7» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -291,15 +318,6 @@
       <video:live>no</video:live>
     </video:video>
     <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/AprfgBZiySA/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Слухати українську музику 2026 - українські пісні для дороги, авто та душі!</video:title>
-      <video:description>Українська пісня «Слухати українську музику 2026 - українські пісні для дороги, авто та душі!» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/AprfgBZiySA</video:player_loc>
-      <video:publication_date>2026-10-19T15:01:30+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/uzG4YRqy8X8/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Мрієва - пісні для роздумів та релаксу</video:title>
       <video:description>Українська пісня «Мрієва - пісні для роздумів та релаксу» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
@@ -359,24 +377,6 @@
       <video:description>Українська пісня «ВЕСІЛЬНІ УКРАЇНСЬКІ ПІСНІ 2026 🎉 Веселі Танцювальні Хіти на Весілля | 1,5 Години» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
       <video:player_loc>https://www.youtube.com/embed/ZQHE2Jod5ac</video:player_loc>
       <video:publication_date>2026-10-05T08:30:24+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/KVmqScl0R_s/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>ЖАРТІВЛИВІ УКРАЇНСЬКІ ПІСНІ 😄 Веселі Застільні Хіти | 1,5 Години Гарного Настрою</video:title>
-      <video:description>Українська пісня «ЖАРТІВЛИВІ УКРАЇНСЬКІ ПІСНІ 😄 Веселі Застільні Хіти | 1,5 Години Гарного Настрою» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/KVmqScl0R_s</video:player_loc>
-      <video:publication_date>2026-09-18T09:58:39+00:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/J3Pb2BkFkvc/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Музика для настрою , треки в машину</video:title>
-      <video:description>Українська пісня «Музика для настрою , треки в машину» — слухати онлайн безкоштовно на ukr-hits.online.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/J3Pb2BkFkvc</video:player_loc>
-      <video:publication_date>2026-08-21T08:00:35+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:live>no</video:live>
     </video:video>

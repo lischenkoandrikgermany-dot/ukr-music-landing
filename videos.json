@@ -1,7 +1,34 @@
 {
-  "updated": "2026-11-13T21:13:59.225Z",
+  "updated": "2026-11-14T13:06:06.489Z",
   "count": 42,
   "videos": [
+    {
+      "id": "FmnIyGHnMis",
+      "title": "Найкращі українські пісні 2026 — збірка нових хітів",
+      "published": "2026-11-14T08:00:26+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "RvtBA-Io4-o",
+      "title": "Українська музика в машину 2026 | ДОРОГА БЕЗ КІНЦЯ — Хіти для далекої траси",
+      "published": "2026-11-14T08:00:17+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "ZMvmxbDZnz0",
+      "title": "Українська музика 2026 — сумні пісні до сліз про кохання",
+      "published": "2026-11-14T07:15:13+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
     {
       "id": "6hc3iTevSZc",
       "title": "Українська музика 2026 про жіноче кохання та спогади. Трансляція 24/7",
@@ -291,15 +318,6 @@
       "accent": "#ff7eb6"
     },
     {
-      "id": "AprfgBZiySA",
-      "title": "Слухати українську музику 2026 - українські пісні для дороги, авто та душі!",
-      "published": "2026-10-19T15:01:30+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
       "id": "uzG4YRqy8X8",
       "title": "Мрієва - пісні для роздумів та релаксу",
       "published": "2026-10-16T11:33:23+00:00",
@@ -361,24 +379,6 @@
       "label": "GoldenWave",
       "tag": "golden",
       "accent": "#ff7eb6"
-    },
-    {
-      "id": "KVmqScl0R_s",
-      "title": "ЖАРТІВЛИВІ УКРАЇНСЬКІ ПІСНІ 😄 Веселі Застільні Хіти | 1,5 Години Гарного Настрою",
-      "published": "2026-09-18T09:58:39+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "J3Pb2BkFkvc",
-      "title": "Музика для настрою , треки в машину",
-      "published": "2026-08-21T08:00:35+00:00",
-      "channel": "Рок Українською",
-      "label": "Рок",
-      "tag": "rok",
-      "accent": "#ff5470"
     }
   ]
 }
