@@ -1,7 +1,25 @@
 {
-  "updated": "2026-11-15T10:28:33.272Z",
+  "updated": "2026-11-15T18:34:09.734Z",
   "count": 42,
   "videos": [
+    {
+      "id": "u_KEKidr7ic",
+      "title": "КОЛИ СЕРЦЕ ЗНАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-11-15T12:21:16+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "S3BidsYtIIQ",
+      "title": "Музика в машину 2026 | СНІГ І ФАРИ — Українські пісні для зимової траси",
+      "published": "2026-11-15T11:30:00+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "BGmcdqXwHE0",
       "title": "Ці пісні чіпляють за серце — українська музика 2026 для душі",
@@ -300,15 +318,6 @@
       "accent": "#34d399"
     },
     {
-      "id": "yhVonv7elrs",
-      "title": "ТОП українських пісень 2026 🇺🇦 Нові хіти | 1 година української музики без зупинки",
-      "published": "2026-10-25T04:00:13+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
       "id": "NfTSqL1bxag",
       "title": "Ці пісні торкнуться серця — Романтичні Українські Хіти",
       "published": "2026-10-21T03:00:15+00:00",
@@ -366,15 +375,6 @@
       "id": "QwmTRX7Miuo",
       "title": "Ти Моя Вишня (Хіт 2026)",
       "published": "2026-10-07T07:00:18+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "ZQHE2Jod5ac",
-      "title": "ВЕСІЛЬНІ УКРАЇНСЬКІ ПІСНІ 2026 🎉 Веселі Танцювальні Хіти на Весілля | 1,5 Години",
-      "published": "2026-10-05T08:30:24+00:00",
       "channel": "GoldenWaveUA",
       "label": "GoldenWave",
       "tag": "golden",
