@@ -1,7 +1,34 @@
 {
-  "updated": "2026-11-15T18:34:09.734Z",
+  "updated": "2026-11-16T10:43:54.357Z",
   "count": 42,
   "videos": [
+    {
+      "id": "FnZSHm5Qrj4",
+      "title": "Українська музика 2026 — хіти для дому і дороги",
+      "published": "2026-11-16T08:00:06+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "nB61NUiAj2Q",
+      "title": "Хіти в машину 2026 | ДО РАНКУ ЗА КЕРМОМ — Українські пісні нон-стоп",
+      "published": "2026-11-16T08:00:04+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "QlNToqGHjss",
+      "title": "Українська музика 2026 — пісні, що лікують душу",
+      "published": "2026-11-16T07:15:19+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
     {
       "id": "u_KEKidr7ic",
       "title": "КОЛИ СЕРЦЕ ЗНАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
@@ -309,15 +336,6 @@
       "accent": "#34d399"
     },
     {
-      "id": "AfgiFNEWL90",
-      "title": "Музика в машину 2026｜ГАЗ ПОМАЛУ, ЗВУК НА ПОВНУ — Чоловіча збірка",
-      "published": "2026-10-27T14:12:07+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
       "id": "NfTSqL1bxag",
       "title": "Ці пісні торкнуться серця — Романтичні Українські Хіти",
       "published": "2026-10-21T03:00:15+00:00",
@@ -361,24 +379,6 @@
       "label": "Рок",
       "tag": "rok",
       "accent": "#ff5470"
-    },
-    {
-      "id": "cewpc-aLmDM",
-      "title": "ТОП пісні 2026 — українська музика, нові хіти",
-      "published": "2026-10-12T12:18:32+00:00",
-      "channel": "Рок Українською",
-      "label": "Рок",
-      "tag": "rok",
-      "accent": "#ff5470"
-    },
-    {
-      "id": "QwmTRX7Miuo",
-      "title": "Ти Моя Вишня (Хіт 2026)",
-      "published": "2026-10-07T07:00:18+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
     }
   ]
 }
