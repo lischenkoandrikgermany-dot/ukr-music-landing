@@ -1,7 +1,34 @@
 {
-  "updated": "2026-11-17T06:57:33.190Z",
+  "updated": "2026-11-17T18:14:05.904Z",
   "count": 42,
   "videos": [
+    {
+      "id": "b9P7wlzsHpA",
+      "title": "ПІСНІ В ДОРОГУ НА ВСЮ НІЧ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
+      "published": "2026-11-17T08:00:08+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "mlGolqAvmMQ",
+      "title": "ЦІ ПІСНІ ДЛЯ ТЕБЕ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026",
+      "published": "2026-11-17T08:00:00+00:00",
+      "channel": "GoldenWaveUA",
+      "label": "GoldenWave",
+      "tag": "golden",
+      "accent": "#ff7eb6"
+    },
+    {
+      "id": "vrfkTXQTX18",
+      "title": "Душевні українські пісні 2026 — жіночий вокал для гарного настрою",
+      "published": "2026-11-17T07:15:12+00:00",
+      "channel": "Рок Українською",
+      "label": "Рок",
+      "tag": "rok",
+      "accent": "#ff5470"
+    },
     {
       "id": "FnZSHm5Qrj4",
       "title": "Українська музика 2026 — хіти для дому і дороги",
@@ -327,15 +354,6 @@
       "accent": "#ff5470"
     },
     {
-      "id": "W7cUgBaFh2o",
-      "title": "Драйвова музика в машину 2026｜НА ВЕСЬ САЛОН — Дорожня збірка VORON",
-      "published": "2026-10-31T08:45:37+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
       "id": "NfTSqL1bxag",
       "title": "Ці пісні торкнуться серця — Романтичні Українські Хіти",
       "published": "2026-10-21T03:00:15+00:00",
@@ -357,24 +375,6 @@
       "id": "uzG4YRqy8X8",
       "title": "Мрієва - пісні для роздумів та релаксу",
       "published": "2026-10-16T11:33:23+00:00",
-      "channel": "Рок Українською",
-      "label": "Рок",
-      "tag": "rok",
-      "accent": "#ff5470"
-    },
-    {
-      "id": "vDUcTda6H7w",
-      "title": "Українська музика 2026 — збірка пісень про любов і розлуку",
-      "published": "2026-10-16T09:20:08+00:00",
-      "channel": "GoldenWaveUA",
-      "label": "GoldenWave",
-      "tag": "golden",
-      "accent": "#ff7eb6"
-    },
-    {
-      "id": "cf4u4NcxwdE",
-      "title": "Побудь у своєму настрої — українська музика",
-      "published": "2026-10-15T03:00:31+00:00",
       "channel": "Рок Українською",
       "label": "Рок",
       "tag": "rok",
