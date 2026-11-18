@@ -1,7 +1,25 @@
 {
-  "updated": "2026-11-18T02:45:04.893Z",
+  "updated": "2026-11-18T11:15:18.330Z",
   "count": 42,
   "videos": [
+    {
+      "id": "dG46vJxtCnU",
+      "title": "МУЗИКА В МАШИНУ НА ВЕЧІР · НОВІ УКРАЇНСЬКІ ХІТИ 2026",
+      "published": "2026-11-18T11:12:51+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
+    {
+      "id": "6E0i4kbO5W4",
+      "title": "Українська Музика в Машину 2026 · Нові Пісні · 2 Години Хітів",
+      "published": "2026-11-18T08:00:28+00:00",
+      "channel": "VORON",
+      "label": "VORON",
+      "tag": "voron",
+      "accent": "#34d399"
+    },
     {
       "id": "b9P7wlzsHpA",
       "title": "ПІСНІ В ДОРОГУ НА ВСЮ НІЧ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026",
@@ -316,24 +334,6 @@
       "label": "Рок",
       "tag": "rok",
       "accent": "#ff5470"
-    },
-    {
-      "id": "yqcmXT3hims",
-      "title": "Українські пісні в машину 2026 | ВІД ЛЬВОВА ДО КИЄВА — Нон-стоп у дорогу",
-      "published": "2026-11-02T04:00:33+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
-    },
-    {
-      "id": "g5tboSlF7dY",
-      "title": "Музика в машину 2026 | НІЧНА ТРАСА І ТИ — Збірка для нічної траси",
-      "published": "2026-10-31T16:00:08+00:00",
-      "channel": "VORON",
-      "label": "VORON",
-      "tag": "voron",
-      "accent": "#34d399"
     },
     {
       "id": "Q5N1UpEn8YA",
