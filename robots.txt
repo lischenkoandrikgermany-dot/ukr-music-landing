@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/sitemap.xml
-Sitemap: https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/video-sitemap.xml
+Sitemap: https://ukrhits.biz.ua/sitemap.xml
+Sitemap: https://ukrhits.biz.ua/video-sitemap.xml
