@@ -157,7 +157,8 @@ const homeLD = [
   ].map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
 ];
 const filters = `<div class="filters" role="group" aria-label="Фільтр за каналом"><button type="button" class="f" data-f="all" aria-pressed="true">Усі</button>${cfg.channels.map(c => `<button type="button" class="f" data-f="${c.tag}" aria-pressed="false" style="--c:${c.color}">${esc(c.name)}</button>`).join('')}</div>`;
-const hero = live[0] || regular[0];
+// головна картинка: задана в channels.json (site.hero — id відео; його слово 19.11: не контрастне превʼю, з VORON)
+const hero = videos.find(v => v.id === SITE.hero) || live[0] || regular[0];
 write('index.html', `${head({ title: 'Українські пісні 2026 — музика в машину, для душі та про кохання | UKR Hits', desc: 'Свіжі українські пісні 2026: музика в машину, пісні для душі та про кохання. Збірки й прямі ефіри VORON, МРІЄВА і GoldenWaveUA — слухайте безкоштовно, знайдіть свою пісню.', canon: BASE + '/', rel: '', img: thumb(hero.id, 'hqdefault'), ld: homeLD })}
 <body class="home">
 ${bar('', '')}
