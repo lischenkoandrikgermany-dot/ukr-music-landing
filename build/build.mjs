@@ -113,8 +113,10 @@ ${ld.map(o => `<script type="application/ld+json">${JSON.stringify(o).replace(/<
 </head>`;
 }
 function bar(rel, active) {
-  const links = cfg.channels.map(c => `<a href="${rel}${c.slug}/"${active === c.tag ? ' aria-current="page"' : ''} style="--c:${c.color}">${esc(c.name)}</a>`).join('');
-  return `<header class="bar"><a class="mark" href="${rel}">${esc(SITE.name)}</a><nav aria-label="Канали">${links}</nav></header>`;
+  const links = cfg.channels.map(c => `<a href="${rel}${c.slug}/"${active === c.tag ? ' aria-current="page"' : ''} style="--c:${c.color}">${esc(c.name)}</a>`).join('')
+    + `<a href="${rel}#efir">Прямі ефіри</a><a href="${rel}best/"${active === 'best' ? ' aria-current="page"' : ''}>Найкращі</a>`;
+  const tg = SITE.telegram ? `<a class="btn tg small" href="${SITE.telegram}" target="_blank" rel="noopener">${icoTG}<span>Telegram</span></a>` : '';
+  return `<header class="bar"><a class="mark" href="${rel}">${esc(SITE.name)}</a><nav aria-label="Розділи">${links}</nav>${tg}</header>`;
 }
 function follow(rel) {
   const yt = cfg.channels.map(c => `<a class="btn yt" href="${c.youtube}?sub_confirmation=1" target="_blank" rel="noopener">${icoYT}<span>${esc(c.name)} на YouTube</span></a>`).join('');
@@ -123,9 +125,11 @@ function follow(rel) {
 }
 function foot(rel) {
   return `<footer class="foot">
+<h2 class="fh">Наші YouTube-канали</h2>
+<p>Усі пісні на цьому сайті — з наших трьох YouTube-каналів. Підпишіться на той, що до душі, щоб нові збірки й прямі ефіри приходили вам на YouTube першими.</p>
+<div class="chans">${cfg.channels.map(c => `<a class="chan-btn" href="${c.youtube}?sub_confirmation=1" target="_blank" rel="noopener">${icoYT}<span><b>${esc(c.name)}</b><small>YouTube-канал · ${esc(c.about.split(':')[0])}</small></span></a>`).join('')}</div>
+${SITE.telegram ? `<h2 class="fh">Наш Telegram-канал</h2><p>Нові пісні, прямі ефіри й добірки — щодня в Telegram.</p><a class="chan-btn tgb" href="${SITE.telegram}" target="_blank" rel="noopener">${icoTG}<span><b>Підписатися в Telegram</b><small>Відкриється у застосунку Telegram</small></span></a>` : ''}
 <p class="big">${esc(SITE.name)}</p>
-<p>Українська музика з YouTube-каналів VORON, МРІЄВА та GoldenWaveUA. Нові збірки з’являються тут самі, щойно виходять на YouTube.</p>
-${follow(rel)}
 <p class="small">Оновлено ${dateUa(now.toISOString())}. Відео програються з YouTube.</p>
 </footer>
 <script src="${rel}assets/site.js?v=${VER}" defer></script>
@@ -134,7 +138,7 @@ ${follow(rel)}
 function card(v, rel) {
   const c = CH[v.tag];
   const meta = [v.live ? 'Наживо' : v.sec ? durWords(v.sec) : '', v.live ? '' : dateUa(v.published)].filter(Boolean).join(' · ');
-  return `<a class="card" href="${rel}v/${v.id}/" data-tag="${v.tag}" data-live="${v.live ? 1 : 0}">
+  return `<a class="card" href="${rel}v/${v.id}/" data-tag="${v.tag}" data-live="${v.live ? 1 : 0}" data-v="${v.views || 0}">
 <span class="th"><img src="${thumb(v.id)}" alt="" loading="lazy" width="480" height="270">${v.live ? '<span class="onair">Наживо</span>' : v.sec ? `<span class="len">${hms(v.sec)}</span>` : ''}</span>
 <span class="t">${esc(v.title)}</span>
 <span class="m"><b style="--c:${c.color}">${esc(c.name)}</b>${meta ? ' · ' + esc(meta) : ''}</span></a>`;
@@ -199,6 +203,21 @@ ${bar('../', c.tag)}
 ${foot('../')}`);
 }
 
+// ---------- 4б. «Найкращі» — найпопулярніші за переглядами ----------
+{
+  const top = regular.filter(v => v.views).sort((a, b) => b.views - a.views).slice(0, 90);
+  const ld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Найпопулярніші українські пісні 2026', url: `${BASE}/best/`, inLanguage: 'uk',
+    mainEntity: { '@type': 'ItemList', itemListElement: top.slice(0, 50).map((v, i) => ({ '@type': 'ListItem', position: i + 1, url: `${BASE}/v/${v.id}/` })) } }];
+  write('best/index.html', `${head({ title: 'Найпопулярніші українські пісні 2026 — топ збірок | UKR Hits', desc: 'Топ українських збірок за переглядами: музика в машину, пісні для душі та про кохання від VORON, МРІЄВА і GoldenWaveUA.', canon: `${BASE}/best/`, rel: '../', img: thumb(top[0]?.id || hero.id), ld })}
+<body class="chan best">
+${bar('../', 'best')}
+<main>
+<section class="chead"><h1>Найпопулярніші українські пісні</h1><p class="lede">Збірки, які слухають найбільше: від драйвових хітів у машину до ніжних пісень про кохання. Порядок — за кількістю переглядів на YouTube.</p></section>
+<section class="all"><h2>Топ ${top.length} збірок</h2><div class="grid" id="grid">${top.map(v => card(v, '../')).join('\n')}</div><button type="button" class="btn more" id="more">Показати ще</button></section>
+</main>
+${foot('../')}`);
+}
+
 // ---------- 5. сторінка кожного відео ----------
 for (const v of videos) {
   const c = CH[v.tag];
@@ -233,7 +252,7 @@ ${foot('../../')}`);
 
 // ---------- 6. пошуковий індекс, карти сайту, robots, llms ----------
 fs.writeFileSync(path.join(ROOT, 'search.json'), JSON.stringify(videos.map(v => [v.id, v.title, v.tag, v.tr.map(([t, n]) => [t, n])])));
-const urls = [`${BASE}/`, ...cfg.channels.map(c => `${BASE}/${c.slug}/`), ...videos.map(v => `${BASE}/v/${v.id}/`)];
+const urls = [`${BASE}/`, `${BASE}/best/`, ...cfg.channels.map(c => `${BASE}/${c.slug}/`), ...videos.map(v => `${BASE}/v/${v.id}/`)];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 write('video-sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n${videos.slice(0, 1000).map(v => `<url><loc>${BASE}/v/${v.id}/</loc><video:video><video:thumbnail_loc>${thumb(v.id)}</video:thumbnail_loc><video:title>${esc(clip(v.title, 100))}</video:title><video:description>${esc(clip(lead(v.description) || CH[v.tag].about, 2000))}</video:description><video:player_loc>https://www.youtube.com/embed/${v.id}</video:player_loc>${v.sec && !v.live ? `<video:duration>${Math.min(v.sec, 28800)}</video:duration>` : ''}<video:publication_date>${v.published || today}</video:publication_date>${v.live ? '<video:live>yes</video:live>' : ''}</video:video></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\nSitemap: ${BASE}/video-sitemap.xml\n`);

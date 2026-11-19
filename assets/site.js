@@ -9,11 +9,11 @@
   const isChan = document.body.classList.contains('chan');
   let filter = 'all', shown = STEP;
 
+  // «хитре» перемішування: збірки з малою кількістю переглядів частіше потрапляють нагору — їм іде трафік із сайту
   function shuffle() {
     if (!grid) return;
-    const cards = $$('.card', grid);
-    for (let i = cards.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [cards[i], cards[j]] = [cards[j], cards[i]]; }
-    cards.forEach(c => grid.appendChild(c));
+    const cards = $$('.card', grid).map(c => ({ c, k: Math.pow(Math.random(), Math.sqrt((+c.dataset.v || 0) + 200) / 40) }));
+    cards.sort((a, b) => b.k - a.k).forEach(x => grid.appendChild(x.c));
     shown = STEP; apply();
   }
   function apply() {
