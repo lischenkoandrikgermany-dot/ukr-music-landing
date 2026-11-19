@@ -1,35 +1,39 @@
 # UKR Hits — українська музика онлайн
 
-> ukr-hits.online — безкоштовний сайт, де можна слухати українську музику онлайн без реклами та без реєстрації. Колекція сучасних українських пісень 2025-2026 оновлюється автоматично щодня з офіційних YouTube-каналів проєкту й щоразу перемішується.
+> Сайт зі свіжими збірками українських пісень трьох YouTube-каналів: VORON (музика в машину), МРІЄВА (пісні для душі) і GoldenWaveUA (пісні про кохання). Оновлюється автоматично.
 
-## Про проєкт
-- **Назва:** UKR Hits (ukr-hits.online)
-- **Що це:** добірка українських пісень для онлайн-прослуховування
-- **Мова:** українська
-- **Вартість:** безкоштовно, без реклами, без реєстрації
-- **Формат:** офіційні відео з YouTube, зібрані в одному місці; колекція оновлюється щодня
+- [VORON](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/voron/): Українська музика в машину: драйвові хіти для дороги, нічна траса, шансон і пісні, під які кілометри минають непомітно.
+- [МРІЄВА](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/mriieva/): Українські пісні для душі: ліричні й ніжні, про кохання та спогади, з жіночим вокалом. Музика для вечора і тихого настрою.
+- [GoldenWaveUA](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/goldenwaveua/): Українська музика про кохання: теплі, романтичні й веселі пісні для дому, застілля та дороги.
 
-## Що можна знайти
-- Сучасні українські хіти 2025-2026
-- Нові українські пісні (свіжі релізи)
-- Українські пісні в машину — енергійна драйвова музика
-- Романтична українська музика та пісні про кохання
-- Сучасний український рок
-
-## Джерела музики (YouTube-канали проєкту)
-- GoldenWaveUA — романтична українська музика, пісні про кохання: https://www.youtube.com/channel/UCXN8Ibh2QGNwZSwFJH423aw
-- VORON — драйвова українська музика, треки в машину: https://www.youtube.com/channel/UCXRzPkWX59hYAWgwgmpzc7w
-- Рок Українською — сучасний український рок: https://www.youtube.com/@rokukrainskoyu
-
-## Сторінки
-- Головна (слухати музику): https://ukr-hits.online/
-- Про проєкт: https://ukr-hits.online/about.html
-
-## Часті запитання
-- **Де слухати українську музику безкоштовно?** На ukr-hits.online — безкоштовно, без реклами та реєстрації.
-- **Чи є реклама?** Ні, музика грає без реклами.
-- **Як часто оновлюється?** Щодня, автоматично з YouTube-каналів проєкту.
-
-## Контакти
-- Email: hi@ukr-hits.online
-- Telegram: https://t.me/+5BR06jQ7h_k4YzBi
+## Найновіші збірки
+- [ПІСНІ ДЛЯ ДУШІ І В ДОРОГУ ❤️ Українська Музика про Кохання 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/NP93YqF4YVY/)
+- [УКРАЇНСЬКИЙ ШАНСОН 2026 ❤️ Пісні в Машину і для Душі | Шансон про Кохання](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/EgqUc73LOFs/)
+- [ДОРОГА ДОДОМУ 🎄 Українські Пісні в Дорогу | Теплі Хіти 2026 для Душі](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/r5fD_wHhQgg/)
+- [ХІТИ ЗИМИ 2026 ❄️ Українські Пісні про Кохання | Музика для Душі](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/sWSukW3VR9A/)
+- [УКРАЇНСЬКІ ПІСНІ 2026 ❤️ Мега Хіти про Кохання | Найкраща Українська Музика](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/IIY2-TW6dDA/)
+- [ГУЛЯЄ ДУША! 💃 Веселі Українські Пісні 2026 | Хіти для Гулянки та Настрою](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/pN_MaPy-Kps/)
+- [ЗИМОВИЙ ВЕЧІР УДВОХ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/ua_xqTQBY4g/)
+- [Нові Українські Хіти 2026 · Музика в Дорогу · 2 Години](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/sLdXjMOkJTw/)
+- [Пісні, які хочеться на повтор — українська музика 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/1qg6T4muKyA/)
+- [МУЗИКА В МАШИНУ НА ВЕЧІР · НОВІ УКРАЇНСЬКІ ХІТИ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/dG46vJxtCnU/)
+- [Українська Музика в Машину 2026 · Нові Пісні · 2 Години Хітів](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/6E0i4kbO5W4/)
+- [ПІСНІ В ДОРОГУ НА ВСЮ НІЧ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/b9P7wlzsHpA/)
+- [ЦІ ПІСНІ ДЛЯ ТЕБЕ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/mlGolqAvmMQ/)
+- [Душевні українські пісні 2026 — жіночий вокал для гарного настрою](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/vrfkTXQTX18/)
+- [Українська музика 2026 — хіти для дому і дороги](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/FnZSHm5Qrj4/)
+- [НОН СТОП ДО РАНКУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/nB61NUiAj2Q/)
+- [Українська музика 2026 — пісні, що лікують душу](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/QlNToqGHjss/)
+- [КОЛИ СЕРЦЕ ЗНАЄ · УКРАЇНСЬКА МУЗИКА ПРО КОХАННЯ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/u_KEKidr7ic/)
+- [ЗИМОВА ТРАСА · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/S3BidsYtIIQ/)
+- [Ці пісні чіпляють за серце — українська музика 2026 для душі](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/BGmcdqXwHE0/)
+- [Найкращі українські пісні 2026 — збірка нових хітів](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/FmnIyGHnMis/)
+- [ХІТИ ЗА КЕРМОМ НА ДАЛЕКУ ТРАСУ · УКРАЇНСЬКА МУЗИКА В МАШИНУ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/RvtBA-Io4-o/)
+- [Українська музика 2026 — сумні пісні до сліз про кохання](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/ZMvmxbDZnz0/)
+- [НІЧНЕ МІСТО · НОВІ УКРАЇНСЬКІ ПІСНІ В МАШИНУ 2026](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/KjM9N7Y-A9M/)
+- [Топ хіти України 2026 — українська музика нон-стоп](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/BuzlkZ_OFV0/)
+- [Українська музика 2026 — ліричні пісні для душі](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/V8C4ZUIPOoE/)
+- [Популярні українські пісні 2026 — музика, яку слухають всі](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/YftAKtAx_7g/)
+- [Музика в дорогу 2026 | ПЕРШИЙ СНІГ НА ТРАСІ — Українська музика в авто](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/y0sxOVSUBLM/)
+- [Українська музика 2026 — душевні пісні для вечора вдома](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/Mi0grt_yYbQ/)
+- [Музика в машину 2026 | НОВІ ПІСНІ — Українські хіти для нічної дороги](https://lischenkoandrikgermany-dot.github.io/ukr-music-landing/v/9V1EHjTuDdg/)

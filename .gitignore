@@ -1,2 +1,5 @@
 .claude/
 .DS_Store
+*.bak-1911
+.DS_Store
+index.html.bak*
