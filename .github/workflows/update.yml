@@ -2,7 +2,7 @@ name: Оновлення відео з YouTube
 
 on:
   schedule:
-    - cron: '0 */3 * * *'   # кожні 3 години
+    - cron: '17 * * * *'   # щогодини (хв. 17 — щоб GitHub не відкладав запуск о «рівній» годині)
   workflow_dispatch:          # кнопка ручного запуску
   push:
     branches: [ main ]

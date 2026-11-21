@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import crypto from 'node:crypto';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(DIR, '..');
@@ -13,7 +14,7 @@ const SITE = cfg.site;
 const BASE = SITE.url.replace(/\/$/, '');
 const CH = Object.fromEntries(cfg.channels.map(c => [c.tag, c]));
 const ARCHIVE = path.join(DIR, 'archive.json');
-const VER = Date.now().toString(36);
+const VER = crypto.createHash('md5').update(fs.readFileSync(path.join(ROOT, 'assets/site.css'))).update(fs.readFileSync(path.join(ROOT, 'assets/site.js'))).digest('hex').slice(0, 8);
 const now = new Date();
 const today = now.toISOString().slice(0, 10);
 
@@ -73,18 +74,100 @@ async function feed(ch) {
   } catch (e) { console.error(`! ${ch.name}: ${e.message}`); return []; }
 }
 let added = 0;
+const inFeed = new Set();
 for (const list of await Promise.all(cfg.channels.map(feed))) for (const v of list) {
+  inFeed.add(v.id);
   const old = byId.get(v.id);
   if (old) { old.title = v.title; if (v.description) old.description = v.description.slice(0, 4000); if (v.views) old.views = v.views; if (v.short) old.short = true; }
   else { byId.set(v.id, { ...v, description: v.description.slice(0, 4000), duration: null, live: false }); added++; }
 }
 archive = [...byId.values()].sort((a, b) => (b.published || '').localeCompare(a.published || ''));
+
+// ---------- 1б. перевірка: чи відео живе, чи його можна грати на сайті, чи ефір ще йде (21.11) ----------
+// Без ключів і паролів. oEmbed: 200 — можна вбудувати, 401/403 — заборонено вбудовувати або приватне, 404 — видалене.
+// Сторінка YouTube: статус програвання, «наживо зараз», тривалість. Якщо YouTube нічого певного не відповів
+// (збій мережі, «підтвердіть, що ви не бот») — рішення не змінюємо: краще лишити старе, ніж сховати живе.
+// Закінчені ефіри без запису, видалені й невбудовувані відео зникають із сайту самі; повернуться, якщо їх полагодять.
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
+const HOUR = 3600e3, nowMs = now.getTime();
+async function get(url, ms) {
+  const ac = new AbortController(), t = setTimeout(() => ac.abort(), ms);
+  try {
+    const r = await fetch(url, { signal: ac.signal, headers: { 'User-Agent': UA, 'Accept-Language': 'uk,en;q=0.8', Cookie: 'CONSENT=YES+1; SOCS=CAI' } });
+    return { code: r.status, text: r.ok ? await r.text() : '' };
+  } catch { return { code: 0, text: '' }; } finally { clearTimeout(t); }
+}
+async function pool(items, n, fn) {
+  let i = 0; const out = [];
+  await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) { const k = i++; out[k] = await fn(items[k]); } }));
+  return out;
+}
+const oembed = async id => (await get(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`, 15000)).code;
+async function watch(id) {
+  const { code, text } = await get(`https://www.youtube.com/watch?v=${id}`, 25000);
+  const m = code === 200 && /ytInitialPlayerResponse\s*=\s*(\{.+?\});(?:var|<\/script>)/s.exec(text);
+  if (!m) return null;
+  let p; try { p = JSON.parse(m[1]); } catch { return null; }
+  const ps = p.playabilityStatus || {};
+  if (!p.videoDetails || ps.status === 'LOGIN_REQUIRED') return null;   // перевірка «чи ви не бот» — нічого не знаємо
+  const lb = p.microformat?.playerMicroformatRenderer?.liveBroadcastDetails || {};
+  return { status: ps.status, embed: ps.playableInEmbed !== false, liveNow: lb.isLiveNow === true, stream: !!lb.startTimestamp, len: +(p.videoDetails.lengthSeconds || 0) };
+}
+const iso = s => `PT${Math.floor(s / 3600)}H${Math.floor(s % 3600 / 60)}M${s % 60}S`;
+const age = v => v.checked ? nowMs - Date.parse(v.checked) : Infinity;
+const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // ефір або ще невідомо, що це
+{
+  const cand = archive.filter(v => CH[v.tag] && !v.short);
+  const must = new Set(cand.filter(v => !v.checked || streamish(v) || (v.ok === false && age(v) > 6 * HOUR)));
+  const rest = cand.filter(v => !must.has(v) && age(v) > 20 * HOUR).sort((a, b) => age(b) - age(a)).slice(0, 300);
+  const list = [...must, ...rest];
+  const res = await pool(list, 6, async v => {
+    const oe = await oembed(v.id);
+    const w = streamish(v) || (oe && oe !== 200) ? await watch(v.id) : null;
+    return { v, oe, w };
+  });
+  let flips = 0;
+  const plan = res.map(({ v, oe, w }) => {
+    const known = !!w || [200, 401, 403, 404].includes(oe);
+    if (!known) return null;
+    const p = { v };
+    if (w) {
+      p.stream = w.stream;
+      p.ok = w.status === 'OK' && w.embed;
+      p.live = w.status === 'OK' && w.liveNow;
+      if (p.live) p.duration = 'P0D';
+      else if (w.status === 'OK' && w.len > 0) p.duration = iso(w.len);
+    } else {
+      p.ok = oe === 200;
+      // сторінку YouTube не прочитали: ефір без запису після кінця зникає зі стрічки каналу — тоді вважаємо його завершеним
+      p.live = v.live && inFeed.has(v.id);
+      if (v.live && !p.live) p.ok = false;
+    }
+    if (v.ok !== false && !p.ok) flips++;
+    return p;
+  }).filter(Boolean);
+  const panic = flips > Math.max(20, list.length * 0.25);   // раптом «зламалося» забагато — це збій перевірки, а не відео
+  if (panic) console.error(`! перевірка: ${flips} відео раптом недоступні — схоже на збій YouTube, нічого не ховаю`);
+  for (const p of plan) {
+    const v = p.v;
+    if (panic && !p.ok && v.ok !== false) continue;
+    if (p.stream || p.live || v.duration === 'P0D') v.stream = true;
+    v.ok = p.ok; v.live = p.live; if (p.duration) v.duration = p.duration;
+    if (v.ok) delete v.gone; else v.gone ||= now.toISOString();
+    v.checked = now.toISOString();
+  }
+  const watched = res.filter(x => streamish(x.v) || (x.oe && x.oe !== 200)).length;
+  console.log(`перевірка: ${list.length} відео (сторінок YouTube: ${watched}, без відповіді: ${res.length - plan.length}), недоступних зараз: ${archive.filter(v => v.ok === false).length}`);
+}
+// давно недоступні (90+ днів) — з архіву геть
+archive = archive.filter(v => !(v.ok === false && v.gone && nowMs - Date.parse(v.gone) > 90 * 24 * HOUR));
 fs.writeFileSync(ARCHIVE, JSON.stringify(archive, null, 1));
 console.log(`архів: ${archive.length} відео, нових: ${added}`);
 
-// на сайт — без коротких (shorts); прямі ефіри — окремо зверху
-const isShort = v => v.short || (!v.live && v.duration && secs(v.duration) <= 180);
-const videos = archive.filter(v => CH[v.tag] && !isShort(v));
+// на сайт — без коротких (shorts) і без недоступних; прямі ефіри — окремо зверху, лише ті, що йдуть зараз
+const isShort = v => v.short || (!v.live && secs(v.duration) > 0 && secs(v.duration) <= 180);   // P0D — це ефір, не шортс
+const videos = archive.filter(v => CH[v.tag] && !isShort(v) && v.ok !== false);
+const gone = archive.filter(v => CH[v.tag] && !isShort(v) && v.ok === false && nowMs - Date.parse(v.gone || 0) < 45 * 24 * HOUR);
 const live = videos.filter(v => v.live);
 const regular = videos.filter(v => !v.live);
 for (const v of videos) { v.tr = tracks(v.description); v.sec = secs(v.duration); }
@@ -93,13 +176,13 @@ if (!videos.length) { console.error('Жодного відео — сайт не
 // ---------- 2. спільні шматки ----------
 const icoYT = '<svg viewBox="0 0 28 20" aria-hidden="true" width="28" height="20"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5l7.5 4.5-7.5 4.5z" fill="#fff"/></svg>';
 const icoTG = '<svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><circle cx="12" cy="12" r="12" fill="#229ED9"/><path d="M5.4 11.8l10.9-4.2c.5-.2 1 .1.8.9l-1.9 8.8c-.1.6-.5.8-1 .5l-2.8-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.3-4.8c.2-.2 0-.3-.3-.1l-6.6 4.1-2.8-.9c-.6-.2-.6-.6.2-.8z" fill="#fff"/></svg>';
-function head({ title, desc, canon, rel, img, ld = [], type = 'website' }) {
+function head({ title, desc, canon, rel, img, ld = [], type = 'website', robots = '' }) {
   return `<!doctype html>
 <html lang="uk"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
-<link rel="canonical" href="${canon}">
+<link rel="canonical" href="${canon}">${robots ? `<meta name="robots" content="${robots}">` : ''}
 <meta property="og:type" content="${type}"><meta property="og:site_name" content="${esc(SITE.name)}"><meta property="og:locale" content="uk_UA">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${canon}">
 <meta property="og:image" content="${img}"><meta name="twitter:card" content="summary_large_image">
@@ -114,7 +197,7 @@ ${ld.map(o => `<script type="application/ld+json">${JSON.stringify(o).replace(/<
 }
 function bar(rel, active) {
   const links = cfg.channels.map(c => `<a href="${rel}${c.slug}/"${active === c.tag ? ' aria-current="page"' : ''} style="--c:${c.color}">${esc(c.name)}</a>`).join('')
-    + `<a href="${rel}#efir">Прямі ефіри</a><a href="${rel}best/"${active === 'best' ? ' aria-current="page"' : ''}>Найкращі</a>`;
+    + (live.length ? `<a href="${rel}#efir">Прямі ефіри</a>` : '') + `<a href="${rel}best/"${active === 'best' ? ' aria-current="page"' : ''}>Найкращі</a>`;
   const tg = SITE.telegram ? `<a class="btn tg small" href="${SITE.telegram}" target="_blank" rel="noopener">${icoTG}<span>Telegram</span></a>` : '';
   return `<header class="bar"><a class="mark" href="${rel}">${esc(SITE.name)}</a><nav aria-label="Розділи">${links}</nav>${tg}</header>`;
 }
@@ -158,7 +241,7 @@ const homeLD = [
 ];
 const filters = `<div class="filters" role="group" aria-label="Фільтр за каналом"><button type="button" class="f" data-f="all" aria-pressed="true">Усі</button>${cfg.channels.map(c => `<button type="button" class="f" data-f="${c.tag}" aria-pressed="false" style="--c:${c.color}">${esc(c.name)}</button>`).join('')}</div>`;
 // головна картинка: задана в channels.json (site.hero — id відео; його слово 19.11: не контрастне превʼю, з VORON)
-const hero = videos.find(v => v.id === SITE.hero) || live[0] || regular[0];
+const hero = videos.find(v => v.id === SITE.hero) || regular.find(v => v.tag === 'voron') || regular[0] || live[0];
 write('index.html', `${head({ title: 'Українські пісні 2026 — музика в машину, для душі та про кохання | UKR Hits', desc: 'Свіжі українські пісні 2026: музика в машину, пісні для душі та про кохання. Збірки й прямі ефіри VORON, МРІЄВА і GoldenWaveUA — слухайте безкоштовно, знайдіть свою пісню.', canon: BASE + '/', rel: '', img: thumb(hero.id, 'hqdefault'), ld: homeLD })}
 <body class="home">
 ${bar('', '')}
@@ -251,11 +334,34 @@ ${rel.length ? `<section class="more-vids"><h2>Ще від ${esc(c.name)}</h2><d
 ${foot('../../')}`);
 }
 
+// ---------- 5б. завершені ефіри й недоступні відео (45 днів): хто прийшов за старим посиланням — бачить, що грає зараз ----------
+const keep = new Set(videos.map(v => v.id));
+for (const v of gone) {
+  const c = CH[v.tag];
+  keep.add(v.id);
+  const pick = [...live, ...regular.filter(x => x.tag === v.tag)].slice(0, 8);
+  write(`v/${v.id}/index.html`, `${head({ title: `${v.stream ? 'Ефір завершився' : 'Відео недоступне'} — ${clip(v.title, 60)} | ${SITE.name}`, desc: `${v.stream ? 'Цей прямий ефір уже завершився' : 'Це відео більше недоступне'}. Слухайте нові збірки й прямі ефіри ${c.name} на ${SITE.name}.`, canon: `${BASE}/v/${v.id}/`, rel: '../../', img: thumb(v.id), robots: 'noindex, follow' })}
+<body class="video gone" style="--c:${c.color}">
+${bar('../../', v.tag)}
+<main>
+<article class="vid">
+<p class="kicker">${v.stream ? 'Цей прямий ефір уже завершився' : 'Це відео більше недоступне'}</p>
+<h1>${esc(v.title)}</h1>
+<p class="lede">${v.stream ? 'YouTube не зберіг запис цього ефіру.' : 'Відео прибрали з YouTube.'} Нижче — що можна послухати просто зараз.</p>
+<div class="follow"><a class="btn main" href="../../${c.slug}/">Усі збірки ${esc(c.name)}</a></div>
+</article>
+${pick.length ? `<section class="more-vids"><h2>Послухайте зараз</h2><div class="grid">${pick.map(x => card(x, '../../')).join('\n')}</div></section>` : ''}
+</main>
+${foot('../../')}`);
+}
+// теки відео, яких нема ні на сайті, ні серед недоступних, — прибрати (раніше лишалися назавжди)
+for (const d of fs.readdirSync(path.join(ROOT, 'v'))) if (!keep.has(d) && /^[\w-]{11}$/.test(d)) fs.rmSync(path.join(ROOT, 'v', d), { recursive: true, force: true });
+
 // ---------- 6. пошуковий індекс, карти сайту, robots, llms ----------
-fs.writeFileSync(path.join(ROOT, 'search.json'), JSON.stringify(videos.map(v => [v.id, v.title, v.tag, v.tr.map(([t, n]) => [t, n])])));
-const urls = [`${BASE}/`, `${BASE}/best/`, ...cfg.channels.map(c => `${BASE}/${c.slug}/`), ...videos.map(v => `${BASE}/v/${v.id}/`)];
-write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
+fs.writeFileSync(path.join(ROOT, 'search.json'), JSON.stringify(videos.map(v => [v.id, v.title, v.tag, v.tr.map(([t, n]) => [t, n]), v.live ? 1 : 0])));
+const urls = [[`${BASE}/`, today], [`${BASE}/best/`, today], ...cfg.channels.map(c => [`${BASE}/${c.slug}/`, today]), ...videos.map(v => [`${BASE}/v/${v.id}/`, v.live ? today : (v.published || today).slice(0, 10)])];
+write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u, d]) => `<url><loc>${u}</loc><lastmod>${d}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 write('video-sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n${videos.slice(0, 1000).map(v => `<url><loc>${BASE}/v/${v.id}/</loc><video:video><video:thumbnail_loc>${thumb(v.id)}</video:thumbnail_loc><video:title>${esc(clip(v.title, 100))}</video:title><video:description>${esc(clip(lead(v.description) || CH[v.tag].about, 2000))}</video:description><video:player_loc>https://www.youtube.com/embed/${v.id}</video:player_loc>${v.sec && !v.live ? `<video:duration>${Math.min(v.sec, 28800)}</video:duration>` : ''}<video:publication_date>${v.published || today}</video:publication_date>${v.live ? '<video:live>yes</video:live>' : ''}</video:video></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\nSitemap: ${BASE}/video-sitemap.xml\n`);
 write('llms.txt', `# ${SITE.full}\n\n> Сайт зі свіжими збірками українських пісень трьох YouTube-каналів: VORON (музика в машину), МРІЄВА (пісні для душі) і GoldenWaveUA (пісні про кохання). Оновлюється автоматично.\n\n${cfg.channels.map(c => `- [${c.name}](${BASE}/${c.slug}/): ${c.about}`).join('\n')}\n\n## Найновіші збірки\n${regular.slice(0, 30).map(v => `- [${v.title}](${BASE}/v/${v.id}/)`).join('\n')}\n`);
-console.log(`готово: головна, ${cfg.channels.length} канали, ${videos.length} сторінок відео (наживо: ${live.length})`);
+console.log(`готово: головна, ${cfg.channels.length} канали, ${videos.length} сторінок відео (наживо: ${live.length}), завершених/недоступних: ${gone.length}`);
