@@ -30,6 +30,7 @@ const dateUa = iso => { const d = new Date(iso); return isNaN(d) ? '' : `${d.get
 const views = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace('.0', '') + ' млн переглядів' : n >= 1e3 ? Math.round(n / 1e3) + ' тис. переглядів' : n ? n + ' переглядів' : '';
 const write = (rel, html) => { const f = path.join(ROOT, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); };
 const thumb = (id, q = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${q}.jpg`;
+const shortT = t => { const s = String(t || '').split(/\s[|·—–]\s|[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}]/u)[0].trim(); return s.length >= 6 ? s : String(t || ''); };
 const clip = (s, n) => { s = String(s || '').replace(/\s+/g, ' ').trim(); return s.length > n ? s.slice(0, n - 1).replace(/\s\S*$/, '') + '…' : s; };
 
 // список пісень із таймкодами в описі: «00:00 Назва» / «1:02:03 — Назва»
@@ -176,6 +177,8 @@ if (!videos.length) { console.error('Жодного відео — сайт не
 // ---------- 2. спільні шматки ----------
 const icoYT = '<svg viewBox="0 0 28 20" aria-hidden="true" width="28" height="20"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5l7.5 4.5-7.5 4.5z" fill="#fff"/></svg>';
 const icoTG = '<svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><circle cx="12" cy="12" r="12" fill="#229ED9"/><path d="M5.4 11.8l10.9-4.2c.5-.2 1 .1.8.9l-1.9 8.8c-.1.6-.5.8-1 .5l-2.8-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.3-4.8c.2-.2 0-.3-.3-.1l-6.6 4.1-2.8-.9c-.6-.2-.6-.6.2-.8z" fill="#fff"/></svg>';
+const icoPlay = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.2-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>';
+const playAll = (label = 'Слухати все') => `<button type="button" class="btn main" id="playall">${icoPlay}<span>${label}</span></button>`;
 function head({ title, desc, canon, rel, img, ld = [], type = 'website', robots = '' }) {
   return `<!doctype html>
 <html lang="uk"><head>
@@ -221,10 +224,12 @@ ${SITE.telegram ? `<h2 class="fh">Наш Telegram-канал</h2><p>Нові п�
 function card(v, rel) {
   const c = CH[v.tag];
   const meta = [v.live ? 'Наживо' : v.sec ? durWords(v.sec) : '', v.live ? '' : dateUa(v.published)].filter(Boolean).join(' · ');
-  return `<a class="card" href="${rel}v/${v.id}/" data-tag="${v.tag}" data-live="${v.live ? 1 : 0}" data-v="${v.views || 0}">
-<span class="th"><img src="${thumb(v.id)}" alt="" loading="lazy" width="480" height="270">${v.live ? '<span class="onair">Наживо</span>' : v.sec ? `<span class="len">${hms(v.sec)}</span>` : ''}</span>
+  const st = shortT(v.title);
+  return `<div class="card" data-id="${v.id}" data-tag="${v.tag}" data-live="${v.live ? 1 : 0}" data-v="${v.views || 0}" data-s="${esc(st)}" data-c="${c.color}" style="--c:${c.color}">
+<a class="cl" href="${rel}v/${v.id}/"><span class="th"><img src="${thumb(v.id)}" alt="" loading="lazy" width="480" height="270">${v.live ? '<span class="onair">Наживо</span>' : v.sec ? `<span class="len">${hms(v.sec)}</span>` : ''}</span>
 <span class="t">${esc(v.title)}</span>
-<span class="m"><b style="--c:${c.color}">${esc(c.name)}</b>${meta ? ' · ' + esc(meta) : ''}</span></a>`;
+<span class="m"><b>${esc(c.name)}</b>${meta ? ' · ' + esc(meta) : ''}</span></a>
+<span class="qpz"><button type="button" class="qp" aria-label="Слухати: ${esc(st)}">${icoPlay}</button></span></div>`;
 }
 
 // ---------- 3. головна ----------
@@ -252,9 +257,10 @@ ${bar('', '')}
 <p class="lede">Свіжі збірки VORON, МРІЄВА і GoldenWaveUA в одному місці: хіти в машину, пісні для душі та про кохання. Нові відео з’являються тут самі.</p>
 <form class="find" role="search" onsubmit="return false">
 <label for="q">Знайти пісню або збірку</label>
-<div class="row"><input id="q" type="search" placeholder="Наприклад: Мій теплий причал" autocomplete="off" enterkeyhint="search"><button type="button" class="btn main" id="shuffle">Перемішати</button></div>
+<div class="row"><input id="q" type="search" placeholder="Наприклад: Мій теплий причал" autocomplete="off" enterkeyhint="search"></div>
 </form>
 <div id="results" class="results" aria-live="polite"></div>
+<div class="acts">${playAll('Слухати без зупинки')}<button type="button" class="btn ghost" id="shuffle">Перемішати</button></div>
 </div>
 <a class="hero-pic" href="v/${hero.id}/"><img src="${thumb(hero.id, 'maxresdefault')}" onerror="this.onerror=null;this.src='${thumb(hero.id)}'" alt="${esc(hero.title)}" width="1280" height="720"><span class="cap">${hero.live ? '<b class="onair">Наживо</b> ' : ''}${esc(clip(hero.title, 90))}</span></a>
 </section>
@@ -280,7 +286,7 @@ for (const c of cfg.channels) {
 ${bar('../', c.tag)}
 <main>
 <section class="chead"><h1>${esc(c.name)}: ${esc(c.seo.split('—')[0].trim().toLowerCase())}</h1><p class="lede">${esc(c.about)}</p>
-<div class="follow"><a class="btn yt" href="${c.youtube}?sub_confirmation=1" target="_blank" rel="noopener">${icoYT}<span>Підписатися на ${esc(c.name)}</span></a>${SITE.telegram ? `<a class="btn tg" href="${SITE.telegram}" target="_blank" rel="noopener">${icoTG}<span>Наш Telegram</span></a>` : ''}<button type="button" class="btn ghost" id="shuffle">Перемішати</button></div>
+<div class="follow">${playAll()}<button type="button" class="btn ghost" id="shuffle">Перемішати</button><a class="btn yt" href="${c.youtube}?sub_confirmation=1" target="_blank" rel="noopener">${icoYT}<span>Підписатися на ${esc(c.name)}</span></a>${SITE.telegram ? `<a class="btn tg" href="${SITE.telegram}" target="_blank" rel="noopener">${icoTG}<span>Наш Telegram</span></a>` : ''}</div>
 </section>
 <section class="all"><h2>Усі збірки ${esc(c.name)}</h2><div class="grid" id="grid">${list.map(v => card(v, '../')).join('\n')}</div><button type="button" class="btn more" id="more">Показати ще</button></section>
 </main>
@@ -296,7 +302,7 @@ ${foot('../')}`);
 <body class="chan best">
 ${bar('../', 'best')}
 <main>
-<section class="chead"><h1>Найпопулярніші українські пісні</h1><p class="lede">Збірки, які слухають найбільше: від драйвових хітів у машину до ніжних пісень про кохання. Порядок — за кількістю переглядів на YouTube.</p></section>
+<section class="chead"><h1>Найпопулярніші українські пісні</h1><p class="lede">Збірки, які слухають найбільше: від драйвових хітів у машину до ніжних пісень про кохання. Порядок — за кількістю переглядів на YouTube.</p><div class="follow">${playAll()}</div></section>
 <section class="all"><h2>Топ ${top.length} збірок</h2><div class="grid" id="grid">${top.map(v => card(v, '../')).join('\n')}</div><button type="button" class="btn more" id="more">Показати ще</button></section>
 </main>
 ${foot('../')}`);
@@ -322,7 +328,7 @@ for (const v of videos) {
 ${bar('../../', v.tag)}
 <main>
 <article class="vid">
-<div class="player" data-id="${v.id}"><img src="${thumb(v.id, 'maxresdefault')}" onerror="this.onerror=null;this.src='${thumb(v.id)}'" alt="${esc(v.title)}" width="1280" height="720"><button type="button" class="play" aria-label="Слухати">${'<svg viewBox="0 0 68 48" width="88" height="62" aria-hidden="true"><rect width="68" height="48" rx="12" fill="#FF0000"/><path d="M27 15l18 9-18 9z" fill="#fff"/></svg>'}</button></div>
+<div class="player" data-id="${v.id}" data-s="${esc(shortT(v.title))}" data-tag="${v.tag}" data-c="${c.color}" data-live="${v.live ? 1 : 0}"><img src="${thumb(v.id, 'maxresdefault')}" onerror="this.onerror=null;this.src='${thumb(v.id)}'" alt="${esc(v.title)}" width="1280" height="720"><button type="button" class="play" aria-label="Слухати">${'<svg viewBox="0 0 68 48" width="88" height="62" aria-hidden="true"><rect width="68" height="48" rx="12" fill="#FF0000"/><path d="M27 15l18 9-18 9z" fill="#fff"/></svg>'}</button></div>
 <h1>${esc(v.title)}</h1>
 <p class="m"><a href="../../${c.slug}/" style="--c:${c.color}"><b>${esc(c.name)}</b></a>${v.live ? ' · <span class="onair">Наживо</span>' : ''}${v.sec && !v.live ? ' · ' + durWords(v.sec) : ''}${v.published && !v.live ? ' · ' + dateUa(v.published) : ''}${v.views ? ' · ' + views(v.views) : ''}</p>
 <div class="follow"><a class="btn yt" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${icoYT}<span>Дивитися на YouTube</span></a><a class="btn yt" href="${c.youtube}?sub_confirmation=1" target="_blank" rel="noopener">${icoYT}<span>Підписатися на ${esc(c.name)}</span></a>${SITE.telegram ? `<a class="btn tg" href="${SITE.telegram}" target="_blank" rel="noopener">${icoTG}<span>Telegram</span></a>` : ''}</div>

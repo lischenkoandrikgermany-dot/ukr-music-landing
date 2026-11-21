@@ -169,3 +169,91 @@ section { margin-top: clamp(64px, 9vw, 140px); }
 /* 21.11: сторінка завершеного ефіру / недоступного відео */
 .kicker { margin: clamp(24px, 4vw, 56px) 0 0; font-weight: 800; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; color: var(--c); }
 .gone .vid h1 { margin-top: 12px; }
+
+/* 21.11: плеєр, що грає далі, поки ходиш сайтом — темна смуга внизу (його вибір), як підвал сайту */
+.card { position: relative; }
+.cl { display: flex; flex-direction: column; gap: 10px; text-decoration: none; }
+.qpz { position: absolute; left: 0; right: 0; top: 0; aspect-ratio: 16 / 9; display: flex; align-items: flex-end; padding: 10px; pointer-events: none; }
+.qp { pointer-events: auto; width: 46px; height: 46px; border: 0; border-radius: 999px; display: grid; place-items: center; cursor: pointer;
+  background: rgba(20, 20, 20, .86); color: #fff; transition: transform .3s cubic-bezier(.34, 1.4, .64, 1), opacity .2s ease, background-color .15s ease; }
+.qp svg { width: 20px; height: 20px; }
+.qp:hover { background: var(--c); }
+.qp:active { transform: scale(.92); }
+@media (hover: hover) {
+  .qp { opacity: 0; transform: scale(.86); }
+  .card:hover .qp, .card:focus-within .qp, .card.is-playing .qp { opacity: 1; transform: none; }
+}
+.card.is-playing .th { outline: 3px solid var(--c); outline-offset: -3px; }
+.card.is-playing .qp { background: var(--c); }
+.acts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.btn svg { flex: none; }
+
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--ink); color: var(--ground);
+  padding-bottom: env(safe-area-inset-bottom); opacity: 0; transition: opacity .25s ease; }
+.dock.on { opacity: 1; }
+.dock[hidden] { display: none; }
+.dk-row { display: flex; align-items: center; gap: 14px; padding: 10px var(--m); }
+.dk-slot { flex: none; width: 128px; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+.dk-slot img { width: 100%; height: 100%; object-fit: cover; }
+.dock.in-page .dk-slot { display: none; }
+.dk-info { flex: 1; min-width: 0; display: block; color: inherit; text-decoration: none; }
+.dk-t { display: block; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: 17px; line-height: 1.3; }
+.dk-t > span, .dk-m > span { display: inline-block; }
+.dk-t.run > span, .dk-m.run > span { padding-right: 32px; animation: dk-run var(--dur, 12s) linear infinite; }
+@keyframes dk-run { 0%, 18% { transform: none; } 82%, 100% { transform: translateX(calc(-1 * var(--d, 0px))); } }
+.dk-m { display: block; margin-top: 2px; font-size: 14px; color: #b7b3aa; white-space: nowrap; overflow: hidden; }
+.dk-m.hint { color: #fff; font-weight: 600; }
+.dk-b { flex: none; width: 44px; height: 44px; border: 0; border-radius: 999px; display: grid; place-items: center; cursor: pointer;
+  background: transparent; color: var(--ground); transition: transform .3s cubic-bezier(.34, 1.4, .64, 1), background-color .15s ease; }
+.dk-b:hover { background: #2c2b28; }
+.dk-b:active { transform: scale(.92); }
+.dk-pp { width: 50px; height: 50px; background: var(--ground); color: var(--ink); }
+.dk-pp:hover { background: #fff; }
+.dk-x { color: #b7b3aa; margin-left: 4px; }
+.dk-time { flex: none; min-width: 9.5em; text-align: right; font-size: 14px; color: #b7b3aa; font-variant-numeric: tabular-nums; }
+.dk-seek { -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 16px; margin: -7px 0 -9px; padding: 0; background: transparent; cursor: pointer; position: relative; z-index: 1; }
+.dk-seek::-webkit-slider-runnable-track { height: 3px; background: linear-gradient(var(--c), var(--c)) 0 0 / var(--p, 0%) 100% no-repeat, #3a3935; }
+.dk-seek::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; margin-top: -5px; border-radius: 50%; background: #fff; opacity: 0; transition: opacity .15s ease; }
+.dk-seek:hover::-webkit-slider-thumb, .dk-seek:focus-visible::-webkit-slider-thumb, .dk-seek:active::-webkit-slider-thumb { opacity: 1; }
+.dk-seek::-moz-range-track { height: 3px; background: #3a3935; }
+.dk-seek::-moz-range-progress { height: 3px; background: var(--c); }
+.dk-seek::-moz-range-thumb { width: 13px; height: 13px; border: 0; border-radius: 50%; background: #fff; }
+.dk-seek:disabled { cursor: default; }
+.dk-seek:disabled::-webkit-slider-thumb { display: none; }
+.dock.is-live .dk-seek::-webkit-slider-runnable-track { background: var(--live); }
+.dock.is-live .dk-seek::-moz-range-track { background: var(--live); }
+.dock.is-live .dk-time { color: #ff8a80; font-weight: 600; }
+body.has-dock { padding-bottom: 84px; }
+
+.pv { z-index: 40; background: #000; transform-origin: 0 0; }
+.pv[data-mode="mini"] { z-index: 61; }
+.pv[hidden] { display: none; }
+.pv iframe { display: block; width: 100%; height: 100%; border: 0; }
+.pv.tap[data-mode="mini"] { outline: 2px solid #fff; outline-offset: 2px; animation: pv-tap 1.4s ease-in-out infinite; }
+@keyframes pv-tap { 50% { outline-color: transparent; } }
+.player.is-on .play { visibility: hidden; }
+
+.toast { position: fixed; left: 50%; bottom: 104px; z-index: 70; max-width: calc(100vw - 32px); padding: 12px 20px; border-radius: 999px; text-align: center;
+  background: var(--ink); color: var(--ground); font-weight: 600; font-size: 15px; line-height: 1.35;
+  opacity: 0; transform: translate(-50%, 12px); pointer-events: none; transition: opacity .25s ease, transform .35s cubic-bezier(.34, 1.4, .64, 1); }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+.songs .at.now { background: var(--surface); }
+.songs .at.now .tm { color: var(--ink); }
+main h1:focus { outline: none; }
+
+@media (max-width: 700px) {
+  .dk-row { gap: 6px; padding: 8px 8px 8px 10px; }
+  .dk-slot { width: 84px; margin-right: 4px; }
+  .dk-prev, .dk-time { display: none; }
+  .dk-t { font-size: 15px; }
+  .dk-m { font-size: 13px; }
+  .dk-pp { width: 46px; height: 46px; }
+  .dk-next { width: 42px; }
+  .dk-x { margin-left: 0; width: 36px; }
+  body.has-dock { padding-bottom: 72px; }
+  .toast { bottom: 88px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dk-t.run > span, .dk-m.run > span { animation: none; }
+  .dock, .qp, .dk-b, .toast { transition: none; }
+}
