@@ -24,7 +24,7 @@ const decodeXml = s => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&
   .replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
 const secs = iso => { const m = /P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(iso || '') || []; return (+m[1] || 0) * 86400 + (+m[2] || 0) * 3600 + (+m[3] || 0) * 60 + (+m[4] || 0); };
 const hms = s => { const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(x).padStart(2, '0'); };
-const durWords = s => s >= 3600 ? `${Math.floor(s / 3600)} год ${Math.round(s % 3600 / 60)} хв` : `${Math.round(s / 60)} хв`;
+const durWords = s => { const t = Math.round(s / 60), h = Math.floor(t / 60), m = t % 60; return h ? `${h} год${m ? ` ${m} хв` : ''}` : `${Math.max(1, m)} хв`; };   // «2 год», не «2 год 0 хв»
 const MONTHS = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
 const dateUa = iso => { const d = new Date(iso); return isNaN(d) ? '' : `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
 const views = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace('.0', '') + ' млн переглядів' : n >= 1e3 ? Math.round(n / 1e3) + ' тис. переглядів' : n ? n + ' переглядів' : '';
@@ -41,17 +41,12 @@ function tracks(desc) {
     if (!m) continue;
     const [p1, p2, p3] = m[1].split(':').map(Number);
     const t = p3 === undefined ? p1 * 60 + p2 : p1 * 3600 + p2 * 60 + p3;
-    const name = m[2].replace(/\s+/g, ' ').trim();
-    if (/^(підпис|subscribe|дякую|слухай|#)/i.test(name)) continue;
+    // «00:00 - 03:01 Назва» — другий таймкод (кінець пісні) у назву не беремо
+    const name = m[2].replace(/^(?:\d{1,2}:)?\d{1,2}:\d{2}\s*[-–—.|:]?\s*/, '').replace(/\s+/g, ' ').trim();
+    if (!name || /^(підпис|subscribe|дякую|слухай|#)/i.test(name)) continue;
     out.push([t, name]);
   }
   return out.length >= 3 ? out : [];
-}
-// перший абзац опису без хештегів, посилань і таймкодів
-function lead(desc) {
-  const parts = String(desc || '').split(/\n\s*\n/).map(p => p.replace(/https?:\/\/\S+/g, '').replace(/#\S+/g, '').trim())
-    .filter(p => p && !/^\s*(?:\d{1,2}:)?\d{1,2}:\d{2}/m.test(p) && !/^[🎵🎶]?\s*(список|tracklist|таймкод)/i.test(p));
-  return parts.slice(0, 2).join('\n\n');
 }
 
 // ---------- 1. архів + свіжі відео з RSS ----------
@@ -173,6 +168,115 @@ const live = videos.filter(v => v.live);
 const regular = videos.filter(v => !v.live);
 for (const v of videos) { v.tr = tracks(v.description); v.sec = secs(v.duration); }
 if (!videos.length) { console.error('Жодного відео — сайт не перебудовую.'); process.exit(0); }
+
+// ---------- 1в. своя назва й опис у кожної сторінки відео (26.11) ----------
+// Назви збірок на YouTube часто однакові («Слухати українські пісні | Українська музика 2026» — 28 відео),
+// а в описах повторюються ті самі рядки (підписки, «чим корисне це відео», хештеги). Google бачив сотні
+// схожих сторінок і брав лише частину («просканована, але не проіндексована»). Тому тепер:
+// назва = коротка назва + перші дві пісні або дата виходу; опис = пісні / власний текст ролика / факти;
+// рядки, що повторюються в 3+ описах, на сторінку не йдуть.
+const REV = '2026-11-26';   // коли востаннє міняли сторінки відео — іде в <lastmod>, щоб Google їх переглянув
+const PICT = /[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\u{FE0F}\u{200D}\u{20E3}]+/gu;
+const plural = (n, one, few, many) => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; };
+const lc = s => String(s || '').replace(/^\p{Lu}(?!\p{Lu})/u, ch => ch.toLowerCase());
+const cap = s => String(s || '').replace(/^\P{L}*\p{L}/u, x => x.toUpperCase());
+const genreNom = c => lc(String(c.about || '').split(':')[0].trim());   // «українська музика в машину»
+const single = v => v.sec > 0 && v.sec < 600;        // одна пісня, а не збірка
+const marathon = v => v.sec > 12 * 3600;             // запис цілодобового ефіру (буває й 745 год) — тривалість не пишемо
+// обрізати по кінцю речення, якщо можна (для назв — ще й по комі); інакше по слову з «…» (без «.…» і «,…»)
+function clipS(s, n, soft = false) {
+  s = String(s || '').replace(/\s+/g, ' ').trim();
+  if (s.length <= n) return s;
+  const cut = s.slice(0, n), end = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
+  if (end >= n * 0.5) return cut.slice(0, end + 1);
+  if (soft && cut.lastIndexOf(', ') >= n * 0.4) return cut.slice(0, cut.lastIndexOf(', '));
+  const w = cut.slice(0, n - 1).replace(/\s\S*$/, '').replace(/[\s,;:—–-]+$/, '');
+  return /[.!?…]$/.test(w) ? w : w + '…';
+}
+// скласти речення по черзі, поки влазять у n знаків
+function fit(parts, n) {
+  let s = '';
+  for (const p of parts.filter(Boolean)) { const t = s ? s + ' ' + p : p; if (t.length > n) break; s = t; }
+  return s || clipS(parts.find(Boolean), n);
+}
+// коротка назва: без емодзі, до першого роздільника («|», «·», «—», «: », «!», кінець речення), КАПС — звичайними літерами.
+// wide: якщо шматок короткий («Зимова траса»), додати наступний («Українська музика в машину 2026»), коли разом не задовго
+function nameT(t, wide = false) {
+  const segs = String(t || '').replace(PICT, ' | ')
+    .split(/\s*\|\s*|\s+[·•—–-]\s+|\s{2,}|(?<=[!?])\s+|(?<=\S{3}):\s+|(?<=\p{L}{2}\.)\s+(?=\p{Lu})|(?<=\p{L}{2})\.(?=\p{Lu})/u)
+    .map(s => s.replace(/\s+([,.!?])/g, '$1').replace(/^[\s,.;:·•—–-]+|[\s,.;:·•—–-]+$/g, '').trim())
+    .filter(s => /\p{L}/u.test(s))
+    .map(s => /\p{Lu}.*\p{Lu}/u.test(s) && !/\p{Ll}/u.test(s)
+      ? s.toLowerCase().replace(/^\P{L}*\p{L}/u, x => x.toUpperCase()).replace(/(?<!\p{L})(voron|мрієва|ua|dj)(?!\p{L})/giu, w => w.toUpperCase()) : s);
+  const i = Math.max(0, segs.findIndex(s => s.split(' ').length >= 2 && s.replace(/[^\p{L}]/gu, '').length >= 8));
+  let s = segs[i] || String(t || '').replace(PICT, ' ').trim();
+  if (wide && s.length < 28 && segs[i + 1] && (s + ' · ' + segs[i + 1]).length <= 58) s += ' · ' + segs[i + 1];
+  return cap(clipS(s, 64, true));
+}
+// назва пісні для заголовка: без лапок, без «Golden Wave UA – » на початку і без коми в кінці
+const songT = s => String(s).trim().replace(/^[«"“„'](.*)[»"”']$/u, '$1').replace(/^(golden\s*wave\s*ua|voron|мрієва|sound\s*ua)\s*[-–—:]\s*/iu, '')
+  .replace(/[\s,;:—–-]+$/, '').trim();
+// рядки описів, що є в 3+ відео, — шаблон каналу, а не опис цієї збірки
+const lnorm = l => l.toLowerCase().replace(/https?:\/\/\S+/g, '').replace(/#\S+/g, '').replace(/[^\p{L}\p{N} ]/gu, ' ').replace(/\s+/g, ' ').trim();
+const lfreq = new Map();
+for (const v of archive) for (const k of new Set(String(v.description || '').split('\n').map(lnorm))) if (k) lfreq.set(k, (lfreq.get(k) || 0) + 1);
+const boiler = l => { const k = lnorm(l); return k.replace(/[^\p{L}]/gu, '').length < 12 || (lfreq.get(k) || 0) >= 3 || /підпиш|лайк|репост|дзвіно|коментар|поділ(ись|іться)/u.test(k); };
+// власний текст ролика: до двох абзаців, у яких після чистки лишилося 40+ літер
+function own(desc) {
+  const out = [];
+  for (const para of String(desc || '').split(/\n\s*\n/)) {
+    const lines = para.split('\n').map(l => l.replace(/https?:\/\/\S+/g, '').replace(/#\S+/g, '').replace(/\s+/g, ' ').replace(/\s+([,.!?;:])/g, '$1').replace(/([,.!?])(?=\p{Lu})/gu, '$1 ').trim())
+      .filter(l => l && !/^(?:\d+[.)]\s*)?(?:\d{1,2}:)?\d{1,2}:\d{2}/.test(l) && !/^\P{L}*(список|tracklist|таймкод)/iu.test(l) && !boiler(l));
+    if (lines.join('').replace(/[^\p{L}]/gu, '').length >= 40) out.push(lines.join('\n'));
+    if (out.length === 2) break;
+  }
+  return out;
+}
+function aboutV(v, c) {
+  if (v.live) return `Прямий ефір ${c.name} наживо: ${genreNom(c)} без перерви. Вмикайте фоном удома, в машині чи на роботі.`;
+  const date = dateUa(v.published), from = date ? ` від ${date}` : '', dur = v.sec ? durWords(v.sec) : '';
+  if (marathon(v)) return `Запис прямого ефіру ${c.name}${from}: ${genreNom(c)} без перерви.`;
+  if (single(v)) return `Пісня ${c.name}${from}${dur ? ` (${dur})` : ''} — ${genreNom(c)}.`;
+  let s = `Збірка ${c.name}${from}${dur && c.genre ? `: ${dur} ${c.genre}.` : ` — ${genreNom(c)}.`}`;
+  if (v.tr.length) s += ` У ній ${v.tr.length} ${plural(v.tr.length, 'пісня', 'пісні', 'пісень')} — натисніть на назву в списку нижче, щоб слухати з цього місця.`;
+  return s;
+}
+function titleV(v, c) {
+  if (v.live) return `${nameT(v.title, true)} — прямий ефір | ${c.name}`;
+  if (single(v)) return `${nameT(v.title)} — слухати онлайн | ${c.name}`;
+  const nm = nameT(v.title), sep = /[!?.…]$/.test(nm) ? ' —' : ':';
+  const ss = marathon(v) ? [] : v.tr.slice(0, 4).map(x => songT(x[1])).filter(x => x.length >= 2 && x.length <= 26);
+  for (const k of [2, 1]) {
+    const t = ss.length >= k ? `${nm}${sep} ${ss.slice(0, k).join(', ')} та інші | ${c.name}` : '';
+    if (t && t.length <= 92) return t;
+  }
+  const date = dateUa(v.published);
+  return `${nameT(v.title, true)}${date ? ` (${date})` : ''} | ${c.name}`;
+}
+function descV(v, c) {
+  const nm = nameT(v.title), date = dateUa(v.published), from = date ? ` від ${date}` : '', dur = v.sec ? durWords(v.sec) : '';
+  if (v.live) return fit([`${nm} — прямий ефір ${c.name} наживо.`, `${cap(genreNom(c))} цілодобово: слухайте безкоштовно фоном удома, в машині чи на роботі.`], 160);
+  const facts = marathon(v) ? `Запис ефіру ${c.name}${from}.` : `${single(v) ? 'Пісня' : 'Збірка'} ${c.name}${from}${dur ? `, ${dur}` : ''}.`;
+  if (v.tr.length && !marathon(v)) {
+    const room = 160 - facts.length - 1;
+    let s = `${v.tr.length} ${plural(v.tr.length, 'пісня', 'пісні', 'пісень')}: `, cut = false;
+    v.tr.forEach(([, n], k) => { const add = (k ? ', ' : '') + clipS(songT(n), 40); if (cut || (s + add).length + 1 > room) { cut = true; return; } s += add; });
+    return `${s}${cut ? '…' : '.'} ${facts}`;
+  }
+  if (v.own.length) { const o = clipS(cap(v.own.join(' ').replace(PICT, ' ')), 160 - facts.length - 2); return `${o}${/[.!?…]$/.test(o) ? '' : '.'} ${facts}`; }
+  const sep = /[!?.…]$/.test(nm) ? '' : ':';
+  if (marathon(v)) return fit([`${nm}${sep} запис прямого ефіру ${c.name}${from}.`, `${cap(genreNom(c))} без перерви — слухайте онлайн безкоштовно.`], 160);
+  if (single(v)) return fit([`«${nm}» — ${c.name}${date ? `, ${date}` : ''}.`, `${cap(genreNom(c))}: слухайте онлайн безкоштовно, без реєстрації.`], 160);
+  return fit([`${nm}${sep} ${dur && c.genre ? `${dur} ${c.genre}` : genreNom(c)} від ${c.name}.`, date ? `Збірка вийшла ${date}.` : '', 'Слухайте онлайн безкоштовно, без реєстрації.'], 160);
+}
+for (const v of videos) { const c = CH[v.tag]; v.own = own(v.description); v.about = aboutV(v, c); v.pt = titleV(v, c); v.pd = descV(v, c); }
+{ // якщо все одно збіглися: назва (та сама назва того ж дня) — додати тривалість; опис (той самий текст у двох роликах) — опис із назвою
+  const count = key => { const n = new Map(); for (const v of videos) n.set(key(v), (n.get(key(v)) || 0) + 1); return v => n.get(key(v)) > 1; };
+  const dupT = count(v => v.pt.toLowerCase());
+  for (const v of videos) if (dupT(v) && v.sec && !v.live && !marathon(v)) v.pt = v.pt.replace(/ \| ([^|]+)$/, ` · ${durWords(v.sec)} | $1`);
+  const dupD = count(v => v.pd.toLowerCase());
+  for (const v of videos) if (dupD(v)) v.pd = descV({ ...v, own: [] }, CH[v.tag]);
+}
 
 // ---------- 2. спільні шматки ----------
 const icoYT = '<svg viewBox="0 0 28 20" aria-hidden="true" width="28" height="20"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5l7.5 4.5-7.5 4.5z" fill="#fff"/></svg>';
@@ -314,7 +418,7 @@ for (const v of videos) {
   const same = videos.filter(x => x.tag === v.tag && x.id !== v.id);
   const i = same.findIndex(x => (x.published || '') < (v.published || ''));
   const rel = [...same.slice(Math.max(0, i - 4), Math.max(0, i - 4) + 8)].slice(0, 8);
-  const ld = [{ '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description: clip(lead(v.description) || `${v.title} — ${c.about}`, 300),
+  const ld = [{ '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description: clip([v.about, ...v.own].join(' '), 300),
     thumbnailUrl: [thumb(v.id, 'maxresdefault'), thumb(v.id)], uploadDate: v.published || today, ...(v.sec ? { duration: v.duration } : {}),
     embedUrl: `https://www.youtube.com/embed/${v.id}`, url: `${BASE}/v/${v.id}/`, inLanguage: 'uk',
     ...(v.views ? { interactionStatistic: { '@type': 'InteractionCounter', interactionType: { '@type': 'WatchAction' }, userInteractionCount: v.views } } : {}),
@@ -322,8 +426,7 @@ for (const v of videos) {
     author: { '@type': 'MusicGroup', name: c.name, url: c.youtube } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: SITE.name, item: BASE + '/' }, { '@type': 'ListItem', position: 2, name: c.name, item: `${BASE}/${c.slug}/` }, { '@type': 'ListItem', position: 3, name: clip(v.title, 80), item: `${BASE}/v/${v.id}/` }] }];
   const songs = v.tr.length ? `<section class="songs"><h2>Пісні у збірці</h2><ol>${v.tr.map(([t, n]) => `<li><button type="button" class="at" data-t="${t}"><span class="tm">${hms(t)}</span> ${esc(n)}</button></li>`).join('')}</ol></section>` : '';
-  const desc = `${v.tr.length ? 'Пісні: ' + v.tr.slice(0, 6).map(x => x[1]).join(', ') + '. ' : ''}${clip(lead(v.description), 150) || c.about}`;
-  write(`v/${v.id}/index.html`, `${head({ title: `${clip(v.title, 70)} — слухати онлайн | ${c.name}`, desc: clip(desc, 160), canon: `${BASE}/v/${v.id}/`, rel: '../../', img: thumb(v.id, 'hqdefault'), ld, type: 'video.other' })}
+  write(`v/${v.id}/index.html`, `${head({ title: v.pt, desc: v.pd, canon: `${BASE}/v/${v.id}/`, rel: '../../', img: thumb(v.id, 'hqdefault'), ld, type: 'video.other' })}
 <body class="video" style="--c:${c.color}">
 ${bar('../../', v.tag)}
 <main>
@@ -332,7 +435,7 @@ ${bar('../../', v.tag)}
 <h1>${esc(v.title)}</h1>
 <p class="m"><a href="../../${c.slug}/" style="--c:${c.color}"><b>${esc(c.name)}</b></a>${v.live ? ' · <span class="onair">Наживо</span>' : ''}${v.sec && !v.live ? ' · ' + durWords(v.sec) : ''}${v.published && !v.live ? ' · ' + dateUa(v.published) : ''}${v.views ? ' · ' + views(v.views) : ''}</p>
 <div class="follow"><a class="btn yt" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${icoYT}<span>Дивитися на YouTube</span></a><a class="btn yt" href="${c.youtube}?sub_confirmation=1" target="_blank" rel="noopener">${icoYT}<span>Підписатися на ${esc(c.name)}</span></a>${SITE.telegram ? `<a class="btn tg" href="${SITE.telegram}" target="_blank" rel="noopener">${icoTG}<span>Telegram</span></a>` : ''}</div>
-${lead(v.description) ? `<div class="desc">${lead(v.description).split('\n').map(p => p.trim() ? `<p>${esc(p)}</p>` : '').join('')}</div>` : ''}
+<div class="desc"><p>${esc(v.about)}</p>${v.own.map(p => p.split('\n').map(l => `<p>${esc(l)}</p>`).join('')).join('')}</div>
 </article>
 ${songs}
 ${rel.length ? `<section class="more-vids"><h2>Ще від ${esc(c.name)}</h2><div class="grid">${rel.map(x => card(x, '../../')).join('\n')}</div></section>` : ''}
@@ -365,9 +468,9 @@ for (const d of fs.readdirSync(path.join(ROOT, 'v'))) if (!keep.has(d) && /^[\w-
 
 // ---------- 6. пошуковий індекс, карти сайту, robots, llms ----------
 fs.writeFileSync(path.join(ROOT, 'search.json'), JSON.stringify(videos.map(v => [v.id, v.title, v.tag, v.tr.map(([t, n]) => [t, n]), v.live ? 1 : 0])));
-const urls = [[`${BASE}/`, today], [`${BASE}/best/`, today], ...cfg.channels.map(c => [`${BASE}/${c.slug}/`, today]), ...videos.map(v => [`${BASE}/v/${v.id}/`, v.live ? today : (v.published || today).slice(0, 10)])];
+const urls = [[`${BASE}/`, today], [`${BASE}/best/`, today], ...cfg.channels.map(c => [`${BASE}/${c.slug}/`, today]), ...videos.map(v => [`${BASE}/v/${v.id}/`, v.live ? today : [(v.published || today).slice(0, 10), REV].sort().pop()])];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u, d]) => `<url><loc>${u}</loc><lastmod>${d}</lastmod></url>`).join('\n')}\n</urlset>\n`);
-write('video-sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n${videos.slice(0, 1000).map(v => `<url><loc>${BASE}/v/${v.id}/</loc><video:video><video:thumbnail_loc>${thumb(v.id)}</video:thumbnail_loc><video:title>${esc(clip(v.title, 100))}</video:title><video:description>${esc(clip(lead(v.description) || CH[v.tag].about, 2000))}</video:description><video:player_loc>https://www.youtube.com/embed/${v.id}</video:player_loc>${v.sec && !v.live ? `<video:duration>${Math.min(v.sec, 28800)}</video:duration>` : ''}<video:publication_date>${v.published || today}</video:publication_date>${v.live ? '<video:live>yes</video:live>' : ''}</video:video></url>`).join('\n')}\n</urlset>\n`);
+write('video-sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n${videos.slice(0, 1000).map(v => `<url><loc>${BASE}/v/${v.id}/</loc><video:video><video:thumbnail_loc>${thumb(v.id)}</video:thumbnail_loc><video:title>${esc(clip(v.title, 100))}</video:title><video:description>${esc(clip([v.about, ...v.own].join(' '), 2000))}</video:description><video:player_loc>https://www.youtube.com/embed/${v.id}</video:player_loc>${v.sec && !v.live ? `<video:duration>${Math.min(v.sec, 28800)}</video:duration>` : ''}<video:publication_date>${v.published || today}</video:publication_date>${v.live ? '<video:live>yes</video:live>' : ''}</video:video></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\nSitemap: ${BASE}/video-sitemap.xml\n`);
 write('llms.txt', `# ${SITE.full}\n\n> Сайт зі свіжими збірками українських пісень трьох YouTube-каналів: VORON (музика в машину), МРІЄВА (пісні для душі) і GoldenWaveUA (пісні про кохання). Оновлюється автоматично.\n\n${cfg.channels.map(c => `- [${c.name}](${BASE}/${c.slug}/): ${c.about}`).join('\n')}\n\n## Найновіші збірки\n${regular.slice(0, 30).map(v => `- [${v.title}](${BASE}/v/${v.id}/)`).join('\n')}\n`);
 console.log(`готово: головна, ${cfg.channels.length} канали, ${videos.length} сторінок відео (наживо: ${live.length}), завершених/недоступних: ${gone.length}`);
