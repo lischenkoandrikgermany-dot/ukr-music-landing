@@ -98,16 +98,29 @@ async function pool(items, n, fn) {
   await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) { const k = i++; out[k] = await fn(items[k]); } }));
   return out;
 }
-const oembed = async id => (await get(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`, 15000)).code;
+// 27.11: завершений цілодобовий ефір oEmbed віддає з кодом 200, але «порожнім» — без назви й автора. Вважаємо це «недоступне» (410).
+async function oembed(id) {
+  const { code, text } = await get(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`, 15000);
+  if (code !== 200) return code;
+  try { const j = JSON.parse(text); return j.title || j.author_name ? 200 : 410; } catch { return 0; }
+}
+// 27.11: чому сторінку YouTube не прочитали — у журнал (з серверів GitHub YouTube з 25.11 часто не віддає сторінку ролика)
+const why = {};
+const note = r => { why[r] = (why[r] || 0) + 1; };
 async function watch(id) {
+  if (process.env.SKIP_WATCH) { note('вимкнено для перевірки (SKIP_WATCH)'); return null; }
   const { code, text } = await get(`https://www.youtube.com/watch?v=${id}`, 25000);
-  const m = code === 200 && /ytInitialPlayerResponse\s*=\s*(\{.+?\});(?:var|<\/script>)/s.exec(text);
-  if (!m) return null;
-  let p; try { p = JSON.parse(m[1]); } catch { return null; }
+  if (code !== 200) { note('код ' + code); return null; }
+  const m = /ytInitialPlayerResponse\s*=\s*(\{.+?\});(?:var|<\/script>)/s.exec(text);
+  if (!m) { note(/not a bot|unusual traffic|consent\.youtube|g-recaptcha/i.test(text) ? 'перевірка «чи ви не бот»' : 'інша сторінка'); return null; }
+  let p; try { p = JSON.parse(m[1]); } catch { note('зламаний JSON'); return null; }
   const ps = p.playabilityStatus || {};
-  if (!p.videoDetails || ps.status === 'LOGIN_REQUIRED') return null;   // перевірка «чи ви не бот» — нічого не знаємо
-  const lb = p.microformat?.playerMicroformatRenderer?.liveBroadcastDetails || {};
-  return { status: ps.status, embed: ps.playableInEmbed !== false, liveNow: lb.isLiveNow === true, stream: !!lb.startTimestamp, len: +(p.videoDetails.lengthSeconds || 0) };
+  if (ps.status === 'LOGIN_REQUIRED') { note('перевірка «чи ви не бот»'); return null; }   // нічого не знаємо
+  if (!p.videoDetails) { note('без videoDetails: ' + (ps.status || '?')); return null; }
+  const lb = p.microformat?.playerMicroformatRenderer?.liveBroadcastDetails || {}, vd = p.videoDetails;
+  // 27.11: «наживо» — і з microformat, і з videoDetails.isLive (на різних сторінках YouTube буває лише щось одне)
+  return { status: ps.status, embed: ps.playableInEmbed !== false, liveNow: lb.isLiveNow === true || vd.isLive === true,
+    stream: !!lb.startTimestamp || vd.isLiveContent === true, len: +(vd.lengthSeconds || 0) };
 }
 const iso = s => `PT${Math.floor(s / 3600)}H${Math.floor(s % 3600 / 60)}M${s % 60}S`;
 const age = v => v.checked ? nowMs - Date.parse(v.checked) : Infinity;
@@ -122,9 +135,12 @@ const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // еф�
     const w = streamish(v) || (oe && oe !== 200) ? await watch(v.id) : null;
     return { v, oe, w };
   });
+  // 27.11: сторінки ефірів, які не прочитались у загальному потоці, — ще раз, по одній, з паузою
+  const again = res.filter(x => !x.w && streamish(x.v) && x.oe === 200).slice(0, 25);
+  for (const x of again) { await new Promise(r => setTimeout(r, 1500)); x.w = await watch(x.v.id); }
   let flips = 0;
   const plan = res.map(({ v, oe, w }) => {
-    const known = !!w || [200, 401, 403, 404].includes(oe);
+    const known = !!w || [200, 401, 403, 404, 410].includes(oe);
     if (!known) return null;
     const p = { v };
     if (w) {
@@ -134,10 +150,13 @@ const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // еф�
       if (p.live) p.duration = 'P0D';
       else if (w.status === 'OK' && w.len > 0) p.duration = iso(w.len);
     } else {
-      p.ok = oe === 200;
-      // сторінку YouTube не прочитали: ефір без запису після кінця зникає зі стрічки каналу — тоді вважаємо його завершеним
-      p.live = v.live && inFeed.has(v.id);
-      if (v.live && !p.live) p.ok = false;
+      // ефір чи «ще невідомо» (P0D), який уже був недоступний, без справжньої сторінки не воскрешаємо: oEmbed повний буває й у мертвих
+      p.ok = oe === 200 && !(streamish(v) && v.ok === false);
+      // сторінку YouTube не прочитали. 27.11: ефір лишається «наживо», доки oEmbed повний (200), і знімається, коли oEmbed
+      // каже «недоступне» (401/403/404 або порожня відповідь 410). Раніше дивились, чи є ефір у стрічці каналу (RSS), але там
+      // лише 15 найновіших роликів: 25.11 нові ролики витіснили живий ефір VORON, і сайт вирішив, що ефір завершився.
+      // «Наживо» вмикає лише справжня сторінка YouTube: oEmbed повний і в деяких мертвих роликів (перевірено 27.11).
+      p.live = !!v.live && p.ok;
     }
     if (v.ok !== false && !p.ok) flips++;
     return p;
@@ -153,7 +172,10 @@ const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // еф�
     v.checked = now.toISOString();
   }
   const watched = res.filter(x => streamish(x.v) || (x.oe && x.oe !== 200)).length;
-  console.log(`перевірка: ${list.length} відео (сторінок YouTube: ${watched}, без відповіді: ${res.length - plan.length}), недоступних зараз: ${archive.filter(v => v.ok === false).length}`);
+  console.log(`перевірка: ${list.length} відео (сторінок YouTube: ${watched}, без відповіді: ${res.length - plan.length}), недоступних зараз: ${archive.filter(v => v.ok === false).length}` +
+    (Object.keys(why).length ? `; сторінку не прочитали: ${Object.entries(why).map(([k, n]) => `${k} — ${n}`).join(', ')}` : '') +
+    (again.length ? `; ефіри вдруге: ${again.filter(x => x.w).length} з ${again.length}` : '') +
+    `; наживо за сторінкою: ${res.filter(x => x.w?.liveNow).map(x => x.v.id).join(', ') || 'нема'}`);
 }
 // давно недоступні (90+ днів) — з архіву геть
 archive = archive.filter(v => !(v.ok === false && v.gone && nowMs - Date.parse(v.gone) > 90 * 24 * HOUR));
