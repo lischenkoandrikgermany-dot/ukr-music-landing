@@ -14,6 +14,9 @@ const SITE = cfg.site;
 const BASE = SITE.url.replace(/\/$/, '');
 const CH = Object.fromEntries(cfg.channels.map(c => [c.tag, c]));
 const ARCHIVE = path.join(DIR, 'archive.json');
+// 27.11: наші живі ефіри — список з Пульта на Mac (Пульт/сайт-ефіри.mjs). З серверів GitHub YouTube сторінку ролика не дає
+// («підтвердіть, що ви не бот»), тож для ефірів зі списку «наживо» вирішує oEmbed: повний — іде, порожній/401/404 — завершився.
+const OUR_LIVE = new Set((() => { try { return JSON.parse(fs.readFileSync(path.join(DIR, 'live.json'), 'utf8')); } catch { return []; } })());
 const VER = crypto.createHash('md5').update(fs.readFileSync(path.join(ROOT, 'assets/site.css'))).update(fs.readFileSync(path.join(ROOT, 'assets/site.js'))).digest('hex').slice(0, 8);
 const now = new Date();
 const today = now.toISOString().slice(0, 10);
@@ -165,6 +168,10 @@ const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // еф�
       p.live = w.status === 'OK' && w.liveNow;
       if (p.live) p.duration = 'P0D';
       else if (w.status === 'OK' && w.len > 0) p.duration = iso(w.len);
+    } else if (OUR_LIVE.has(v.id)) {
+      // сторінку не прочитали, але це наш ефір зі списку Пульта: oEmbed повний — іде, інакше — завершився
+      p.stream = true; p.live = p.ok = oe === 200;
+      if (p.live) p.duration = 'P0D';
     } else {
       // ефір чи «ще невідомо» (P0D), який уже був недоступний, без справжньої сторінки не воскрешаємо: oEmbed повний буває й у мертвих
       p.ok = oe === 200 && !(streamish(v) && v.ok === false);
@@ -191,7 +198,8 @@ const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // еф�
   console.log(`перевірка: ${list.length} відео (сторінок YouTube: ${watched}, без відповіді: ${res.length - plan.length}), недоступних зараз: ${archive.filter(v => v.ok === false).length}` +
     (Object.keys(why).length ? `; сторінку не прочитали: ${Object.entries(why).map(([k, n]) => `${k} — ${n}`).join(', ')}` : '') +
     (again.length ? `; ефіри вдруге: ${again.filter(x => x.w).length} з ${again.length}` : '') +
-    `; наживо за сторінкою: ${res.filter(x => x.w?.liveNow).map(x => x.v.id).join(', ') || 'нема'}`);
+    `; наживо за сторінкою: ${res.filter(x => x.w?.liveNow).map(x => x.v.id).join(', ') || 'нема'}` +
+    `; список Пульта: ${[...OUR_LIVE].join(', ') || 'порожній'}`);
 }
 // давно недоступні (90+ днів) — з архіву геть
 archive = archive.filter(v => !(v.ok === false && v.gone && nowMs - Date.parse(v.gone) > 90 * 24 * HOUR));
