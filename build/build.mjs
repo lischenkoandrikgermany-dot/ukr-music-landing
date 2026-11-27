@@ -140,8 +140,16 @@ const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // еф�
   const must = new Set(cand.filter(v => !v.checked || streamish(v) || (v.ok === false && age(v) > 6 * HOUR)));
   const rest = cand.filter(v => !must.has(v) && age(v) > 20 * HOUR).sort((a, b) => age(b) - age(a)).slice(0, 300);
   const list = [...must, ...rest];
+  // 27.11: з деяких серверів GitHub oEmbed віддає «порожню» відповідь (без назви) про ВСІ відео — тоді вона нічого не означає.
+  // Контроль: три найпопулярніші звичайні ролики; якщо хоч один «порожній» — у цьому запуску порожнє = «невідомо», нічого не ховаємо.
+  const control = archive.filter(v => CH[v.tag] && v.ok !== false && !v.stream && v.duration && v.duration !== 'P0D' && !v.short)
+    .sort((a, b) => (b.views || 0) - (a.views || 0)).slice(0, 3);
+  const lite = (await Promise.all(control.map(v => oembed(v.id)))).some(c => c === 410);
+  if (lite) console.error('! oEmbed «порожній» навіть у живих роликів — порожні відповіді в цьому запуску не рахую');
   const res = await pool(list, 6, async v => {
-    const oe = await oembed(v.id);
+    let oe = await oembed(v.id);
+    // порожній oEmbed = «завершений ефір» — лише для відомих ефірів; для звичайних і ще невідомих роликів це «невідомо»
+    if (oe === 410 && (lite || !(v.stream || v.duration === 'P0D'))) oe = 0;
     const w = streamish(v) || (oe && oe !== 200) ? await watch(v.id) : null;
     return { v, oe, w };
   });
