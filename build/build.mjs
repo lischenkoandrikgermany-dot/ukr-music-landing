@@ -111,11 +111,18 @@ async function watch(id) {
   if (process.env.SKIP_WATCH) { note('вимкнено для перевірки (SKIP_WATCH)'); return null; }
   const { code, text } = await get(`https://www.youtube.com/watch?v=${id}`, 25000);
   if (code !== 200) { note('код ' + code); return null; }
+  // 27.11: мікророзмітка schema.org у шапці сторінки (для пошуковиків): ефір = isLiveBroadcast, іде зараз = без endDate.
+  // Запасний шлях, коли замість плеєра YouTube просить «підтвердіть, що ви не бот» (так із серверів GitHub з 25.11).
+  const live = /itemprop="isLiveBroadcast"\s+content="True"/.test(text);
+  const md = /itemprop="uploadDate"/.test(text) ? { partial: true, stream: live, liveNow: live && !/itemprop="endDate"/.test(text),
+    dur: (text.match(/itemprop="duration"\s+content="(PT[\dHMS]+)"/) || [])[1] } : null;
+  const fail = r => { note(md ? r + ' → мікророзмітка' : r); return md; };
+  if (process.env.FAKE_BOT) return fail('імітація «чи ви не бот» (FAKE_BOT)');   // перевірка запасного шляху на Mac
   const m = /ytInitialPlayerResponse\s*=\s*(\{.+?\});(?:var|<\/script>)/s.exec(text);
-  if (!m) { note(/not a bot|unusual traffic|consent\.youtube|g-recaptcha/i.test(text) ? 'перевірка «чи ви не бот»' : 'інша сторінка'); return null; }
-  let p; try { p = JSON.parse(m[1]); } catch { note('зламаний JSON'); return null; }
+  if (!m) return fail(/not a bot|unusual traffic|consent\.youtube|g-recaptcha/i.test(text) ? 'перевірка «чи ви не бот»' : 'інша сторінка');
+  let p; try { p = JSON.parse(m[1]); } catch { return fail('зламаний JSON'); }
   const ps = p.playabilityStatus || {};
-  if (ps.status === 'LOGIN_REQUIRED') { note('перевірка «чи ви не бот»'); return null; }   // нічого не знаємо
+  if (ps.status === 'LOGIN_REQUIRED') return fail('перевірка «чи ви не бот»');
   if (!p.videoDetails) { note('без videoDetails: ' + (ps.status || '?')); return null; }
   const lb = p.microformat?.playerMicroformatRenderer?.liveBroadcastDetails || {}, vd = p.videoDetails;
   // 27.11: «наживо» — і з microformat, і з videoDetails.isLive (на різних сторінках YouTube буває лише щось одне)
@@ -143,7 +150,16 @@ const streamish = v => v.live || v.duration === 'P0D' || !v.duration;   // еф�
     const known = !!w || [200, 401, 403, 404, 410].includes(oe);
     if (!known) return null;
     const p = { v };
-    if (w) {
+    if (w?.partial) {
+      // сторінку дали без плеєра, але з мікророзміткою: «наживо» — якщо ефір без кінця і oEmbed повний.
+      // Звичайний ролик має тривалість; без тривалості й не ефір — ще «обробляється» (не грає), а oEmbed повний буває й у мертвих.
+      // Ролик, що вже був недоступний, без справжньої сторінки воскрешаємо лише як живий ефір.
+      p.stream = w.stream;
+      p.live = w.liveNow && oe === 200;
+      p.ok = oe === 200 && (p.live || (!!w.dur && !(streamish(v) && v.ok === false)));
+      if (p.live) p.duration = 'P0D';
+      else if (w.dur && secs(w.dur) > 0) p.duration = w.dur;
+    } else if (w) {
       p.stream = w.stream;
       p.ok = w.status === 'OK' && w.embed;
       p.live = w.status === 'OK' && w.liveNow;
